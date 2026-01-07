@@ -203,7 +203,8 @@ h2 {
 }
 
 #mood-chart {
-    height: 600px;
+    height: 400px;
+    max-height: 400px;
 }
 
 .notes-popup {
