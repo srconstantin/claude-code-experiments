@@ -252,8 +252,8 @@ function initializeChart() {
                     borderColor: '#10b981',
                     backgroundColor: 'rgba(16, 185, 129, 0.1)',
                     tension: 0.4,
-                    pointRadius: 6,
-                    pointHoverRadius: 8,
+                    pointRadius: 3,
+                    pointHoverRadius: 5,
                     pointBackgroundColor: '#10b981',
                     pointBorderColor: '#fff',
                     pointBorderWidth: 2
@@ -264,8 +264,8 @@ function initializeChart() {
                     borderColor: '#ef4444',
                     backgroundColor: 'rgba(239, 68, 68, 0.1)',
                     tension: 0.4,
-                    pointRadius: 6,
-                    pointHoverRadius: 8,
+                    pointRadius: 3,
+                    pointHoverRadius: 5,
                     pointBackgroundColor: '#ef4444',
                     pointBorderColor: '#fff',
                     pointBorderWidth: 2
@@ -274,7 +274,7 @@ function initializeChart() {
         },
         options: {
             responsive: true,
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
                     display: true,
