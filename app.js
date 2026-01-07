@@ -7,8 +7,9 @@ let entries = [];
 let chart = null;
 
 // Initialize app
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     loadData();
+    await importCSVData();
     setDefaultDate();
     setupFormSubmission();
     initializeChart();
@@ -34,6 +35,89 @@ function loadData() {
 // Save data to localStorage
 function saveData() {
     localStorage.setItem('panasEntries', JSON.stringify(entries));
+}
+
+// Import CSV data
+async function importCSVData() {
+    // Check if we've already imported the CSV
+    if (localStorage.getItem('csvImported')) {
+        return;
+    }
+
+    try {
+        const response = await fetch('PANAS tracking - Sheet1.csv');
+        const csvText = await response.text();
+        const rows = csvText.trim().split('\n');
+
+        // Skip header row
+        for (let i = 1; i < rows.length; i++) {
+            const row = rows[i];
+            const cols = parseCSVRow(row);
+
+            if (cols.length < 7) continue;
+
+            const [dateStr, positiveAffect, negativeAffect, sleepHrs, sleepScore, period, notes] = cols;
+
+            // Parse date from M/D/YY format to YYYY-MM-DD
+            const dateParts = dateStr.split('/');
+            if (dateParts.length !== 3) continue;
+
+            const month = dateParts[0].padStart(2, '0');
+            const day = dateParts[1].padStart(2, '0');
+            const year = '20' + dateParts[2];
+            const formattedDate = `${year}-${month}-${day}`;
+
+            const entry = {
+                date: formattedDate,
+                items: {}, // CSV doesn't have individual item scores
+                positiveScore: parseInt(positiveAffect),
+                negativeScore: parseInt(negativeAffect),
+                period: period.toLowerCase().trim() === 'y',
+                notes: notes || ''
+            };
+
+            // Check if entry for this date already exists
+            const existingIndex = entries.findIndex(e => e.date === formattedDate);
+            if (existingIndex >= 0) {
+                // Keep the most recent entry (last one in CSV)
+                entries[existingIndex] = entry;
+            } else {
+                entries.push(entry);
+            }
+        }
+
+        // Sort entries by date
+        entries.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+        saveData();
+        localStorage.setItem('csvImported', 'true');
+        console.log(`Imported ${entries.length} entries from CSV`);
+    } catch (error) {
+        console.error('Error importing CSV:', error);
+    }
+}
+
+// Parse CSV row handling quoted fields
+function parseCSVRow(row) {
+    const result = [];
+    let current = '';
+    let inQuotes = false;
+
+    for (let i = 0; i < row.length; i++) {
+        const char = row[i];
+
+        if (char === '"') {
+            inQuotes = !inQuotes;
+        } else if (char === ',' && !inQuotes) {
+            result.push(current.trim());
+            current = '';
+        } else {
+            current += char;
+        }
+    }
+
+    result.push(current.trim());
+    return result;
 }
 
 // Calculate scores
