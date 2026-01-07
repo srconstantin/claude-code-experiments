@@ -7,12 +7,11 @@ let entries = [];
 let chart = null;
 
 // Initialize app
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
     loadData();
-    await importCSVData();
     setDefaultDate();
     setupFormSubmission();
-    setupReimportButton();
+    setupCSVUpload();
     initializeChart();
     updateChart();
     updateDataInfo();
@@ -39,21 +38,33 @@ function saveData() {
     localStorage.setItem('panasEntries', JSON.stringify(entries));
 }
 
-// Import CSV data
-async function importCSVData() {
-    // Check if we've already imported the CSV
-    if (localStorage.getItem('csvImported')) {
-        console.log('CSV already imported, skipping');
-        return;
-    }
+// Setup CSV upload
+function setupCSVUpload() {
+    const uploadBtn = document.getElementById('upload-btn');
+    const fileInput = document.getElementById('csv-upload');
 
-    try {
-        console.log('Fetching CSV file...');
-        const response = await fetch('PANAS tracking - Sheet1.csv');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+    uploadBtn.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    fileInput.addEventListener('change', async (event) => {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        try {
+            const csvText = await file.text();
+            await importCSVData(csvText);
+            fileInput.value = ''; // Reset file input
+        } catch (error) {
+            console.error('Error reading CSV file:', error);
+            alert('Failed to read CSV file. Please try again.');
         }
-        const csvText = await response.text();
+    });
+}
+
+// Import CSV data from text
+async function importCSVData(csvText) {
+    try {
         const rows = csvText.trim().split('\n');
         console.log(`Found ${rows.length} rows in CSV`);
 
@@ -65,14 +76,18 @@ async function importCSVData() {
             const row = rows[i];
             const cols = parseCSVRow(row);
 
-            // Need at least date, positive, negative, sleep hrs, sleep score, period, notes
-            if (cols.length < 6) {
+            // Need at least date, positive, negative
+            if (cols.length < 3) {
                 console.log(`Skipping row ${i}: insufficient columns`, cols);
                 skippedCount++;
                 continue;
             }
 
-            const [dateStr, positiveAffect, negativeAffect, sleepHrs, sleepScore, period, notes] = cols;
+            const dateStr = cols[0];
+            const positiveAffect = cols[1];
+            const negativeAffect = cols[2];
+            const period = cols.length > 5 ? cols[5] : '';
+            const notes = cols.length > 6 ? cols[6] : '';
 
             // Skip rows with missing required data
             if (!dateStr || !positiveAffect || !negativeAffect) {
@@ -122,9 +137,12 @@ async function importCSVData() {
         entries.sort((a, b) => new Date(a.date) - new Date(b.date));
 
         saveData();
-        localStorage.setItem('csvImported', 'true');
         console.log(`Successfully imported ${importedCount} entries from CSV (${skippedCount} skipped)`);
         console.log(`Total entries in storage: ${entries.length}`);
+
+        updateChart();
+        updateDataInfo();
+        alert(`Successfully imported ${importedCount} entries from CSV!`);
     } catch (error) {
         console.error('Error importing CSV:', error);
         alert('Failed to import CSV data. Check console for details.');
@@ -409,19 +427,6 @@ function showNotes(entry) {
     popup.style.display = 'block';
 }
 
-// Setup reimport button
-function setupReimportButton() {
-    const reimportBtn = document.getElementById('reimport-btn');
-    reimportBtn.addEventListener('click', async () => {
-        if (confirm('This will re-import the CSV file. Any manual entries will be preserved. Continue?')) {
-            localStorage.removeItem('csvImported');
-            await importCSVData();
-            updateChart();
-            updateDataInfo();
-            alert('CSV re-imported successfully!');
-        }
-    });
-}
 
 // Update data info display
 function updateDataInfo() {

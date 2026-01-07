@@ -9,83 +9,62 @@ A web application for tracking daily mood using the PANAS (Positive and Negative
 - Interactive line chart showing positive and negative affect over time
 - Period days highlighted with light red shading
 - Click on data points to view notes
-- Automatic CSV import for historical data
+- CSV import for historical data
 - Data stored locally in browser
 
-## How to Run
+## How to Use
 
-Since the app needs to load a CSV file, you must run it through a local web server (not by opening the HTML file directly).
-
-### Option 1: Python HTTP Server (Recommended)
-
-If you have Python installed:
-
-```bash
-# Navigate to the project directory
-cd /home/user/claude-code-experiments
-
-# Python 3
-python3 -m http.server 8000
-
-# OR Python 2
-python -m SimpleHTTPServer 8000
-```
-
-Then open your browser to: `http://localhost:8000`
-
-### Option 2: Node.js HTTP Server
-
-If you have Node.js installed:
-
-```bash
-# Install http-server globally (one time only)
-npm install -g http-server
-
-# Run the server
-http-server -p 8000
-```
-
-Then open your browser to: `http://localhost:8000`
-
-### Option 3: VS Code Live Server
-
-If you use VS Code:
-1. Install the "Live Server" extension
-2. Right-click on `index.html`
-3. Select "Open with Live Server"
+Simply open `index.html` in your web browser. No server required!
 
 ## Usage
 
+### Recording Daily Entries
+
 1. Fill out the daily PANAS questionnaire (rate 20 emotions on a 1-5 scale)
-2. Indicate if you're on your period
+2. Indicate if you're on your period (yes/no)
 3. Add any notes about the day
 4. Click "Save Entry"
-5. View your mood trends over time in the chart
-6. Click on any data point to see notes for that day
+
+### Viewing Your Mood History
+
+- View your mood trends over time in the interactive chart
+- Green line shows positive affect scores (10-50)
+- Red line shows negative affect scores (10-50)
+- Period days are highlighted with light red shading
+- Click on any data point to see notes for that day
+
+### Importing Historical Data
+
+If you have historical PANAS data in CSV format:
+
+1. Click the "Import CSV Data" button
+2. Select your CSV file
+3. Data will be merged with your existing entries
+
+**CSV Format:**
+Your CSV should have these columns (in order):
+- date (M/D/YY or M/D/YYYY format, e.g., 8/23/24 or 11/7/2024)
+- positive affect (10-50)
+- negative affect (10-50)
+- sleep hrs (optional, will be ignored)
+- sleep score (optional, will be ignored)
+- period (y/n)
+- notes (optional)
+
+**Example CSV:**
+```csv
+date,positive affect,negative affect,sleep hrs,sleep score,period,notes
+8/23/24,41,11,6.1,76,n,pool trip
+8/24/24,37,11,7.5,70,n,
+8/25/24,36,21,6.9,75,y,feeling tired
+```
 
 ## Data Storage
 
-- All data is stored in your browser's localStorage
-- Your historical CSV data is automatically imported on first load
-- Use the "Re-import CSV" button if you need to reload the CSV data
+- All data is stored locally in your browser's localStorage
+- Your data never leaves your computer
+- Clearing browser data will delete your entries
 
-## CSV Format
+## Privacy
 
-The app imports data from `PANAS tracking - Sheet1.csv` with columns:
-- date (M/D/YY or M/D/YYYY format)
-- positive affect (10-50)
-- negative affect (10-50)
-- sleep hrs (ignored)
-- sleep score (ignored)
-- period (y/n)
-- notes
-
-## Troubleshooting
-
-**"Failed to fetch" error**: You must run the app through a local web server (see "How to Run" above). Opening the HTML file directly won't work due to browser security restrictions.
-
-**Chart not showing data**:
-1. Open browser console (F12)
-2. Look for import messages
-3. Try clicking "Re-import CSV" button
-4. Check that CSV file is in the same directory as index.html
+This app runs entirely in your browser. No data is sent to any server or third party. All your mood tracking data stays private on your device.
