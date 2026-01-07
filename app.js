@@ -12,8 +12,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     await importCSVData();
     setDefaultDate();
     setupFormSubmission();
+    setupReimportButton();
     initializeChart();
     updateChart();
+    updateDataInfo();
 });
 
 // Set today's date as default
@@ -41,30 +43,59 @@ function saveData() {
 async function importCSVData() {
     // Check if we've already imported the CSV
     if (localStorage.getItem('csvImported')) {
+        console.log('CSV already imported, skipping');
         return;
     }
 
     try {
+        console.log('Fetching CSV file...');
         const response = await fetch('PANAS tracking - Sheet1.csv');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const csvText = await response.text();
         const rows = csvText.trim().split('\n');
+        console.log(`Found ${rows.length} rows in CSV`);
+
+        let importedCount = 0;
+        let skippedCount = 0;
 
         // Skip header row
         for (let i = 1; i < rows.length; i++) {
             const row = rows[i];
             const cols = parseCSVRow(row);
 
-            if (cols.length < 7) continue;
+            // Need at least date, positive, negative, sleep hrs, sleep score, period, notes
+            if (cols.length < 6) {
+                console.log(`Skipping row ${i}: insufficient columns`, cols);
+                skippedCount++;
+                continue;
+            }
 
             const [dateStr, positiveAffect, negativeAffect, sleepHrs, sleepScore, period, notes] = cols;
 
-            // Parse date from M/D/YY format to YYYY-MM-DD
+            // Skip rows with missing required data
+            if (!dateStr || !positiveAffect || !negativeAffect) {
+                console.log(`Skipping row ${i}: missing required data`, cols);
+                skippedCount++;
+                continue;
+            }
+
+            // Parse date from M/D/YY or M/D/YYYY format to YYYY-MM-DD
             const dateParts = dateStr.split('/');
-            if (dateParts.length !== 3) continue;
+            if (dateParts.length !== 3) {
+                console.log(`Skipping row ${i}: invalid date format`, dateStr);
+                skippedCount++;
+                continue;
+            }
 
             const month = dateParts[0].padStart(2, '0');
             const day = dateParts[1].padStart(2, '0');
-            const year = '20' + dateParts[2];
+            // Handle both 2-digit and 4-digit years
+            let year = dateParts[2];
+            if (year.length === 2) {
+                year = '20' + year;
+            }
             const formattedDate = `${year}-${month}-${day}`;
 
             const entry = {
@@ -72,7 +103,7 @@ async function importCSVData() {
                 items: {}, // CSV doesn't have individual item scores
                 positiveScore: parseInt(positiveAffect),
                 negativeScore: parseInt(negativeAffect),
-                period: period.toLowerCase().trim() === 'y',
+                period: period && period.toLowerCase().trim() === 'y',
                 notes: notes || ''
             };
 
@@ -84,6 +115,7 @@ async function importCSVData() {
             } else {
                 entries.push(entry);
             }
+            importedCount++;
         }
 
         // Sort entries by date
@@ -91,9 +123,11 @@ async function importCSVData() {
 
         saveData();
         localStorage.setItem('csvImported', 'true');
-        console.log(`Imported ${entries.length} entries from CSV`);
+        console.log(`Successfully imported ${importedCount} entries from CSV (${skippedCount} skipped)`);
+        console.log(`Total entries in storage: ${entries.length}`);
     } catch (error) {
         console.error('Error importing CSV:', error);
+        alert('Failed to import CSV data. Check console for details.');
     }
 }
 
@@ -306,11 +340,23 @@ function initializeChart() {
 
 // Update chart with current data
 function updateChart() {
-    if (!chart || entries.length === 0) return;
+    console.log(`Updating chart with ${entries.length} entries`);
+
+    if (!chart) {
+        console.log('Chart not initialized yet');
+        return;
+    }
+
+    if (entries.length === 0) {
+        console.log('No entries to display');
+        return;
+    }
 
     const dates = entries.map(e => formatDate(e.date));
     const positiveScores = entries.map(e => e.positiveScore);
     const negativeScores = entries.map(e => e.negativeScore);
+
+    console.log(`First entry: ${dates[0]}, Last entry: ${dates[dates.length - 1]}`);
 
     chart.data.labels = dates;
     chart.data.datasets[0].data = positiveScores;
@@ -318,6 +364,7 @@ function updateChart() {
 
     // Add period shading annotations
     const annotations = {};
+    let periodCount = 0;
     entries.forEach((entry, index) => {
         if (entry.period) {
             annotations[`period-${index}`] = {
@@ -329,9 +376,11 @@ function updateChart() {
                 backgroundColor: 'rgba(239, 68, 68, 0.1)',
                 borderWidth: 0
             };
+            periodCount++;
         }
     });
 
+    console.log(`Added ${periodCount} period day annotations`);
     chart.options.plugins.annotation.annotations = annotations;
     chart.update();
 }
@@ -358,6 +407,32 @@ function showNotes(entry) {
     `;
 
     popup.style.display = 'block';
+}
+
+// Setup reimport button
+function setupReimportButton() {
+    const reimportBtn = document.getElementById('reimport-btn');
+    reimportBtn.addEventListener('click', async () => {
+        if (confirm('This will re-import the CSV file. Any manual entries will be preserved. Continue?')) {
+            localStorage.removeItem('csvImported');
+            await importCSVData();
+            updateChart();
+            updateDataInfo();
+            alert('CSV re-imported successfully!');
+        }
+    });
+}
+
+// Update data info display
+function updateDataInfo() {
+    const dataInfo = document.getElementById('data-info');
+    if (entries.length > 0) {
+        const firstDate = formatDate(entries[0].date);
+        const lastDate = formatDate(entries[entries.length - 1].date);
+        dataInfo.textContent = `Showing ${entries.length} entries from ${firstDate} to ${lastDate}`;
+    } else {
+        dataInfo.textContent = 'No data to display. Add an entry or check if CSV is loaded.';
+    }
 }
 
 // Close notes popup

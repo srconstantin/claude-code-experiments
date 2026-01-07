@@ -171,8 +171,7 @@ h2 {
     border-color: #667eea;
 }
 
-.submit-btn {
-    width: 100%;
+.submit-btn, .reimport-btn {
     padding: 15px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
@@ -182,15 +181,24 @@ h2 {
     font-weight: 600;
     cursor: pointer;
     transition: transform 0.2s;
+}
+
+.submit-btn {
+    width: 100%;
     margin-top: 20px;
 }
 
-.submit-btn:hover {
+.reimport-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+}
+
+.submit-btn:hover, .reimport-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.submit-btn:active {
+.submit-btn:active, .reimport-btn:active {
     transform: translateY(0);
 }
 

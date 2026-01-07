@@ -128,7 +128,11 @@
             </div>
 
             <div id="chart-section">
-                <h2>Mood Over Time</h2>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 style="margin: 0;">Mood Over Time</h2>
+                    <button id="reimport-btn" class="reimport-btn">Re-import CSV</button>
+                </div>
+                <div id="data-info" style="margin-bottom: 10px; color: #666; font-size: 0.9rem;"></div>
                 <canvas id="mood-chart"></canvas>
                 <div id="notes-display" class="notes-popup" style="display: none;">
                     <div class="notes-content">
