@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PANAS Mood Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>PANAS Mood Tracker</h1>
+        </header>
+        <main>
+            <div id="form-section">
+                <h2>Daily Entry</h2>
+                <form id="panas-form">
+                    <div class="date-section">
+                        <label for="entry-date">Date:</label>
+                        <input type="date" id="entry-date" required>
+                    </div>
+
+                    <div class="questionnaire-section">
+                        <p class="instructions">This scale consists of a number of words that describe different feelings and emotions. Read each item and then mark the appropriate answer in the space next to that word. Indicate to what extent you feel this way right now.</p>
+                        <p class="scale-labels"><strong>Scale:</strong> 1 = Very slightly or not at all | 2 = A little | 3 = Moderately | 4 = Quite a bit | 5 = Extremely</p>
+
+                        <div class="items-grid">
+                            <div class="item">
+                                <label>Interested</label>
+                                <input type="number" name="interested" min="1" max="5" required>
+                            </div>
+                            <div class="item">
+                                <label>Distressed</label>
+                                <input type="number" name="distressed" min="1" max="5" required>
+                            </div>
+                            <div class="item">
+                                <label>Excited</label>
+                                <input type="number" name="excited" min="1" max="5" required>
+                            </div>
+                            <div class="item">
+                                <label>Upset</label>
+                                <input type="number" name="upset" min="1" max="5" required>
+                            </div>
+                            <div class="item">
+                                <label>Strong</label>
+                                <input type="number" name="strong" min="1" max="5" required>
+                            </div>
+                            <div class="item">
+                                <label>Guilty</label>
+                                <input type="number" name="guilty" min="1" max="5" required>
+                            </div>
+                            <div class="item">
+                                <label>Scared</label>
+                                <input type="number" name="scared" min="1" max="5" required>
+                            </div>
+                            <div class="item">
+                                <label>Hostile</label>
+                                <input type="number" name="hostile" min="1" max="5" required>
+                            </div>
+                            <div class="item">
+                                <label>Enthusiastic</label>
+                                <input type="number" name="enthusiastic" min="1" max="5" required>
+                            </div>
+                            <div class="item">
+                                <label>Proud</label>
+                                <input type="number" name="proud" min="1" max="5" required>
+                            </div>
+                            <div class="item">
+                                <label>Irritable</label>
+                                <input type="number" name="irritable" min="1" max="5" required>
+                            </div>
+                            <div class="item">
+                                <label>Alert</label>
+                                <input type="number" name="alert" min="1" max="5" required>
+                            </div>
+                            <div class="item">
+                                <label>Ashamed</label>
+                                <input type="number" name="ashamed" min="1" max="5" required>
+                            </div>
+                            <div class="item">
+                                <label>Inspired</label>
+                                <input type="number" name="inspired" min="1" max="5" required>
+                            </div>
+                            <div class="item">
+                                <label>Nervous</label>
+                                <input type="number" name="nervous" min="1" max="5" required>
+                            </div>
+                            <div class="item">
+                                <label>Determined</label>
+                                <input type="number" name="determined" min="1" max="5" required>
+                            </div>
+                            <div class="item">
+                                <label>Attentive</label>
+                                <input type="number" name="attentive" min="1" max="5" required>
+                            </div>
+                            <div class="item">
+                                <label>Jittery</label>
+                                <input type="number" name="jittery" min="1" max="5" required>
+                            </div>
+                            <div class="item">
+                                <label>Active</label>
+                                <input type="number" name="active" min="1" max="5" required>
+                            </div>
+                            <div class="item">
+                                <label>Afraid</label>
+                                <input type="number" name="afraid" min="1" max="5" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="additional-info">
+                        <div class="period-section">
+                            <label>Are you on your period?</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="period" value="yes" required> Yes</label>
+                                <label><input type="radio" name="period" value="no" required> No</label>
+                            </div>
+                        </div>
+
+                        <div class="notes-section">
+                            <label for="notes">Additional Notes:</label>
+                            <textarea id="notes" name="notes" rows="4" placeholder="Any additional thoughts or observations..."></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Save Entry</button>
+                </form>
+            </div>
+
+            <div id="chart-section">
+                <h2>Mood Over Time</h2>
+                <canvas id="mood-chart"></canvas>
+                <div id="notes-display" class="notes-popup" style="display: none;">
+                    <div class="notes-content">
+                        <button class="close-btn">&times;</button>
+                        <h3 id="notes-date"></h3>
+                        <p id="notes-text"></p>
+                        <div id="notes-scores"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@2.2.1/dist/chartjs-plugin-annotation.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
