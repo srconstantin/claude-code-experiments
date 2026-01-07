@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setDefaultDate();
     setupFormSubmission();
     setupCSVUpload();
+    setupCSVExport();
     initializeChart();
     updateChart();
     updateDataInfo();
@@ -60,6 +61,55 @@ function setupCSVUpload() {
             alert('Failed to read CSV file. Please try again.');
         }
     });
+}
+
+// Setup CSV export
+function setupCSVExport() {
+    const exportBtn = document.getElementById('export-btn');
+
+    exportBtn.addEventListener('click', () => {
+        if (entries.length === 0) {
+            alert('No data to export. Add some entries first!');
+            return;
+        }
+
+        exportCSVData();
+    });
+}
+
+// Export CSV data
+function exportCSVData() {
+    // Create CSV header
+    const header = 'Date,Positive Affect,Negative Affect,Period,Notes\n';
+
+    // Create CSV rows
+    const rows = entries.map(entry => {
+        const date = entry.date; // Already in YYYY-MM-DD format
+        const positiveAffect = entry.positiveScore;
+        const negativeAffect = entry.negativeScore;
+        const period = entry.period ? 'y' : 'n';
+        const notes = entry.notes ? `"${entry.notes.replace(/"/g, '""')}"` : ''; // Escape quotes
+
+        return `${date},${positiveAffect},${negativeAffect},${period},${notes}`;
+    }).join('\n');
+
+    const csvContent = header + rows;
+
+    // Create blob and download
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+
+    const today = new Date().toISOString().split('T')[0];
+    link.setAttribute('href', url);
+    link.setAttribute('download', `panas-data-${today}.csv`);
+    link.style.visibility = 'hidden';
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    console.log(`Exported ${entries.length} entries to CSV`);
 }
 
 // Import CSV data from text

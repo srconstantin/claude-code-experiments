@@ -171,7 +171,7 @@ h2 {
     border-color: #667eea;
 }
 
-.submit-btn, .upload-btn {
+.submit-btn, .upload-btn, .export-btn {
     padding: 15px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
@@ -188,17 +188,17 @@ h2 {
     margin-top: 20px;
 }
 
-.upload-btn {
+.upload-btn, .export-btn {
     padding: 10px 20px;
     font-size: 0.9rem;
 }
 
-.submit-btn:hover, .upload-btn:hover {
+.submit-btn:hover, .upload-btn:hover, .export-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.submit-btn:active, .upload-btn:active {
+.submit-btn:active, .upload-btn:active, .export-btn:active {
     transform: translateY(0);
 }
 
