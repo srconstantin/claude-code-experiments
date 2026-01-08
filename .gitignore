@@ -1,2 +1,5 @@
 writing_elsewhere/
 .DS_Store
+pan-cancer/data/*.csv
+pan-cancer/data/*.zip
+pan-cancer/venv/
