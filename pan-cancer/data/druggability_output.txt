@@ -1,0 +1,61 @@
+============================================================
+ADDING DRUGGABILITY ANNOTATIONS
+============================================================
+Loaded 1888 targets from data/pan_cancer_targets_v2.csv
+Adding druggability annotations...
+  Processed 20/100 genes (ChEMBL queries)...
+  Processed 40/100 genes (ChEMBL queries)...
+  Processed 60/100 genes (ChEMBL queries)...
+  Processed 80/100 genes (ChEMBL queries)...
+  Processed 100/100 genes (ChEMBL queries)...
+
+Druggability summary:
+  Known drugs: 25 genes
+  Druggable families: 273 genes
+  In ChEMBL (top 100): 75 genes
+
+Saved annotated targets to data/pan_cancer_targets_druggability.csv
+
+================================================================================
+TOP 30 MOST DRUGGABLE PAN-CANCER TARGETS
+================================================================================
+gene_symbol  frac_cancer_essential  selectivity  druggability_score druggable_family                            known_drugs drug_status
+       TFRC               0.672117     0.368925                   3      transporter        anti-TFRC antibodies (clinical)    clinical
+       DHFR               0.675559     0.306877                   3     enzyme_other methotrexate; pemetrexed; pralatrexate    approved
+       CDK1               1.000000     0.271060                   3           kinase               dinaciclib; flavopiridol    clinical
+      PSMB5               0.946644     0.223316                   3             None                bortezomib; carfilzomib    approved
+      TOP2A               0.997418     0.221232                   3             None                 doxorubicin; etoposide    approved
+       MCL1               0.709983     0.216790                   3             None                        S63845; AMG-176    clinical
+      GGPS1               0.967298     0.212336                   3     enzyme_other             bisphosphonates (indirect)    approved
+      KIF11               1.000000     0.212192                   3             None                   ispinesib; filanesib    clinical
+      BUB1B               0.973322     0.209309                   3             None                  paclitaxel (indirect)    approved
+       SAE1               0.979346     0.209222                   3             None                        ML-792; TAK-981    clinical
+       PLK1               0.999139     0.193744                   3           kinase                volasertib; onvansertib    clinical
+       ACLY               0.353701     0.159436                   3     enzyme_other                         bempedoic acid    approved
+       RRM1               1.000000     0.150517                   3             None                            gemcitabine    approved
+       RRM2               0.998279     0.140659                   3             None               hydroxyurea; gemcitabine    approved
+       BRD4               0.953528     0.134285                   3       epigenetic                  JQ1; OTX015; ABBV-075    clinical
+      HMGCR               0.975043     0.132715                   3     enzyme_other                                statins    approved
+      PRMT5               0.941480     0.127603                   3 nuclear_receptor               GSK3326595; JNJ-64619178    clinical
+       UBA1               1.000000     0.115787                   3             None                                TAK-243    clinical
+       TYMS               0.466437     0.111271                   3     enzyme_other           5-fluorouracil; capecitabine    approved
+     IMPDH2               0.552496     0.025638                   3     enzyme_other                          mycophenolate    approved
+      AURKA               0.997418     0.002871                   3           kinase                              alisertib    clinical
+      AURKB               1.000000    -0.006160                   3           kinase                             barasertib    clinical
+        SCD               0.752151    -0.070708                   3     enzyme_other                                MK-8245    clinical
+       WEE1               1.000000    -0.108653                   3           kinase                            adavosertib    clinical
+       USP7               0.783133    -0.167301                   3         protease                        P5091; GNE-6640 preclinical
+      PHF5A               1.000000     0.321572                   2       epigenetic                                   None        None
+       NMT1               0.710843     0.313916                   2     enzyme_other                                   None        None
+      SARS1               1.000000     0.299434                   2 nuclear_receptor                                   None        None
+    MARCHF5               0.308950     0.273601                   2 nuclear_receptor                                   None        None
+       GRB2               0.717728     0.266398                   2 nuclear_receptor                                   None        None
+
+============================================================
+DRUGGABILITY BREAKDOWN
+============================================================
+Total targets: 1888
+With known drugs (score=3): 25
+Druggable family (score=2): 257
+In ChEMBL (score=1): 46
+Unknown druggability (score=0): 1560
