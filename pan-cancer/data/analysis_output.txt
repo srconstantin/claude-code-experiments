@@ -1,0 +1,127 @@
+Loading data...
+Cancer lines: 1162, Non-cancer lines: 16
+
+Genes essential in >30% cancer lines: 1888
+After removing common essentials: 1888
+
+================================================================================
+TOP 50 CANCER-SELECTIVE TARGETS
+(Higher selectivity = more essential in cancer vs immortalized fibroblasts)
+================================================================================
+           gene gene_symbol  frac_cancer_essential  mean_cancer_effect  mean_normal_effect  selectivity
+   YRDC (79693)        YRDC               0.840792           -1.576639           -1.120556     0.456084
+    TFRC (7037)        TFRC               0.672117           -0.799591           -0.430666     0.368925
+  PHF5A (84844)       PHF5A               1.000000           -2.442530           -2.120958     0.321572
+     ADSL (158)        ADSL               0.704819           -0.898378           -0.580532     0.317846
+ SEPHS2 (22928)      SEPHS2               0.549053           -0.699811           -0.384243     0.315569
+    NMT1 (4836)        NMT1               0.710843           -0.707323           -0.393408     0.313916
+     ELL (8178)         ELL               0.950947           -1.282427           -0.972854     0.309573
+    DHFR (1719)        DHFR               0.675559           -0.862175           -0.555299     0.306877
+   SRP14 (6727)       SRP14               0.851979           -0.876279           -0.573126     0.303153
+   SARS1 (6301)       SARS1               1.000000           -2.586836           -2.287402     0.299434
+    GUK1 (2987)        GUK1               0.949225           -1.267144           -0.973572     0.293572
+    CCND1 (595)       CCND1               0.648881           -0.985745           -0.703760     0.281985
+MARCHF5 (54708)     MARCHF5               0.308950           -0.450449           -0.176849     0.273601
+   ESPL1 (9700)       ESPL1               0.998279           -2.053603           -1.781746     0.271857
+     CDK1 (983)        CDK1               1.000000           -2.374562           -2.103501     0.271060
+    GRB2 (2885)        GRB2               0.717728           -0.902514           -0.636116     0.266398
+   CFLAR (8837)       CFLAR               0.524096           -0.663865           -0.404792     0.259073
+    SDHB (6390)        SDHB               0.412220           -0.462877           -0.204074     0.258804
+ NEDD1 (121441)       NEDD1               1.000000           -1.836184           -1.582827     0.253358
+  DNM1L (10059)       DNM1L               0.572289           -0.625541           -0.374872     0.250669
+  HAUS5 (23354)       HAUS5               0.970740           -1.268273           -1.021798     0.246475
+   FAF2 (23197)        FAF2               0.395009           -0.453228           -0.211014     0.242214
+     DUT (1854)         DUT               0.987952           -1.749322           -1.507421     0.241901
+     AHCY (191)        AHCY               0.462134           -0.496666           -0.256399     0.240267
+   DTYMK (1841)       DTYMK               0.925129           -1.430745           -1.192405     0.238340
+SNRNP35 (11066)     SNRNP35               0.999139           -1.658561           -1.421153     0.237408
+ PRPF19 (27339)      PRPF19               1.000000           -2.378386           -2.142483     0.235904
+   RPS18 (6222)       RPS18               1.000000           -2.335253           -2.101091     0.234162
+  CAND1 (55832)       CAND1               0.319277           -0.398048           -0.165476     0.232572
+  TRPM7 (54822)       TRPM7               0.644578           -0.727161           -0.497955     0.229207
+ ATP6V1F (9296)     ATP6V1F               0.941480           -1.127013           -0.900048     0.226966
+  POLR2E (5434)      POLR2E               1.000000           -1.456552           -1.230300     0.226252
+     PGD (5226)         PGD               0.748709           -0.868293           -0.643006     0.225288
+  SETDB1 (9869)      SETDB1               0.310671           -0.404879           -0.179886     0.224993
+  COPS4 (51138)       COPS4               0.993115           -1.127721           -0.903908     0.223814
+   PSMB5 (5693)       PSMB5               0.946644           -1.706254           -1.482938     0.223316
+  HMGCS1 (3157)      HMGCS1               0.988812           -1.764506           -1.541554     0.222952
+  EIF2B3 (8891)      EIF2B3               1.000000           -1.526312           -1.304278     0.222034
+    USP5 (8078)        USP5               0.994836           -1.359848           -1.138160     0.221688
+   DDX3X (1654)       DDX3X               0.812392           -0.873391           -0.651781     0.221610
+   TOP2A (7153)       TOP2A               0.997418           -2.251739           -2.030507     0.221232
+    MCL1 (4170)        MCL1               0.709983           -0.800685           -0.583895     0.216790
+    BPTF (2186)        BPTF               0.803787           -0.724395           -0.508019     0.216375
+      ACTB (60)        ACTB               0.578313           -0.632843           -0.419791     0.213052
+   GGPS1 (9453)       GGPS1               0.967298           -1.295077           -1.082742     0.212336
+   KIF11 (3832)       KIF11               1.000000           -2.571510           -2.359317     0.212192
+    CIT (11113)         CIT               0.480207           -0.504465           -0.293308     0.211158
+  THAP1 (55145)       THAP1               0.862306           -1.125140           -0.914302     0.210838
+    BUB1B (701)       BUB1B               0.973322           -1.053988           -0.844679     0.209309
+   SAE1 (10055)        SAE1               0.979346           -1.280814           -1.071592     0.209222
+
+Saved 1888 targets to data/pan_cancer_targets_v2.csv
+
+================================================================================
+TOP 10 DETAILED INTERPRETATION
+================================================================================
+
+YRDC:
+  Essential in 84.1% of cancer lines
+  Cancer mean effect: -1.577
+  Normal mean effect: -1.121
+  Selectivity: 0.456
+
+TFRC:
+  Essential in 67.2% of cancer lines
+  Cancer mean effect: -0.800
+  Normal mean effect: -0.431
+  Selectivity: 0.369
+
+PHF5A:
+  Essential in 100.0% of cancer lines
+  Cancer mean effect: -2.443
+  Normal mean effect: -2.121
+  Selectivity: 0.322
+
+ADSL:
+  Essential in 70.5% of cancer lines
+  Cancer mean effect: -0.898
+  Normal mean effect: -0.581
+  Selectivity: 0.318
+
+SEPHS2:
+  Essential in 54.9% of cancer lines
+  Cancer mean effect: -0.700
+  Normal mean effect: -0.384
+  Selectivity: 0.316
+
+NMT1:
+  Essential in 71.1% of cancer lines
+  Cancer mean effect: -0.707
+  Normal mean effect: -0.393
+  Selectivity: 0.314
+
+ELL:
+  Essential in 95.1% of cancer lines
+  Cancer mean effect: -1.282
+  Normal mean effect: -0.973
+  Selectivity: 0.310
+
+DHFR:
+  Essential in 67.6% of cancer lines
+  Cancer mean effect: -0.862
+  Normal mean effect: -0.555
+  Selectivity: 0.307
+
+SRP14:
+  Essential in 85.2% of cancer lines
+  Cancer mean effect: -0.876
+  Normal mean effect: -0.573
+  Selectivity: 0.303
+
+SARS1:
+  Essential in 100.0% of cancer lines
+  Cancer mean effect: -2.587
+  Normal mean effect: -2.287
+  Selectivity: 0.299
