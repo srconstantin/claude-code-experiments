@@ -1,0 +1,60 @@
+TOP 50 MOST CANCER-SELECTIVE TARGETS WITH DRUGGABILITY ANNOTATIONS
+====================================================================================================
+
+Gene       Selectivity % Cancer Ess Drug Score Family           Known Drugs                         Status    
+----------------------------------------------------------------------------------------------------
+YRDC             0.456        84.1%          0 -                -                                   -         
+TFRC             0.369        67.2%          3 transporter      anti-TFRC antibodies (clinical)     clinical  
+PHF5A            0.322       100.0%          2 epigenetic       -                                   -         
+ADSL             0.318        70.5%          1 -                -                                   -         
+SEPHS2           0.316        54.9%          0 -                -                                   -         
+NMT1             0.314        71.1%          2 enzyme_other     -                                   -         
+ELL              0.310        95.1%          1 -                -                                   -         
+DHFR             0.307        67.6%          3 enzyme_other     methotrexate; pemetrexed; pralatr   approved  
+SRP14            0.303        85.2%          1 -                -                                   -         
+SARS1            0.299       100.0%          2 nuclear_receptor -                                   -         
+GUK1             0.294        94.9%          1 -                -                                   -         
+CCND1            0.282        64.9%          1 -                -                                   -         
+MARCHF5          0.274        30.9%          2 nuclear_receptor -                                   -         
+ESPL1            0.272        99.8%          1 -                -                                   -         
+CDK1             0.271       100.0%          3 kinase           dinaciclib; flavopiridol            clinical  
+GRB2             0.266        71.8%          2 nuclear_receptor -                                   -         
+CFLAR            0.259        52.4%          2 nuclear_receptor -                                   -         
+SDHB             0.259        41.2%          1 -                -                                   -         
+NEDD1            0.253       100.0%          0 -                -                                   -         
+DNM1L            0.251        57.2%          1 -                -                                   -         
+HAUS5            0.246        97.1%          0 -                -                                   -         
+FAF2             0.242        39.5%          0 -                -                                   -         
+DUT              0.242        98.8%          1 -                -                                   -         
+AHCY             0.240        46.2%          1 -                -                                   -         
+DTYMK            0.238        92.5%          1 -                -                                   -         
+SNRNP35          0.237        99.9%          0 -                -                                   -         
+PRPF19           0.236       100.0%          2 nuclear_receptor -                                   -         
+RPS18            0.234       100.0%          1 -                -                                   -         
+CAND1            0.233        31.9%          1 -                -                                   -         
+TRPM7            0.229        64.5%          2 ion_channel      -                                   -         
+ATP6V1F          0.227        94.1%          2 transporter      -                                   -         
+POLR2E           0.226       100.0%          1 -                -                                   -         
+PGD              0.225        74.9%          1 -                -                                   -         
+SETDB1           0.225        31.1%          2 epigenetic       -                                   -         
+COPS4            0.224        99.3%          1 -                -                                   -         
+PSMB5            0.223        94.7%          3 -                bortezomib; carfilzomib             approved  
+HMGCS1           0.223        98.9%          2 enzyme_other     -                                   -         
+EIF2B3           0.222       100.0%          1 -                -                                   -         
+USP5             0.222        99.5%          2 protease         -                                   -         
+DDX3X            0.222        81.2%          1 -                -                                   -         
+TOP2A            0.221        99.7%          3 -                doxorubicin; etoposide              approved  
+MCL1             0.217        71.0%          3 -                S63845; AMG-176                     clinical  
+BPTF             0.216        80.4%          1 -                -                                   -         
+ACTB             0.213        57.8%          1 -                -                                   -         
+GGPS1            0.212        96.7%          3 enzyme_other     bisphosphonates (indirect)          approved  
+KIF11            0.212       100.0%          3 -                ispinesib; filanesib                clinical  
+CIT              0.211        48.0%          1 -                -                                   -         
+THAP1            0.211        86.2%          0 -                -                                   -         
+BUB1B            0.209        97.3%          3 -                paclitaxel (indirect)               approved  
+SAE1             0.209        97.9%          3 -                ML-792; TAK-981                     clinical  
+
+====================================================================================================
+LEGEND:
+  Drug Score: 3 = known drugs, 2 = druggable family, 1 = in ChEMBL, 0 = unknown
+  Family: enzyme_other, epigenetic, kinase, protease, ion_channel, transporter, nuclear_receptor
