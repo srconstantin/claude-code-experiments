@@ -1,0 +1,146 @@
+================================================================================
+ADDING OPENTARGETS TRACTABILITY SCORES
+================================================================================
+Processing top 50 genes by selectivity...
+  YRDC... found (SM:0.0 AB:1.0 PR:0.5)
+  TFRC... found (SM:1.0 AB:1.0 PR:0.5)
+  PHF5A... found (SM:1.0 AB:0.0 PR:0.5)
+  ADSL... found (SM:1.0 AB:0.0 PR:0.5)
+  SEPHS2... found (SM:0.0 AB:0.0 PR:0.5)
+  NMT1... found (SM:1.0 AB:1.0 PR:0.5)
+  ELL... found (SM:0.0 AB:0.0 PR:0.5)
+  DHFR... found (SM:3.0 AB:0.0 PR:0.5)
+  SRP14... found (SM:1.0 AB:0.0 PR:0.5)
+  SARS1... found (SM:1.0 AB:0.0 PR:0.5)
+  GUK1... found (SM:1.0 AB:1.0 PR:0.5)
+  CCND1... found (SM:2.0 AB:0.0 PR:0.5)
+  MARCHF5... found (SM:0.0 AB:1.0 PR:0.5)
+  ESPL1... found (SM:0.0 AB:0.0 PR:0.5)
+  CDK1... found (SM:2.0 AB:0.0 PR:0.5)
+  GRB2... found (SM:1.0 AB:0.0 PR:0.5)
+  CFLAR... found (SM:1.0 AB:1.0 PR:0.5)
+  SDHB... found (SM:1.0 AB:1.0 PR:0.5)
+  NEDD1... found (SM:0.0 AB:0.0 PR:0.5)
+  DNM1L... found (SM:1.0 AB:1.0 PR:0.5)
+  HAUS5... found (SM:0.0 AB:0.0 PR:0.5)
+  FAF2... found (SM:0.0 AB:0.0 PR:0.5)
+  DUT... found (SM:1.0 AB:0.0 PR:0.5)
+  AHCY... found (SM:1.0 AB:0.0 PR:0.5)
+  DTYMK... found (SM:1.0 AB:0.0 PR:0.5)
+  SNRNP35... found (SM:1.0 AB:0.0 PR:0.5)
+  PRPF19... found (SM:1.0 AB:0.0 PR:0.5)
+  RPS18... found (SM:3.0 AB:0.0 PR:0.5)
+  CAND1... found (SM:0.0 AB:0.0 PR:0.5)
+  TRPM7... found (SM:1.0 AB:1.0 PR:0.5)
+  ATP6V1F... found (SM:1.0 AB:1.0 PR:0.5)
+  POLR2E... found (SM:1.0 AB:0.0 PR:0.5)
+  PGD... found (SM:1.0 AB:0.0 PR:0.5)
+  SETDB1... found (SM:1.0 AB:0.0 PR:0.5)
+  COPS4... found (SM:0.0 AB:0.0 PR:0.5)
+  PSMB5... found (SM:3.0 AB:0.0 PR:0.5)
+  HMGCS1... found (SM:1.0 AB:1.0 PR:0.5)
+  EIF2B3... found (SM:1.0 AB:0.0 PR:0.5)
+  USP5... found (SM:1.0 AB:0.0 PR:0.5)
+  DDX3X... found (SM:1.0 AB:1.0 PR:0.5)
+  TOP2A... found (SM:3.0 AB:2.0 PR:0.5)
+  MCL1... found (SM:2.0 AB:1.0 PR:0.5)
+  BPTF... found (SM:1.0 AB:0.0 PR:0.5)
+  ACTB... found (SM:1.0 AB:0.0 PR:0.5)
+  GGPS1... found (SM:1.0 AB:0.0 PR:0.5)
+  KIF11... found (SM:2.0 AB:0.0 PR:0.5)
+  CIT... found (SM:1.0 AB:0.0 PR:0.5)
+  THAP1... found (SM:0.0 AB:0.0 PR:0.5)
+  BUB1B... found (SM:1.0 AB:0.0 PR:0.5)
+  SAE1... found (SM:1.0 AB:0.0 PR:0.5)
+
+Saved to data/top50_with_tractability.csv
+
+========================================================================================================================
+TOP 50 CANCER-SELECTIVE TARGETS WITH OPENTARGETS TRACTABILITY
+========================================================================================================================
+
+Tractability scores: SM=Small Molecule, AB=Antibody, PR=PROTAC (0-3 scale, higher=more tractable)
+------------------------------------------------------------------------------------------------------------------------
+Gene        Select   %Ess   SM   AB   PR Total SM_clin SM_struct AB_clin AB_acc   PR
+------------------------------------------------------------------------------------------------------------------------
+YRDC         0.456  84.1%  0.0  1.0  0.5   1.5       -         -       -    Yes  Yes
+TFRC         0.369  67.2%  1.0  1.0  0.5   2.5       -       Yes     Yes    Yes  Yes
+PHF5A        0.322 100.0%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+ADSL         0.318  70.5%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+SEPHS2       0.316  54.9%  0.0  0.0  0.5   0.5       -         -       -      -  Yes
+NMT1         0.314  71.1%  1.0  1.0  0.5   2.5       -       Yes       -    Yes  Yes
+ELL          0.310  95.1%  0.0  0.0  0.5   0.5       -         -       -      -  Yes
+DHFR         0.307  67.6%  3.0  0.0  0.5   3.5     Yes       Yes       -      -  Yes
+SRP14        0.303  85.2%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+SARS1        0.299 100.0%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+GUK1         0.294  94.9%  1.0  1.0  0.5   2.5       -       Yes       -    Yes  Yes
+CCND1        0.282  64.9%  2.0  0.0  0.5   2.5     Yes       Yes       -      -  Yes
+MARCHF5      0.274  30.9%  0.0  1.0  0.5   1.5       -         -       -    Yes  Yes
+ESPL1        0.272  99.8%  0.0  0.0  0.5   0.5       -         -       -      -  Yes
+CDK1         0.271 100.0%  2.0  0.0  0.5   2.5     Yes       Yes       -      -  Yes
+GRB2         0.266  71.8%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+CFLAR        0.259  52.4%  1.0  1.0  0.5   2.5       -       Yes       -    Yes  Yes
+SDHB         0.259  41.2%  1.0  1.0  0.5   2.5       -       Yes       -    Yes  Yes
+NEDD1        0.253 100.0%  0.0  0.0  0.5   0.5       -         -       -      -  Yes
+DNM1L        0.251  57.2%  1.0  1.0  0.5   2.5       -       Yes       -    Yes  Yes
+HAUS5        0.246  97.1%  0.0  0.0  0.5   0.5       -         -       -      -  Yes
+FAF2         0.242  39.5%  0.0  0.0  0.5   0.5       -         -       -      -  Yes
+DUT          0.242  98.8%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+AHCY         0.240  46.2%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+DTYMK        0.238  92.5%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+SNRNP35      0.237  99.9%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+PRPF19       0.236 100.0%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+RPS18        0.234 100.0%  3.0  0.0  0.5   3.5     Yes       Yes       -      -  Yes
+CAND1        0.233  31.9%  0.0  0.0  0.5   0.5       -         -       -      -  Yes
+TRPM7        0.229  64.5%  1.0  1.0  0.5   2.5       -       Yes       -    Yes  Yes
+ATP6V1F      0.227  94.1%  1.0  1.0  0.5   2.5       -       Yes       -    Yes  Yes
+POLR2E       0.226 100.0%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+PGD          0.225  74.9%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+SETDB1       0.225  31.1%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+COPS4        0.224  99.3%  0.0  0.0  0.5   0.5       -         -       -      -  Yes
+PSMB5        0.223  94.7%  3.0  0.0  0.5   3.5     Yes       Yes       -      -  Yes
+HMGCS1       0.223  98.9%  1.0  1.0  0.5   2.5       -       Yes       -    Yes  Yes
+EIF2B3       0.222 100.0%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+USP5         0.222  99.5%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+DDX3X        0.222  81.2%  1.0  1.0  0.5   2.5       -       Yes       -    Yes  Yes
+TOP2A        0.221  99.7%  3.0  2.0  0.5   5.5     Yes       Yes     Yes      -  Yes
+MCL1         0.217  71.0%  2.0  1.0  0.5   3.5     Yes       Yes       -    Yes  Yes
+BPTF         0.216  80.4%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+ACTB         0.213  57.8%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+GGPS1        0.212  96.7%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+KIF11        0.212 100.0%  2.0  0.0  0.5   2.5     Yes       Yes       -      -  Yes
+CIT          0.211  48.0%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+THAP1        0.211  86.2%  0.0  0.0  0.5   0.5       -         -       -      -  Yes
+BUB1B        0.209  97.3%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+SAE1         0.209  97.9%  1.0  0.0  0.5   1.5       -       Yes       -      -  Yes
+
+================================================================================
+TRACTABILITY SUMMARY
+================================================================================
+Genes with SM clinical evidence: 8
+Genes with SM structural tractability: 39
+Genes with AB clinical evidence: 2
+Genes with AB accessibility: 13
+Genes with PROTAC tractability: 50
+
+================================================================================
+BEST OPPORTUNITIES (selectivity > 0.2 AND total_tractability >= 2)
+================================================================================
+  TOP2A: selectivity=0.221, tractability=5.5
+  RPS18: selectivity=0.234, tractability=3.5
+  DHFR: selectivity=0.307, tractability=3.5
+  MCL1: selectivity=0.217, tractability=3.5
+  PSMB5: selectivity=0.223, tractability=3.5
+  TRPM7: selectivity=0.229, tractability=2.5
+  DDX3X: selectivity=0.222, tractability=2.5
+  HMGCS1: selectivity=0.223, tractability=2.5
+  ATP6V1F: selectivity=0.227, tractability=2.5
+  TFRC: selectivity=0.369, tractability=2.5
+  NMT1: selectivity=0.314, tractability=2.5
+  DNM1L: selectivity=0.251, tractability=2.5
+  SDHB: selectivity=0.259, tractability=2.5
+  CFLAR: selectivity=0.259, tractability=2.5
+  CDK1: selectivity=0.271, tractability=2.5
+  CCND1: selectivity=0.282, tractability=2.5
+  GUK1: selectivity=0.294, tractability=2.5
+  KIF11: selectivity=0.212, tractability=2.5
