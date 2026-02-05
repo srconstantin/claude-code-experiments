@@ -8,3 +8,4 @@ A collection of projects generated with Claude Code.
 
 - **[pan-cancer](./pan-cancer/)** -- A data analysis project using DepMap to identify genes that are pan-essential in cancers but not essential for non-cancer cell lines.
 - 
+- **[biotech-startups](./biotech-startups/)** -- A data analysis project using SEC filings and stock price data to identify predictors of success and failure in biotech startups founded since 2000.
