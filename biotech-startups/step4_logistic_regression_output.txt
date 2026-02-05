@@ -1,0 +1,134 @@
+================================================================================
+LOGISTIC REGRESSION WITH CORRECTED MODALITY CLASSIFICATION
+(Cell/gene therapy, RNA, peptides reclassified as biologics)
+================================================================================
+
+Total observations: 803
+
+Modality distribution (after reclassification):
+modality
+small_molecule      278
+biologic            231
+unknown_modality    128
+other_modality      107
+both                 59
+Name: count, dtype: int64
+
+================================================================================
+LOGISTIC REGRESSION: Acquired vs Failed (Exited Companies)
+================================================================================
+
+Sample size: 428
+  Acquired: 177 (41.4%)
+  Failed: 251 (58.6%)
+
+Features included: 17
+Sample size after cleaning: 428
+
+Modality distribution in sample:
+  biologic: 103
+  both: 27
+  other_modality: 72
+  small_molecule (reference): 226.0
+
+                                 Model Summary                                  
+--------------------------------------------------------------------------------
+Pseudo R-squared: 0.1216
+Log-likelihood: -254.95
+AIC: 545.89
+
+Variable                                  Coef    Std Err        z      P>|z|   Odds Ratio
+-----------------------------------------------------------------------------------------------
+State: other_state                     -0.9385     0.2716    -3.46     0.0005      0.391x ***
+Modality: other_modality               -0.8669     0.3437    -2.52     0.0117      0.420x *
+founding_year                           0.0432     0.0185     2.33     0.0197      1.044x *
+Disease: rare_disease                   0.9857     0.4521     2.18     0.0292      2.680x *
+Stage: phase_3                          0.6010     0.3038     1.98     0.0479      1.824x *
+Stage: preclinical                     -0.6971     0.3886    -1.79     0.0728      0.498x .
+State: MA                               0.5465     0.3229     1.69     0.0905      1.727x .
+Stage: phase_1                          0.5104     0.3527     1.45     0.1478      1.666x 
+Disease: other_disease                  0.4207     0.3258     1.29     0.1966      1.523x 
+State: NY_NJ_PA                        -0.3960     0.3273    -1.21     0.2264      0.673x 
+Modality: biologic                     -0.2433     0.2817    -0.86     0.3879      0.784x 
+Disease: immunology                     0.3644     0.5141     0.71     0.4785      1.440x 
+Disease: metabolic_cardio              -0.2862     0.4081    -0.70     0.4831      0.751x 
+const                                  -0.1077     0.2469    -0.44     0.6626      0.898x 
+Disease: infectious                    -0.1699     0.4764    -0.36     0.7214      0.844x 
+Stage: approved                        -0.1412     0.4161    -0.34     0.7343      0.868x 
+Modality: both                          0.1260     0.4531     0.28     0.7810      1.134x 
+Disease: cns                           -0.0061     0.3704    -0.02     0.9869      0.994x 
+
+                            Key Findings (p < 0.05)                             
+--------------------------------------------------------------------------------
+
+Factors INCREASING odds of Acquired:
+  • founding_year: 1.04x odds (p=0.0197)
+  • rare_disease: 2.68x odds (p=0.0292)
+  • phase_3: 1.82x odds (p=0.0479)
+
+Factors DECREASING odds of Acquired:
+  • other_state: 0.39x odds (p=0.0005)
+  • other_modality: 0.42x odds (p=0.0117)
+
+                        Marginally Significant (p < 0.1)                        
+--------------------------------------------------------------------------------
+  • preclinical decreases odds: 0.50x (p=0.0728)
+  • MA increases odds: 1.73x (p=0.0905)
+
+================================================================================
+LOGISTIC REGRESSION: Trading+ vs Trading- (Currently Trading)
+================================================================================
+
+Sample size: 375
+  Trading+: 56 (14.9%)
+  Trading-: 319 (85.1%)
+
+Features included: 17
+Sample size after cleaning: 375
+
+Modality distribution in sample:
+  biologic: 128
+  both: 32
+  other_modality: 35
+  small_molecule (reference): 180.0
+
+                                 Model Summary                                  
+--------------------------------------------------------------------------------
+Pseudo R-squared: 0.1541
+Log-likelihood: -133.73
+AIC: 303.45
+
+Variable                                  Coef    Std Err        z      P>|z|   Odds Ratio
+-----------------------------------------------------------------------------------------------
+const                                  -2.0203     0.4076    -4.96     0.0000      0.133x ***
+founding_year                           0.1254     0.0354     3.55     0.0004      1.134x ***
+State: other_state                     -1.3585     0.4739    -2.87     0.0041      0.257x **
+Disease: immunology                     1.4405     0.5486     2.63     0.0086      4.223x **
+Disease: rare_disease                   0.8961     0.4997     1.79     0.0730      2.450x .
+Modality: other_modality               -1.2862     0.8034    -1.60     0.1094      0.276x 
+Disease: metabolic_cardio               1.0189     0.6549     1.56     0.1198      2.770x 
+Disease: other_disease                  0.6692     0.4784     1.40     0.1618      1.953x 
+Stage: phase_3                          0.6474     0.4859     1.33     0.1828      1.911x 
+Stage: approved                         0.6256     0.7559     0.83     0.4079      1.869x 
+State: NY_NJ_PA                        -0.3660     0.4555    -0.80     0.4216      0.693x 
+Disease: cns                            0.4280     0.5562     0.77     0.4417      1.534x 
+State: MA                              -0.3171     0.4199    -0.76     0.4501      0.728x 
+Disease: infectious                    -0.7676     1.0773    -0.71     0.4761      0.464x 
+Stage: preclinical                      0.3084     0.5155     0.60     0.5497      1.361x 
+Modality: both                         -0.2359     0.5733    -0.41     0.6808      0.790x 
+Stage: phase_1                          0.1142     0.4509     0.25     0.8001      1.121x 
+Modality: biologic                     -0.0183     0.3831    -0.05     0.9619      0.982x 
+
+                            Key Findings (p < 0.05)                             
+--------------------------------------------------------------------------------
+
+Factors INCREASING odds of Trading+:
+  • founding_year: 1.13x odds (p=0.0004)
+  • immunology: 4.22x odds (p=0.0086)
+
+Factors DECREASING odds of Trading+:
+  • other_state: 0.26x odds (p=0.0041)
+
+                        Marginally Significant (p < 0.1)                        
+--------------------------------------------------------------------------------
+  • rare_disease increases odds: 2.45x (p=0.0730)

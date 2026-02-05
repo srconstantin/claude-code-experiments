@@ -1,0 +1,5668 @@
+======================================================================
+Step 3: Extracting pipeline information using Claude API
+======================================================================
+
+Processing 823 companies...
+
+[1/823] 2seventy bio, Inc.
+  Extracted 4,872 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (car_t)
+  Stage: approved
+
+[2/823] 60 DEGREES PHARMACEUTICALS, INC.
+  Extracted 26,302 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[3/823] 89bio, Inc.
+  Extracted 11,555 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: biologic (protein)
+  Stage: phase_2
+
+[4/823] 9 METERS BIOPHARMA, INC.
+  Text doesn't look like business description, skipping API
+  Preview: for cash the opportunity to receive .07 additional shares from Mssrs. Tandon&rsquo;s beneficial holdings for each .41 shares held by such stockholder ...
+  No data extracted
+
+[5/823] Aardvark Therapeutics, Inc.
+  Extracted 9,653 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[6/823] AbCellera Biologics Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality:  ()
+  Stage: unknown
+
+[7/823] ABEONA THERAPEUTICS INC.
+  Extracted 11,651 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (nanopolymer_drug_delivery)
+  Stage: approved
+
+[8/823] Abpro Corp
+  Extracted 3,411 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (bispecific)
+  Stage: preclinical
+
+[9/823] Accelerated Pharma, Inc.
+  Extracted 1,914 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: unknown
+
+[10/823] Accustem Sciences Inc.
+  Extracted 3,867 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (genomic_diagnostics)
+  Stage: unknown
+
+[11/823] Achaogen, Inc.
+  Extracted 10,972 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: both (small_molecule)
+  Stage: phase_3
+
+[12/823] Aclaris Therapeutics, Inc.
+  Extracted 6,315 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[13/823] Acrivon Therapeutics, Inc.
+  Extracted 881 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: unknown (unknown)
+  Stage: unknown
+
+[14/823] ACTAVIA LIFE SCIENCES, INC.
+  Text doesn't look like business description, skipping API
+  Preview: or our customers, could result in the loss of customers, or other harm to our business. We may be exposed to liability for infringing intellectual pro...
+  No data extracted
+
+[15/823] Actinium Pharmaceuticals, Inc.
+  Extracted 5,388 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (adc)
+  Stage: phase_3
+
+[16/823] ACTUATE THERAPEUTICS, INC.
+  Extracted 5,715 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[17/823] Adamas Pharmaceuticals Inc
+  Extracted 564 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality:  ()
+  Stage: unknown
+
+[18/823] Adgero Biopharmaceuticals Holdings, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (photodynamic_therapy)
+  Stage: phase_3
+
+[19/823] Adhera Therapeutics, Inc.
+  Extracted 10,767 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: unknown
+
+[20/823] ADIAL PHARMACEUTICALS, INC.
+  Extracted 6,253 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[21/823] Adicet Bio, Inc.
+  Extracted 11,566 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[22/823] Aditxt, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: and Mission We believe the world needs&mdash;and deserves&mdash;a new approach to innovating that harnesses the power of large groups of stakeholders ...
+  No data extracted
+
+[23/823] Aegerion Pharmaceuticals, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[24/823] AEOLUS PHARMACEUTICALS, INC.
+  Extracted 15,812 chars of business text
+  Calling Claude API...
+  Disease: respiratory
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[25/823] AEON Biopharma, Inc.
+  Extracted 7,226 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: biologic (protein)
+  Stage: phase_2
+
+[26/823] Akari Therapeutics Plc
+  Extracted 8,291 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (adc)
+  Stage: preclinical
+
+[27/823] AKCEA THERAPEUTICS, INC.
+  Extracted 2,117 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (rna)
+  Stage: phase_3
+
+[28/823] Akero Therapeutics, Inc.
+  Extracted 23,752 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: biologic (protein)
+  Stage: phase_2
+
+[29/823] Akouos, Inc.
+  Extracted 619 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (gene_therapy)
+  Stage: unknown
+
+[30/823] Akston Biosciences Corp
+  Extracted 4,516 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (antibody)
+  Stage: preclinical
+
+[31/823] ALBIREO PHARMA, INC.
+  Text doesn't look like business description, skipping API
+  Preview: of selected information and does not contain all of the information you should consider before buying our common stock. Therefore, you should read the...
+  No data extracted
+
+[32/823] ALDER BIOPHARMACEUTICALS INC
+  Extracted 2,015 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[33/823] Aldeyra Therapeutics, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: Aldeyra was formed as a Delaware corporation in 2004, and from inception until December 20, 2012, we operated as Neuron Systems, Inc. and from Decembe...
+  No data extracted
+
+[34/823] ALGORX PHARMACEUTICALS INC
+  Extracted 8,387 chars of business text
+  Calling Claude API...
+  Disease: pain_management
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[35/823] ALIMERA SCIENCES INC
+  Text doesn't look like business description, skipping API
+  Preview: and Market Opportunity Diabetes and Diabetic Retinopathy Diabetes mellitus, with its systemic and ophthalmic complications, represents a global public...
+  No data extracted
+
+[36/823] Allakos Inc.
+  Extracted 6,926 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[37/823] Alto Neuroscience, Inc.
+  Extracted 10,281 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[38/823] Altovida Inc.
+  Text doesn't look like business description, skipping API
+  Preview: and therefore have substantial control. Upon the completion of this offering, our officers and directors will own an aggregate of approximately 76.92%...
+  No data extracted
+
+[39/823] ALUMIS INC.
+  Text doesn't look like business description, skipping API
+  Preview: Our mission is to significantly improve the lives of patients by replacing broad immunosuppression with targeted therapies. Our name, Alumis, captures...
+  No data extracted
+
+[40/823] ALX ONCOLOGY HOLDINGS INC
+  Extracted 1,681 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[41/823] Alzamend Neuro, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: We were incorporated on February 26, 2016, as Alzamend Neuro, Inc. under the laws of the State of Delaware. We were formed to acquire and commercializ...
+  No data extracted
+
+[42/823] ALZHEON, INC.
+  Extracted 18,826 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[43/823] Amarantus Bioscience Holdings, Inc.
+  Extracted 25,485 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: both (protein)
+  Stage: phase_2
+
+[44/823] AMBIT BIOSCIENCES CORP
+  Extracted 3,007 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[45/823] AMBRX INC
+  Extracted 7,930 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (adc)
+  Stage: phase_2
+
+[46/823] America Great Health
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (generic_pharmaceutical_distribution)
+  Stage: unknown
+
+[47/823] Amneal Pharmaceuticals, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[48/823] Ampio Pharmaceuticals, Inc.
+  Extracted 8,043 chars of business text
+  Calling Claude API...
+  Disease: rheumatology
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[49/823] Amylyx Pharmaceuticals, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: Our mission is to one day end the suffering caused by neurodegenerative diseases. Unlike most other cells in the body that regularly die and are repla...
+  No data extracted
+
+[50/823] AN2 Therapeutics, Inc.
+  Extracted 2,686 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+Saved 50 companies to step3_pipeline_info.csv
+
+  Saved intermediate results (40 API calls, 10 errors)
+  Disease areas: {'oncology': 14, 'cns': 7, 'infectious_disease': 3, 'metabolic': 3, 'rare_disease': 3}
+  Modalities: {'other': 7, 'small_molecule': 17, 'biologic': 11, 'both': 2, 'unknown': 1}
+
+[51/823] ANAPTYSBIO, INC
+  Extracted 21,613 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[52/823] Anebulo Pharmaceuticals, Inc.
+  Extracted 9,183 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[53/823] Annexon, Inc.
+  Extracted 1,145 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (protein)
+  Stage: unknown
+
+[54/823] Annovis Bio, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[55/823] ANTERIOS INC
+  Extracted 18,728 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: biologic (protein)
+  Stage: phase_2
+
+[56/823] Anthera Pharmaceuticals Inc
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[57/823] Applied Molecular Transport Inc.
+  Extracted 7,655 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: biologic (protein)
+  Stage: phase_2
+
+[58/823] Aprea Therapeutics, Inc.
+  Extracted 13,790 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[59/823] Aptevo Therapeutics Inc.
+  Extracted 1,926 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (bispecific)
+  Stage: phase_2
+
+[60/823] Aptinyx Inc.
+  Extracted 2,984 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[61/823] ARATANA THERAPEUTICS, INC.
+  Extracted 8,086 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (antibody)
+  Stage: approved
+
+[62/823] Aravive, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: biologic (protein)
+  Stage: phase_3
+
+[63/823] Arcus Biosciences, Inc.
+  Extracted 2,890 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (small_molecule)
+  Stage: phase_1
+
+[64/823] ARMO BioSciences, Inc.
+  Extracted 4,889 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (protein)
+  Stage: phase_3
+
+[65/823] Arno Therapeutics, Inc
+  Extracted 9,880 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[66/823] Arog Pharmaceuticals, Inc.
+  Extracted 5,942 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[67/823] ArriVent BioPharma, Inc.
+  Extracted 5,232 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (small_molecule)
+  Stage: phase_3
+
+[68/823] ARS Pharmaceuticals, Inc.
+  Extracted 8,936 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (adc)
+  Stage: phase_1
+
+[69/823] ARTELO BIOSCIENCES, INC.
+  Extracted 13,115 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[70/823] ARVINAS, INC.
+  Extracted 5,120 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[71/823] ASSEMBLY BIOSCIENCES, INC.
+  Extracted 14,812 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[72/823] Atai Beckley N.V.
+  Extracted 8,325 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: other (psychedelic_compounds)
+  Stage: phase_2
+
+[73/823] Atea Pharmaceuticals, Inc.
+  Extracted 4,445 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[74/823] Athenex, Inc.
+  Extracted 19,161 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[75/823] ATHERSYS, INC / NEW
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: biologic (cell_therapy)
+  Stage: phase_3
+
+[76/823] ATOSSA THERAPEUTICS, INC.
+  Extracted 17,775 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[77/823] Atreca, Inc.
+  Extracted 10,898 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (antibody)
+  Stage: preclinical
+
+[78/823] AUDEO ONCOLOGY, INC.
+  Extracted 4,414 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (drug_delivery_platform)
+  Stage: phase_3
+
+[79/823] AURIGA LABORATORIES, INC.
+  Extracted 6,860 chars of business text
+  Calling Claude API...
+  Disease: respiratory
+  Modality: other (branded_pharmaceuticals)
+  Stage: approved
+
+[80/823] Auspex Pharmaceuticals, Inc.
+  Extracted 14,743 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[81/823] Avenir Wellness Solutions, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of the key aspects of our business and our securities. The reader should read the entire prospectus carefully, especially the risks of investing in ou...
+  No data extracted
+
+[82/823] AVENUE THERAPEUTICS, INC.
+  Extracted 14,315 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[83/823] Avidity Biosciences, Inc.
+  Extracted 12,414 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (aoc)
+  Stage: preclinical
+
+[84/823] AXIM BIOTECHNOLOGIES, INC.
+  Extracted 10,537 chars of business text
+  Calling Claude API...
+  Disease: ophthalmology
+  Modality: other (diagnostic_assays)
+  Stage: approved
+
+[85/823] Axsome Therapeutics, Inc.
+  Extracted 4,383 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[86/823] AXXESS PHARMA INC.
+  Extracted 17,472 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: other (topical_products)
+  Stage: approved
+
+[87/823] Azitra, Inc.
+  Extracted 1,010 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: other (live_biotherapeutic)
+  Stage: preclinical
+
+[88/823] Barinthus Biotherapeutics plc.
+  Extracted 6,179 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: biologic (vaccine)
+  Stage: phase_1
+
+[89/823] BARRIER THERAPEUTICS INC
+  Extracted 12,688 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: both (small_molecule)
+  Stage: unknown
+
+[90/823] Baudax Bio, Inc.
+  Extracted 4,597 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: both (cell_therapy)
+  Stage: phase_2
+
+[91/823] Baxalta Inc
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: hematology
+  Modality: biologic (protein)
+  Stage: approved
+
+[92/823] Bayhill Therapeutics, Inc.
+  Extracted 9,157 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: other (gene_therapy)
+  Stage: phase_2
+
+[93/823] BELLICUM PHARMACEUTICALS, INC
+  Extracted 12,542 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (cell_therapy)
+  Stage: phase_2
+
+[94/823] Benda Pharmaceutical, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: both (small_molecule)
+  Stage: approved
+
+[95/823] Bicara Therapeutics Inc.
+  Extracted 24,812 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (bispecific)
+  Stage: phase_1
+
+[96/823] BICYCLE THERAPEUTICS PLC
+  Extracted 9,092 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (peptide)
+  Stage: phase_1
+
+[97/823] Bio Essence Corp
+  Text doesn't look like business description, skipping API
+  Preview: Bio Essence is a leader in the nutraceutical industry. Our mission is to provide natural, simple, and effective products that support wellness and vit...
+  No data extracted
+
+[98/823] BIO-PATH HOLDINGS, INC.
+  Extracted 14,065 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (rna)
+  Stage: phase_2
+
+[99/823] BIOADAPTIVES, INC.
+  Text doesn't look like business description, skipping API
+  Preview: APEX 8 Inc. was incorporated in the State of Delaware on April 19, 2013. On May 3, 2013, we filed a registration statement on Form 10 to register with...
+  No data extracted
+
+[100/823] BioAge Labs, Inc.
+  Extracted 5,181 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+Saved 100 companies to step3_pipeline_info.csv
+
+  Saved intermediate results (87 API calls, 13 errors)
+  Disease areas: {'oncology': 32, 'cns': 14, 'infectious_disease': 7, 'immunology': 6, 'rare_disease': 6}
+  Modalities: {'other': 18, 'small_molecule': 34, 'biologic': 24, 'both': 8, 'unknown': 1}
+
+[101/823] BIOCANCELL THERAPEUTICS INC.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (gene_therapy)
+  Stage: phase_2
+
+[102/823] Biofrontera Inc.
+  Extracted 10,966 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: other (photodynamic_therapy)
+  Stage: approved
+
+[103/823] Biohaven Ltd.
+  Extracted 2,284 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: unknown
+
+[104/823] Biohaven Pharmaceutical Holding Co Ltd.
+  Extracted 22,718 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[105/823] BIONOVO INC
+  Extracted 3,106 chars of business text
+  Calling Claude API...
+  Disease: women_health
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[106/823] Bioquest Corp
+  Text doesn't look like business description, skipping API
+  Preview: to be diluted. Such dilution will negatively affect the value of investors shares. WE DO NOT EXPECT TO PAY DIVIDENDS IN THE FORESEEBLE FUTURE. We have...
+  No data extracted
+
+[107/823] BIORA THERAPEUTICS, INC.
+  Extracted 1,873 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: other (device)
+  Stage: unknown
+
+[108/823] Biostar Pharmaceuticals, Inc.
+  Extracted 8,210 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[109/823] Biostax Corp.
+  Extracted 12,611 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[110/823] BIOVIE INC.
+  Extracted 25,889 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[111/823] BioXcel Therapeutics, Inc.
+  Extracted 9,740 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: both (small_molecule)
+  Stage: phase_1
+
+[112/823] BIOXYTRAN, INC
+  Extracted 14,777 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: both (protein)
+  Stage: phase_2
+
+[113/823] BODY & MIND INC.
+  Extracted 2,365 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (cannabis_products)
+  Stage: unknown
+
+[114/823] Bohai Pharmaceuticals Group, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: We were incorporated under the laws of the State of Nevada on January 9, 2008. Since January 5, 2010, our business consists of the production, manufac...
+  No data extracted
+
+[115/823] Bolt Biotherapeutics, Inc.
+  Extracted 10,962 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (adc)
+  Stage: phase_1
+
+[116/823] Boundless Bio, Inc.
+  Extracted 6,679 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[117/823] Braeburn Pharmaceuticals, Inc.
+  Extracted 1,702 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: other (drug_delivery)
+  Stage: approved
+
+[118/823] BridgeBio Oncology Therapeutics, Inc.
+  Extracted 693 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: unknown (unknown)
+  Stage: unknown
+
+[119/823] BridgeBio Pharma, Inc.
+  Extracted 2,004 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (other)
+  Stage: phase_3
+
+[120/823] BullFrog AI Holdings, Inc.
+  Extracted 8,773 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (ai_platform)
+  Stage: preclinical
+
+[121/823] CADENCE PHARMACEUTICALS INC
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: other
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[122/823] CalciMedica, Inc.
+  Extracted 6,946 chars of business text
+  Calling Claude API...
+  Disease: ophthalmology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[123/823] Calithera Biosciences, Inc.
+  Extracted 3,944 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[124/823] Camp4 Therapeutics Corp
+  Extracted 10,817 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (rna)
+  Stage: phase_1
+
+[125/823] Cancer Prevention Pharmaceuticals, Inc.
+  Extracted 2,093 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[126/823] Cantabio Pharmaceuticals Inc.
+  Extracted 7,663 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: both (small_molecule)
+  Stage: preclinical
+
+[127/823] CAPRICOR THERAPEUTICS, INC.
+  Extracted 8,180 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: biologic (cell_therapy)
+  Stage: phase_2
+
+[128/823] CARDAX, INC.
+  Extracted 16,224 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[129/823] Carmot Therapeutics Inc.
+  Extracted 16,354 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: both (peptide)
+  Stage: phase_2
+
+[130/823] Castle Creek Biosciences, Inc.
+  Extracted 11,708 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (gene_therapy)
+  Stage: phase_3
+
+[131/823] Cavit Sciences, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: On April 12, 2006, we were incorporated under the laws of the State of Florida and became a subsidiary of Hard to Treat Diseases, Inc. ("Hard to Treat...
+  No data extracted
+
+[132/823] CDT Equity Inc.
+  Text doesn't look like business description, skipping API
+  Preview: On September 22, 2023, a merger transaction (the Business Combination ) between Conduit Pharmaceuticals Limited ( Old Conduit ), Murphy Canyon Acquisi...
+  No data extracted
+
+[133/823] Cell Source, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: hematology
+  Modality: other (cell_therapy)
+  Stage: preclinical
+
+[134/823] Celularity Inc
+  Extracted 8,103 chars of business text
+  Calling Claude API...
+  Disease: other
+  Modality: other (cell_therapy)
+  Stage: phase_2
+
+[135/823] CEN BIOTECH INC
+  Extracted 3,320 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (hemp_products)
+  Stage: discovery
+
+[136/823] Centessa Pharmaceuticals plc
+  Text doesn't look like business description, skipping API
+  Preview: Centessa Pharmaceuticals plc (Centessa) was conceived by combining the primary strengths of the asset-centric model with the benefits of diversificati...
+  No data extracted
+
+[137/823] Centrexion Therapeutics Corp
+  Extracted 6,809 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[138/823] Checkpoint Therapeutics, Inc.
+  Extracted 8,726 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (antibody)
+  Stage: phase_1
+
+[139/823] Chemomab Therapeutics Ltd.
+  Extracted 5,370 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[140/823] CHIASMA, INC
+  Extracted 13,347 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: biologic (peptide)
+  Stage: phase_3
+
+[141/823] CHIMERIX INC
+  Extracted 11,741 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[142/823] CHINA PEDIATRIC PHARMACEUTICALS, INC.
+  Text doesn't look like business description, skipping API
+  Preview: 3 Corporate History 4 Background of Shaanxi Jiali 5 History and Corporate Organization 6 Reorganization and Revised Structure 7 Combination 7 The Offe...
+  No data extracted
+
+[143/823] China Pharmaceuticals Inc
+  Text doesn't look like business description, skipping API
+  Preview: China Pharmaceuticals, Inc. (formerly Allstar Restaurants) was incorporated in the State of Nevada on December 22, 2004. On February 12, 2010, pursuan...
+  No data extracted
+
+[144/823] China Polypeptide Group, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (other)
+  Stage: unknown
+
+[145/823] China QinBa Pharmaceuticals, Inc.
+  Extracted 6,984 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: other (traditional_chinese_medicine)
+  Stage: approved
+
+[146/823] CHINOOK THERAPEUTICS, INC.
+  Extracted 1,022 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (immunotherapy)
+  Stage: phase_2
+
+[147/823] Chrome Holding Co.
+  Extracted 11,463 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: unknown (unknown)
+  Stage: discovery
+
+[148/823] CinCor Pharma, Inc.
+  Extracted 18,468 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[149/823] Cingulate Inc.
+  Extracted 17,222 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[150/823] Cirius Therapeutics, Inc.
+  Extracted 9,512 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+Saved 150 companies to step3_pipeline_info.csv
+
+  Saved intermediate results (130 API calls, 20 errors)
+  Disease areas: {'oncology': 42, 'cns': 23, 'rare_disease': 12, 'infectious_disease': 9, 'metabolic': 7}
+  Modalities: {'other': 33, 'small_molecule': 51, 'biologic': 28, 'both': 13, 'unknown': 3}
+
+[151/823] CITIUS ONCOLOGY, INC.
+  Extracted 7,615 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (protein)
+  Stage: approved
+
+[152/823] Citius Pharmaceuticals, Inc.
+  Extracted 761 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (reformulated_drugs)
+  Stage: unknown
+
+[153/823] CLARUS THERAPEUTICS INC
+  Text doesn't look like business description, skipping API
+  Preview: of selected information and does not contain all of the information you should consider. You should read this entire prospectus carefully, including t...
+  No data extracted
+
+[154/823] Clearside Biomedical, Inc.
+  Extracted 17,211 chars of business text
+  Calling Claude API...
+  Disease: ophthalmology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[155/823] Clene Inc.
+  Extracted 17,989 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: other (nanotechnology)
+  Stage: phase_3
+
+[156/823] Clever Leaves Holdings Inc.
+  Extracted 1,576 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (botanical_cannabinoid)
+  Stage: unknown
+
+[157/823] Climb Bio, Inc.
+  Extracted 2,651 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[158/823] Clovis Oncology, Inc.
+  Extracted 1,660 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (small_molecule)
+  Stage: phase_3
+
+[159/823] CNBX Pharmaceuticals Inc.
+  Extracted 11,414 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[160/823] CNS Pharmaceuticals, Inc.
+  Extracted 14,409 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[161/823] Coeptis Therapeutics Inc.
+  Text doesn't look like business description, skipping API
+  Preview: We were originally incorporated in the State of Colorado in 1996 under the name Nelx Marketing Inc., and then changed our name to Mind 2 Market, Inc. ...
+  No data extracted
+
+[162/823] Cogent Biosciences, Inc.
+  Extracted 1,383 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (cell_therapy)
+  Stage: phase_1
+
+[163/823] CoLabs Int'l, Corp.
+  Text doesn't look like business description, skipping API
+  Preview: Our technology places OTC drugs, pharmaceuticals, chemicals, and agrochemicals into micro-sized, electrostatically charged encapsulates as well as int...
+  No data extracted
+
+[164/823] COLLEGIUM PHARMACEUTICAL, INC
+  Extracted 22,452 chars of business text
+  Calling Claude API...
+  Disease: pain_management
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[165/823] CoLucid Pharmaceuticals, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: Current Treatment. Migraine is a chronic and debilitating disorder characterized by episodic attacks of moderate to severe throbbing headaches, worsen...
+  No data extracted
+
+[166/823] Comera Life Sciences Holdings, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: Comera Life Sciences Holdings, Inc. was incorporated in Delaware on January 25, 2022 as a wholly owned subsidiary of Comera for the purpose of effectu...
+  No data extracted
+
+[167/823] CONCERT PHARMACEUTICALS, INC.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[168/823] CONSTELLATION PHARMACEUTICALS INC
+  Extracted 3,646 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[169/823] Context Therapeutics Inc.
+  Extracted 4,456 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (small_molecule)
+  Stage: phase_2
+
+[170/823] Contineum Therapeutics, Inc.
+  Extracted 14,780 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[171/823] CONTRAFECT Corp
+  Extracted 12,505 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: biologic (protein)
+  Stage: phase_2
+
+[172/823] Corbus Pharmaceuticals Holdings, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[173/823] CORNERSTONE THERAPEUTICS INC
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: respiratory
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[174/823] CORUS PHARMA INC
+  Extracted 7,167 chars of business text
+  Calling Claude API...
+  Disease: respiratory
+  Modality: other (inhalable_reformulations)
+  Stage: phase_2
+
+[175/823] Coya Therapeutics, Inc.
+  Extracted 8,112 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: other (cell_therapy)
+  Stage: phase_2
+
+[176/823] CQENS Technologies Inc.
+  Extracted 10,994 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality:  ()
+  Stage: unknown
+
+[177/823] CRESCENT BIOPHARMA, INC.
+  Extracted 8,289 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (bispecific)
+  Stage: preclinical
+
+[178/823] Crinetics Pharmaceuticals, Inc.
+  Extracted 12,027 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[179/823] Cue Biopharma, Inc.
+  Extracted 5,010 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (protein)
+  Stage: preclinical
+
+[180/823] CUMBERLAND PHARMACEUTICALS INC
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[181/823] Curanex Pharmaceuticals Inc
+  Extracted 16,022 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: other (botanical_extract)
+  Stage: preclinical
+
+[182/823] CURAXIS PHARMACEUTICAL Corp
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: other (biodegradable_implant)
+  Stage: phase_3
+
+[183/823] CURAXIS PHARMACEUTICAL Corp
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: other (implant)
+  Stage: phase_2
+
+[184/823] CUTANEA LIFE SCIENCES INC
+  Extracted 10,224 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: other (peptide)
+  Stage: phase_3
+
+[185/823] CV Sciences, Inc.
+  Extracted 4,541 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (nutraceutical)
+  Stage: approved
+
+[186/823] Cyclerion Therapeutics, Inc.
+  Extracted 1,409 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: unknown
+
+[187/823] Cyteir Therapeutics, Inc.
+  Extracted 7,529 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[188/823] CytomX Therapeutics, Inc.
+  Extracted 7,087 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (antibody)
+  Stage: preclinical
+
+[189/823] Dance Biopharm Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of selected information contained elsewhere in this prospectus and does not contain all of the information you should consider before investing in our...
+  No data extracted
+
+[190/823] Day One Biopharmaceuticals, Inc.
+  Extracted 15,118 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[191/823] Decibel Therapeutics, Inc.
+  Extracted 588 chars of business text
+  Calling Claude API...
+  Disease: other
+  Modality: other (gene_therapy)
+  Stage: unknown
+
+[192/823] Deciphera Pharmaceuticals, Inc.
+  Extracted 15,980 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[193/823] Dermavant Sciences Ltd
+  Extracted 3,408 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[194/823] Dermira, Inc.
+  Extracted 20,246 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: both (antibody)
+  Stage: phase_3
+
+[195/823] Design Therapeutics, Inc.
+  Extracted 13,232 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[196/823] DiaMedica Therapeutics Inc.
+  Extracted 16,196 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: biologic (protein)
+  Stage: phase_1
+
+[197/823] DICE Therapeutics, Inc.
+  Extracted 1,218 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: small_molecule (small_molecule)
+  Stage: unknown
+
+[198/823] Dicerna Pharmaceuticals Inc
+  Extracted 7,859 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (rna)
+  Stage: preclinical
+
+[199/823] Disc Medicine, Inc.
+  Extracted 6,179 chars of business text
+  Calling Claude API...
+  Disease: ophthalmology
+  Modality: biologic (protein)
+  Stage: phase_2
+
+[200/823] DNIB UNWIND, INC.
+  Extracted 8,817 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (nanomedicine)
+  Stage: phase_2
+Saved 200 companies to step3_pipeline_info.csv
+
+  Saved intermediate results (174 API calls, 26 errors)
+  Disease areas: {'oncology': 57, 'cns': 31, 'rare_disease': 17, 'infectious_disease': 10, 'dermatology': 9}
+  Modalities: {'other': 47, 'small_molecule': 70, 'biologic': 35, 'both': 16, 'unknown': 3}
+
+[201/823] Dogwood Therapeutics, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[202/823] Dova Pharmaceuticals Inc.
+  Extracted 13,467 chars of business text
+  Calling Claude API...
+  Disease: hematology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[203/823] Dyne Therapeutics, Inc.
+  Extracted 12,056 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (adc)
+  Stage: preclinical
+
+[204/823] EAGLE PHARMACEUTICALS, INC.
+  Extracted 982 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (injectable_formulations)
+  Stage: approved
+
+[205/823] EARTH DRAGON RESOURCES INC.
+  Text doesn't look like business description, skipping API
+  Preview: to revenue generation. That is because we have not found economic mineralization yet and it is impossible to project revenue generation from nothing. ...
+  No data extracted
+
+[206/823] Earth Science Tech, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: Earth Science Tech, Inc. (&ldquo;ETST&rdquo;) offers high-grade full spectrum cannabinoid oil on the market. There are positive results in studies on ...
+  No data extracted
+
+[207/823] Edgewise Therapeutics, Inc.
+  Extracted 11,522 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[208/823] Eidos Therapeutics, Inc.
+  Extracted 9,319 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[209/823] Elicio Therapeutics, Inc.
+  Extracted 3,135 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (vaccine)
+  Stage: phase_1
+
+[210/823] Elicio Therapeutics, Inc.
+  Extracted 1,636 chars of business text
+  Calling Claude API...
+  Disease: renal
+  Modality: small_molecule (small_molecule)
+  Stage: unknown
+
+[211/823] Emmaus Life Sciences, Inc.
+  Extracted 13,841 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: other (diagnostic_platform)
+  Stage: approved
+
+[212/823] Endo LP
+  Extracted 2,614 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (other)
+  Stage: approved
+
+[213/823] Enliven Therapeutics, Inc.
+  Extracted 12,739 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[214/823] Ensysce Biosciences, Inc.
+  Extracted 5,782 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[215/823] Entasis Therapeutics Holdings Inc.
+  Extracted 6,036 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[216/823] Enterologics, Inc.
+  Extracted 15,489 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: biologic (live_biotherapeutics)
+  Stage: discovery
+
+[217/823] ENTEST GROUP, INC.
+  Text doesn't look like business description, skipping API
+  Preview: or the Selling Security Holders. This prospectus does not constitute an offer to sell or a solicitation of an offer to buy any securities other than t...
+  No data extracted
+
+[218/823] Entrada Therapeutics, Inc.
+  Extracted 15,413 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (rna)
+  Stage: preclinical
+
+[219/823] Enumeral Biomedical Holdings, Inc.
+  Extracted 5,969 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (antibody)
+  Stage: preclinical
+
+[220/823] EnzymeBioSystems
+  Extracted 19,224 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (enzyme)
+  Stage: preclinical
+
+[221/823] EnzymeBioSystems/Old
+  Extracted 2,154 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (enzyme)
+  Stage: discovery
+
+[222/823] EPIRUS Biopharmaceuticals, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: before any payment is made to the holders of shares of our common stock. In some circumstances, the issuance of shares of preferred stock may render m...
+  No data extracted
+
+[223/823] EQRx, Inc.
+  Extracted 5,149 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (antibody)
+  Stage: phase_3
+
+[224/823] Equillium, Inc.
+  Extracted 896 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (antibody)
+  Stage: unknown
+
+[225/823] Erasca, Inc.
+  Extracted 1,154 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (modality_agnostic)
+  Stage: phase_1
+
+[226/823] Esperion Therapeutics, Inc.
+  Extracted 6,780 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[227/823] Eton Pharmaceuticals, Inc.
+  Extracted 8,568 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[228/823] Evelo Biosciences, Inc.
+  Extracted 6,008 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: other (monoclonal_microbials)
+  Stage: preclinical
+
+[229/823] Evofem Biosciences, Inc.
+  Extracted 12,197 chars of business text
+  Calling Claude API...
+  Disease: reproductive_health
+  Modality: other (vaginal_gel)
+  Stage: approved
+
+[230/823] Evoke Pharma Inc
+  Extracted 5,939 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[231/823] Evolus, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: We licensed DWP-450 from Daewoong in September 2013 and commenced clinical trials in 2014. DWP-450 is an injectable formulation of prabotulinumtoxinA....
+  No data extracted
+
+[232/823] Evommune, Inc.
+  Extracted 22,955 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: both (small_molecule)
+  Stage: phase_2
+
+[233/823] EXICURE, INC.
+  Extracted 14,629 chars of business text
+  Calling Claude API...
+  Disease: hematology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[234/823] Exxel Pharma, INC.
+  Extracted 3,346 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[235/823] EYETECH PHARMACEUTICALS INC
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: ophthalmology
+  Modality: other (aptamer)
+  Stage: phase_3
+
+[236/823] Felicitex Therapeutics Inc.
+  Extracted 6,850 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[237/823] FibroBiologics, Inc.
+  Extracted 15,999 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: other (cell_therapy)
+  Stage: unknown
+
+[238/823] FIRST CHINA PHARMACEUTICAL GROUP, INC.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (distribution)
+  Stage: unknown
+
+[239/823] Flexion Therapeutics Inc
+  Extracted 12,288 chars of business text
+  Calling Claude API...
+  Disease: pain_management
+  Modality: other (sustained_release_formulation)
+  Stage: phase_2
+
+[240/823] Foghorn Therapeutics Inc.
+  Text doesn't look like business description, skipping API
+  Preview: The chromatin regulatory system orchestrates gene expression the turning on and off of genes which is fundamental to how all our cells function. Break...
+  No data extracted
+
+[241/823] Forte Biosciences, Inc.
+  Extracted 14,145 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (gene_therapy)
+  Stage: phase_2
+
+[242/823] Forty Seven, Inc.
+  Extracted 11,595 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[243/823] Fulcrum Therapeutics, Inc.
+  Extracted 4,133 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[244/823] Gain Therapeutics, Inc.
+  Extracted 1,647 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: unknown
+
+[245/823] Galecto, Inc.
+  Extracted 4,819 chars of business text
+  Calling Claude API...
+  Disease: respiratory
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[246/823] Galera Therapeutics, Inc.
+  Extracted 12,630 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[247/823] Gelesis Inc
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: other (medical_device)
+  Stage: phase_2
+
+[248/823] GENELUX Corp
+  Extracted 9,021 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (oncolytic_virus)
+  Stage: phase_2
+
+[249/823] Generation Bio Co.
+  Extracted 10,486 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (gene_therapy)
+  Stage: preclinical
+
+[250/823] Genprex, Inc.
+  Extracted 1,750 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (gene_therapy)
+  Stage: preclinical
+Saved 250 companies to step3_pipeline_info.csv
+
+  Saved intermediate results (218 API calls, 32 errors)
+  Disease areas: {'oncology': 68, 'cns': 35, 'rare_disease': 25, 'infectious_disease': 12, 'immunology': 12}
+  Modalities: {'other': 67, 'small_molecule': 88, 'biologic': 39, 'both': 18, 'unknown': 3}
+
+[251/823] Global Blood Therapeutics, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of Sickle Cell Disease SCD is a genetic blood disorder caused by a single point mutation in the beta-chain of hemoglobin, which results in the formati...
+  No data extracted
+
+[252/823] Global Future City Holding Inc.
+  Text doesn't look like business description, skipping API
+  Preview: was incorporated in the State of Nevada on October 12, 2000 under the name Cogen Systems, Inc. We changed our name to Snocone Systems, Inc. on Decembe...
+  No data extracted
+
+[253/823] GLOBAL GREEN INC.
+  Text doesn't look like business description, skipping API
+  Preview: Our recent operating history over the last two years has been focused on the finishing of the final phase of the USDA study, finding a partner to manu...
+  No data extracted
+
+[254/823] GlobeStar Therapeutics Corp
+  Text doesn't look like business description, skipping API
+  Preview: As of the date of this Prospectus, we have not established any business operations and have not achieved any revenues. We have not commenced any manuf...
+  No data extracted
+
+[255/823] Gossamer Bio, Inc.
+  Extracted 8,613 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[256/823] Greater Cannabis Company, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: Our current business focus is on commercializing our own and licensed technologies worldwide for transmucosal and transdermal delivery of legal medica...
+  No data extracted
+
+[257/823] GridAI Technologies Corp.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: biologic (protein)
+  Stage: phase_2
+
+[258/823] Guardion Health Sciences, Inc.
+  Extracted 21,896 chars of business text
+  Calling Claude API...
+  Disease: ophthalmology
+  Modality: other (medical_food)
+  Stage: approved
+
+[259/823] Harmony Biosciences Holdings, Inc.
+  Extracted 17,705 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[260/823] HARROW, INC.
+  Extracted 7,265 chars of business text
+  Calling Claude API...
+  Disease: pain_management
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[261/823] HCW Biologics Inc.
+  Extracted 4,434 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (protein)
+  Stage: phase_1
+
+[262/823] Health-Right Discoveries, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of all material information contained in this prospectus. It does not contain all the information you should consider before making a decision to purc...
+  No data extracted
+
+[263/823] Healthcare Royalty, Inc.
+  Extracted 26,492 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: other (royalty_acquisition)
+  Stage: approved
+
+[264/823] HELICOS BIOSCIENCES CORP
+  Extracted 8,790 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (sequencing_platform)
+  Stage: unknown
+
+[265/823] Hemoglobin Oxygen Therapeutics LLC
+  Text doesn't look like business description, skipping API
+  Preview: Certain Definitions Throughout this document, the below terms shall have the following meanings: &ldquo;Indication&rdquo; means a specific use of a pr...
+  No data extracted
+
+[266/823] HIGH PERFORMANCE BEVERAGES CO.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality:  ()
+  Stage: 
+
+[267/823] Histogen Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of selected information contained elsewhere in this prospectus and does not contain all of the information you should consider before investing in our...
+  No data extracted
+
+[268/823] Hoth Therapeutics, Inc.
+  Extracted 16,763 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[269/823] Hoverink Biotechnologies, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[270/823] HYPERION THERAPEUTICS INC
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[271/823] HypGen Inc
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[272/823] IASO BioMed, Inc.
+  Extracted 14,898 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: other (peptide)
+  Stage: preclinical
+
+[273/823] IASO PHARMA INC
+  Extracted 5,846 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[274/823] IDEAYA Biosciences, Inc.
+  Extracted 2,205 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[275/823] Ignyta, Inc.
+  Extracted 3,301 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[276/823] il2m INTERNATIONAL CORP.
+  Extracted 3,131 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: other (dietary_supplement)
+  Stage: preclinical
+
+[277/823] Imago BioSciences, Inc.
+  Extracted 4,119 chars of business text
+  Calling Claude API...
+  Disease: hematology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[278/823] IMMAGE BIOTHERAPEUTICS CORP.
+  Extracted 6,769 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (other)
+  Stage: unknown
+
+[279/823] Immix Biopharma, Inc.
+  Extracted 6,839 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (adc)
+  Stage: phase_2
+
+[280/823] IMMUNE DESIGN CORP.
+  Text doesn't look like business description, skipping API
+  Preview: of selected information and does not contain all of the information you should consider before buying our common stock. Therefore, you should read the...
+  No data extracted
+
+[281/823] Immuneering Corp
+  Extracted 13,875 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[282/823] IMMUNIC, INC.
+  Text doesn't look like business description, skipping API
+  Preview: of selected information contained elsewhere in this prospectus and does not contain all of the information you should consider before investing in our...
+  No data extracted
+
+[283/823] IMPACT BIOMEDICAL INC.
+  Extracted 9,940 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: unknown (unknown)
+  Stage: unknown
+
+[284/823] Incannex Healthcare Inc.
+  Extracted 8,784 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: unknown
+
+[285/823] Indaptus Therapeutics, Inc.
+  Extracted 15,301 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (bacterial_immunotherapy)
+  Stage: phase_1
+
+[286/823] INERGETICS INC
+  Text doesn't look like business description, skipping API
+  Preview: Several health concerns must be addressed when it comes to effectively providing nutrition. While other &ldquo;single magic bullet&rdquo; products on ...
+  No data extracted
+
+[287/823] InMed Pharmaceuticals Inc.
+  Extracted 27,705 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[288/823] INNOVUS PHARMACEUTICALS, INC.
+  Extracted 4,039 chars of business text
+  Calling Claude API...
+  Disease: urology
+  Modality: other (otc_consumer_products)
+  Stage: approved
+
+[289/823] INSITE VISION INC
+  Extracted 1,558 chars of business text
+  Calling Claude API...
+  Disease: ophthalmology
+  Modality: small_molecule (small_molecule)
+  Stage: unknown
+
+[290/823] INSYS THERAPEUTICS, INC.
+  Extracted 8,315 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[291/823] Insys Therapeutics, Inc.
+  Extracted 10,073 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[292/823] IntelGenx Technologies Corp.
+  Extracted 2,990 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (drug_delivery)
+  Stage: unknown
+
+[293/823] International Stem Cell CORP
+  Text doesn't look like business description, skipping API
+  Preview: of selected information contained elsewhere in this prospectus and does not contain all of the information you should consider before investing in our...
+  No data extracted
+
+[294/823] Intra-Cellular Therapies, Inc.
+  Extracted 6,742 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[295/823] IO Biotech, Inc.
+  Extracted 3,616 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (cell_therapy)
+  Stage: phase_2
+
+[296/823] Iterum Therapeutics plc
+  Extracted 5,977 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[297/823] IVERIC bio, Inc.
+  Extracted 15,481 chars of business text
+  Calling Claude API...
+  Disease: ophthalmology
+  Modality: other (protein)
+  Stage: phase_3
+
+[298/823] Jade Biosciences, Inc.
+  Extracted 10,164 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (antibody)
+  Stage: unknown
+
+[299/823] Jaguar Health, Inc.
+  Extracted 22,971 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[300/823] Janux Therapeutics, Inc.
+  Extracted 8,498 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (bispecific)
+  Stage: preclinical
+Saved 300 companies to step3_pipeline_info.csv
+
+  Saved intermediate results (256 API calls, 44 errors)
+  Disease areas: {'oncology': 79, 'cns': 41, 'rare_disease': 27, 'infectious_disease': 14, 'immunology': 14}
+  Modalities: {'other': 78, 'small_molecule': 108, 'biologic': 43, 'both': 19, 'unknown': 4}
+
+[301/823] Jiaheng Ruiji International Trade Co Inc.
+  Extracted 11,510 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (nutritional_products)
+  Stage: unknown
+
+[302/823] Jiangbo Pharmaceuticals, Inc.
+  Extracted 3,466 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality:  ()
+  Stage: unknown
+
+[303/823] JUPITER NEUROSCIENCES, INC.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[304/823] K-V Pharmaceutical Co
+  Extracted 5,025 chars of business text
+  Calling Claude API...
+  Disease: womens_health
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[305/823] Kadmon Holdings, Inc.
+  Extracted 2,027 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: both (small_molecule)
+  Stage: unknown
+
+[306/823] Kairos Pharma, LTD.
+  Extracted 3,181 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (antibody)
+  Stage: phase_2
+
+[307/823] KalVista Pharmaceuticals, Inc.
+  Extracted 13,608 chars of business text
+  Calling Claude API...
+  Disease: musculoskeletal
+  Modality: other (combination_therapy)
+  Stage: phase_3
+
+[308/823] Kindred Biosciences, Inc.
+  Extracted 8,450 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: both (small_molecule)
+  Stage: phase_3
+
+[309/823] KINETA, INC./DE
+  Extracted 10,591 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[310/823] Kiniksa Pharmaceuticals International, plc
+  Extracted 12,099 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (antibody)
+  Stage: phase_3
+
+[311/823] Kinnate Biopharma Inc.
+  Extracted 5,997 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[312/823] KOLLTAN PHARMACEUTICALS INC
+  Extracted 18,217 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (antibody)
+  Stage: phase_1
+
+[313/823] Korro Bio, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: and discussion of the regulatory framework for pricing and reimbursement, see Our Business Government Regulation Patients Rely on Insurance Coverage b...
+  No data extracted
+
+[314/823] Kronos Bio, Inc.
+  Extracted 5,380 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[315/823] KUBOTA PHARMACEUTICAL HOLDINGS CO LTD
+  Extracted 7,242 chars of business text
+  Calling Claude API...
+  Disease: ophthalmology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[316/823] Kura Oncology, Inc.
+  Extracted 1,962 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[317/823] Kuvatris Therapeutics, Inc.
+  Extracted 14,438 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[318/823] KYTHERA BIOPHARMACEUTICALS INC
+  Text doesn't look like business description, skipping API
+  Preview: of selected information and does not contain all of the information you should consider before buying our common stock. Therefore, you should read the...
+  No data extracted
+
+[319/823] Lakewood-Amedex Biotherapeutics Inc.
+  Extracted 3,794 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[320/823] Landos Biopharma, Inc.
+  Extracted 20,748 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[321/823] Lantern Pharma Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of selected information and does not contain all of the information you should consider before investing in our securities. You should read the entire...
+  No data extracted
+
+[322/823] Larimar Therapeutics, Inc.
+  Extracted 6,037 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[323/823] Lexaria Bioscience Corp.
+  Extracted 15,423 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: other (drug_delivery_technology)
+  Stage: phase_1
+
+[324/823] LianBio
+  Extracted 3,199 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: unknown (unknown)
+  Stage: unknown
+
+[325/823] Life Science Holdings, Inc.
+  Text doesn't look like business description, skipping API
+  Preview:  S-1 1 lsh_s1.htm FORM S-1 UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549 FORM S-1 REGISTRATION STATEMENT UNDER THE SECURITIE...
+  No data extracted
+
+[326/823] Light Sciences Oncology Inc
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (light_activated_therapy)
+  Stage: preclinical
+
+[327/823] LIPELLA PHARMACEUTICALS INC.
+  Extracted 781 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: small_molecule (small_molecule)
+  Stage: unknown
+
+[328/823] Lipocine Inc.
+  Extracted 897 chars of business text
+  Calling Claude API...
+  Disease: reproductive_health
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[329/823] Lirum Therapeutics, Inc.
+  Extracted 7,170 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (other)
+  Stage: phase_1
+
+[330/823] Lite Strategy, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: and to which the indemnitee was or is a party, or is threatened to be made a party, by reason of the indemnitee s status with or service to us or to a...
+  No data extracted
+
+[331/823] LIXTE BIOTECHNOLOGY HOLDINGS, INC.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[332/823] Lomond Therapeutics Holdings, Inc.
+  Extracted 990 chars of business text
+  Calling Claude API...
+  Disease: hematology
+  Modality: small_molecule (small_molecule)
+  Stage: discovery
+
+[333/823] Longboard Pharmaceuticals, Inc.
+  Extracted 503 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: unknown
+
+[334/823] Longeveron Inc.
+  Extracted 950 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: other (cell_therapy)
+  Stage: unknown
+
+[335/823] Lotus Pharmaceuticals, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: Prior to September 6, 2006, we operated as a retailer of jewelry, framed art and home accessories. On September 28, 2006, we closed the Share Exchange...
+  No data extracted
+
+[336/823] Loxo Oncology, Inc.
+  Extracted 11,076 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[337/823] Luckwel Pharmaceuticals Inc.
+  Extracted 8,977 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[338/823] Lucy Scientific Discovery, Inc.
+  Extracted 11,036 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: unknown
+
+[339/823] Lumena Pharmaceuticals, Inc.
+  Extracted 10,676 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[340/823] Lunai Bioworks Inc.
+  Extracted 6,908 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (vaccine)
+  Stage: phase_2
+
+[341/823] Lyell Immunopharma, Inc.
+  Extracted 4,433 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (cell_therapy)
+  Stage: preclinical
+
+[342/823] MACROGENICS INC
+  Extracted 14,294 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[343/823] MAIA Biotechnology, Inc.
+  Extracted 24,102 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[344/823] MAP Pharmaceuticals, Inc.
+  Extracted 9,891 chars of business text
+  Calling Claude API...
+  Disease: respiratory
+  Modality: other (inhalation_delivery)
+  Stage: phase_2
+
+[345/823] MapLight Therapeutics, Inc.
+  Extracted 10,128 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[346/823] MARAVAI LIFESCIENCES HOLDINGS, INC.
+  Extracted 15,952 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (life_sciences_tools)
+  Stage: unknown
+
+[347/823] MARINUS PHARMACEUTICALS, INC.
+  Extracted 3,150 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[348/823] Matinas BioPharma Holdings, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: other (cochleate_delivery_technology)
+  Stage: phase_2
+
+[349/823] MBX Biosciences, Inc.
+  Extracted 10,232 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: biologic (peptide)
+  Stage: phase_2
+
+[350/823] MED-X, INC.
+  Text doesn't look like business description, skipping API
+  Preview: Med-X, Inc. was incorporated in Nevada in February 2014 in order to originally engage in the following businesses: (a) publishing content about the ca...
+  No data extracted
+Saved 350 companies to step3_pipeline_info.csv
+
+  Saved intermediate results (299 API calls, 51 errors)
+  Disease areas: {'oncology': 93, 'cns': 47, 'rare_disease': 29, 'infectious_disease': 17, 'immunology': 17}
+  Modalities: {'other': 87, 'small_molecule': 131, 'biologic': 49, 'both': 22, 'unknown': 5}
+
+[351/823] MedGen, Inc.
+  Extracted 20,546 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (digital_platform)
+  Stage: unknown
+
+[352/823] MEDICINOVA INC
+  Extracted 24,133 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[353/823] Medicus Pharma Ltd.
+  Extracted 1,595 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (drug_device_combination)
+  Stage: phase_1
+
+[354/823] MELINTA THERAPEUTICS, INC. /NEW/
+  Extracted 22,026 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[355/823] Melt Pharmaceuticals, Inc.
+  Extracted 1,425 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: unknown
+
+[356/823] MERRIMACK PHARMACEUTICALS INC
+  Extracted 7,599 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (antibody)
+  Stage: phase_2
+
+[357/823] Mersana Therapeutics, Inc.
+  Extracted 13,051 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (adc)
+  Stage: phase_1
+
+[358/823] Metacrine, Inc.
+  Extracted 12,131 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[359/823] MetaStat, Inc.
+  Extracted 14,326 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (diagnostic)
+  Stage: preclinical
+
+[360/823] Metsera, Inc.
+  Extracted 1,787 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: biologic (peptide)
+  Stage: unknown
+
+[361/823] MICROLIN BIO, INC.
+  Extracted 28,642 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (rna)
+  Stage: preclinical
+
+[362/823] Milestone Pharmaceuticals Inc.
+  Extracted 2,394 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[363/823] Mineralys Therapeutics, Inc.
+  Extracted 12,819 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[364/823] Minerva Neurosciences, Inc.
+  Extracted 2,069 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: unknown
+
+[365/823] MIRA PHARMACEUTICALS, INC.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[366/823] Mirum Pharmaceuticals, Inc.
+  Extracted 15,273 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[367/823] MIX 1 LIFE, INC.
+  Extracted 5,720 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (nutritional_supplement)
+  Stage: unknown
+
+[368/823] Modern Mobility Aids, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: We were formed on December 19, 2007. Modern Mobility Aids is a wholesaler/distributor of mobility products such as scooters, power chairs, wheelchairs...
+  No data extracted
+
+[369/823] Moleculin Biotech, Inc.
+  Extracted 16,325 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[370/823] Monopar Therapeutics
+  Extracted 18,406 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (small_molecule)
+  Stage: phase_3
+
+[371/823] MoonLake Immunotherapeutics
+  Extracted 13,887 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[372/823] Morphic Holding, Inc.
+  Extracted 7,804 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[373/823] MultiVir Inc.
+  Extracted 13,095 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (gene_therapy)
+  Stage: phase_1
+
+[374/823] MyoKardia, Inc.
+  Extracted 21,448 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[375/823] Myovant Sciences Ltd.
+  Extracted 10,978 chars of business text
+  Calling Claude API...
+  Disease: women_health
+  Modality: both (small_molecule)
+  Stage: phase_2
+
+[376/823] NANOMIX Corp
+  Extracted 6,156 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: other (diagnostic_platform)
+  Stage: approved
+
+[377/823] NANOVIRICIDES, INC.
+  Extracted 3,172 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: other (nanoparticle)
+  Stage: preclinical
+
+[378/823] Nascent Biotech Inc.
+  Extracted 2,154 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[379/823] NEONC TECHNOLOGIES HOLDINGS, INC.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[380/823] Neos Therapeutics, Inc.
+  Extracted 4,146 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[381/823] NeuBase Therapeutics, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of selected information and does not contain all of the information you should consider in making your investment decision. Therefore, you should read...
+  No data extracted
+
+[382/823] Neurogene Inc.
+  Text doesn't look like business description, skipping API
+  Preview: Despite recent scientific advances in genetics, most neurological diseases, particularly those with devastating consequences to patients, are left unt...
+  No data extracted
+
+[383/823] NeurogesX Inc
+  Extracted 6,321 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[384/823] NEUROPATHIX, INC.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[385/823] Neurotrope, Inc.
+  Extracted 19,029 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[386/823] NexImmune, Inc.
+  Extracted 7,086 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (cell_therapy)
+  Stage: phase_1
+
+[387/823] NextCure, Inc.
+  Extracted 6,888 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[388/823] NEXUS BIOPHARMA INC
+  Text doesn't look like business description, skipping API
+  Preview: if you can afford a loss of your entire investment. The shares of common stock offered under this prospectus involve a high degree of risk. See Risk F...
+  No data extracted
+
+[389/823] Nexvet Biopharma plc
+  Extracted 12,618 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (antibody)
+  Stage: phase_3
+
+[390/823] NGM BIOPHARMACEUTICALS INC
+  Extracted 8,296 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: biologic (protein)
+  Stage: phase_2
+
+[391/823] Nkarta, Inc.
+  Extracted 8,727 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (cell_therapy)
+  Stage: phase_1
+
+[392/823] Notable Labs, Ltd.
+  Extracted 8,164 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[393/823] NRX Pharmaceuticals, Inc.
+  Extracted 5,958 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[394/823] NUPATHE INC.
+  Extracted 4,034 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: other (transdermal_delivery)
+  Stage: phase_3
+
+[395/823] Nurix Therapeutics, Inc.
+  Extracted 9,856 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[396/823] Nuvalent, Inc.
+  Extracted 6,764 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[397/823] Nuvation Bio Inc.
+  Extracted 1,472 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (small_molecule)
+  Stage: phase_1
+
+[398/823] Nuvectis Pharma, Inc.
+  Extracted 4,907 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[399/823] NVN Liquidation, Inc.
+  Extracted 5,784 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[400/823] Obagi Medical Products, Inc.
+  Extracted 3,464 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: other (topical_formulations)
+  Stage: approved
+Saved 400 companies to step3_pipeline_info.csv
+
+  Saved intermediate results (345 API calls, 55 errors)
+  Disease areas: {'oncology': 110, 'cns': 58, 'rare_disease': 30, 'infectious_disease': 20, 'immunology': 19}
+  Modalities: {'other': 99, 'small_molecule': 154, 'biologic': 56, 'both': 26, 'unknown': 5}
+
+[401/823] Ocata Therapeutics, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: ophthalmology
+  Modality: other (cell_therapy)
+  Stage: phase_2
+
+[402/823] Ocean Biomedical Holdings, Inc.
+  Extracted 1,915 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality:  ()
+  Stage: unknown
+
+[403/823] Ocean Biomedical, Inc.
+  Extracted 13,736 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: unknown (unknown)
+  Stage: unknown
+
+[404/823] OCULAR THERAPEUTIX, INC
+  Extracted 29,367 chars of business text
+  Calling Claude API...
+  Disease: ophthalmology
+  Modality: other (drug_delivery_system)
+  Stage: approved
+
+[405/823] Odonate Therapeutics, Inc.
+  Extracted 5,468 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[406/823] Old API Wind-down Ltd.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[407/823] Omthera Pharmaceuticals, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of selected information contained elsewhere in this prospectus and does not contain all of the information you should consider before investing in our...
+  No data extracted
+
+[408/823] Oncolix, Inc.
+  Extracted 17,454 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (protein)
+  Stage: phase_1
+
+[409/823] OncoMed Pharmaceuticals Inc
+  Extracted 11,604 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (antibody)
+  Stage: phase_1
+
+[410/823] Onconetix, Inc.
+  Extracted 21,549 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (diagnostic)
+  Stage: approved
+
+[411/823] Oncorus, Inc.
+  Extracted 9,907 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (viral_immunotherapy)
+  Stage: phase_1
+
+[412/823] One World Products, Inc.
+  Extracted 8,329 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: other (cannabis_derived_compounds)
+  Stage: preclinical
+
+[413/823] OnKure Therapeutics, Inc.
+  Extracted 12,407 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[414/823] OPIANT PHARMACEUTICALS, INC.
+  Text doesn't look like business description, skipping API
+  Preview:  S-1 1 v435853_s1.htm FORM S-1 As filed with the Securities and Exchange Commission on April 4, 2016 Registration Statement No. UNITED STATES SECURITI...
+  No data extracted
+
+[415/823] Optec International, Inc.
+  Extracted 8,382 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (natural_products)
+  Stage: preclinical
+
+[416/823] OptiNose, Inc.
+  Extracted 13,401 chars of business text
+  Calling Claude API...
+  Disease: respiratory
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[417/823] Option Therapeutics Inc.
+  Extracted 22,748 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[418/823] Or-Ion Products, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: Or-Ion was incorporated on July 09, 2008 in the State of Texas. We began our business operations on April 01, 2008 as Or-Ion Products, Inc; and we cur...
+  No data extracted
+
+[419/823] ORAMED PHARMACEUTICALS INC.
+  Extracted 780 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: biologic (protein)
+  Stage: unknown
+
+[420/823] Orexigen Therapeutics, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[421/823] Orgenesis Inc.
+  Text doesn't look like business description, skipping API
+  Preview: We were incorporated in the state of Nevada on June 5, 2008 under the name Business Outsourcing Services, Inc. Effective August 31, 2011, we completed...
+  No data extracted
+
+[422/823] Oric Pharmaceuticals, Inc.
+  Extracted 9,292 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[423/823] Osteologix, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[424/823] OTONOMY, INC.
+  Extracted 3,260 chars of business text
+  Calling Claude API...
+  Disease: otology
+  Modality: other (sustained_exposure_drug_delivery)
+  Stage: phase_3
+
+[425/823] OTR Acquisition Corp.
+  Extracted 3,758 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality:  ()
+  Stage: unknown
+
+[426/823] Oxeia Biopharmaceuticals, Inc.
+  Extracted 15,475 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: biologic (peptide)
+  Stage: phase_2
+
+[427/823] PALVELLA THERAPEUTICS, INC.
+  Extracted 4,431 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[428/823] Pandion Therapeutics, Inc.
+  Extracted 11,189 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (protein)
+  Stage: phase_1
+
+[429/823] PAR PHARMACEUTICAL HOLDINGS, INC.
+  Extracted 15,910 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[430/823] PARDES BIOSCIENCES, INC.
+  Extracted 10,625 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[431/823] Pasithea Therapeutics Corp.
+  Extracted 15,705 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[432/823] Patheon N.V.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: both (contract_services)
+  Stage: unknown
+
+[433/823] PDS Biotechnology Corp
+  Extracted 13,524 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (vaccine)
+  Stage: phase_2
+
+[434/823] PENINSULA PHARMACEUTICALS INC
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[435/823] PepGen Inc.
+  Extracted 13,210 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (rna)
+  Stage: phase_1
+
+[436/823] PERFORMANCE HEALTH HOLDINGS CORP.
+  Text doesn't look like business description, skipping API
+  Preview: We compete in segments of the global consumer health and wellness market that represent $472 billion of the total market, based on data from Euromonit...
+  No data extracted
+
+[437/823] Pernix Sleep, Inc.
+  Extracted 29,649 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[438/823] Pfenex Inc.
+  Text doesn't look like business description, skipping API
+  Preview: We believe the emerging biosimilar market will be substantial due to the large number of blockbuster biologic products that will lose patent protectio...
+  No data extracted
+
+[439/823] PharMEDium Healthcare Holdings, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (compounded_sterile_preparations)
+  Stage: approved
+
+[440/823] PhaseBio Pharmaceuticals Inc
+  Extracted 9,258 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[441/823] PHASERX, INC.
+  Extracted 8,744 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (rna)
+  Stage: preclinical
+
+[442/823] Phathom Pharmaceuticals, Inc.
+  Extracted 2,326 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[443/823] Phenomix CORP
+  Extracted 10,539 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[444/823] PLIANT THERAPEUTICS, INC.
+  Extracted 3,974 chars of business text
+  Calling Claude API...
+  Disease: respiratory
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[445/823] PLX PHARMA INC.
+  Extracted 16,930 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[446/823] PLx Pharma Winddown Corp.
+  Extracted 19,708 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: biologic (peptide)
+  Stage: phase_3
+
+[447/823] PMGC Holdings Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: biologic (other)
+  Stage: unknown
+
+[448/823] PMV Pharmaceuticals, Inc.
+  Extracted 1,796 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[449/823] Polaryx Therapeutics, Inc.
+  Extracted 4,430 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: both (small_molecule)
+  Stage: phase_2
+
+[450/823] Polomar Health Services, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: or fails to publish reports on us regularly, demand for our stock could decrease, which in turn could cause our stock price or trading volume to decli...
+  No data extracted
+Saved 450 companies to step3_pipeline_info.csv
+
+  Saved intermediate results (388 API calls, 62 errors)
+  Disease areas: {'oncology': 119, 'cns': 62, 'rare_disease': 34, 'infectious_disease': 23, 'immunology': 20}
+  Modalities: {'other': 109, 'small_molecule': 173, 'biologic': 64, 'both': 29, 'unknown': 6}
+
+[451/823] POLYMEDIX, INC
+  Extracted 24,443 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[452/823] PORTOLA PHARMACEUTICALS INC
+  Text doesn't look like business description, skipping API
+  Preview: Our revenue to date has been generated primarily from collaboration and license revenue pursuant to our collaboration agreements with Biogen Idec, Mer...
+  No data extracted
+
+[453/823] Praxis Precision Medicines, Inc.
+  Extracted 4,840 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: both (small_molecule)
+  Stage: phase_2
+
+[454/823] Praxsyn Corp
+  Text doesn't look like business description, skipping API
+  Preview: Pet Airways is an airline designed specifically for the comfortable and safe transportation of pets by traveling in the main cabin of the aircraft. Pe...
+  No data extracted
+
+[455/823] PREDIX PHARMACEUTICALS HOLDINGS INC
+  Extracted 20,205 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[456/823] Prelude Therapeutics Inc
+  Extracted 1,452 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[457/823] Prescott Holdings, Inc.
+  Extracted 8,681 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (supplements)
+  Stage: unknown
+
+[458/823] PRESTWICK PHARMACEUTICALS INC
+  Extracted 9,992 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[459/823] Primus Therapeutics Inc.
+  Extracted 5,169 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality:  ()
+  Stage: unknown
+
+[460/823] Principia Biopharma Inc.
+  Extracted 10,716 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[461/823] PRO NUTRISOURCE INC.
+  Text doesn't look like business description, skipping API
+  Preview: hold all of our securities not held by affiliates. As of the date of this Prospectus, all of our "non-affiliates" are those individuals listed as sell...
+  No data extracted
+
+[462/823] Processa Pharmaceuticals, Inc.
+  Extracted 773 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[463/823] Prometheus Biosciences, Inc.
+  Extracted 14,104 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: both (antibody)
+  Stage: phase_1
+
+[464/823] ProMIS Neurosciences Inc.
+  Text doesn't look like business description, skipping API
+  Preview: AD, a progressive neurodegenerative disease, is the most common type of dementia, accounting for approximately 60-80% of all dementia cases. Early sym...
+  No data extracted
+
+[465/823] Propanc Biopharma, Inc.
+  Extracted 8,014 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (enzyme)
+  Stage: preclinical
+
+[466/823] ProPhase Labs, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[467/823] Protagenic Therapeutics, Inc.\new
+  Extracted 4,836 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: biologic (peptide)
+  Stage: preclinical
+
+[468/823] Protagonist Therapeutics, Inc
+  Extracted 6,110 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: other (peptide)
+  Stage: phase_1
+
+[469/823] Protea Biosciences Group, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of the key aspects of our business and our securities. The reader should read the entire prospectus carefully, especially the risks of investing in ou...
+  No data extracted
+
+[470/823] PROTEONOMIX, INC.
+  Extracted 5,815 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: other (cell_therapy)
+  Stage: preclinical
+
+[471/823] PROVECTUS BIOPHARMACEUTICALS, INC.
+  Extracted 19,355 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[472/823] Provention Bio, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of T1D Biology and PRV-031 Mechanism of Action T1D is an autoimmune disease. Specialized white blood cells of our immune system, known as self-reactiv...
+  No data extracted
+
+[473/823] Pulmatrix, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of selected information contained elsewhere or incorporated by reference in this prospectus and does not contain all of the information you should con...
+  No data extracted
+
+[474/823] PUMA BIOTECHNOLOGY, INC.
+  Extracted 4,813 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[475/823] Q BioMed Inc.
+  Extracted 3,146 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (radiopharmaceutical)
+  Stage: approved
+
+[476/823] Q Therapeutics, Inc.
+  Extracted 15,502 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: other (cell_therapy)
+  Stage: preclinical
+
+[477/823] Q32 Bio Inc.
+  Extracted 14,020 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[478/823] QUATRX PHARMACEUTICALS Co
+  Extracted 6,688 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[479/823] Ra Pharmaceuticals, Inc.
+  Extracted 4,305 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: both (peptide)
+  Stage: phase_2
+
+[480/823] Rain Oncology Inc.
+  Extracted 6,776 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[481/823] Rallybio Corp
+  Extracted 6,407 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: both (antibody)
+  Stage: phase_2
+
+[482/823] Rani Therapeutics Holdings, Inc.
+  Extracted 3,178 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: biologic (platform_technology)
+  Stage: phase_1
+
+[483/823] Rapid Therapeutic Science Laboratories, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: According to a report published in December 2019, by Grand View Research, entitled Cannabidiol Market Size, Share & Trends Analysis Report by Source T...
+  No data extracted
+
+[484/823] Rapport Therapeutics, Inc.
+  Extracted 3,495 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[485/823] RAPT Therapeutics, Inc.
+  Extracted 7,256 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[486/823] RAPTOR PHARMACEUTICALS CORP.
+  Extracted 7,602 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[487/823] RayzeBio, Inc.
+  Extracted 14,479 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (radiopharmaceutical)
+  Stage: phase_3
+
+[488/823] REATA PHARMACEUTICALS INC
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[489/823] Rebus Holdings, Inc.
+  Extracted 16,028 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[490/823] Receptos, Inc.
+  Extracted 526 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: small_molecule (small_molecule)
+  Stage: unknown
+
+[491/823] Redwood Scientific Technologies, Inc.
+  Extracted 24,693 chars of business text
+  Calling Claude API...
+  Disease: sexual_dysfunction
+  Modality: other (sublingual_strip)
+  Stage: approved
+
+[492/823] Regen BioPharma Inc
+  Text doesn't look like business description, skipping API
+  Preview: or the Distributing Security Holder. This prospectus does not constitute an offer to sell or a solicitation of an offer to buy any securities other th...
+  No data extracted
+
+[493/823] RegenoCELL Therapeutics, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: other (cell_therapy)
+  Stage: phase_1
+
+[494/823] Rein Therapeutics, Inc.
+  Extracted 11,729 chars of business text
+  Calling Claude API...
+  Disease: respiratory
+  Modality: biologic (peptide)
+  Stage: phase_2
+
+[495/823] RELMADA THERAPEUTICS, INC.
+  Extracted 21,872 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[496/823] RENOVIS INC
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[497/823] RenovoRx, Inc.
+  Extracted 8,690 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (drug_device_combination)
+  Stage: phase_3
+
+[498/823] Repare Therapeutics Inc.
+  Extracted 767 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: unknown ()
+  Stage: unknown
+
+[499/823] REST EZ Inc.
+  Text doesn't look like business description, skipping API
+  Preview: We were incorporated in the State of Wyoming on October 17, 2016, under the name of Amazing Ventures, Inc. Our articles of incorporation were amended ...
+  No data extracted
+
+[500/823] Retrieve Medical Holdings, Inc.
+  Extracted 4,085 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality:  ()
+  Stage: 
+Saved 500 companies to step3_pipeline_info.csv
+
+  Saved intermediate results (428 API calls, 72 errors)
+  Disease areas: {'oncology': 132, 'cns': 70, 'rare_disease': 38, 'infectious_disease': 24, 'immunology': 23}
+  Modalities: {'other': 119, 'small_molecule': 192, 'biologic': 68, 'both': 33, 'unknown': 7}
+
+[501/823] REVELATION BIOSCIENCES, INC.
+  Extracted 14,123 chars of business text
+  Calling Claude API...
+  Disease: renal
+  Modality: other (immunomodulator)
+  Stage: phase_1
+
+[502/823] REVIVA PHARMACEUTICALS HOLDINGS, INC.
+  Extracted 3,903 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[503/823] Rezolute, Inc.
+  Text doesn't look like business description, skipping API
+  Preview:  S-1 1 tv530703_s-1.htm FORM S-1 As filed with the Securities and Exchange Commission on November 18, 2019 File 333-[ &bull; ] UNITED STATES SECURITIE...
+  No data extracted
+
+[504/823] Rhythm Holding Company, LLC
+  Extracted 7,850 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: biologic (peptide)
+  Stage: phase_2
+
+[505/823] RHYTHM PHARMACEUTICALS, INC.
+  Extracted 18,293 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: both (peptide)
+  Stage: phase_3
+
+[506/823] Rib-X Pharmaceuticals, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of selected information contained elsewhere in this prospectus and does not contain all of the information you should consider before investing in our...
+  No data extracted
+
+[507/823] Rich Pharmaceuticals, Inc.
+  Extracted 6,543 chars of business text
+  Calling Claude API...
+  Disease: hematology
+  Modality: other (unknown)
+  Stage: phase_2
+
+[508/823] Roivant Sciences Ltd.
+  Extracted 3,364 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: both (small_molecule)
+  Stage: approved
+
+[509/823] RVL Pharmaceuticals plc
+  Extracted 10,111 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[510/823] S1 Biopharma, Inc.
+  Extracted 1,615 chars of business text
+  Calling Claude API...
+  Disease: sexual_dysfunction
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[511/823] Sage Therapeutics, Inc.
+  Extracted 8,608 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[512/823] Sagent Pharmaceuticals, Inc.
+  Extracted 12,153 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[513/823] Salarius Pharmaceuticals, Inc.
+  Extracted 20,372 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (peptide)
+  Stage: phase_1
+
+[514/823] SALMEDIX INC
+  Extracted 534 chars of business text
+  Calling Claude API...
+  Disease: hematology
+  Modality: unknown (unknown)
+  Stage: phase_2
+
+[515/823] SANCILIO PHARMACEUTICALS COMPANY, INC.
+  Extracted 6,479 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[516/823] Schrodinger, Inc.
+  Extracted 5,620 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[517/823] Scopus BioPharma Inc.
+  Extracted 16,943 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[518/823] Scorpius Holdings, Inc.
+  Extracted 19,075 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: biologic (cell_therapy)
+  Stage: unknown
+
+[519/823] scPharmaceuticals Inc.
+  Extracted 6,189 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: other (drug_delivery_platform)
+  Stage: phase_3
+
+[520/823] SELLAS Life Sciences Group, Inc.
+  Extracted 8,898 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (vaccine)
+  Stage: phase_3
+
+[521/823] Semnur Pharmaceuticals, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: pain_management
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[522/823] Septerna, Inc.
+  Extracted 15,652 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[523/823] Seres Therapeutics, Inc.
+  Extracted 17,129 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: biologic (microbiome_therapeutic)
+  Stage: phase_2
+
+[524/823] Serina Therapeutics, Inc.
+  Extracted 4,009 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: other (polymer_drug_conjugate)
+  Stage: phase_1
+
+[525/823] Shattuck Labs, Inc.
+  Extracted 11,254 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (protein)
+  Stage: phase_1
+
+[526/823] Shengtai Pharmaceutical, Inc.
+  Extracted 8,065 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (pharmaceutical_ingredients)
+  Stage: unknown
+
+[527/823] Shuttle Pharmaceuticals Holdings, Inc.
+  Extracted 5,739 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[528/823] Shuttle Pharmaceuticals, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of all material information contained in this prospectus. It does not contain all the information you should consider before making a decision to purc...
+  No data extracted
+
+[529/823] Sierra Oncology, Inc.
+  Extracted 12,349 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (dna_oligonucleotide)
+  Stage: phase_2
+
+[530/823] Sigilon Therapeutics, Inc.
+  Extracted 15,901 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (cell_therapy)
+  Stage: phase_1
+
+[531/823] SignPath Pharma, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[532/823] Silo Pharma, Inc.
+  Extracted 12,297 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: both (small_molecule)
+  Stage: preclinical
+
+[533/823] Sio Gene Therapies Inc.
+  Extracted 12,133 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[534/823] Sionna Therapeutics, Inc.
+  Extracted 7,170 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[535/823] Sirtris Pharmaceuticals, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[536/823] Skye Bioscience, Inc.
+  Extracted 16,021 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: both (antibody)
+  Stage: phase_2
+
+[537/823] Societal CDMO, Inc.
+  Extracted 9,376 chars of business text
+  Calling Claude API...
+  Disease: pain_management
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[538/823] Sonnet BioTherapeutics Holdings, Inc.
+  Extracted 1,127 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (antibody)
+  Stage: unknown
+
+[539/823] SOPHIRIS BIO INC.
+  Extracted 13,076 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (protein)
+  Stage: phase_2
+
+[540/823] Spero Therapeutics, Inc.
+  Extracted 17,813 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[541/823] SPRUCE BIOSCIENCES, INC.
+  Extracted 1,929 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[542/823] Squarex Pharmaceutical Corp
+  Extracted 12,959 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: other (topical_immunomodulator)
+  Stage: phase_2
+
+[543/823] Statera Biopharma, Inc.
+  Extracted 15,405 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (protein)
+  Stage: phase_1
+
+[544/823] SteadyMed Ltd.
+  Extracted 5,593 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (drug_delivery_device)
+  Stage: preclinical
+
+[545/823] Stoke Therapeutics, Inc.
+  Extracted 10,435 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (rna)
+  Stage: preclinical
+
+[546/823] Structure Therapeutics Inc.
+  Extracted 14,829 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[547/823] Sunset Island Group
+  Extracted 5,427 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (cannabis)
+  Stage: unknown
+
+[548/823] SYBLEU Inc
+  Text doesn't look like business description, skipping API
+  Preview: or the Distributing Security Holder. This prospectus does not constitute an offer to sell or a solicitation of an offer to buy any securities other th...
+  No data extracted
+
+[549/823] SYNLOGIC, INC.
+  Extracted 2,381 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: biologic (other)
+  Stage: phase_3
+
+[550/823] Synthorx, Inc.
+  Extracted 10,453 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (protein)
+  Stage: preclinical
+Saved 550 companies to step3_pipeline_info.csv
+
+  Saved intermediate results (474 API calls, 76 errors)
+  Disease areas: {'oncology': 143, 'cns': 77, 'rare_disease': 47, 'infectious_disease': 28, 'immunology': 24}
+  Modalities: {'other': 130, 'small_molecule': 211, 'biologic': 77, 'both': 39, 'unknown': 8}
+
+[551/823] Syros Pharmaceuticals, Inc.
+  Extracted 6,883 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[552/823] Talon Therapeutics, Inc.
+  Extracted 2,046 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (liposomal_formulations)
+  Stage: unknown
+
+[553/823] TALPHERA, INC.
+  Extracted 11,597 chars of business text
+  Calling Claude API...
+  Disease: pain_management
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[554/823] Tango Therapeutics, Inc.
+  Extracted 7,946 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[555/823] Targanta Therapeutics Corp.
+  Extracted 2,132 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[556/823] Telomir Pharmaceuticals, Inc.
+  Extracted 10,665 chars of business text
+  Calling Claude API...
+  Disease: hematology
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[557/823] Tempest Therapeutics, Inc.
+  Extracted 5,780 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[558/823] TERCICA INC
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: biologic (protein)
+  Stage: phase_3
+
+[559/823] Terns Pharmaceuticals, Inc.
+  Extracted 2,747 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[560/823] TESARO, Inc.
+  Extracted 4,215 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[561/823] TETRALOGIC PHARMACEUTICALS Corp
+  Extracted 3,608 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[562/823] TFF Pharmaceuticals, Inc.
+  Extracted 2,545 chars of business text
+  Calling Claude API...
+  Disease: respiratory
+  Modality: other (drug_delivery_platform)
+  Stage: phase_2
+
+[563/823] THAR PHARMACEUTICALS INC
+  Extracted 11,118 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[564/823] Tharimmune, Inc.
+  Extracted 3,457 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: both (bispecific)
+  Stage: phase_1
+
+[565/823] THAT MARKETING SOLUTION, INC.
+  Text doesn't look like business description, skipping API
+  Preview: has no prior experience which it can rely upon in order to garner its first prospective customers to use our cervices. Page | 8 BREACHES IN COMPUTER N...
+  No data extracted
+
+[566/823] THERALINK TECHNOLOGIES, INC.
+  Text doesn't look like business description, skipping API
+  Preview: We were incorporated under the laws of the State of Nevada on March 18, 2005. From 2010 until 2013, we engaged in the pharmaceutical business. During ...
+  No data extracted
+
+[567/823] TherapeuticsMD, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: reproductive_health
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[568/823] Theriva Biologics, Inc.
+  Extracted 18,662 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (gene_therapy)
+  Stage: phase_2
+
+[569/823] Theseus Pharmaceuticals, Inc.
+  Extracted 3,717 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[570/823] Third Harmonic Bio, Inc.
+  Extracted 14,316 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[571/823] TIANYIN PHARMACEUTICAL CO., INC.
+  Text doesn't look like business description, skipping API
+  Preview: Established in 1994, Chengdu Tianyin is a manufacturer and supplier of modernized TCM s. The current management of Chengdu Tianyin acquired 100% of th...
+  No data extracted
+
+[572/823] TIBET PHARMACEUTICALS, INC.
+  Extracted 14,430 chars of business text
+  Calling Claude API...
+  Disease: respiratory
+  Modality: other (traditional_medicine)
+  Stage: approved
+
+[573/823] Tobira Therapeutics, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of selected information contained elsewhere or incorporated by reference in this prospectus and does not contain all of the information you should con...
+  No data extracted
+
+[574/823] Tobira Therapeutics, Inc.
+  Extracted 11,564 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[575/823] Tonix Pharmaceuticals Holding Corp.
+  Extracted 7,971 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: both (small_molecule)
+  Stage: phase_3
+
+[576/823] Tottenham Acquisition I Ltd
+  Text doesn't look like business description, skipping API
+  Preview: over and above the amount paid for their shares). We were formed for the purpose of entering into a merger, share exchange, asset acquisition, share p...
+  No data extracted
+
+[577/823] Transcode Therapeutics, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of selected information and does not contain all of the information you should consider before investing in our securities. You should read the entire...
+  No data extracted
+
+[578/823] Trevi Therapeutics, Inc.
+  Extracted 4,980 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[579/823] TREX WIND-DOWN, INC.
+  Extracted 8,945 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[580/823] Tricida, Inc.
+  Extracted 5,242 chars of business text
+  Calling Claude API...
+  Disease: renal
+  Modality: other (polymer)
+  Stage: phase_3
+
+[581/823] Trius Therapeutics Inc
+  Extracted 19,497 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[582/823] Trubion Pharmaceuticals, Inc
+  Extracted 8,632 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (protein)
+  Stage: phase_2
+
+[583/823] TuHURA Biosciences, Inc./NV
+  Extracted 12,563 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (gene_therapy)
+  Stage: phase_3
+
+[584/823] Turning Point Therapeutics, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of Kinases and Current Limitations of Kinase Inhibitors Kinases are enzymes that respond to external stimuli to modulate numerous activities of cells,...
+  No data extracted
+
+[585/823] Tvardi Therapeutics, Inc.
+  Extracted 1,322 chars of business text
+  Calling Claude API...
+  Disease: respiratory
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[586/823] TYME TECHNOLOGIES, INC.
+  Text doesn't look like business description, skipping API
+  Preview: should be viewed as a high-risk investment and speculative in nature. An investment in our common stock may result in a complete loss of the invested ...
+  No data extracted
+
+[587/823] Tyra Biosciences, Inc.
+  Extracted 6,804 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[588/823] Unicycive Therapeutics, Inc.
+  Extracted 9,585 chars of business text
+  Calling Claude API...
+  Disease: renal
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[589/823] United Cannabis Corp
+  Text doesn't look like business description, skipping API
+  Preview: We were originally formed as a California corporation under the name MySkin, Inc. on November 15, 2007. MySkin was engaged in the business of providin...
+  No data extracted
+
+[590/823] Unity Biotechnology, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: Our mission is to extend human healthspan. We define healthspan, or healthy longevity, as the period of one s life unburdened by the diseases of aging...
+  No data extracted
+
+[591/823] Upstream Bio, Inc.
+  Extracted 21,953 chars of business text
+  Calling Claude API...
+  Disease: respiratory
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[592/823] Urovant Sciences Ltd.
+  Extracted 2,151 chars of business text
+  Calling Claude API...
+  Disease: renal
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[593/823] VACCINEX, INC.
+  Extracted 11,274 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[594/823] Valera Pharmaceuticals Inc
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (implant_delivery_system)
+  Stage: approved
+
+[595/823] Vaxxinity, Inc.
+  Extracted 11,888 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: biologic (vaccine)
+  Stage: phase_2
+
+[596/823] Vector Therapeutics, Inc.
+  Extracted 6,539 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: biologic (protein)
+  Stage: preclinical
+
+[597/823] Ventyx Biosciences, Inc.
+  Extracted 4,917 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[598/823] Vera Therapeutics, Inc.
+  Extracted 2,066 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (protein)
+  Stage: phase_2
+
+[599/823] Veradermics, Inc
+  Extracted 12,341 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[600/823] Vero Biotech Inc.
+  Extracted 4,344 chars of business text
+  Calling Claude API...
+  Disease: respiratory
+  Modality: other (drug_delivery_system)
+  Stage: unknown
+Saved 600 companies to step3_pipeline_info.csv
+
+  Saved intermediate results (514 API calls, 86 errors)
+  Disease areas: {'oncology': 154, 'cns': 82, 'rare_disease': 50, 'infectious_disease': 30, 'immunology': 28}
+  Modalities: {'other': 136, 'small_molecule': 234, 'biologic': 85, 'both': 42, 'unknown': 8}
+
+[601/823] Verrica Pharmaceuticals Inc.
+  Extracted 10,182 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[602/823] Verve Therapeutics, Inc.
+  Extracted 5,254 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: other (gene_editing)
+  Stage: unknown
+
+[603/823] Viamet Pharmaceuticals Holdings LLC
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[604/823] Viela Bio, Inc.
+  Extracted 1,754 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (antibody)
+  Stage: phase_3
+
+[605/823] Vincerx Pharma, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (small_molecule)
+  Stage: phase_1
+
+[606/823] VioQuest Pharmaceuticals, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of the key aspects of this offering. Because it is only a summary, it does not contain all of the detailed information contained elsewhere in this pro...
+  No data extracted
+
+[607/823] Vireo Growth Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of the licensing and regulatory framework in the states where Goodness Growth or our subsidiaries are currently operating under licenses or rights to ...
+  No data extracted
+
+[608/823] Virobay Inc
+  Extracted 11,395 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[609/823] Virpax Pharmaceuticals, Inc.
+  Extracted 2,369 chars of business text
+  Calling Claude API...
+  Disease: pain_management
+  Modality: other (drug_delivery_systems)
+  Stage: preclinical
+
+[610/823] Vitae Pharmaceuticals, Inc
+  Extracted 5,402 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[611/823] Viveon Health Acquisition Corp.
+  Text doesn't look like business description, skipping API
+  Preview: to negotiate in advance with our board of directors because the stockholder approval requirement would be avoided if our board of directors approves e...
+  No data extracted
+
+[612/823] Vividion Therapeutics, Inc.
+  Extracted 20,370 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[613/823] vTv Therapeutics Inc.
+  Extracted 8,661 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[614/823] VYNE Therapeutics Inc.
+  Extracted 4,416 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[615/823] Vyome Holdings, Inc
+  Text doesn't look like business description, skipping API
+  Preview: in any jurisdiction to any person to whom it is unlawful to make such offer or solicitation in such jurisdiction. We obtained certain statistical data...
+  No data extracted
+
+[616/823] Warner Chilcott (US), LLC
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: women_health
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[617/823] Warner Chilcott Company, LLC
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: reproductive_health
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[618/823] Warner Chilcott CORP
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: reproductive_health
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[619/823] Warner Chilcott Holdings CO III, LTD
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[620/823] Warner Chilcott Intermediate (Luxembourg) S.a.r.l.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[621/823] Wave Life Sciences Ltd.
+  Extracted 4,815 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (rna)
+  Stage: preclinical
+
+[622/823] Wellness Center USA, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: has no employee at the present time. We do not expect to commence earning revenues for at least one year after this registration statement becomes eff...
+  No data extracted
+
+[623/823] Werewolf Therapeutics, Inc.
+  Extracted 3,641 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (protein)
+  Stage: preclinical
+
+[624/823] Whitehawk Therapeutics, Inc.
+  Extracted 5,990 chars of business text
+  Calling Claude API...
+  Disease: ophthalmology
+  Modality: both (small_molecule)
+  Stage: phase_2
+
+[625/823] XANODYNE PHARMACEUTICALS INC
+  Extracted 2,072 chars of business text
+  Calling Claude API...
+  Disease: womens_healthcare
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[626/823] XBiotech Inc.
+  Extracted 20,304 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[627/823] XCEL PHARMACEUTICALS INC
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[628/823] Xenetic Biosciences, Inc.
+  Extracted 4,192 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (protein)
+  Stage: phase_2
+
+[629/823] XERIS PHARMACEUTICALS INC
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: other (formulation)
+  Stage: phase_3
+
+[630/823] Xstelos Holdings, Inc.
+  Extracted 10,737 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[631/823] XYNOMIC PHARMACEUTICALS HOLDINGS, INC.
+  Extracted 692 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: unknown
+
+[632/823] Zander Therapeutics, Inc
+  Text doesn't look like business description, skipping API
+  Preview: or the Distributing Security Holder. This prospectus does not constitute an offer to sell or a solicitation of an offer to buy any securities other th...
+  No data extracted
+
+[633/823] ZARS Pharma, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of selected information and does not contain all of the information you should consider. Before investing in our common stock, you should carefully re...
+  No data extracted
+
+[634/823] Zenas BioPharma, Inc.
+  Extracted 5,450 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (bispecific)
+  Stage: phase_3
+
+[635/823] Znomics, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: small_molecule (small_molecule)
+  Stage: discovery
+
+[636/823] ZOGENIX, INC.
+  Extracted 12,411 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[637/823] Zomedica Corp.
+  Extracted 12,483 chars of business text
+  Calling Claude API...
+  Disease: endocrinology
+  Modality: other (diagnostic_platform)
+  Stage: preclinical
+
+[638/823] ZS Pharma, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of selected information and does not contain all of the information you should consider before buying our common stock. Therefore, you should read the...
+  No data extracted
+
+[639/823] Zyla Life Sciences
+  Extracted 18,476 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[640/823] Zynerba Pharmaceuticals, Inc.
+  Extracted 17,620 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[641/823] ZyVersa Therapeutics, Inc.
+  Extracted 1,385 chars of business text
+  Calling Claude API...
+  Disease: renal
+  Modality: both (antibody)
+  Stage: phase_1
+
+[642/823] 10X Capital Venture Acquisition Corp. III
+  Text doesn't look like business description, skipping API
+  Preview: 10X Capital is a New York City-based investment firm which connects Wall Street with Silicon Valley, aligning institutional capital with high growth v...
+  No data extracted
+
+[643/823] 4D Molecular Therapeutics, Inc.
+  Extracted 13,623 chars of business text
+  Calling Claude API...
+  Disease: ophthalmology
+  Modality: biologic (gene_therapy)
+  Stage: phase_1
+
+[644/823] Abpro Holdings, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (bispecific)
+  Stage: preclinical
+
+[645/823] ACCELERON PHARMA INC
+  Extracted 15,777 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: biologic (protein)
+  Stage: phase_2
+
+[646/823] ACESIS HOLDINGS CORP.
+  Text doesn't look like business description, skipping API
+  Preview: of the key aspects of our business and our securities. The reader should read the entire prospectus carefully, especially the risks of investing in ou...
+  No data extracted
+
+[647/823] ADAPTIN BIO, INC.
+  Extracted 5,129 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (bispecific)
+  Stage: phase_1
+
+[648/823] Adaptive Biotechnologies Corp
+  Extracted 3,034 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (cell_therapy)
+  Stage: approved
+
+[649/823] ADMA BIOLOGICS, INC.
+  Extracted 19,673 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (protein)
+  Stage: approved
+
+[650/823] Advanced Life Sciences Holdings, Inc.
+  Extracted 5,916 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+Saved 650 companies to step3_pipeline_info.csv
+
+  Saved intermediate results (554 API calls, 96 errors)
+  Disease areas: {'oncology': 162, 'cns': 86, 'rare_disease': 52, 'infectious_disease': 32, 'immunology': 32}
+  Modalities: {'other': 142, 'small_molecule': 255, 'biologic': 95, 'both': 45, 'unknown': 8}
+
+[651/823] Adverum Biotechnologies, Inc.
+  Extracted 5,005 chars of business text
+  Calling Claude API...
+  Disease: ophthalmology
+  Modality: other (gene_therapy)
+  Stage: phase_2
+
+[652/823] AERIE PHARMACEUTICALS INC
+  Extracted 519 chars of business text
+  Calling Claude API...
+  Disease: ophthalmology
+  Modality:  ()
+  Stage: unknown
+
+[653/823] Aevi Genomic Medicine, LLC
+  Extracted 25,607 chars of business text
+  Calling Claude API...
+  Disease: renal
+  Modality: other (gene_therapy)
+  Stage: phase_1
+
+[654/823] Affinia Therapeutics Inc.
+  Extracted 12,136 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (gene_therapy)
+  Stage: preclinical
+
+[655/823] Agentix Corp.
+  Extracted 2,839 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: other (cannabinoid)
+  Stage: preclinical
+
+[656/823] ALDAGEN INC
+  Extracted 10,771 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (cell_therapy)
+  Stage: phase_3
+
+[657/823] Alector, Inc.
+  Extracted 10,692 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[658/823] Aligos Therapeutics, Inc.
+  Extracted 6,664 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: both (rna)
+  Stage: phase_1
+
+[659/823] Allena Pharmaceuticals, Inc.
+  Extracted 3,991 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: biologic (protein)
+  Stage: unknown
+
+[660/823] Allogene Therapeutics, Inc.
+  Extracted 3,481 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (car_t)
+  Stage: phase_2
+
+[661/823] Alopexx, Inc.
+  Extracted 5,319 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: biologic (vaccine)
+  Stage: phase_2
+
+[662/823] Alpha Cognition Inc.
+  Extracted 7,802 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: both (small_molecule)
+  Stage: approved
+
+[663/823] Apogee Therapeutics, Inc.
+  Extracted 8,548 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (antibody)
+  Stage: phase_1
+
+[664/823] Arcellx, Inc.
+  Extracted 9,997 chars of business text
+  Calling Claude API...
+  Disease: hematology
+  Modality: other (car_t)
+  Stage: phase_1
+
+[665/823] Artiva Biotherapeutics, Inc.
+  Extracted 7,558 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: other (cell_therapy)
+  Stage: phase_1
+
+[666/823] Asterias Biotherapeutics, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of selected information contained elsewhere in this prospectus and does not contain all of the information you should consider before investing in our...
+  No data extracted
+
+[667/823] Atara Biotherapeutics, Inc.
+  Extracted 15,429 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (biologic)
+  Stage: phase_2
+
+[668/823] aTYR PHARMA INC
+  Extracted 7,356 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (protein)
+  Stage: phase_2
+
+[669/823] Audentes Therapeutics, Inc.
+  Extracted 2,902 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (gene_therapy)
+  Stage: phase_1
+
+[670/823] Aura Biosciences, Inc.
+  Extracted 3,197 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (vdc)
+  Stage: phase_2
+
+[671/823] Aurion Biotech, Inc.
+  Extracted 24,585 chars of business text
+  Calling Claude API...
+  Disease: ophthalmology
+  Modality: other (cell_therapy)
+  Stage: approved
+
+[672/823] AveXis, Inc.
+  Extracted 7,618 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (gene_therapy)
+  Stage: phase_1
+
+[673/823] Axcella Health Inc.
+  Extracted 24,761 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: other (metabolic_modulator)
+  Stage: phase_2
+
+[674/823] Axium Pharmaceuticals Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[675/823] Beam Therapeutics Inc.
+  Extracted 22,284 chars of business text
+  Calling Claude API...
+  Disease: hematology
+  Modality: other (gene_therapy)
+  Stage: preclinical
+
+[676/823] BioAtla, Inc.
+  Extracted 2,243 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[677/823] BIOCARDIA LIFESCIENCES, INC.
+  Extracted 7,990 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: other (cell_therapy)
+  Stage: phase_3
+
+[678/823] BioCardia, Inc.
+  Extracted 2,586 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: other (cell_therapy)
+  Stage: phase_2
+
+[679/823] BioLife4D Corp
+  Extracted 4,310 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: other (bioprinted_organs)
+  Stage: preclinical
+
+[680/823] BiomX Inc.
+  Extracted 3,788 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: other (bacteriophage_therapy)
+  Stage: unknown
+
+[681/823] BioVex Group, Inc.
+  Extracted 18,000 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (gene_therapy)
+  Stage: phase_2
+
+[682/823] Black Diamond Therapeutics, Inc.
+  Extracted 5,949 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[683/823] BRAINSTORM CELL THERAPEUTICS INC.
+  Text doesn't look like business description, skipping API
+  Preview: of selected information contained elsewhere in this prospectus and does not contain all of the information you should consider before investing in our...
+  No data extracted
+
+[684/823] C4 Therapeutics, Inc.
+  Extracted 5,267 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[685/823] Cabaletta Bio, Inc.
+  Extracted 12,579 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: other (car_t)
+  Stage: phase_1
+
+[686/823] Candel Therapeutics, Inc.
+  Extracted 5,098 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (gene_therapy)
+  Stage: phase_3
+
+[687/823] CANNABIS GLOBAL, INC.
+  Text doesn't look like business description, skipping API
+  Preview: Industrial Hemp The market for hemp and cannabis, and for products based on extracts of hemp and cannabis, is expected to grow substantially over the ...
+  No data extracted
+
+[688/823] Cardiff Oncology, Inc.
+  Extracted 5,981 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[689/823] CARGO Therapeutics, Inc.
+  Extracted 3,152 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (car_t)
+  Stage: phase_2
+
+[690/823] Caribou Biosciences, Inc.
+  Extracted 10,175 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (car_t)
+  Stage: phase_1
+
+[691/823] CELLULAR DYNAMICS INTERNATIONAL, INC.
+  Extracted 9,611 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (cell_platform)
+  Stage: preclinical
+
+[692/823] CG Oncology, Inc.
+  Extracted 3,044 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (gene_therapy)
+  Stage: phase_3
+
+[693/823] Checkmate Pharmaceuticals, Inc.
+  Extracted 5,315 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (other)
+  Stage: phase_2
+
+[694/823] Chelsea Therapeutics International, Ltd.
+  Extracted 27,482 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[695/823] CHEMOKINE THERAPEUTICS CORP
+  Extracted 10,023 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (peptide)
+  Stage: phase_1
+
+[696/823] Cidara Therapeutics, Inc.
+  Extracted 6,893 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: biologic (other)
+  Stage: phase_2
+
+[697/823] Civitas Therapeutics, Inc.
+  Extracted 6,904 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: other (inhaled_powder)
+  Stage: phase_2
+
+[698/823] Clarus Therapeutics Holdings, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: metabolic
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[699/823] Codiak BioSciences, Inc.
+  Extracted 17,664 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (exosome_therapeutic)
+  Stage: phase_1
+
+[700/823] COGNITION THERAPEUTICS INC
+  Extracted 6,086 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+Saved 700 companies to step3_pipeline_info.csv
+
+  Saved intermediate results (601 API calls, 99 errors)
+  Disease areas: {'oncology': 177, 'cns': 91, 'rare_disease': 56, 'immunology': 37, 'infectious_disease': 36}
+  Modalities: {'other': 167, 'small_molecule': 262, 'biologic': 106, 'both': 48, 'unknown': 8}
+
+[701/823] Coherus Oncology, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of selected information and does not contain all of the information you should consider before buying our common stock. Therefore, you should read the...
+  No data extracted
+
+[702/823] Compass Therapeutics, Inc.
+  Extracted 10,231 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (antibody)
+  Stage: phase_1
+
+[703/823] COTHERIX INC
+  Extracted 4,679 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[704/823] CRISPR Therapeutics AG
+  Extracted 2,566 chars of business text
+  Calling Claude API...
+  Disease: hematology
+  Modality: other (gene_therapy)
+  Stage: unknown
+
+[705/823] Cullinan Therapeutics, Inc.
+  Extracted 2,719 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (small_molecule)
+  Stage: phase_1
+
+[706/823] Denali Therapeutics Inc.
+  Extracted 780 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality:  ()
+  Stage: unknown
+
+[707/823] Edison Oncology Holding Corp
+  Extracted 838 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: unknown
+
+[708/823] Editas Medicine, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (gene_therapy)
+  Stage: preclinical
+
+[709/823] Eiger BioPharmaceuticals, Inc.
+  Extracted 22,675 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: both (gene_therapy)
+  Stage: phase_2
+
+[710/823] Eikon Therapeutics, Inc.
+  Extracted 1,867 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: unknown (unknown)
+  Stage: unknown
+
+[711/823] Elevation Oncology, Inc.
+  Extracted 13,443 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[712/823] Eloxx Pharmaceuticals, Inc.
+  Extracted 1,347 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (antibody)
+  Stage: preclinical
+
+[713/823] enGene Holdings Inc.
+  Extracted 8,532 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (gene_therapy)
+  Stage: phase_2
+
+[714/823] Estrella Immunopharma, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (cell_therapy)
+  Stage: phase_1
+
+[715/823] EXOZYMES INC.
+  Text doesn't look like business description, skipping API
+  Preview: Invizyne is redefining biomanufacturing by leveraging cell-free multi-step enzyme-based systems to efficiently transform natural or renewable resource...
+  No data extracted
+
+[716/823] FATE THERAPEUTICS INC
+  Extracted 13,653 chars of business text
+  Calling Claude API...
+  Disease: hematology
+  Modality: both (cell_therapy)
+  Stage: phase_2
+
+[717/823] Finch Therapeutics Group, Inc.
+  Extracted 13,811 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: biologic (microbiome_therapeutic)
+  Stage: phase_2
+
+[718/823] Forma Therapeutics Holdings, Inc.
+  Extracted 6,211 chars of business text
+  Calling Claude API...
+  Disease: hematology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[719/823] Fusion Pharmaceuticals Inc.
+  Extracted 3,431 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (radiopharmaceutical)
+  Stage: phase_1
+
+[720/823] FutureTech II Acquisition Corp.
+  Extracted 4,222 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality:  ()
+  Stage: unknown
+
+[721/823] GENOCEA BIOSCIENCES, INC.
+  Extracted 9,275 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (vaccine)
+  Stage: phase_1
+
+[722/823] GreenLight Biosciences Holdings, PBC
+  Text doesn't look like business description, skipping API
+  Preview: GreenLight has a clear mission: To create products addressing some of humanity s greatest challenges through the rigorous application of science. We a...
+  No data extracted
+
+[723/823] Gritstone bio, Inc.
+  Extracted 16,992 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (vaccine)
+  Stage: phase_1
+
+[724/823] Harpoon Therapeutics, Inc.
+  Extracted 7,576 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (protein)
+  Stage: phase_1
+
+[725/823] HEMOBIOTECH, INC.
+  Extracted 1,661 chars of business text
+  Calling Claude API...
+  Disease: hematology
+  Modality: other (blood_substitute)
+  Stage: unknown
+
+[726/823] HilleVax, Inc.
+  Extracted 1,861 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: biologic (vaccine)
+  Stage: phase_2
+
+[727/823] Icosavax, Inc.
+  Extracted 1,918 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: biologic (vaccine)
+  Stage: phase_1
+
+[728/823] ImageneBio, Inc.
+  Extracted 6,140 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[729/823] ImmunityBio, Inc.
+  Extracted 1,366 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (cell_therapy)
+  Stage: unknown
+
+[730/823] Immunovant, Inc.
+  Extracted 13,134 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[731/823] Inhibikase Therapeutics, Inc.
+  Extracted 20,971 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[732/823] Inhibrx Biosciences, Inc.
+  Extracted 2,227 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (protein)
+  Stage: phase_1
+
+[733/823] Inmune Bio, Inc.
+  Extracted 26,760 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (cell_therapy)
+  Stage: phase_1
+
+[734/823] Instil Bio, Inc.
+  Extracted 3,194 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (cell_therapy)
+  Stage: phase_2
+
+[735/823] Intrinsic Medicine, Inc.
+  Extracted 1,537 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: other (oligosaccharide)
+  Stage: phase_2
+
+[736/823] Invivyd, Inc.
+  Extracted 15,197 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[737/823] iTeos Therapeutics, Inc.
+  Extracted 4,198 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (antibody)
+  Stage: phase_1
+
+[738/823] IVORY CAPITAL CORP
+  Extracted 22,063 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[739/823] Jasper Therapeutics, Inc.
+  Extracted 1,190 chars of business text
+  Calling Claude API...
+  Disease: hematology
+  Modality: both (cell_therapy)
+  Stage: phase_1
+
+[740/823] Jounce Therapeutics, Inc.
+  Extracted 24,883 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (antibody)
+  Stage: phase_1
+
+[741/823] Juno Therapeutics, Inc.
+  Extracted 9,092 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (car_t)
+  Stage: phase_1
+
+[742/823] Kalaris Therapeutics, Inc.
+  Extracted 4,397 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: other (cell_therapy)
+  Stage: phase_3
+
+[743/823] Kaleido Biosciences, Inc.
+  Extracted 13,633 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (microbiome_metabolic_therapy)
+  Stage: phase_2
+
+[744/823] Kite Pharma, Inc.
+  Extracted 11,572 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (car_t)
+  Stage: phase_2
+
+[745/823] Krystal Biotech, Inc.
+  Extracted 761 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: other (gene_therapy)
+  Stage: unknown
+
+[746/823] Kymera Therapeutics, Inc.
+  Extracted 19,420 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[747/823] Kyverna Therapeutics, Inc.
+  Extracted 9,320 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: other (car_t)
+  Stage: phase_2
+
+[748/823] LA JOLLA PHARMACEUTICAL CO
+  Text doesn't look like business description, skipping API
+  Preview: GCS-100 is a complex polysaccharide derived from pectin that binds to, and blocks the activity of galectin-3, a type of galectin. Galectins are a memb...
+  No data extracted
+
+[749/823] LENZ Therapeutics, Inc.
+  Extracted 17,660 chars of business text
+  Calling Claude API...
+  Disease: ophthalmology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[750/823] LeonaBio, Inc.
+  Extracted 733 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+Saved 750 companies to step3_pipeline_info.csv
+
+  Saved intermediate results (647 API calls, 103 errors)
+  Disease areas: {'oncology': 196, 'cns': 94, 'rare_disease': 58, 'immunology': 43, 'infectious_disease': 41}
+  Modalities: {'other': 180, 'small_molecule': 270, 'biologic': 122, 'both': 54, 'unknown': 9}
+
+[751/823] Life Stem Genetics Inc.
+  Text doesn't look like business description, skipping API
+  Preview: and management's expectations, hopes, beliefs, intentions or strategies regarding the future, including our financial condition, results of operations...
+  No data extracted
+
+[752/823] Liminatus Pharma, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (antibody)
+  Stage: preclinical
+
+[753/823] LogicBio Therapeutics, Inc.
+  Extracted 7,759 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (gene_therapy)
+  Stage: preclinical
+
+[754/823] Maze Therapeutics, Inc.
+  Extracted 9,190 chars of business text
+  Calling Claude API...
+  Disease: renal
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[755/823] MeiraGTx Holdings plc
+  Extracted 2,466 chars of business text
+  Calling Claude API...
+  Disease: ophthalmology
+  Modality: other (gene_therapy)
+  Stage: phase_1
+
+[756/823] Metagenomi, Inc.
+  Extracted 22,726 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (gene_therapy)
+  Stage: preclinical
+
+[757/823] Miromatrix Medical Inc.
+  Extracted 14,946 chars of business text
+  Calling Claude API...
+  Disease: renal
+  Modality: other (bioengineered_organs)
+  Stage: phase_1
+
+[758/823] Monte Rosa Therapeutics, Inc.
+  Extracted 1,755 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: preclinical
+
+[759/823] Neon Therapeutics, Inc.
+  Extracted 11,906 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (vaccine)
+  Stage: phase_1
+
+[760/823] Neumora Therapeutics, Inc.
+  Extracted 517 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality:  ()
+  Stage: unknown
+
+[761/823] NS Wind Down Co., Inc.
+  Extracted 21,968 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (diagnostic)
+  Stage: approved
+
+[762/823] Ocugen, Inc.
+  Extracted 10,853 chars of business text
+  Calling Claude API...
+  Disease: orthopedics
+  Modality: other (tissue_engineering)
+  Stage: phase_3
+
+[763/823] Odyssey Therapeutics, Inc.
+  Extracted 9,914 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: both (small_molecule)
+  Stage: phase_1
+
+[764/823] Old Ayala, Inc
+  Extracted 5,517 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[765/823] Omega Therapeutics, Inc.
+  Extracted 1,466 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (rna)
+  Stage: unknown
+
+[766/823] Oyster Point Pharma, Inc.
+  Extracted 19,713 chars of business text
+  Calling Claude API...
+  Disease: ophthalmology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[767/823] PALISADE BIO, INC.
+  Extracted 7,986 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[768/823] Passage BIO, Inc.
+  Extracted 2,408 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (gene_therapy)
+  Stage: phase_1
+
+[769/823] Peak Bio, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (adc)
+  Stage: phase_2
+
+[770/823] Peloton Therapeutics, Inc.
+  Extracted 1,341 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[771/823] Pelthos Therapeutics Inc.
+  Extracted 8,618 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[772/823] Point of Care Nano-Technology, Inc.
+  Extracted 4,610 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality: other (microbial_biotechnology)
+  Stage: discovery
+
+[773/823] POLARITYTE, INC.
+  Extracted 13,313 chars of business text
+  Calling Claude API...
+  Disease: dermatology
+  Modality: other (regenerative_tissue)
+  Stage: phase_2
+
+[774/823] Poseida Therapeutics, Inc.
+  Extracted 3,752 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (car_t)
+  Stage: phase_2
+
+[775/823] PRECISION BIOSCIENCES INC
+  Extracted 11,905 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (genome_editing)
+  Stage: phase_1
+
+[776/823] PREMIER BIOMEDICAL INC
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: pain_management
+  Modality: other (topical_formulations)
+  Stage: preclinical
+
+[777/823] Prime Medicine, Inc.
+  Extracted 8,019 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (gene_editing)
+  Stage: preclinical
+
+[778/823] PROKIDNEY CORP.
+  Extracted 3,710 chars of business text
+  Calling Claude API...
+  Disease: renal
+  Modality: other (cell_therapy)
+  Stage: phase_3
+
+[779/823] Protara Therapeutics, Inc.
+  Extracted 23,276 chars of business text
+  Calling Claude API...
+  Disease: renal
+  Modality: biologic (protein)
+  Stage: phase_3
+
+[780/823] Qrons Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of selected information and does not contain all of the information you should consider before investing in our securities. You should read the entire...
+  No data extracted
+
+[781/823] Quince Therapeutics, Inc.
+  Extracted 6,834 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[782/823] RECURSION PHARMACEUTICALS, INC.
+  Extracted 23,775 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_2
+
+[783/823] REGENXBIO Inc.
+  Extracted 9,086 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (gene_therapy)
+  Stage: preclinical
+
+[784/823] Relay Therapeutics, Inc.
+  Extracted 13,366 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_1
+
+[785/823] Renovacor, Inc.
+  Extracted 2,784 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (gene_therapy)
+  Stage: preclinical
+
+[786/823] Replimune Group, Inc.
+  Extracted 9,648 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (oncolytic_virus)
+  Stage: phase_2
+
+[787/823] Rubius Therapeutics, Inc.
+  Extracted 1,222 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (cell_therapy)
+  Stage: preclinical
+
+[788/823] SAB Biotherapeutics, Inc.
+  Extracted 2,471 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: biologic (antibody)
+  Stage: phase_3
+
+[789/823] Sana Biotechnology, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: We were founded on the belief that engineered cells will be one of the most important transformations in medicine over the next several decades. The b...
+  No data extracted
+
+[790/823] Scholar Rock Holding Corp
+  Extracted 5,859 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: biologic (antibody)
+  Stage: phase_1
+
+[791/823] Scilex Holding Co
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: pain_management
+  Modality: small_molecule (small_molecule)
+  Stage: approved
+
+[792/823] Silexion Therapeutics Corp
+  Extracted 6,997 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (rna)
+  Stage: phase_2
+
+[793/823] Solid Biosciences Inc.
+  Text doesn't look like business description, skipping API
+  Preview: Our mission is to cure Duchenne muscular dystrophy, or DMD, a genetic muscle-wasting disease predominantly affecting boys, with symptoms that usually ...
+  No data extracted
+
+[794/823] Spark Therapeutics, Inc.
+  Extracted 1,245 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: biologic (gene_therapy)
+  Stage: phase_3
+
+[795/823] SPK Acquisition Corp.
+  Text doesn't look like business description, skipping API
+  Preview: to claims of punitive damages, by paying public stockholders from the trust account prior to addressing the claims of creditors. We cannot assure you ...
+  No data extracted
+
+[796/823] SpringWorks Therapeutics, Inc.
+  Extracted 13,633 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[797/823] SQZ Biotechnologies Co
+  Extracted 14,452 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (cell_therapy)
+  Stage: phase_1
+
+[798/823] Surface Oncology, Inc.
+  Extracted 6,389 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (antibody)
+  Stage: phase_1
+
+[799/823] Surrozen, Inc./DE
+  Extracted 17,708 chars of business text
+  Calling Claude API...
+  Disease: gastroenterology
+  Modality: biologic (antibody)
+  Stage: preclinical
+
+[800/823] SUTRO BIOPHARMA, INC.
+  Extracted 10,676 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (adc)
+  Stage: phase_1
+Saved 800 companies to step3_pipeline_info.csv
+
+  Saved intermediate results (692 API calls, 108 errors)
+  Disease areas: {'oncology': 211, 'cns': 97, 'rare_disease': 69, 'immunology': 44, 'infectious_disease': 42}
+  Modalities: {'other': 201, 'small_molecule': 282, 'biologic': 131, 'both': 56, 'unknown': 9}
+
+[801/823] Tarsus Pharmaceuticals, Inc.
+  Extracted 2,470 chars of business text
+  Calling Claude API...
+  Disease: ophthalmology
+  Modality: small_molecule (small_molecule)
+  Stage: phase_3
+
+[802/823] Taysha Gene Therapies, Inc.
+  Extracted 2,958 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: biologic (gene_therapy)
+  Stage: phase_1
+
+[803/823] TCR2 THERAPEUTICS INC.
+  Extracted 8,432 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: biologic (cell_therapy)
+  Stage: phase_1
+
+[804/823] Tenaya Therapeutics, Inc.
+  Extracted 6,206 chars of business text
+  Calling Claude API...
+  Disease: cardiovascular
+  Modality: both (gene_therapy)
+  Stage: preclinical
+
+[805/823] TENGION INC
+  Extracted 23,158 chars of business text
+  Calling Claude API...
+  Disease: renal
+  Modality: other (regenerative_medicine)
+  Stage: phase_1
+
+[806/823] Tevogen Bio Holdings Inc.
+  Extracted 20,223 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: other (cell_therapy)
+  Stage: phase_1
+
+[807/823] Tourmaline Bio, Inc.
+  Extracted 11,377 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: other (cell_therapy)
+  Stage: phase_3
+
+[808/823] Tracon Pharmaceuticals, Inc.
+  Extracted 3,948 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: both (antibody)
+  Stage: phase_3
+
+[809/823] Translate Bio, Inc.
+  Extracted 4,105 chars of business text
+  Calling Claude API...
+  Disease: rare_disease
+  Modality: other (rna)
+  Stage: unknown
+
+[810/823] TScan Therapeutics, Inc.
+  Extracted 4,628 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (cell_therapy)
+  Stage: preclinical
+
+[811/823] Turnstone Biologics Corp.
+  Extracted 12,022 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (cell_therapy)
+  Stage: phase_1
+
+[812/823] TVAX Biomedical, Inc.
+  Extracted 10,044 chars of business text
+  Calling Claude API...
+  Disease: oncology
+  Modality: other (cell_therapy)
+  Stage: phase_3
+
+[813/823] Vaxart, Inc.
+  Extracted 19,174 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: biologic (vaccine)
+  Stage: phase_2
+
+[814/823] Vaxcyte, Inc.
+  Extracted 6,733 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: biologic (vaccine)
+  Stage: preclinical
+
+[815/823] Vigil Neuroscience, Inc.
+  Extracted 1,087 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: unknown (unknown)
+  Stage: unknown
+
+[816/823] Vir Biotechnology, Inc.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: both (antibody)
+  Stage: phase_2
+
+[817/823] VivoSim Labs, INC.
+  Extracted 30,000 chars of business text
+  Calling Claude API...
+  Disease: 
+  Modality:  ()
+  Stage: unknown
+
+[818/823] Vor Biopharma Inc.
+  Extracted 6,973 chars of business text
+  Calling Claude API...
+  Disease: hematology
+  Modality: other (cell_therapy)
+  Stage: phase_1
+
+[819/823] Voyager Therapeutics, Inc.
+  Extracted 7,228 chars of business text
+  Calling Claude API...
+  Disease: cns
+  Modality: other (gene_therapy)
+  Stage: phase_1
+
+[820/823] X4 Pharmaceuticals, Inc
+  Extracted 2,007 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: biologic (antibody)
+  Stage: phase_2
+
+[821/823] Zeo ScientifiX, Inc.
+  Text doesn't look like business description, skipping API
+  Preview: of all material information contained in this prospectus. It does not contain all the information you should consider before making a decision to purc...
+  No data extracted
+
+[822/823] Zivo Bioscience, Inc.
+  Extracted 4,668 chars of business text
+  Calling Claude API...
+  Disease: infectious_disease
+  Modality: other (bioactive_compounds)
+  Stage: preclinical
+
+[823/823] Zura Bio Ltd
+  Extracted 12,124 chars of business text
+  Calling Claude API...
+  Disease: immunology
+  Modality: biologic (bispecific)
+  Stage: phase_2
+Saved 823 companies to step3_pipeline_info.csv
+
+======================================================================
+SUMMARY
+======================================================================
+API calls made: 714
+Extraction errors: 109
+
+Disease Area Distribution:
+  oncology                   216 ( 26.2%)
+  cns                         99 ( 12.0%)
+  rare_disease                71 (  8.6%)
+  infectious_disease          48 (  5.8%)
+  immunology                  46 (  5.6%)
+  metabolic                   31 (  3.8%)
+  dermatology                 25 (  3.0%)
+  cardiovascular              21 (  2.6%)
+  gastroenterology            21 (  2.6%)
+  ophthalmology               20 (  2.4%)
+  hematology                  17 (  2.1%)
+  respiratory                 14 (  1.7%)
+  renal                       12 (  1.5%)
+  pain_management             10 (  1.2%)
+  reproductive_health          5 (  0.6%)
+
+Modality Distribution:
+  small_molecule        283 ( 34.4%)
+  other                 211 ( 25.6%)
+  biologic              137 ( 16.6%)
+  both                   59 (  7.2%)
+  unknown                10 (  1.2%)
+
+Lead Stage at IPO:
+  phase_2               208 ( 25.3%)
+  phase_3               133 ( 16.2%)
+  phase_1               124 ( 15.1%)
+  preclinical            95 ( 11.5%)
+  unknown                81 (  9.8%)
+  approved               64 (  7.8%)
+  discovery               7 (  0.9%)

@@ -1,0 +1,162 @@
+Total observations: 803
+
+Outcome distribution:
+outcome
+Trading-    319
+Failed      251
+Acquired    177
+Trading+     56
+Name: count, dtype: int64
+==========================================================================================
+MULTINOMIAL LOGISTIC REGRESSION: All 4 Outcome Categories
+==========================================================================================
+
+Outcome distribution:
+  0 = Failed: 251 (31.3%)
+  1 = Acquired: 177 (22.0%)
+  2 = Trading+: 56 (7.0%)
+  3 = Trading-: 319 (39.7%)
+
+Reference category: Failed (0)
+
+Features included: 17
+Sample size: 803
+
+                                      Model Summary                                       
+------------------------------------------------------------------------------------------
+Pseudo R-squared: 0.1174
+Log-likelihood: -885.38
+AIC: 1878.76
+
+==========================================================================================
+OUTCOME: Acquired vs Failed (reference)
+==========================================================================================
+
+Variable                                  Coef    Std Err        z      P>|z|   Odds Ratio
+-----------------------------------------------------------------------------------------------
+State: other_state                     -0.9068     0.2652    -3.42     0.0006      0.404x ***
+Modality: other_modality               -0.8141     0.3367    -2.42     0.0156      0.443x *
+founding_year                           0.0395     0.0180     2.19     0.0283      1.040x *
+Stage: phase_3                          0.6424     0.2955     2.17     0.0297      1.901x *
+Disease: rare_disease                   0.8585     0.4306     1.99     0.0462      2.360x *
+Stage: preclinical                     -0.6610     0.3761    -1.76     0.0788      0.516x .
+State: MA                               0.5021     0.3107     1.62     0.1061      1.652x 
+Stage: phase_1                          0.4554     0.3363     1.35     0.1756      1.577x 
+State: NY_NJ_PA                        -0.4033     0.3180    -1.27     0.2047      0.668x 
+Disease: other_disease                  0.3210     0.3175     1.01     0.3120      1.378x 
+Disease: metabolic_cardio              -0.2715     0.3927    -0.69     0.4893      0.762x 
+Modality: both                          0.2525     0.4310     0.59     0.5580      1.287x 
+Disease: immunology                     0.2377     0.4986     0.48     0.6336      1.268x 
+Stage: approved                        -0.1609     0.4070    -0.40     0.6927      0.851x 
+const                                  -0.0801     0.2448    -0.33     0.7437      0.923x 
+Disease: infectious                    -0.0982     0.4599    -0.21     0.8309      0.906x 
+Modality: biologic                     -0.0188     0.2662    -0.07     0.9437      0.981x 
+Disease: cns                           -0.0151     0.3557    -0.04     0.9662      0.985x 
+
+                                 Key Findings (p < 0.05)                                  
+------------------------------------------------------------------------------------------
+
+Factors INCREASING odds of Acquired (vs Failed):
+  • founding_year: 1.04x odds (p=0.0283)
+  • phase_3: 1.90x odds (p=0.0297)
+  • rare_disease: 2.36x odds (p=0.0462)
+
+Factors DECREASING odds of Acquired (vs Failed):
+  • other_state: 0.40x odds (p=0.0006)
+  • other_modality: 0.44x odds (p=0.0156)
+
+==========================================================================================
+OUTCOME: Trading+ vs Failed (reference)
+==========================================================================================
+
+Variable                                  Coef    Std Err        z      P>|z|   Odds Ratio
+-----------------------------------------------------------------------------------------------
+founding_year                           0.2467     0.0356     6.93     0.0000      1.280x ***
+const                                  -1.8990     0.4355    -4.36     0.0000      0.150x ***
+State: other_state                     -1.9208     0.4849    -3.96     0.0001      0.146x ***
+Disease: rare_disease                   1.6571     0.5827     2.84     0.0045      5.244x **
+Disease: immunology                     1.4933     0.5959     2.51     0.0122      4.452x *
+Disease: other_disease                  1.1344     0.5022     2.26     0.0239      3.109x *
+Modality: other_modality               -1.6746     0.7893    -2.12     0.0339      0.187x *
+Stage: phase_3                          0.6810     0.4917     1.39     0.1660      1.976x 
+Disease: cns                            0.7729     0.5718     1.35     0.1765      2.166x 
+State: NY_NJ_PA                        -0.5694     0.4779    -1.19     0.2335      0.566x 
+State: MA                              -0.4952     0.4605    -1.08     0.2823      0.609x 
+Stage: phase_1                          0.5047     0.4905     1.03     0.3036      1.656x 
+Modality: biologic                      0.3103     0.3943     0.79     0.4313      1.364x 
+Disease: metabolic_cardio               0.4758     0.6408     0.74     0.4578      1.609x 
+Disease: infectious                    -0.5195     1.1027    -0.47     0.6376      0.595x 
+Modality: both                          0.0860     0.6293     0.14     0.8913      1.090x 
+Stage: preclinical                     -0.0672     0.5194    -0.13     0.8971      0.935x 
+Stage: approved                         0.0228     0.7254     0.03     0.9749      1.023x 
+
+                                 Key Findings (p < 0.05)                                  
+------------------------------------------------------------------------------------------
+
+Factors INCREASING odds of Trading+ (vs Failed):
+  • founding_year: 1.28x odds (p=0.0000)
+  • rare_disease: 5.24x odds (p=0.0045)
+  • immunology: 4.45x odds (p=0.0122)
+  • other_disease: 3.11x odds (p=0.0239)
+
+Factors DECREASING odds of Trading+ (vs Failed):
+  • other_state: 0.15x odds (p=0.0001)
+  • other_modality: 0.19x odds (p=0.0339)
+
+==========================================================================================
+OUTCOME: Trading- vs Failed (reference)
+==========================================================================================
+
+Variable                                  Coef    Std Err        z      P>|z|   Odds Ratio
+-----------------------------------------------------------------------------------------------
+founding_year                           0.1166     0.0160     7.27     0.0000      1.124x ***
+State: other_state                     -0.4733     0.2250    -2.10     0.0354      0.623x *
+Modality: other_modality               -0.5002     0.2772    -1.80     0.0711      0.606x .
+const                                   0.3787     0.2197     1.72     0.0848      1.460x .
+Modality: biologic                      0.3940     0.2320     1.70     0.0895      1.483x .
+Disease: rare_disease                   0.6279     0.4057     1.55     0.1216      1.874x 
+Stage: phase_1                          0.4477     0.2980     1.50     0.1330      1.565x 
+Disease: cns                            0.4218     0.2952     1.43     0.1530      1.525x 
+Disease: metabolic_cardio              -0.4504     0.3554    -1.27     0.2051      0.637x 
+Stage: approved                        -0.4558     0.3648    -1.25     0.2115      0.634x 
+Disease: other_disease                  0.3206     0.2819     1.14     0.2554      1.378x 
+Stage: preclinical                     -0.3089     0.2915    -1.06     0.2892      0.734x 
+Modality: both                          0.3657     0.3936     0.93     0.3528      1.441x 
+State: NY_NJ_PA                        -0.2350     0.2855    -0.82     0.4105      0.791x 
+Disease: infectious                     0.2341     0.3886     0.60     0.5469      1.264x 
+State: MA                              -0.1771     0.2992    -0.59     0.5539      0.838x 
+Stage: phase_3                          0.1146     0.2805     0.41     0.6828      1.121x 
+Disease: immunology                    -0.1004     0.4617    -0.22     0.8278      0.904x 
+
+                                 Key Findings (p < 0.05)                                  
+------------------------------------------------------------------------------------------
+
+Factors INCREASING odds of Trading- (vs Failed):
+  • founding_year: 1.12x odds (p=0.0000)
+
+Factors DECREASING odds of Trading- (vs Failed):
+  • other_state: 0.62x odds (p=0.0354)
+
+==========================================================================================
+SUMMARY: Significant Predictors Across All Outcomes (vs Failed)
+==========================================================================================
+
+Variable                                   Acquired             Trading+             Trading-
+-----------------------------------------------------------------------------------------------
+D:cns                                         0.99x                2.17x                1.52x
+D:immunology                                  1.27x              4.45x *                0.90x
+D:infectious                                  0.91x                0.59x                1.26x
+D:metabolic_cardio                            0.76x                1.61x                0.64x
+D:other_disease                               1.38x              3.11x *                1.38x
+D:rare_disease                              2.36x *             5.24x **                1.87x
+M:biologic                                    0.98x                1.36x              1.48x .
+M:both                                        1.29x                1.09x                1.44x
+M:other_modality                            0.44x *              0.19x *              0.61x .
+S:approved                                    0.85x                1.02x                0.63x
+S:phase_1                                     1.58x                1.66x                1.56x
+S:phase_3                                   1.90x *                1.98x                1.12x
+S:preclinical                               0.52x .                0.94x                0.73x
+St:MA                                         1.65x                0.61x                0.84x
+St:NY_NJ_PA                                   0.67x                0.57x                0.79x
+St:other_state                             0.40x **             0.15x **              0.62x *
+founding_year                               1.04x *             1.28x **             1.12x **

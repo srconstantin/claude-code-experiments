@@ -3,3 +3,5 @@ writing_elsewhere/
 pan-cancer/data/*.csv
 pan-cancer/data/*.zip
 pan-cancer/venv/
+biotech-startups/venv/
+biotech-startups/step2_price_history/

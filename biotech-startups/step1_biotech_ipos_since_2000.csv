@@ -1,0 +1,691 @@
+name,cik,sic_code,sic_description,ticker,exchange,state,city,s1_filing_date,founding_date,founded_since_2000
+"60 DEGREES PHARMACEUTICALS, INC.",0001946563,2834,Pharmaceutical Preparations,SXTP,Nasdaq,DC,WASHINGTON,2023-01-31,2022-06-01,True
+"89bio, Inc.",0001785173,2834,Pharmaceutical Preparations,ETNB,,CA,SAN FRANCISCO,2019-10-11,2018-01-01,True
+"9 METERS BIOPHARMA, INC.",0001551986,2834,Pharmaceutical Preparations,,,NC,RALEIGH,2015-11-10,2010-11-01,True
+"Aardvark Therapeutics, Inc.",0001774857,2834,Pharmaceutical Preparations,AARD,Nasdaq,CA,SAN DIEGO,2025-01-23,2024-10-01,True
+AbCellera Biologics Inc.,0001703057,2834,Pharmaceutical Preparations,ABCL,Nasdaq,A1,VANCOUVER,2020-11-20,2008-01-01,True
+ABEONA THERAPEUTICS INC.,0000318306,2834,Pharmaceutical Preparations,ABEO,Nasdaq,OH,CLEVELAND,2008-03-11,2005-02-01,True
+Abpro Corp,0001670356,2834,Pharmaceutical Preparations,,,MA,WOBURN,2018-04-11,2004-08-01,True
+"Accelerated Pharma, Inc.",0001630970,2834,Pharmaceutical Preparations,,,IL,BURR RIDGE,2016-10-11,2014-05-01,True
+Accustem Sciences Inc.,0001850767,2834,Pharmaceutical Preparations,ACUT,OTC,NY,NEW YORK,2022-11-17,2021-07-28,True
+"Aclaris Therapeutics, Inc.",0001557746,2834,Pharmaceutical Preparations,ACRS,Nasdaq,PA,WAYNE,2015-08-17,2012-01-01,True
+"Acrivon Therapeutics, Inc.",0001781174,2834,Pharmaceutical Preparations,ACRV,Nasdaq,MA,WATERTOWN,2022-10-17,2018-03-01,True
+"ACTAVIA LIFE SCIENCES, INC.",0001582249,2834,Pharmaceutical Preparations,,,NY,NEW YORK,2013-09-11,2012-12-06,True
+"Actinium Pharmaceuticals, Inc.",0001388320,2834,Pharmaceutical Preparations,ATNM,NYSE,NY,NEW YORK,2013-03-15,2000-06-13,True
+Adamas Pharmaceuticals Inc,0001328143,2834,Pharmaceutical Preparations,,,CA,EMERYVILLE,2014-03-05,2000-11-01,True
+"Adgero Biopharmaceuticals Holdings, Inc.",0001657598,2834,Pharmaceutical Preparations,,,NJ,PRINCETON,2017-02-14,2004-01-01,True
+"Adhera Therapeutics, Inc.",0000737207,2834,Pharmaceutical Preparations,ATRX,OTC,NC,WAKE FOREST,2011-03-25,2008-01-01,True
+"ADIAL PHARMACEUTICALS, INC.",0001513525,2834,Pharmaceutical Preparations,ADIL,Nasdaq,VA,CHARLOTTESVILLE,2017-09-07,2010-11-23,True
+"Adicet Bio, Inc.",0001720580,2834,Pharmaceutical Preparations,ACET,Nasdaq,MA,BOSTON,2017-12-29,2016-07-01,True
+"Aditxt, Inc.",0001726711,2834,Pharmaceutical Preparations,ADTX,Nasdaq,VA,RICHMOND,2020-01-15,2017-09-01,True
+"Aegerion Pharmaceuticals, Inc.",0001338042,2834,Pharmaceutical Preparations,,,MA,CAMBRIDGE,2007-03-21,2005-02-01,True
+"AEOLUS PHARMACEUTICALS, INC.",0001261734,2834,Pharmaceutical Preparations,,,CA,MISSION VIEJO,2003-12-19,2001-01-05,True
+"AEON Biopharma, Inc.",0001622667,2834,Pharmaceutical Preparations,,,CA,IRVINE,2021-09-17,2012-02-01,True
+Akari Therapeutics Plc,0001541157,2834,Pharmaceutical Preparations,AKTX,Nasdaq,FL,TAMPA,2014-11-20,2003-01-01,True
+"AKCEA THERAPEUTICS, INC.",0001662524,2834,Pharmaceutical Preparations,,,MA,BOSTON,2017-03-27,2014-12-01,True
+"Akero Therapeutics, Inc.",0001744659,2834,Pharmaceutical Preparations,AKRO,Nasdaq,CA,SOUTH SAN FRANCISCO,2019-05-24,2017-01-01,True
+Akston Biosciences Corp,0001776612,2834,Pharmaceutical Preparations,,,MA,BEVERLY,2025-10-08,2011-01-01,True
+"ALBIREO PHARMA, INC.",0001322505,2834,Pharmaceutical Preparations,,,MA,BOSTON,2014-08-14,2003-12-01,True
+ALDER BIOPHARMACEUTICALS INC,0001423824,2834,Pharmaceutical Preparations,,,WA,BOTHELL,2014-03-19,2002-05-01,True
+"Aldeyra Therapeutics, Inc.",0001341235,2834,Pharmaceutical Preparations,ALDX,Nasdaq,MA,LEXINGTON,2014-01-06,2004-01-01,True
+ALGORX PHARMACEUTICALS INC,0001139029,2834,Pharmaceutical Preparations,,,NJ,SECAUCUS,2004-11-24,2001-03-01,True
+ALIMERA SCIENCES INC,0001267602,2834,Pharmaceutical Preparations,,,GA,ALPHARETTA,2012-11-16,2003-06-01,True
+Allakos Inc.,0001564824,2834,Pharmaceutical Preparations,,,CA,SAN DIEGO,2018-06-22,2012-03-01,True
+"Alto Neuroscience, Inc.",0001999480,2834,Pharmaceutical Preparations,ANRO,NYSE,CA,MOUNTAIN VIEW,2024-01-12,2019-01-01,True
+Altovida Inc.,0001529293,2834,Pharmaceutical Preparations,,,X0,LANARKSHIRE,2011-09-08,2011-07-15,True
+ALUMIS INC.,0001847367,2834,Pharmaceutical Preparations,ALMS,Nasdaq,CA,SOUTH SAN FRANCISCO,2024-06-07,2010-01-01,True
+"Alzamend Neuro, Inc.",0001677077,2834,Pharmaceutical Preparations,ALZN,Nasdaq,GA,ATLANTA,2021-05-10,2016-02-01,True
+"Amarantus Bioscience Holdings, Inc.",0001424812,2834,Pharmaceutical Preparations,,,CA,SAN FRANCISCO,2013-10-03,2008-01-01,True
+AMBIT BIOSCIENCES CORP,0001131543,2834,Pharmaceutical Preparations,,,CA,SAN DIEGO,2010-11-05,2004-12-01,True
+AMBRX INC,0001264647,2834,Pharmaceutical Preparations,,,CA,LA JOLLA,2014-05-02,2003-01-01,True
+America Great Health,0001098009,2834,Pharmaceutical Preparations,,,CA,ALHAMBRA,2011-09-09,2010-07-06,True
+"Amneal Pharmaceuticals, Inc.",0001723128,2834,Pharmaceutical Preparations,AMRX,Nasdaq,,,2018-03-07,2002-01-01,True
+"Ampio Pharmaceuticals, Inc.",0001411906,2834,Pharmaceutical Preparations,,,CO,ENGLEWOOD,2010-11-12,2008-12-01,True
+"Amylyx Pharmaceuticals, Inc.",0001658551,2834,Pharmaceutical Preparations,AMLX,Nasdaq,MA,CAMBRIDGE,2021-12-16,2014-01-01,True
+"AN2 Therapeutics, Inc.",0001880438,2834,Pharmaceutical Preparations,ANTX,Nasdaq,CA,MENLO PARK,2022-03-04,2017-02-01,True
+"ANAPTYSBIO, INC",0001370053,2834,Pharmaceutical Preparations,ANAB,Nasdaq,CA,SAN DIEGO,2015-09-09,2005-11-01,True
+"Anebulo Pharmaceuticals, Inc.",0001815974,2834,Pharmaceutical Preparations,ANEB,Nasdaq,TX,LAKEWAY,2021-04-01,2020-04-01,True
+"Annexon, Inc.",0001528115,2834,Pharmaceutical Preparations,ANNX,Nasdaq,CA,BRISBANE,2020-07-02,2011-03-01,True
+Anthera Pharmaceuticals Inc,0001316175,2834,Pharmaceutical Preparations,,,CA,HAYWARD,2009-09-15,2004-09-01,True
+Applied Molecular Transport Inc.,0001801777,2834,Pharmaceutical Preparations,,,DE,WILMINGTON,2020-05-18,2016-11-21,True
+"Aprea Therapeutics, Inc.",0001781983,2834,Pharmaceutical Preparations,APRE,Nasdaq,PA,DOYLESTOWN,2019-09-06,2019-05-01,True
+Aptevo Therapeutics Inc.,0001671584,2834,Pharmaceutical Preparations,APVO,Nasdaq,WA,SEATTLE,2023-06-30,2016-02-01,True
+Aptinyx Inc.,0001674365,2834,Pharmaceutical Preparations,,,IL,EVANSTON,2018-05-23,2015-06-01,True
+"ARATANA THERAPEUTICS, INC.",0001509190,2834,Pharmaceutical Preparations,,,KS,LEAWOOD,2013-03-20,2010-12-01,True
+"Aravive, Inc.",0001513818,2834,Pharmaceutical Preparations,,,TX,HOUSTON,2014-02-18,2008-12-01,True
+"Arcus Biosciences, Inc.",0001724521,2834,Pharmaceutical Preparations,RCUS,NYSE,CA,HAYWARD,2018-02-16,2017-11-01,True
+"ARMO BioSciences, Inc.",0001693664,2834,Pharmaceutical Preparations,,,CA,REDWOOD CITY,2017-12-29,2014-07-01,True
+"Arno Therapeutics, Inc",0001195116,2834,Pharmaceutical Preparations,,,NJ,FLEMINGTON,2008-07-31,2000-03-01,True
+"Arog Pharmaceuticals, Inc.",0001753850,2834,Pharmaceutical Preparations,,,TX,DALLAS,2018-09-28,2015-01-01,True
+"ArriVent BioPharma, Inc.",0001868279,2834,Pharmaceutical Preparations,AVBP,Nasdaq,PA,NEWTOWN SQUARE,2024-01-05,2018-01-01,True
+"ARS Pharmaceuticals, Inc.",0001671858,2834,Pharmaceutical Preparations,SPRY,Nasdaq,CA,SAN DIEGO,2020-11-10,2016-01-01,True
+"ARTELO BIOSCIENCES, INC.",0001621221,2834,Pharmaceutical Preparations,ARTL,Nasdaq,CA,SOLANA BEACH,2014-10-08,2011-05-02,True
+"ARVINAS, INC.",0001655759,2834,Pharmaceutical Preparations,ARVN,Nasdaq,CT,NEW HAVEN,2018-08-30,2013-01-01,True
+"ASSEMBLY BIOSCIENCES, INC.",0001426800,2834,Pharmaceutical Preparations,ASMB,Nasdaq,CA,SOUTH SAN FRANCISCO,2010-07-20,2005-10-01,True
+Atai Beckley N.V.,0001840904,2834,Pharmaceutical Preparations,ATAI,Nasdaq,,AMSTELVEEN,2021-04-20,2020-06-01,True
+"Atea Pharmaceuticals, Inc.",0001593899,2834,Pharmaceutical Preparations,AVIR,Nasdaq,MA,BOSTON,2020-10-09,2016-01-01,True
+"Athenex, Inc.",0001300699,2834,Pharmaceutical Preparations,,,NY,BUFFALO,2017-05-12,2003-11-01,True
+"ATHERSYS, INC / NEW",0001368148,2834,Pharmaceutical Preparations,,,OH,CLEVELAND,2007-07-10,2005-06-01,True
+"ATOSSA THERAPEUTICS, INC.",0001488039,2834,Pharmaceutical Preparations,ATOS,Nasdaq,WA,SEATTLE,2010-03-30,2009-04-30,True
+"AUDEO ONCOLOGY, INC.",0001552899,2834,Pharmaceutical Preparations,,,CA,SAN FRANCISCO,2012-07-06,2012-06-01,True
+"AURIGA LABORATORIES, INC.",0001072313,2834,Pharmaceutical Preparations,,,CA,LOS ANGELES,2008-02-08,2005-04-01,True
+"Auspex Pharmaceuticals, Inc.",0001454189,2834,Pharmaceutical Preparations,,,CA,LA JOLLA,2013-12-20,2001-02-01,True
+"Avenir Wellness Solutions, Inc.",0001643301,2834,Pharmaceutical Preparations,,,CA,SHERMAN OAKS,2015-06-10,2014-05-15,True
+"AVENUE THERAPEUTICS, INC.",0001644963,2834,Pharmaceutical Preparations,ATXI,OTC,FL,BAY HARBOR ISLANDS,2017-04-28,2006-06-01,True
+"Axsome Therapeutics, Inc.",0001579428,2834,Pharmaceutical Preparations,AXSM,Nasdaq,NY,NEW YORK,2015-10-13,2012-01-01,True
+AXXESS PHARMA INC.,0001103309,2834,Pharmaceutical Preparations,,,A6,MARKHAM,2014-07-25,2013-10-01,True
+"Azitra, Inc.",0001701478,2834,Pharmaceutical Preparations,AZTR,NYSE,CT,BRANFORD,2023-02-21,2014-01-01,True
+Barinthus Biotherapeutics plc.,0001828185,2834,Pharmaceutical Preparations,BRNS,Nasdaq,MD,GERMANTOWN,2021-04-09,2016-01-01,True
+BARRIER THERAPEUTICS INC,0001173657,2834,Pharmaceutical Preparations,,,NJ,PRINCETON,2004-02-06,2001-01-01,True
+Baxalta Inc,0001620546,2834,Pharmaceutical Preparations,,,IL,BANNOCKBURN,2015-06-23,2015-06-23,True
+"Bayhill Therapeutics, Inc.",0001290157,2834,Pharmaceutical Preparations,,,CA,PALO ALTO,2008-01-09,2000-12-01,True
+"BELLICUM PHARMACEUTICALS, INC",0001358403,2834,Pharmaceutical Preparations,,,TX,HOUSTON,2014-11-18,2004-07-01,True
+"Benda Pharmaceutical, Inc.",0000705868,2834,Pharmaceutical Preparations,,,F4,"HUBEI PROVINCE,",2008-08-01,2001-04-01,True
+Bicara Therapeutics Inc.,0002023658,2834,Pharmaceutical Preparations,BCAX,Nasdaq,MA,BOSTON,2024-08-22,2018-12-01,True
+BICYCLE THERAPEUTICS PLC,0001761612,2834,Pharmaceutical Preparations,BCYC,Nasdaq,X0,CAMBRIDGE,2019-04-26,2016-04-01,True
+"BIO-PATH HOLDINGS, INC.",0001133818,2834,Pharmaceutical Preparations,BPTH,OTC,TX,BELLAIRE,2010-06-17,2007-05-10,True
+"BIOADAPTIVES, INC.",0001575142,2834,Pharmaceutical Preparations,BDPT,OTC,NV,LAS VEGAS,2013-12-02,2011-04-01,True
+"BioAge Labs, Inc.",0001709941,2834,Pharmaceutical Preparations,BIOA,Nasdaq,CA,EMERYVILLE,2024-09-03,2020-12-01,True
+BIOCANCELL THERAPEUTICS INC.,0001451980,2834,Pharmaceutical Preparations,,,L3,JERUSALEM,2008-12-17,2004-07-26,True
+Biofrontera Inc.,0001858685,2834,Pharmaceutical Preparations,BFRI,Nasdaq,MA,WOBURN,2021-07-06,2015-03-01,True
+Biohaven Ltd.,0001935979,2834,Pharmaceutical Preparations,BHVN,NYSE,CT,NEW HAVEN,2022-10-18,2022-05-02,True
+Biohaven Pharmaceutical Holding Co Ltd.,0001689813,2834,Pharmaceutical Preparations,,,CT,NEW HAVEN,2017-04-07,2013-07-01,True
+Bioquest Corp,0001568628,2834,Pharmaceutical Preparations,BQST,OTC,CA,NEWPORT BEACH,2013-02-05,2011-05-17,True
+"BIORA THERAPEUTICS, INC.",0001580063,2834,Pharmaceutical Preparations,,,CA,SAN DIEGO,2020-05-27,2012-01-01,True
+"Biostar Pharmaceuticals, Inc.",0001418133,2834,Pharmaceutical Preparations,,,F4,"XIANYANG, SHAANXI PROVINCE",2008-06-27,2007-03-27,True
+Biostax Corp.,0001559356,2834,Pharmaceutical Preparations,,,FL,WINTER PARK,2016-10-14,2013-01-01,True
+BIOVIE INC.,0001580149,2834,Pharmaceutical Preparations,BIVI,Nasdaq,NV,CARSON CITY,2013-08-15,2013-04-10,True
+"BioXcel Therapeutics, Inc.",0001720893,2834,Pharmaceutical Preparations,BTAI,Nasdaq,CT,NEW HAVEN,2018-02-12,2017-03-01,True
+"BIOXYTRAN, INC",0001445815,2834,Pharmaceutical Preparations,BIXT,OTC,MA,NEEDHAM,2008-10-31,2008-06-09,True
+BODY & MIND INC.,0001715611,2834,Pharmaceutical Preparations,BMMJ,OTC,A1,VANCOUVER,2020-03-13,2014-03-03,True
+"Bohai Pharmaceuticals Group, Inc.",0001443242,2834,Pharmaceutical Preparations,,,F4,"YANTAI, SHANDONG PROVINCE",2008-08-20,2008-01-09,True
+"Bolt Biotherapeutics, Inc.",0001641281,2834,Pharmaceutical Preparations,BOLT,Nasdaq,CA,REDWOOD CITY,2021-01-15,2015-01-01,True
+"Boundless Bio, Inc.",0001782303,2834,Pharmaceutical Preparations,BOLD,Nasdaq,CA,SAN DIEGO,2024-03-06,2018-01-01,True
+"Braeburn Pharmaceuticals, Inc.",0001688765,2834,Pharmaceutical Preparations,,,NJ,PRINCETON,2016-12-30,2012-09-01,True
+"BridgeBio Pharma, Inc.",0001743881,2834,Pharmaceutical Preparations,BBIO,Nasdaq,CA,PALO ALTO,2019-05-24,2015-04-01,True
+CADENCE PHARMACEUTICALS INC,0001333248,2834,Pharmaceutical Preparations,,,CA,SAN DIEGO,2006-07-17,2004-05-01,True
+"CalciMedica, Inc.",0001534133,2834,Pharmaceutical Preparations,CALC,Nasdaq,CA,LA JOLLA,2020-09-04,2011-05-01,True
+"Calithera Biosciences, Inc.",0001496671,2834,Pharmaceutical Preparations,CALA,OTC,CA,SOUTH SAN FRANCISCO,2014-08-25,2010-03-01,True
+"Cancer Prevention Pharmaceuticals, Inc.",0001471002,2834,Pharmaceutical Preparations,,,AZ,TUCSON,2015-12-23,2009-12-01,True
+Cantabio Pharmaceuticals Inc.,0001550518,2834,Pharmaceutical Preparations,,,CA,PALO ALTO,2012-05-23,2012-02-06,True
+"CARDAX, INC.",0001544238,2834,Pharmaceutical Preparations,,,HI,HONOLULU,2012-05-29,2003-07-07,True
+"Castle Creek Biosciences, Inc.",0001756702,2834,Pharmaceutical Preparations,,,NJ,PARSIPPANY,2021-07-16,2015-08-01,True
+"Cavit Sciences, Inc.",0001368502,2834,Pharmaceutical Preparations,,,NJ,PATERSON,2008-06-11,2006-04-12,True
+CDT Equity Inc.,0001896212,2834,Pharmaceutical Preparations,CDT,Nasdaq,FL,NAPLES,2022-01-06,2021-10-01,True
+"Cell Source, Inc.",0001569340,2834,Pharmaceutical Preparations,CLCS,OTC,NY,NEW YORK,2013-03-05,2012-06-06,True
+Celularity Inc,0001752828,2834,Pharmaceutical Preparations,CELU,Nasdaq,NJ,FLORHAM PARK,2019-04-26,2018-08-01,True
+CEN BIOTECH INC,0001653821,2834,Pharmaceutical Preparations,,,A6,WINDSOR,2020-06-19,2016-05-13,True
+Centessa Pharmaceuticals plc,0001847903,2834,Pharmaceutical Preparations,CNTA,Nasdaq,X0,"ALTRINCHAM, CHESHIRE",2021-04-21,2020-10-01,True
+Centrexion Therapeutics Corp,0001592052,2834,Pharmaceutical Preparations,,,MA,BOSTON,2018-10-19,2000-01-01,True
+"Checkpoint Therapeutics, Inc.",0001651407,2834,Pharmaceutical Preparations,,,MA,WALTHAM,2017-03-21,2014-11-01,True
+Chemomab Therapeutics Ltd.,0001534248,2834,Pharmaceutical Preparations,CMMB,Nasdaq,,TEL AVIV,2023-01-13,2011-09-22,True
+CHIMERIX INC,0001117480,2834,Pharmaceutical Preparations,,,NC,DURHAM,2013-03-08,2000-04-01,True
+"CHINA PEDIATRIC PHARMACEUTICALS, INC.",0001354071,2834,Pharmaceutical Preparations,,,F4,"XIAN, SHAANXI PROVINCE",2010-01-28,2008-06-27,True
+China Pharmaceuticals Inc,0001341808,2834,Pharmaceutical Preparations,,,F4,XIAN CITY,2010-07-20,2008-05-29,True
+"China Polypeptide Group, Inc.",0001435530,2834,Pharmaceutical Preparations,,,F4,WUHA,2008-05-23,2007-03-01,True
+"CHINOOK THERAPEUTICS, INC.",0001435049,2834,Pharmaceutical Preparations,,,WA,SEATTLE,2015-03-11,2000-01-01,True
+Chrome Holding Co.,0001804591,2834,Pharmaceutical Preparations,MEHCQ,NYS,CA,SAN FRANCISCO,2020-09-16,2020-02-19,True
+"CinCor Pharma, Inc.",0001868734,2834,Pharmaceutical Preparations,,,MA,WALTHAM,2021-12-17,2018-03-01,True
+Cingulate Inc.,0001862150,2834,Pharmaceutical Preparations,CING,Nasdaq,KS,KANSAS CITY,2021-09-09,2012-12-14,True
+"Cirius Therapeutics, Inc.",0001702956,2834,Pharmaceutical Preparations,,,MI,GRAND RAPIDS,2019-01-11,2015-11-01,True
+"CITIUS ONCOLOGY, INC.",0001851484,2834,Pharmaceutical Preparations,CTOR,Nasdaq,NJ,CRANFORD,2021-05-19,2021-03-01,True
+"Citius Pharmaceuticals, Inc.",0001506251,2834,Pharmaceutical Preparations,CTXR,Nasdaq,NJ,CRANFORD,2010-11-23,2010-09-09,True
+CLARUS THERAPEUTICS INC,0001286162,2834,Pharmaceutical Preparations,,,,,2010-11-19,2003-06-01,True
+"Clearside Biomedical, Inc.",0001539029,2834,Pharmaceutical Preparations,CLSDQ,OTC,GA,ALPHARETTA,2016-01-08,2015-12-01,True
+Clever Leaves Holdings Inc.,0001819615,2834,Pharmaceutical Preparations,CLVR,OTC,F8,TOCANCIPA - CUNDINAMARCA,2021-01-20,2017-01-01,True
+"Climb Bio, Inc.",0001768446,2834,Pharmaceutical Preparations,CLYM,Nasdaq,MA,WELLESLEY HILLS,2021-07-16,2018-10-01,True
+"Clovis Oncology, Inc.",0001466301,2834,Pharmaceutical Preparations,,,CO,BOULDER,2011-06-23,2009-04-01,True
+CNBX Pharmaceuticals Inc.,0001343009,2834,Pharmaceutical Preparations,CNBX,OTC,MD,BETHESDA,2013-12-11,2004-09-15,True
+"CNS Pharmaceuticals, Inc.",0001729427,2834,Pharmaceutical Preparations,CNSP,Nasdaq,TX,HOUSTON,2019-06-28,2017-07-01,True
+Coeptis Therapeutics Inc.,0001819663,2834,Pharmaceutical Preparations,,,PA,WEXFORD,2022-02-04,2018-11-01,True
+"Cogent Biosciences, Inc.",0001622229,2834,Pharmaceutical Preparations,COGT,Nasdaq,MA,WALTHAM,2018-03-02,2014-03-01,True
+"CoLabs Int'l, Corp.",0001584879,2834,Pharmaceutical Preparations,,,CA,HUNTINGTON BEACH,2023-03-27,2008-08-05,True
+"COLLEGIUM PHARMACEUTICAL, INC",0001267565,2834,Pharmaceutical Preparations,COLL,Nasdaq,MA,STOUGHTON,2015-04-02,2002-04-01,True
+"Comera Life Sciences Holdings, Inc.",0001907685,2834,Pharmaceutical Preparations,CMRA,OTC,MA,WOBURN,2022-05-05,2014-01-01,True
+CONSTELLATION PHARMACEUTICALS INC,0001434418,2834,Pharmaceutical Preparations,,,MA,CAMBRIDGE,2018-06-22,2008-01-01,True
+Context Therapeutics Inc.,0001842952,2834,Pharmaceutical Preparations,CNTX,Nasdaq,PA,PHILADELPHIA,2021-05-27,2017-12-01,True
+"Contineum Therapeutics, Inc.",0001855175,2834,Pharmaceutical Preparations,CTNM,Nasdaq,CA,SAN DIEGO,2024-03-15,2017-05-01,True
+"Corbus Pharmaceuticals Holdings, Inc.",0001595097,2834,Pharmaceutical Preparations,CRBP,Nasdaq,MA,NORWOOD,2014-09-03,2009-04-24,True
+CORNERSTONE THERAPEUTICS INC,0001145404,2834,Pharmaceutical Preparations,,,NC,CARY,2004-03-19,2000-07-01,True
+CORUS PHARMA INC,0001143714,2834,Pharmaceutical Preparations,,,WA,SEATTLE,2004-08-27,2001-01-02,True
+"Coya Therapeutics, Inc.",0001835022,2834,Pharmaceutical Preparations,COYA,Nasdaq,TX,HOUSTON,2022-11-18,2020-04-30,True
+CQENS Technologies Inc.,0001479915,2834,Pharmaceutical Preparations,,,MN,MINNEAPOLIS,2010-03-29,2002-01-01,True
+"CRESCENT BIOPHARMA, INC.",0001253689,2834,Pharmaceutical Preparations,CBIO,Nasdaq,MA,WALTHAM,2013-10-04,2003-04-04,True
+"Cue Biopharma, Inc.",0001645460,2834,Pharmaceutical Preparations,CUE,Nasdaq,MA,BOSTON,2017-09-21,2011-01-01,True
+CUMBERLAND PHARMACEUTICALS INC,0001087294,2834,Pharmaceutical Preparations,CPIX,Nasdaq,TN,"NASHVILLE,",2009-07-29,2006-09-01,True
+Curanex Pharmaceuticals Inc,0002025942,2834,Pharmaceutical Preparations,CURX,Nasdaq,NY,JERICHO,2024-10-16,2018-06-01,True
+CURAXIS PHARMACEUTICAL Corp,0001170723,2834,Pharmaceutical Preparations,,,2Q,ALPHARETTA,2005-09-09,2001-02-01,True
+CURAXIS PHARMACEUTICAL Corp,0001434893,2834,Pharmaceutical Preparations,,,NC,RALEIGH,2008-05-15,2008-02-01,True
+CUTANEA LIFE SCIENCES INC,0001374049,2834,Pharmaceutical Preparations,,,PA,WAYNE,2010-08-12,2005-05-01,True
+"CV Sciences, Inc.",0001510964,2834,Pharmaceutical Preparations,CVSI,OTC,CA,SAN DIEGO,2011-03-31,2010-12-09,True
+"Cyclerion Therapeutics, Inc.",0001755237,2834,Pharmaceutical Preparations,CYCN,Nasdaq,MA,CAMBRIDGE,2019-04-18,2013-09-01,True
+"Cyteir Therapeutics, Inc.",0001662244,2834,Pharmaceutical Preparations,,,MA,STONEHAM,2021-05-28,2020-09-01,True
+"CytomX Therapeutics, Inc.",0001501989,2834,Pharmaceutical Preparations,CTMX,Nasdaq,CA,SOUTH SAN FRANCISCO,2015-08-28,2010-09-01,True
+Dance Biopharm Inc.,0001596126,2834,Pharmaceutical Preparations,,,CA,BRISBANE,2014-04-09,2009-02-01,True
+"Day One Biopharmaceuticals, Inc.",0001845337,2834,Pharmaceutical Preparations,DAWN,Nasdaq,CA,BRISBANE,2021-05-04,2018-11-01,True
+"Deciphera Pharmaceuticals, Inc.",0001654151,2834,Pharmaceutical Preparations,,,MA,WALTHAM,2017-09-01,2016-06-01,True
+Dermavant Sciences Ltd,0001753483,2834,Pharmaceutical Preparations,,,AZ,PHOENIX,2019-05-24,2016-03-01,True
+"Dermira, Inc.",0001557883,2834,Pharmaceutical Preparations,,,CA,MENLO PARK,2014-08-27,2010-08-01,True
+"Design Therapeutics, Inc.",0001807120,2834,Pharmaceutical Preparations,DSGN,Nasdaq,CA,CARLSBAD,2021-03-05,2017-12-01,True
+"DICE Therapeutics, Inc.",0001645569,2834,Pharmaceutical Preparations,,,CA,SOUTH SAN FRANCISCO,2021-08-25,2013-11-01,True
+Dicerna Pharmaceuticals Inc,0001399529,2834,Pharmaceutical Preparations,,,MA,LEXINGTON,2013-12-31,2006-10-01,True
+"Disc Medicine, Inc.",0001816736,2834,Pharmaceutical Preparations,IRON,Nasdaq,MA,WATERTOWN,2020-07-24,2020-06-01,True
+"DNIB UNWIND, INC.",0001385228,2834,Pharmaceutical Preparations,,,MA,CAMBRIDGE,2013-08-12,2006-05-01,True
+"Dogwood Therapeutics, Inc.",0001818844,2834,Pharmaceutical Preparations,DWTX,Nasdaq,GA,ALPHARETTA,2020-08-28,2007-01-01,True
+Dova Pharmaceuticals Inc.,0001685071,2834,Pharmaceutical Preparations,,,NC,DURHAM,2017-06-02,2016-03-01,True
+"EAGLE PHARMACEUTICALS, INC.",0000827871,2834,Pharmaceutical Preparations,,,NJ,WOODCLIFF LAKE,2013-12-20,2007-01-01,True
+EARTH DRAGON RESOURCES INC.,0001441247,2834,Pharmaceutical Preparations,,,M0,TOKYO,2008-07-30,2007-10-23,True
+"Earth Science Tech, Inc.",0001538495,2834,Pharmaceutical Preparations,ETST,OTC,FL,MIAMI,2012-02-01,2010-04-23,True
+"Edgewise Therapeutics, Inc.",0001710072,2834,Pharmaceutical Preparations,EWTX,Nasdaq,CO,BOULDER,2021-03-05,2017-01-01,True
+"Eidos Therapeutics, Inc.",0001731831,2834,Pharmaceutical Preparations,,,CA,SAN FRANCISCO,2018-05-25,2013-01-01,True
+"Elicio Therapeutics, Inc.",0001601485,2834,Pharmaceutical Preparations,ELTX,Nasdaq,MA,BOSTON,2014-04-14,2011-06-01,True
+"Emmaus Life Sciences, Inc.",0000822370,2834,Pharmaceutical Preparations,EMMA,OTC,CA,TORRANCE,2010-02-01,2000-01-11,True
+"Enliven Therapeutics, Inc.",0001672619,2834,Pharmaceutical Preparations,ELVN,Nasdaq,CO,BOULDER,2020-02-14,2016-01-01,True
+"Ensysce Biosciences, Inc.",0001716947,2834,Pharmaceutical Preparations,ENSC,Nasdaq,CA,LA JOLLA,2017-11-03,2013-01-01,True
+Entasis Therapeutics Holdings Inc.,0001724344,2834,Pharmaceutical Preparations,,,MA,WALTHAM,2018-08-17,2015-05-01,True
+"Enterologics, Inc.",0001483731,2834,Pharmaceutical Preparations,,,MN,ST. PAUL,2010-02-17,2009-09-02,True
+"ENTEST GROUP, INC.",0001449447,2834,Pharmaceutical Preparations,,,F4,SHENZHEN,2008-11-04,2008-09-24,True
+"Enumeral Biomedical Holdings, Inc.",0001561551,2834,Pharmaceutical Preparations,,,MA,ARLINGTON,2013-01-04,2012-02-01,True
+EnzymeBioSystems,0001471968,2834,Pharmaceutical Preparations,,,NV,LAS VEGAS,2009-09-28,2009-06-26,True
+EnzymeBioSystems/Old,0001468135,2834,Pharmaceutical Preparations,,,OH,CHAGRIN FALLS,2009-07-17,2009-06-26,True
+"EPIRUS Biopharmaceuticals, Inc.",0001135906,2834,Pharmaceutical Preparations,,,MA,BOSTON,2004-12-10,2001-01-01,True
+"Equillium, Inc.",0001746466,2834,Pharmaceutical Preparations,EQ,Nasdaq,CA,LA JOLLA,2018-09-17,2017-03-01,True
+"Esperion Therapeutics, Inc.",0001434868,2834,Pharmaceutical Preparations,ESPR,Nasdaq,MI,ANN ARBOR,2013-05-14,2008-01-01,True
+"Eton Pharmaceuticals, Inc.",0001710340,2834,Pharmaceutical Preparations,ETON,Nasdaq,IL,DEER PARK,2018-08-10,2017-04-01,True
+"Evofem Biosciences, Inc.",0001618835,2834,Pharmaceutical Preparations,EVFM,OTC,CA,SAN DIEGO,2014-10-17,2007-02-01,True
+Evoke Pharma Inc,0001403708,2834,Pharmaceutical Preparations,EVOK,Nasdaq,CA,SOLANA BEACH,2013-05-24,2007-01-01,True
+"Evolus, Inc.",0001570562,2834,Pharmaceutical Preparations,EOLS,Nasdaq,CA,NEWPORT BEACH,2018-01-09,2012-11-01,True
+"EXICURE, INC.",0001698530,2834,Pharmaceutical Preparations,XCUR,Nasdaq,IL,CHICAGO,2017-11-28,2017-02-06,True
+Felicitex Therapeutics Inc.,0001912287,2834,Pharmaceutical Preparations,,,MA,NATICK,2022-08-10,2012-01-01,True
+"FibroBiologics, Inc.",0001958777,2834,Pharmaceutical Preparations,FBLG,Nasdaq,TX,HOUSTON,2023-11-07,2021-04-01,True
+"FIRST CHINA PHARMACEUTICAL GROUP, INC.",0001432254,2834,Pharmaceutical Preparations,,,F4,"KUNMING CITY, YUNNAN PROVINCE",2008-05-28,2007-07-31,True
+Flexion Therapeutics Inc,0001419600,2834,Pharmaceutical Preparations,,,MA,BURLINGTON,2014-01-08,2007-11-01,True
+Foghorn Therapeutics Inc.,0001822462,2834,Pharmaceutical Preparations,FHTX,Nasdaq,MA,CAMBRIDGE,2020-10-02,2015-10-01,True
+"Forte Biosciences, Inc.",0001419041,2834,Pharmaceutical Preparations,FBRX,Nasdaq,TX,DALLAS,2017-03-09,2007-08-01,True
+"Fulcrum Therapeutics, Inc.",0001680581,2834,Pharmaceutical Preparations,FULC,Nasdaq,MA,CAMBRIDGE,2019-06-21,2007-01-01,True
+"Galecto, Inc.",0001800315,2834,Pharmaceutical Preparations,GLTO,Nasdaq,MA,BOSTON,2020-10-07,2019-10-01,True
+"Galera Therapeutics, Inc.",0001563577,2834,Pharmaceutical Preparations,GRTX,OTC,PA,MALVERN,2019-10-11,2012-11-01,True
+Gelesis Inc,0001385374,2834,Pharmaceutical Preparations,,,ma,boston,2015-04-01,2006-02-01,True
+GENELUX Corp,0001231457,2834,Pharmaceutical Preparations,GNLX,Nasdaq,CA,WESTLAKE VILLAGE,2022-06-24,2001-09-01,True
+"Genprex, Inc.",0001595248,2834,Pharmaceutical Preparations,GNPX,Nasdaq,TX,AUSTIN,2017-07-21,2009-04-01,True
+"Global Blood Therapeutics, Inc.",0001629137,2834,Pharmaceutical Preparations,,,CA,SOUTH SAN FRANCISCO,2015-07-08,2011-02-01,True
+GLOBAL GREEN INC.,0001522724,2834,Pharmaceutical Preparations,,,FL,TALLAHASSEE,2011-06-10,2004-07-12,True
+GlobeStar Therapeutics Corp,0001502152,2834,Pharmaceutical Preparations,,,WA,RICHLAND,2010-11-03,2010-09-16,True
+"Gossamer Bio, Inc.",0001728117,2834,Pharmaceutical Preparations,GOSS,Nasdaq,CA,SAN DIEGO,2018-12-21,2015-10-01,True
+"Greater Cannabis Company, Inc.",0001695473,2834,Pharmaceutical Preparations,GCAN,,MD,BALTIMORE,2017-06-20,2014-03-01,True
+GridAI Technologies Corp.,0001604191,2834,Pharmaceutical Preparations,GRDX,Nasdaq,FL,BOCA RATON,2016-07-13,2008-10-01,True
+"Guardion Health Sciences, Inc.",0001642375,2834,Pharmaceutical Preparations,,,TX,HOUSTON,2016-02-11,2009-12-01,True
+"Harmony Biosciences Holdings, Inc.",0001802665,2834,Pharmaceutical Preparations,HRMY,Nasdaq,PA,PLYMOUTH MEETING,2020-07-27,2017-05-01,True
+"HARROW, INC.",0001360214,2834,Pharmaceutical Preparations,HROW,Nasdaq,TN,NASHVILLE,2012-07-25,2006-01-01,True
+HCW Biologics Inc.,0001828673,2834,Pharmaceutical Preparations,HCWB,Nasdaq,FL,MIRAMAR,2021-05-26,2018-04-01,True
+"Healthcare Royalty, Inc.",0001859651,2834,Pharmaceutical Preparations,,,CT,STAMFORD,2021-07-01,2006-01-01,True
+HELICOS BIOSCIENCES CORP,0001274563,2834,Pharmaceutical Preparations,,,MA,CAMBRIDGE,2007-02-28,2003-05-01,True
+Hemoglobin Oxygen Therapeutics LLC,0001615647,2834,Pharmaceutical Preparations,,,PA,SOUDERTON,2022-04-26,2014-02-01,True
+"Hoth Therapeutics, Inc.",0001711786,2834,Pharmaceutical Preparations,HOTH,Nasdaq,NY,NEW YORK,2018-10-10,2017-05-01,True
+"Hoverink Biotechnologies, Inc.",0001586494,2834,Pharmaceutical Preparations,,,CA,LOS ANGELES,2015-09-08,2013-07-01,True
+HYPERION THERAPEUTICS INC,0001386858,2834,Pharmaceutical Preparations,,,CA,BRISBANE,2012-04-13,2000-01-01,True
+HypGen Inc,0001653629,2834,Pharmaceutical Preparations,,,CA,CENTURY CITY,2015-10-13,2015-03-26,True
+"IASO BioMed, Inc.",0001662907,2834,Pharmaceutical Preparations,,,CO,CENTENNIAL,2016-12-14,2015-03-11,True
+IASO PHARMA INC,0001422702,2834,Pharmaceutical Preparations,,,CA,SAN DIEGO,2010-04-15,2006-10-01,True
+"IDEAYA Biosciences, Inc.",0001676725,2834,Pharmaceutical Preparations,IDYA,Nasdaq,CA,SOUTH SAN FRANCISCO,2019-04-26,2015-06-01,True
+"Ignyta, Inc.",0001557421,2834,Pharmaceutical Preparations,,,CA,SAN DIEGO,2012-09-13,2012-08-21,True
+il2m INTERNATIONAL CORP.,0001520512,2834,Pharmaceutical Preparations,,,CA,BURBANK,2011-08-31,2010-06-01,True
+"Imago BioSciences, Inc.",0001623715,2834,Pharmaceutical Preparations,,,CA,REDWOOD CITY,2021-06-25,2007-01-01,True
+IMMAGE BIOTHERAPEUTICS CORP.,0001564273,2834,Pharmaceutical Preparations,,,MD,BETHESDA,2012-12-10,2012-06-21,True
+"Immix Biopharma, Inc.",0001873835,2834,Pharmaceutical Preparations,IMMX,Nasdaq,CA,LOS ANGELES,2021-09-17,2018-01-01,True
+IMMUNE DESIGN CORP.,0001437786,2834,Pharmaceutical Preparations,,,WA,SEATTLE,2014-06-23,2008-02-01,True
+Immuneering Corp,0001790340,2834,Pharmaceutical Preparations,IMRX,Nasdaq,MA,CAMBRIDGE,2021-07-09,2008-01-01,True
+"IMMUNIC, INC.",0001280776,2834,Pharmaceutical Preparations,IMUX,Nasdaq,X1,NEW YORK,2013-10-11,2003-01-01,True
+IMPACT BIOMEDICAL INC.,0001834105,2834,Pharmaceutical Preparations,IBO,NYSE,TX,HOUSTON,2021-02-12,2018-10-01,True
+Incannex Healthcare Inc.,0001873875,2834,Pharmaceutical Preparations,IXHL,Nasdaq,,NORWEST NSW,2024-07-03,2023-07-01,True
+"Indaptus Therapeutics, Inc.",0001857044,2834,Pharmaceutical Preparations,INDP,Nasdaq,NY,NEW YORK,2021-09-24,2000-09-21,True
+INERGETICS INC,0000072170,2834,Pharmaceutical Preparations,,,NJ,NEWARK,2014-08-01,2000-11-01,True
+InMed Pharmaceuticals Inc.,0001728328,2834,Pharmaceutical Preparations,INM,Nasdaq,A1,VANCOUVER,2020-06-19,2014-01-01,True
+"INNOVUS PHARMACEUTICALS, INC.",0001411879,2834,Pharmaceutical Preparations,,,CA,SAN DIEGO,2012-08-08,2000-01-01,True
+INSITE VISION INC,0000802724,2834,Pharmaceutical Preparations,,,CA,ALAMEDA,2011-08-04,2007-05-02,True
+"INSYS THERAPEUTICS, INC.",0001409532,2834,Pharmaceutical Preparations,,,AZ,PHOENIX,2007-08-17,2002-10-01,True
+"Insys Therapeutics, Inc.",0001516479,2834,Pharmaceutical Preparations,,,AZ,PHOENIX,2011-03-30,2002-10-01,True
+IntelGenx Technologies Corp.,0001098880,2834,Pharmaceutical Preparations,,,A8,SAINT LAURENT,2008-04-28,2003-06-15,True
+International Stem Cell CORP,0001355790,2834,Pharmaceutical Preparations,ISCO,OTC,CA,SAN DIEGO,2009-07-31,2006-06-01,True
+"Intra-Cellular Therapies, Inc.",0001567514,2834,Pharmaceutical Preparations,,,NJ,BEDMINSTER,2013-09-18,2012-08-01,True
+"IO Biotech, Inc.",0001865494,2834,Pharmaceutical Preparations,IOBT,Nasdaq,G7,COPENHAGEN,2021-10-15,2014-12-01,True
+Iterum Therapeutics plc,0001659323,2834,Pharmaceutical Preparations,ITRM,Nasdaq,L2,DUBLIN 1,2018-05-01,2015-06-01,True
+"Jaguar Health, Inc.",0001585608,2834,Pharmaceutical Preparations,JAGX,Nasdaq,CA,SAN FRANCISCO,2016-01-07,2013-06-01,True
+"Janux Therapeutics, Inc.",0001817713,2834,Pharmaceutical Preparations,JANX,Nasdaq,CA,SAN DIEGO,2021-05-19,2017-06-01,True
+Jiaheng Ruiji International Trade Co Inc.,0002095139,2834,Pharmaceutical Preparations,,,,BEIJING CITY,2025-11-20,2025-07-11,True
+"Jiangbo Pharmaceuticals, Inc.",0001091164,2834,Pharmaceutical Preparations,,,F4,"LAIYANG CITY, YANTAI, SHANDONG",2008-07-14,2001-08-15,True
+"JUPITER NEUROSCIENCES, INC.",0001679628,2834,Pharmaceutical Preparations,JUNS,Nasdaq,FL,JUPITER,2021-10-12,2016-01-01,True
+K-V Pharmaceutical Co,0000057055,2834,Pharmaceutical Preparations,,,MO,CHESTERFIELD,2011-05-06,2009-01-01,True
+"Kadmon Holdings, Inc.",0001557142,2834,Pharmaceutical Preparations,,,NY,NEW YORK,2016-06-10,2000-04-01,True
+"Kairos Pharma, LTD.",0001962011,2834,Pharmaceutical Preparations,KAPA,NYSE,CA,LOS ANGELES,2023-09-29,2013-06-17,True
+"KalVista Pharmaceuticals, Inc.",0001348911,2834,Pharmaceutical Preparations,KALV,Nasdaq,MA,FRAMINGHAM,2014-12-29,2004-03-01,True
+"Kindred Biosciences, Inc.",0001561743,2834,Pharmaceutical Preparations,,,CA,BURLINGAME,2013-11-08,2012-09-25,True
+"Kiniksa Pharmaceuticals International, plc",0001730430,2834,Pharmaceutical Preparations,KNSA,Nasdaq,,LONDON,2018-04-27,2015-07-01,True
+Kinnate Biopharma Inc.,0001797768,2834,Pharmaceutical Preparations,,,CA,SAN DIEGO,2020-11-13,2018-01-01,True
+KOLLTAN PHARMACEUTICALS INC,0001442835,2834,Pharmaceutical Preparations,,,CT,NEW HAVEN,2014-09-12,2007-11-01,True
+"Korro Bio, Inc.",0001703647,2834,Pharmaceutical Preparations,KRRO,Nasdaq,MA,CAMBRIDGE,2019-09-06,2014-11-01,True
+"Kronos Bio, Inc.",0001741830,2834,Pharmaceutical Preparations,,,CA,SAN MATEO,2020-09-18,2017-06-01,True
+KUBOTA PHARMACEUTICAL HOLDINGS CO LTD,0001400482,2834,Pharmaceutical Preparations,,,M0,TOKYO,2013-12-17,2002-04-01,True
+"Kura Oncology, Inc.",0001422143,2834,Pharmaceutical Preparations,KURA,Nasdaq,CA,SAN DIEGO,2015-04-17,2007-11-01,True
+"Kuvatris Therapeutics, Inc.",0001811623,2834,Pharmaceutical Preparations,,,NY,TARRYTOWN,2020-07-02,2003-01-01,True
+KYTHERA BIOPHARMACEUTICALS INC,0001436304,2834,Pharmaceutical Preparations,,,CA,CALABASAS,2012-05-17,2004-06-01,True
+Lakewood-Amedex Biotherapeutics Inc.,0002079272,2834,Pharmaceutical Preparations,,,FL,UNIVERSITY PARK,2026-01-09,2008-01-01,True
+"Landos Biopharma, Inc.",0001785345,2834,Pharmaceutical Preparations,,,VA,BLACKSBURG,2021-01-13,2017-01-01,True
+Lantern Pharma Inc.,0001763950,2834,Pharmaceutical Preparations,LTRN,Nasdaq,TX,DALLAS,2020-04-16,2013-11-01,True
+"Larimar Therapeutics, Inc.",0001374690,2834,Pharmaceutical Preparations,LRMR,Nasdaq,PA,BALA CYNWYD,2014-04-18,2005-11-01,True
+Lexaria Bioscience Corp.,0001348362,2834,Pharmaceutical Preparations,LEXX,Nasdaq,A1,KELOWNA,2011-07-21,2004-12-09,True
+LianBio,0001831283,2834,Pharmaceutical Preparations,LIANY,OTC,NJ,PRINCETON,2021-10-01,2018-01-01,True
+Light Sciences Oncology Inc,0001342272,2834,Pharmaceutical Preparations,,,WA,BELLEVUE,2006-04-21,2004-12-01,True
+LIPELLA PHARMACEUTICALS INC.,0001347242,2834,Pharmaceutical Preparations,LIPO,OTC,PA,PITTSBURGH,2022-07-29,2018-03-01,True
+Lipocine Inc.,0001535955,2834,Pharmaceutical Preparations,LPCN,Nasdaq,X1,SALT LAKE CITY,2011-11-30,2011-10-13,True
+"Lirum Therapeutics, Inc.",0001965411,2834,Pharmaceutical Preparations,,,NY,NEW YORK,2024-03-11,2021-01-01,True
+"Lite Strategy, Inc.",0001262104,2834,Pharmaceutical Preparations,LITS,Nasdaq,CA,SAN DIEGO,2012-02-21,2000-12-01,True
+"LIXTE BIOTECHNOLOGY HOLDINGS, INC.",0001335105,2834,Pharmaceutical Preparations,LIXT,Nasdaq,FL,BOCA RATON,2020-09-03,2015-01-01,True
+"Lomond Therapeutics Holdings, Inc.",0001900520,2834,Pharmaceutical Preparations,,,DE,DOVER,2024-11-27,2020-01-22,True
+"Longboard Pharmaceuticals, Inc.",0001832168,2834,Pharmaceutical Preparations,,,CA,LA JOLLA,2021-02-19,2020-01-01,True
+Longeveron Inc.,0001721484,2834,Pharmaceutical Preparations,LGVN,Nasdaq,FL,MIAMI,2021-01-19,2014-01-01,True
+"Lotus Pharmaceuticals, Inc.",0001292087,2834,Pharmaceutical Preparations,,,F4,BEIJING,2008-05-13,2000-06-21,True
+"Loxo Oncology, Inc.",0001581720,2834,Pharmaceutical Preparations,,,CT,STAMFORD,2014-06-30,2013-05-01,True
+Luckwel Pharmaceuticals Inc.,0001567098,2834,Pharmaceutical Preparations,,,MA,CAMBRIDGE,2013-04-12,2013-01-02,True
+"Lucy Scientific Discovery, Inc.",0001865127,2834,Pharmaceutical Preparations,,,A1,VICTORIA,2022-01-21,2017-01-01,True
+"Lumena Pharmaceuticals, Inc.",0001513157,2834,Pharmaceutical Preparations,,,CA,SAN DIEGO,2014-04-02,2011-01-01,True
+Lunai Bioworks Inc.,0001527728,2834,Pharmaceutical Preparations,LNAI,Nasdaq,CA,SUITE 906 LOS ANGELES,2014-02-14,2011-01-01,True
+"Lyell Immunopharma, Inc.",0001806952,2834,Pharmaceutical Preparations,LYEL,Nasdaq,CA,SOUTH SAN FRANCISCO,2021-05-25,2018-06-01,True
+"MAIA Biotechnology, Inc.",0001878313,2834,Pharmaceutical Preparations,MAIA,NYSE,IL,CHICAGO,2022-04-11,2018-08-01,True
+"MAP Pharmaceuticals, Inc.",0001401923,2834,Pharmaceutical Preparations,,,CA,MOUNTAIN VIEW,2007-06-18,2003-07-01,True
+"MapLight Therapeutics, Inc.",0001770069,2834,Pharmaceutical Preparations,MPLT,Nasdaq,CA,REDWOOD CITY,2025-09-19,2018-11-01,True
+"MARAVAI LIFESCIENCES HOLDINGS, INC.",0001823239,2834,Pharmaceutical Preparations,MRVI,Nasdaq,CA,SAN DIEGO,2020-10-29,2020-08-01,True
+"MARINUS PHARMACEUTICALS, INC.",0001267813,2834,Pharmaceutical Preparations,,,PA,RADNOR,2014-05-12,2003-08-01,True
+"Matinas BioPharma Holdings, Inc.",0001582554,2834,Pharmaceutical Preparations,MTNB,NYSE,NJ,BEDMINSTER,2014-01-21,2011-08-12,True
+"MBX Biosciences, Inc.",0001776111,2834,Pharmaceutical Preparations,MBX,Nasdaq,IN,CARMEL,2024-08-23,2018-08-01,True
+"MED-X, INC.",0001620704,2834,Pharmaceutical Preparations,,,CA,CANOGA PARK,2022-09-08,2014-02-01,True
+MEDICINOVA INC,0001226616,2834,Pharmaceutical Preparations,MNOV,Nasdaq,CA,LA JOLLA,2004-10-01,2000-09-01,True
+"Melt Pharmaceuticals, Inc.",0001767398,2834,Pharmaceutical Preparations,,,TN,BRENTWOOD,2022-09-21,2018-04-01,True
+MERRIMACK PHARMACEUTICALS INC,0001274792,2834,Pharmaceutical Preparations,,,MA,CAMBRIDGE,2011-07-08,2010-10-01,True
+"Mersana Therapeutics, Inc.",0001442836,2834,Pharmaceutical Preparations,,,MA,CAMBRIDGE,2017-06-01,2002-02-01,True
+"Metacrine, Inc.",0001634379,2834,Pharmaceutical Preparations,,,CA,SAN DIEGO,2020-08-24,2014-09-01,True
+"MetaStat, Inc.",0001404943,2834,Pharmaceutical Preparations,,,MA,BOSTON,2015-04-10,2007-03-28,True
+"Metsera, Inc.",0002040807,2834,Pharmaceutical Preparations,MTSR,Nasdaq,NY,NEW YORK,2025-01-10,2022-06-01,True
+"MICROLIN BIO, INC.",0001590930,2834,Pharmaceutical Preparations,,,NY,NEW YORK,2014-01-10,2013-07-01,True
+Milestone Pharmaceuticals Inc.,0001408443,2834,Pharmaceutical Preparations,MIST,Nasdaq,A8,MONTREAL,2019-04-12,2003-01-01,True
+"MIRA PHARMACEUTICALS, INC.",0001904286,2834,Pharmaceutical Preparations,MIRA,Nasdaq,FL,MIAMI,2023-06-29,2020-09-01,True
+"Mirum Pharmaceuticals, Inc.",0001759425,2834,Pharmaceutical Preparations,MIRM,Nasdaq,CA,FOSTER CITY,2019-06-21,2018-05-01,True
+"MIX 1 LIFE, INC.",0001501112,2834,Pharmaceutical Preparations,,,AZ,SCOTTSDALE,2010-10-22,2009-06-10,True
+"Modern Mobility Aids, Inc.",0001497165,2834,Pharmaceutical Preparations,,,A6,TORONTO,2010-08-23,2007-12-19,True
+"Moleculin Biotech, Inc.",0001659617,2834,Pharmaceutical Preparations,MBRX,Nasdaq,TX,HOUSTON,2016-02-01,2015-07-01,True
+Monopar Therapeutics,0001645469,2834,Pharmaceutical Preparations,MNPR,Nasdaq,IL,WILMETTE,2019-08-15,2015-12-16,True
+"Morphic Holding, Inc.",0001679363,2834,Pharmaceutical Preparations,,,MA,WALTHAM,2019-05-30,2014-01-01,True
+MultiVir Inc.,0001613490,2834,Pharmaceutical Preparations,,,TX,HOUSTON,2015-03-30,2009-01-01,True
+"MyoKardia, Inc.",0001552451,2834,Pharmaceutical Preparations,,,CA,BRISBANE,2015-09-28,2012-06-01,True
+Myovant Sciences Ltd.,0001679082,2834,Pharmaceutical Preparations,,,X0,LONDON,2016-09-30,2016-02-01,True
+NANOMIX Corp,0001473579,2834,Pharmaceutical Preparations,,,MA,LAWRENCE,2010-02-08,2009-08-24,True
+"NANOVIRICIDES, INC.",0001379006,2834,Pharmaceutical Preparations,NNVC,NYSE,CT,SHELTON,2019-09-27,2005-05-01,True
+Nascent Biotech Inc.,0001622057,2834,Pharmaceutical Preparations,,,FL,NORTH PALM BEACH,2019-09-19,2014-03-03,True
+"NEONC TECHNOLOGIES HOLDINGS, INC.",0001979414,2834,Pharmaceutical Preparations,NTHI,Nasdaq,CA,CALABASAS,2023-12-18,2005-04-13,True
+"Neos Therapeutics, Inc.",0001467652,2834,Pharmaceutical Preparations,,,TX,GRAND PRAIRIE,2015-06-19,2007-01-01,True
+Neurogene Inc.,0001404644,2834,Pharmaceutical Preparations,NGNE,Nasdaq,NY,NEW YORK,2014-01-28,2003-12-01,True
+"NEUROPATHIX, INC.",0001615999,2834,Pharmaceutical Preparations,,,PA,DOYLESTOWN,2014-08-21,2013-03-25,True
+"Neurotrope, Inc.",0001513856,2834,Pharmaceutical Preparations,,,NY,NEW YORK,2011-03-07,2011-01-11,True
+"NexImmune, Inc.",0001538210,2834,Pharmaceutical Preparations,NEXI,OTC,MD,GAITHERSBURG,2021-01-19,2011-06-01,True
+"NextCure, Inc.",0001661059,2834,Pharmaceutical Preparations,NXTC,Nasdaq,MD,BELTSVILLE,2019-04-12,2015-09-01,True
+NEXUS BIOPHARMA INC,0001424151,2834,Pharmaceutical Preparations,,,TX,HOUSTON,2008-04-24,2007-07-17,True
+Nexvet Biopharma plc,0001618561,2834,Pharmaceutical Preparations,,,L2,"TULLAMORE , CO. OFFALY",2014-12-30,2010-02-01,True
+NGM BIOPHARMACEUTICALS INC,0001426332,2834,Pharmaceutical Preparations,,,CA,SOUTH SAN FRANCISCO,2018-09-28,2007-12-01,True
+"Nkarta, Inc.",0001787400,2834,Pharmaceutical Preparations,NKTX,Nasdaq,CA,SOUTH SAN FRANCISCO,2020-06-19,2015-07-01,True
+"Notable Labs, Ltd.",0001603207,2834,Pharmaceutical Preparations,,,CA,FOSTER CITY,2024-06-20,2014-06-01,True
+"NRX Pharmaceuticals, Inc.",0001719406,2834,Pharmaceutical Preparations,NRXP,Nasdaq,DE,WILMINGTON,2017-10-13,2017-09-18,True
+NUPATHE INC.,0001375200,2834,Pharmaceutical Preparations,,,PA,MALVERN,2010-05-14,2005-01-01,True
+"Nuvalent, Inc.",0001861560,2834,Pharmaceutical Preparations,NUVL,Nasdaq,MA,CAMBRIDGE,2021-07-07,2017-01-01,True
+Nuvation Bio Inc.,0001811063,2834,Pharmaceutical Preparations,NUVB,NYSE,NY,NEW YORK,2020-06-12,2020-04-01,True
+"Nuvectis Pharma, Inc.",0001875558,2834,Pharmaceutical Preparations,NVCT,Nasdaq,NJ,FORT LEE,2021-10-06,2020-01-01,True
+"NVN Liquidation, Inc.",0001467154,2834,Pharmaceutical Preparations,,,NC,PITTSBORO,2016-08-24,2006-01-01,True
+"Ocean Biomedical Holdings, Inc.",0001836612,2834,Pharmaceutical Preparations,,,RI,PROVIDENCE,2021-06-09,2021-02-01,True
+"Ocean Biomedical, Inc.",0001869974,2834,Pharmaceutical Preparations,OCEA,,NY,NEW YORK,2021-07-19,2021-06-01,True
+"Odonate Therapeutics, Inc.",0001717452,2834,Pharmaceutical Preparations,,,NY,NEW YORK,2017-11-13,2013-03-01,True
+Old API Wind-down Ltd.,0001660719,2834,Pharmaceutical Preparations,,,A1,VANCOUVER,2015-12-31,2015-05-01,True
+"Omthera Pharmaceuticals, Inc.",0001477598,2834,Pharmaceutical Preparations,,,NJ,NEW JERSEY,2013-03-11,2008-11-01,True
+"Oncolix, Inc.",0001584137,2834,Pharmaceutical Preparations,,,TX,HOUSTON,2013-11-19,2013-06-01,True
+OncoMed Pharmaceuticals Inc,0001302573,2834,Pharmaceutical Preparations,,,CA,REDWOOD CITY,2012-05-11,2004-07-01,True
+"Onconetix, Inc.",0001782107,2834,Pharmaceutical Preparations,ONCO,Nasdaq,OH,CINCINNATI,2021-10-08,2018-10-01,True
+"One World Products, Inc.",0001622244,2834,Pharmaceutical Preparations,OWPC,OTC,NV,LAS VEGAS,2014-11-24,2014-09-02,True
+"OnKure Therapeutics, Inc.",0001637715,2834,Pharmaceutical Preparations,OKUR,Nasdaq,CO,BOULDER,2021-03-19,2014-01-01,True
+"OPIANT PHARMACEUTICALS, INC.",0001385508,2834,Pharmaceutical Preparations,,,CA,SANTA MONICA,2016-04-04,2005-06-21,True
+"OptiNose, Inc.",0001494650,2834,Pharmaceutical Preparations,,,PA,YARDLEY,2017-09-18,2010-05-01,True
+Option Therapeutics Inc.,0002070577,2834,Pharmaceutical Preparations,,,NV,CARSON CITY,2026-01-26,2025-05-01,True
+"Or-Ion Products, Inc.",0001452419,2834,Pharmaceutical Preparations,,,TX,IRVING,2008-12-17,2008-07-09,True
+ORAMED PHARMACEUTICALS INC.,0001176309,2834,Pharmaceutical Preparations,ORMP,Nasdaq,NY,NEW YORK,2010-01-11,2002-04-12,True
+"Orexigen Therapeutics, Inc.",0001382911,2834,Pharmaceutical Preparations,,,CA,LA JOLLA,2006-12-19,2002-09-01,True
+"Oric Pharmaceuticals, Inc.",0001796280,2834,Pharmaceutical Preparations,ORIC,Nasdaq,CA,SOUTH SAN FRANCISCO,2020-02-28,2014-08-01,True
+"Osteologix, Inc.",0001278129,2834,Pharmaceutical Preparations,,,VA,GLEN ALLEN,2008-05-16,2003-01-01,True
+"OTONOMY, INC.",0001493566,2834,Pharmaceutical Preparations,,,CA,SAN DIEGO,2014-07-11,2008-01-01,True
+"Oxeia Biopharmaceuticals, Inc.",0001610315,2834,Pharmaceutical Preparations,,,CA,SAN DIEGO,2022-04-14,2014-03-19,True
+"PALVELLA THERAPEUTICS, INC.",0001583648,2834,Pharmaceutical Preparations,PVLA,Nasdaq,PA,WAYNE,2013-08-20,2013-05-24,True
+"Pandion Therapeutics, Inc.",0001807901,2834,Pharmaceutical Preparations,,,MA,WATERTOWN,2020-06-26,2017-01-01,True
+"PARDES BIOSCIENCES, INC.",0001822711,2834,Pharmaceutical Preparations,,,CA,CARLSBAD,2021-01-26,2011-01-01,True
+Patheon N.V.,0001643848,2834,Pharmaceutical Preparations,,,P7,AMSTERDAM SCHIPHOL,2015-06-08,2014-03-11,True
+PDS Biotechnology Corp,0001472091,2834,Pharmaceutical Preparations,PDSB,Nasdaq,NJ,PRINCETON,2015-08-14,2009-01-01,True
+PENINSULA PHARMACEUTICALS INC,0001145975,2834,Pharmaceutical Preparations,,,CA,ALAMEDA,2003-12-16,2001-02-01,True
+PepGen Inc.,0001835597,2834,Pharmaceutical Preparations,PEPG,Nasdaq,MA,BOSTON,2022-04-15,2021-11-01,True
+PERFORMANCE HEALTH HOLDINGS CORP.,0001612047,2834,Pharmaceutical Preparations,,,OH,AKRON,2016-04-22,2012-10-01,True
+"Pernix Sleep, Inc.",0001339455,2834,Pharmaceutical Preparations,,,CA,SOLANA BEACH,2005-10-07,2003-08-01,True
+Pfenex Inc.,0001478121,2834,Pharmaceutical Preparations,,,CA,SAN DIEGO,2014-06-05,2005-01-01,True
+"PharMEDium Healthcare Holdings, Inc.",0001598816,2834,Pharmaceutical Preparations,,,IL,LAKE FOREST,2015-08-31,2013-12-01,True
+"PHASERX, INC.",0001429386,2834,Pharmaceutical Preparations,,,WA,SEATTLE,2016-04-18,2006-03-09,True
+"Phathom Pharmaceuticals, Inc.",0001783183,2834,Pharmaceutical Preparations,PHAT,Nasdaq,NJ,FLORHAM PARK,2019-09-30,2018-01-01,True
+Phenomix CORP,0001424342,2834,Pharmaceutical Preparations,,,CA,SAN DIEGO,2008-01-25,2004-12-23,True
+"PLIANT THERAPEUTICS, INC.",0001746473,2834,Pharmaceutical Preparations,PLRX,Nasdaq,CA,SOUTH SAN FRANCISCO,2020-05-11,2015-06-01,True
+PLX PHARMA INC.,0001291520,2834,Pharmaceutical Preparations,,,TX,HOUSTON,2015-10-05,2011-09-12,True
+PLx Pharma Winddown Corp.,0001497504,2834,Pharmaceutical Preparations,,,NJ,SPARTA,2014-02-06,2010-01-01,True
+PMGC Holdings Inc.,0001840563,2834,Pharmaceutical Preparations,ELAB,Nasdaq,,VANCOUVER,2023-09-29,2020-06-01,True
+"PMV Pharmaceuticals, Inc.",0001699382,2834,Pharmaceutical Preparations,PMVP,Nasdaq,NJ,PRINCETON,2020-09-04,2013-03-01,True
+"Polomar Health Services, Inc.",0001265521,2834,Pharmaceutical Preparations,PMHS,OTC,FL,PALM HARBOR,2008-07-21,2000-09-14,True
+"POLYMEDIX, INC",0001341843,2834,Pharmaceutical Preparations,,,PA,RADNOR,2008-05-21,2002-08-08,True
+PORTOLA PHARMACEUTICALS INC,0001269021,2834,Pharmaceutical Preparations,,,CA,SOUTH SAN FRANCISCO,2013-04-12,2003-09-01,True
+"Praxis Precision Medicines, Inc.",0001689548,2834,Pharmaceutical Preparations,PRAX,Nasdaq,MA,BOSTON,2020-09-25,2019-01-01,True
+PREDIX PHARMACEUTICALS HOLDINGS INC,0001044487,2834,Pharmaceutical Preparations,,,MA,LEXINGTON,2005-08-03,2000-01-01,True
+Prelude Therapeutics Inc,0001678660,2834,Pharmaceutical Preparations,PRLD,Nasdaq,DE,WILMINGTON,2020-09-04,2016-02-01,True
+"Prescott Holdings, Inc.",0001511091,2834,Pharmaceutical Preparations,,,TN,FRANKLIN,2011-05-16,2010-12-07,True
+PRESTWICK PHARMACEUTICALS INC,0001222761,2834,Pharmaceutical Preparations,,,DC,WASHINGTON DC,2005-04-22,2002-11-01,True
+Primus Therapeutics Inc.,0001501467,2834,Pharmaceutical Preparations,,,NJ,SKILLMAN,2011-02-10,2010-04-21,True
+Principia Biopharma Inc.,0001510487,2834,Pharmaceutical Preparations,,,CA,SOUTH SAN FRANCISCO,2018-08-17,2018-04-01,True
+PRO NUTRISOURCE INC.,0001469289,2834,Pharmaceutical Preparations,,,A8,LONGUEUIL,2009-08-03,2009-02-20,True
+"Processa Pharmaceuticals, Inc.",0001533743,2834,Pharmaceutical Preparations,PCSA,Nasdaq,FL,VERO BEACH,2012-11-14,2011-03-29,True
+ProMIS Neurosciences Inc.,0001374339,2834,Pharmaceutical Preparations,PMN,Nasdaq,A6,TORONTO,2022-11-01,2004-01-23,True
+"Propanc Biopharma, Inc.",0001517681,2834,Pharmaceutical Preparations,PPCB,Nasdaq,C3,"CAMBERWELL, VICTORIA",2011-06-23,2010-11-23,True
+"ProPhase Labs, Inc.",0000868278,2834,Pharmaceutical Preparations,PRPH,OTC,NY,NEW YORK,2025-10-21,2022-06-01,True
+"Protagenic Therapeutics, Inc.\new",0001022899,2834,Pharmaceutical Preparations,PTIX,OTC,NY,NEW YORK,2016-09-16,2005-03-01,True
+"Protagonist Therapeutics, Inc",0001377121,2834,Pharmaceutical Preparations,PTGX,Nasdaq,CA,NEWARK,2016-07-11,2001-09-01,True
+"Protea Biosciences Group, Inc.",0001335103,2834,Pharmaceutical Preparations,,,WV,MORGANTOWN,2014-01-13,2001-07-01,True
+"PROTEONOMIX, INC.",0001469559,2834,Pharmaceutical Preparations,,,NJ,MOUNTAINSIDE,2011-02-01,2005-01-01,True
+"PROVECTUS BIOPHARMACEUTICALS, INC.",0000315545,2834,Pharmaceutical Preparations,PVCT,OTC,TN,KNOXVILLE,2013-04-08,2009-01-01,True
+"Provention Bio, Inc.",0001695357,2834,Pharmaceutical Preparations,,,NJ,RED BANK,2018-05-09,2016-10-01,True
+"Pulmatrix, Inc.",0001574235,2834,Pharmaceutical Preparations,PULM,Nasdaq,MA,FRAMINGHAM,2013-08-08,2013-01-01,True
+"PUMA BIOTECHNOLOGY, INC.",0001401667,2834,Pharmaceutical Preparations,PBYI,Nasdaq,CA,LOS ANGELES,2012-09-28,2007-04-01,True
+Q BioMed Inc.,0001596062,2834,Pharmaceutical Preparations,QBIO,OTC,NY,NEW YORK,2014-01-13,2013-11-01,True
+"Q Therapeutics, Inc.",0001366541,2834,Pharmaceutical Preparations,,,UT,SALT LAKE CITY,2012-06-29,2002-03-01,True
+QUATRX PHARMACEUTICALS Co,0001166029,2834,Pharmaceutical Preparations,,,MI,ANN ARBOR,2006-02-03,2000-11-01,True
+Rain Oncology Inc.,0001724979,2834,Pharmaceutical Preparations,,,CA,NEWARK,2021-04-02,2017-04-01,True
+Rallybio Corp,0001739410,2834,Pharmaceutical Preparations,RLYB,Nasdaq,CT,NEW HAVEN,2021-07-02,2018-03-01,True
+"Rani Therapeutics Holdings, Inc.",0001856725,2834,Pharmaceutical Preparations,RANI,Nasdaq,CA,SAN JOSE,2021-07-09,2021-04-01,True
+"Rapid Therapeutic Science Laboratories, Inc.",0001575659,2834,Pharmaceutical Preparations,RTSL,OTC,TX,DE LEON,2013-05-23,2013-02-22,True
+"Rapport Therapeutics, Inc.",0002012593,2834,Pharmaceutical Preparations,RAPP,Nasdaq,MA,BOSTON,2024-05-17,2022-02-01,True
+"RAPT Therapeutics, Inc.",0001673772,2834,Pharmaceutical Preparations,RAPT,Nasdaq,CA,SOUTH SAN FRANCISCO,2019-07-05,2018-01-01,True
+RAPTOR PHARMACEUTICALS CORP.,0001203944,2834,Pharmaceutical Preparations,,,CA,NOVATO,2008-07-18,2006-05-05,True
+"RayzeBio, Inc.",0001825367,2834,Pharmaceutical Preparations,,,CA,SAN DIEGO,2023-08-24,2020-01-01,True
+REATA PHARMACEUTICALS INC,0001358762,2834,Pharmaceutical Preparations,,,TX,PLANO,2016-01-04,2015-09-01,True
+"Redwood Scientific Technologies, Inc.",0001634394,2834,Pharmaceutical Preparations,RSCI,OTC,NY,ALBANY,2016-02-12,2014-12-01,True
+"RegenoCELL Therapeutics, Inc.",0001221749,2834,Pharmaceutical Preparations,,,MA,"NATICK,",2010-06-22,2002-02-01,True
+"RELMADA THERAPEUTICS, INC.",0001553643,2834,Pharmaceutical Preparations,RLMD,Nasdaq,FL,CORAL GABLES,2012-11-13,2011-05-23,True
+RENOVIS INC,0001118361,2834,Pharmaceutical Preparations,,,CA,SOUTH SAN FRANCISCO,2003-10-17,2000-01-01,True
+"RenovoRx, Inc.",0001574094,2834,Pharmaceutical Preparations,RNXT,Nasdaq,CA,MOUNTAIN VIEW,2021-07-21,2012-12-01,True
+Repare Therapeutics Inc.,0001808158,2834,Pharmaceutical Preparations,RPTX,Nasdaq,A8,SAINT-LAURENT,2020-05-29,2016-01-01,True
+REST EZ Inc.,0001733861,2834,Pharmaceutical Preparations,,,UT,RIVERTON,2021-05-26,2016-10-17,True
+"Retrieve Medical Holdings, Inc.",0001452804,2834,Pharmaceutical Preparations,RMHI,OTC,NJ,BEDMINSTER,2008-12-29,2007-12-18,True
+"REVIVA PHARMACEUTICALS HOLDINGS, INC.",0001742927,2834,Pharmaceutical Preparations,RVPH,Nasdaq,CA,CUPERTINO,2018-07-20,2018-03-01,True
+"Rezolute, Inc.",0001509261,2834,Pharmaceutical Preparations,RZLT,Nasdaq,CA,REDWOOD CITY,2011-06-14,2010-07-01,True
+"Rhythm Holding Company, LLC",0001581617,2834,Pharmaceutical Preparations,,,MA,BOSTON,2014-08-27,2008-11-01,True
+"RHYTHM PHARMACEUTICALS, INC.",0001649904,2834,Pharmaceutical Preparations,RYTM,Nasdaq,MA,BOSTON,2017-09-05,2013-02-01,True
+"Rib-X Pharmaceuticals, Inc.",0001164994,2834,Pharmaceutical Preparations,,,CT,NEW HAVEN,2011-11-25,2000-10-01,True
+Roivant Sciences Ltd.,0001635088,2834,Pharmaceutical Preparations,ROIV,Nasdaq,,LONDON,2021-10-29,2014-04-01,True
+RVL Pharmaceuticals plc,0001739426,2834,Pharmaceutical Preparations,,,NJ,BRIDGEWATER,2018-09-14,2005-01-01,True
+"S1 Biopharma, Inc.",0001613723,2834,Pharmaceutical Preparations,,,NY,NEW YORK,2014-10-01,2010-10-01,True
+"Sage Therapeutics, Inc.",0001597553,2834,Pharmaceutical Preparations,,,MA,CAMBRIDGE,2014-06-17,2010-04-01,True
+"Salarius Pharmaceuticals, Inc.",0001615219,2834,Pharmaceutical Preparations,DCOY,Nasdaq,TX,HOUSTON,2014-12-29,2014-02-01,True
+SALMEDIX INC,0001133181,2834,Pharmaceutical Preparations,,,CA,SAN DIEGO,2004-04-23,2000-11-01,True
+"SANCILIO PHARMACEUTICALS COMPANY, INC.",0001641908,2834,Pharmaceutical Preparations,,,FL,RIVIERA BEACH,2015-08-31,2006-01-01,True
+"Schrodinger, Inc.",0001490978,2834,Pharmaceutical Preparations,SDGR,Nasdaq,NY,NEW YORK,2020-01-10,2014-01-01,True
+"Scorpius Holdings, Inc.",0001476963,2834,Pharmaceutical Preparations,SCPX,OTC,TX,SAN ANTONIO,2013-05-06,2008-06-01,True
+"SELLAS Life Sciences Group, Inc.",0001390478,2834,Pharmaceutical Preparations,SLS,Nasdaq,NY,NEW YORK,2018-05-23,2012-01-01,True
+"Semnur Pharmaceuticals, Inc.",0001913577,2834,Pharmaceutical Preparations,SMNR,OTC,CA,PALO ALTO,2022-03-01,2021-01-01,True
+"Septerna, Inc.",0001984086,2834,Pharmaceutical Preparations,SEPN,Nasdaq,CA,SOUTH SAN FRANCISCO,2024-10-02,2019-12-01,True
+"Serina Therapeutics, Inc.",0001708599,2834,Pharmaceutical Preparations,SER,NYSE,AL,HUNTSVILLE,2024-05-03,2017-01-01,True
+"Shattuck Labs, Inc.",0001680367,2834,Pharmaceutical Preparations,STTK,Nasdaq,TX,AUSTIN,2020-09-18,2016-01-01,True
+"Shengtai Pharmaceutical, Inc.",0001295079,2834,Pharmaceutical Preparations,,,F4,"SHANDONG,",2007-06-29,2004-03-01,True
+"Shuttle Pharmaceuticals Holdings, Inc.",0001757499,2834,Pharmaceutical Preparations,SHPH,Nasdaq,MD,GAITHERSBURG,2022-06-03,2012-12-01,True
+"Shuttle Pharmaceuticals, Inc.",0001685462,2834,Pharmaceutical Preparations,,,MD,ROCKVILLE,2016-12-09,2012-12-01,True
+"Sierra Oncology, Inc.",0001290149,2834,Pharmaceutical Preparations,,,CA,SAN MATEO,2015-06-12,2003-05-01,True
+"Sigilon Therapeutics, Inc.",0001821323,2834,Pharmaceutical Preparations,,,MA,CAMBRIDGE,2020-11-13,2015-05-01,True
+"Silo Pharma, Inc.",0001514183,2834,Pharmaceutical Preparations,SILO,Nasdaq,FL,SARASOTA,2011-03-30,2004-01-01,True
+Sio Gene Therapies Inc.,0001636050,2834,Pharmaceutical Preparations,,,NY,NEW YORK,2015-05-11,2014-10-01,True
+"Sionna Therapeutics, Inc.",0002036042,2834,Pharmaceutical Preparations,SION,Nasdaq,MA,WALTHAM,2025-01-17,2019-08-01,True
+"Skye Bioscience, Inc.",0001516551,2834,Pharmaceutical Preparations,SKYE,Nasdaq,CA,SAN DIEGO,2013-01-30,2011-03-16,True
+"Societal CDMO, Inc.",0001588972,2834,Pharmaceutical Preparations,,,PA,EXTON,2013-10-24,2002-01-01,True
+"Sonnet BioTherapeutics Holdings, Inc.",0001106838,2834,Pharmaceutical Preparations,,,NJ,PRINCETON,2011-12-02,2011-09-30,True
+SOPHIRIS BIO INC.,0001563855,2834,Pharmaceutical Preparations,,,CA,LA JOLLA,2013-02-15,2002-01-01,True
+"Spero Therapeutics, Inc.",0001701108,2834,Pharmaceutical Preparations,SPRO,Nasdaq,MA,CAMBRIDGE,2017-10-06,2013-01-01,True
+"SPRUCE BIOSCIENCES, INC.",0001683553,2834,Pharmaceutical Preparations,SPRB,Nasdaq,CA,SOUTH SAN FRANCISCO,2020-09-18,2016-04-01,True
+Squarex Pharmaceutical Corp,0001864607,2834,Pharmaceutical Preparations,,,MN,SAINT PAUL,2023-01-17,2012-06-01,True
+"Statera Biopharma, Inc.",0001318641,2834,Pharmaceutical Preparations,,,CO,FORT COLLINS,2015-04-10,2003-06-01,True
+SteadyMed Ltd.,0001619087,2834,Pharmaceutical Preparations,,,L3,REHOVOT,2015-02-06,2003-01-01,True
+"Stoke Therapeutics, Inc.",0001623526,2834,Pharmaceutical Preparations,STOK,Nasdaq,MA,BEDFORD,2019-05-23,2014-06-01,True
+Structure Therapeutics Inc.,0001888886,2834,Pharmaceutical Preparations,GPCR,Nasdaq,CA,SOUTH SAN FRANCISCO,2023-01-12,2021-02-01,True
+SYBLEU Inc,0001818674,2834,Pharmaceutical Preparations,,,NY,BRONX,2020-08-17,2020-06-12,True
+"SYNLOGIC, INC.",0001527599,2834,Pharmaceutical Preparations,SYBX,OTC,MA,WINCHESTER,2015-08-24,2007-12-01,True
+"Synthorx, Inc.",0001609727,2834,Pharmaceutical Preparations,,,CA,LA JOLLA,2018-11-13,2014-01-01,True
+"Syros Pharmaceuticals, Inc.",0001556263,2834,Pharmaceutical Preparations,,,MA,CAMBRIDGE,2016-06-03,2011-11-01,True
+"Tango Therapeutics, Inc.",0001819133,2834,Pharmaceutical Preparations,TNGX,Nasdaq,MA,BOSTON,2020-07-30,2020-05-01,True
+"Telomir Pharmaceuticals, Inc.",0001971532,2834,Pharmaceutical Preparations,TELO,Nasdaq,FL,MIAMI,2023-11-14,2021-08-01,True
+"Tempest Therapeutics, Inc.",0001544227,2834,Pharmaceutical Preparations,TPST,Nasdaq,CA,BRISBANE,2012-08-29,2011-04-01,True
+TERCICA INC,0001262175,2834,Pharmaceutical Preparations,,,CA,BRISBANE,2003-09-12,2001-12-01,True
+"Terns Pharmaceuticals, Inc.",0001831363,2834,Pharmaceutical Preparations,TERN,Nasdaq,CA,FOSTER CITY,2021-01-15,2017-01-01,True
+"TESARO, Inc.",0001491576,2834,Pharmaceutical Preparations,,,MA,WALTHAM,2012-03-23,2010-03-01,True
+TETRALOGIC PHARMACEUTICALS Corp,0001361248,2834,Pharmaceutical Preparations,,,NY,PAOLI,2013-10-18,2001-07-01,True
+"TFF Pharmaceuticals, Inc.",0001733413,2834,Pharmaceutical Preparations,,,TX,AUSTIN,2019-08-20,2018-01-01,True
+THAR PHARMACEUTICALS INC,0001428369,2834,Pharmaceutical Preparations,,,PA,PITTSBURGH,2016-08-19,2006-01-01,True
+"Tharimmune, Inc.",0001861657,2834,Pharmaceutical Preparations,THAR,Nasdaq,NJ,BRIDGEWATER,2021-09-27,2017-03-28,True
+"THAT MARKETING SOLUTION, INC.",0001557796,2834,Pharmaceutical Preparations,,,UT,SALT LAKE CITY,2012-11-07,2012-08-02,True
+"TherapeuticsMD, Inc.",0000025743,2834,Pharmaceutical Preparations,TXMD,Nasdaq,FL,BOCA RATON,2012-11-27,2012-02-29,True
+"Theseus Pharmaceuticals, Inc.",0001745020,2834,Pharmaceutical Preparations,,,MA,CAMBRIDGE,2021-09-15,2017-12-01,True
+"TIANYIN PHARMACEUTICAL CO., INC.",0001362718,2834,Pharmaceutical Preparations,,,F4,"CHENGDU, P.R.",2008-02-15,2007-01-26,True
+"Tobira Therapeutics, Inc.",0001409690,2834,Pharmaceutical Preparations,,,CA,SOUTH SAN FRANCISCO,2014-06-23,2006-09-01,True
+Tonix Pharmaceuticals Holding Corp.,0001430306,2834,Pharmaceutical Preparations,TNXP,Nasdaq,NJ,BERKELEY HEIGHTS,2017-09-29,2007-11-16,True
+Tottenham Acquisition I Ltd,0001731176,2834,Pharmaceutical Preparations,,,K3,CENTRAL,2018-07-05,2017-11-13,True
+"Tricida, Inc.",0001595585,2834,Pharmaceutical Preparations,,,CA,SOUTH SAN FRANCISCO,2018-06-04,2013-05-01,True
+Trius Therapeutics Inc,0001356857,2834,Pharmaceutical Preparations,,,CA,SAN DIEGO,2009-11-06,2007-12-01,True
+"Trubion Pharmaceuticals, Inc",0001298521,2834,Pharmaceutical Preparations,,,WA,SEATTLE,2006-06-02,2002-10-01,True
+"TuHURA Biosciences, Inc./NV",0001498382,2834,Pharmaceutical Preparations,HURA,Nasdaq,FL,TAMPA,2010-08-17,2009-06-24,True
+"Turning Point Therapeutics, Inc.",0001595893,2834,Pharmaceutical Preparations,,,CA,SAN DIEGO,2019-03-21,2013-10-01,True
+"TYME TECHNOLOGIES, INC.",0001537917,2834,Pharmaceutical Preparations,,,NJ,BEDMINSTER,2012-02-02,2011-11-22,True
+"Unicycive Therapeutics, Inc.",0001766140,2834,Pharmaceutical Preparations,UNCY,Nasdaq,CA,LOS ALTOS,2021-05-21,2016-08-01,True
+United Cannabis Corp,0001436161,2834,Pharmaceutical Preparations,,,CO,GOLDEN,2008-07-15,2007-11-15,True
+"Unity Biotechnology, Inc.",0001463361,2834,Pharmaceutical Preparations,,,CA,SOUTH SAN FRANCISCO,2018-04-05,2009-03-01,True
+"Upstream Bio, Inc.",0002022626,2834,Pharmaceutical Preparations,UPB,Nasdaq,MA,WALTHAM,2024-09-18,2021-11-01,True
+Urovant Sciences Ltd.,0001740547,2834,Pharmaceutical Preparations,,,CA,IRVINE,2018-07-13,2016-01-01,True
+"VACCINEX, INC.",0001205922,2834,Pharmaceutical Preparations,VCNX,OTC,NY,ROCHESTER,2018-07-09,2001-04-01,True
+Valera Pharmaceuticals Inc,0001305409,2834,Pharmaceutical Preparations,,,NJ,CRANBURY,2005-03-14,2001-01-01,True
+"Vaxxinity, Inc.",0001851657,2834,Pharmaceutical Preparations,VAXX,OTC,FL,EXPLORATION PARK,2021-10-08,2020-03-01,True
+"Vector Therapeutics, Inc.",0001685616,2834,Pharmaceutical Preparations,,,NY,NEW YORK,2016-10-28,2016-05-20,True
+"Ventyx Biosciences, Inc.",0001851194,2834,Pharmaceutical Preparations,VTYX,Nasdaq,CA,SAN DIEGO,2021-09-29,2018-11-01,True
+"Vera Therapeutics, Inc.",0001831828,2834,Pharmaceutical Preparations,VERA,Nasdaq,CA,BRISBANE,2021-04-23,2016-05-01,True
+"Veradermics, Inc",0001827635,2834,Pharmaceutical Preparations,MANE,,CT,NEW HAVEN,2026-01-09,2019-10-05,True
+Vero Biotech Inc.,0001359620,2834,Pharmaceutical Preparations,,,GA,ATLANTA,2013-11-12,2006-01-01,True
+Verrica Pharmaceuticals Inc.,0001660334,2834,Pharmaceutical Preparations,VRCA,Nasdaq,PA,WEST CHESTER,2018-05-22,2010-01-01,True
+"Verve Therapeutics, Inc.",0001840574,2834,Pharmaceutical Preparations,,,MA,BOSTON,2021-05-28,2018-03-01,True
+Viamet Pharmaceuticals Holdings LLC,0001538928,2834,Pharmaceutical Preparations,,,NC,DURHAM,2014-07-01,2004-12-01,True
+"Viela Bio, Inc.",0001734517,2834,Pharmaceutical Preparations,,,MD,GAITHERSBURG,2019-08-29,2017-12-01,True
+"Vincerx Pharma, Inc.",0001796129,2834,Pharmaceutical Preparations,VINC,OTC,CA,PALO ALTO,2020-02-14,2018-12-19,True
+"VioQuest Pharmaceuticals, Inc.",0000745788,2834,Pharmaceutical Preparations,,,NJ,BASKING RIDGE,2008-05-23,2000-10-01,True
+Vireo Growth Inc.,0001771706,2834,Pharmaceutical Preparations,VREOF,OTC,MN,MINNEAPOLIS,2023-08-04,2014-01-01,True
+Virobay Inc,0001374261,2834,Pharmaceutical Preparations,,,CA,MENLO PARK,2014-09-10,2006-05-01,True
+"Virpax Pharmaceuticals, Inc.",0001708331,2834,Pharmaceutical Preparations,VRPX,OTC,PA,BERWYN,2020-10-09,2017-05-12,True
+"Vitae Pharmaceuticals, Inc",0001157602,2834,Pharmaceutical Preparations,,,PA,FORT WASHINGTON,2014-08-12,2001-05-01,True
+"Vividion Therapeutics, Inc.",0001671687,2834,Pharmaceutical Preparations,,,CA,SAN DIEGO,2021-06-25,2013-12-01,True
+vTv Therapeutics Inc.,0001641489,2834,Pharmaceutical Preparations,VTVT,Nasdaq,NC,HIGH POINT,2015-06-15,2015-04-01,True
+VYNE Therapeutics Inc.,0001566044,2834,Pharmaceutical Preparations,VYNE,Nasdaq,NJ,BRIDGEWATER,2017-12-28,2011-10-01,True
+"Warner Chilcott (US), LLC",0001319899,2834,Pharmaceutical Preparations,,,NJ,ROCKAWAY,2006-10-20,2006-08-01,True
+"Warner Chilcott Company, LLC",0001319903,2834,Pharmaceutical Preparations,,,NJ,ROCKAWAY,2006-10-20,2006-08-01,True
+Warner Chilcott CORP,0001319893,2834,Pharmaceutical Preparations,,,NJ,ROCKAWAY,2006-10-20,2006-08-01,True
+"Warner Chilcott Holdings CO III, LTD",0001319896,2834,Pharmaceutical Preparations,,,NJ,ROCKAWAY,2006-10-20,2006-08-01,True
+Warner Chilcott Intermediate (Luxembourg) S.a.r.l.,0001331426,2834,Pharmaceutical Preparations,,,NJ,ROCKAWAY,2006-10-20,2006-08-01,True
+Wave Life Sciences Ltd.,0001631574,2834,Pharmaceutical Preparations,WVE,Nasdaq,U0,SINGAPORE,2015-10-09,2013-01-01,True
+"Wellness Center USA, Inc.",0001516887,2834,Pharmaceutical Preparations,,,IL,HOFFMAN ESTATES,2011-03-31,2010-06-30,True
+"Werewolf Therapeutics, Inc.",0001785530,2834,Pharmaceutical Preparations,HOWL,Nasdaq,MA,WATERTOWN,2021-04-08,2017-10-01,True
+"Whitehawk Therapeutics, Inc.",0001422142,2834,Pharmaceutical Preparations,WHWK,Nasdaq,NJ,MORRISTOWN,2017-04-14,2007-11-01,True
+XBiotech Inc.,0001626878,2834,Pharmaceutical Preparations,XBIT,Nasdaq,TX,AUSTIN,2015-02-02,2014-01-01,True
+XCEL PHARMACEUTICALS INC,0001139665,2834,Pharmaceutical Preparations,,,CA,SAN DIEGO,2002-01-07,2001-01-01,True
+"Xstelos Holdings, Inc.",0001540145,2834,Pharmaceutical Preparations,,,NY,NEW YORK,2012-01-25,2001-01-01,True
+"Znomics, Inc.",0001371473,2834,Pharmaceutical Preparations,,,OR,PORTLAND,2008-08-08,2006-03-20,True
+"ZOGENIX, INC.",0001375151,2834,Pharmaceutical Preparations,,,CA,EMERYVILLE,2008-03-20,2006-10-01,True
+Zomedica Corp.,0001684144,2834,Pharmaceutical Preparations,ZOMDF,OTC,MI,ANN ARBOR,2017-04-21,2015-05-14,True
+"ZS Pharma, Inc.",0001459266,2834,Pharmaceutical Preparations,,,TX,COPPELL,2014-05-15,2008-02-01,True
+Zyla Life Sciences,0001586105,2834,Pharmaceutical Preparations,,,PA,WAYNE,2013-10-16,2013-08-01,True
+"Zynerba Pharmaceuticals, Inc.",0001621443,2834,Pharmaceutical Preparations,,,PA,DEVON,2015-06-30,2007-01-01,True
+"ZyVersa Therapeutics, Inc.",0001859007,2834,Pharmaceutical Preparations,ZVSA,OTC,FL,WESTON,2021-05-13,2021-03-01,True
+10X Capital Venture Acquisition Corp. III,0001848948,2836,"Biological Products, (No Diagnostic Substances)",,,NY,NEW YORK,2021-03-04,2004-01-01,True
+"4D Molecular Therapeutics, Inc.",0001650648,2836,"Biological Products, (No Diagnostic Substances)",FDMT,Nasdaq,CA,EMERYVILLE,2019-09-30,2015-03-01,True
+"Abpro Holdings, Inc.",0001893219,2836,"Biological Products, (No Diagnostic Substances)",ABP,Nasdaq,NY,NEW YORK,2021-12-02,2021-05-01,True
+ACCELERON PHARMA INC,0001280600,2836,"Biological Products, (No Diagnostic Substances)",,,MA,CAMBRIDGE,2013-08-07,2003-06-01,True
+ACESIS HOLDINGS CORP.,0001955728,2836,"Biological Products, (No Diagnostic Substances)",,,CO,CENTENNIAL,2023-09-15,2022-10-03,True
+"ADAPTIN BIO, INC.",0001938571,2836,"Biological Products, (No Diagnostic Substances)",,,NC,CHARLOTTE,2025-05-16,2022-03-01,True
+Adaptive Biotechnologies Corp,0001478320,2836,"Biological Products, (No Diagnostic Substances)",ADPT,Nasdaq,WA,SEATTLE,2019-05-30,2006-01-01,True
+"ADMA BIOLOGICS, INC.",0001368514,2836,"Biological Products, (No Diagnostic Substances)",ADMA,Nasdaq,NJ,RAMSEY,2012-03-29,2007-07-09,True
+"Adverum Biotechnologies, Inc.",0001501756,2836,"Biological Products, (No Diagnostic Substances)",ADVM,Nasdaq,CA,REDWOOD CITY,2014-06-30,2006-01-01,True
+AERIE PHARMACEUTICALS INC,0001337553,2836,"Biological Products, (No Diagnostic Substances)",,,NC,DURHAM,2013-09-17,2013-01-01,True
+"Aevi Genomic Medicine, LLC",0001138776,2836,"Biological Products, (No Diagnostic Substances)",,,PA,WAYNE,2010-11-05,2000-03-01,True
+Affinia Therapeutics Inc.,0001792694,2836,"Biological Products, (No Diagnostic Substances)",,,MA,WALTHAM,2022-01-04,2019-02-01,True
+Agentix Corp.,0001603345,2836,"Biological Products, (No Diagnostic Substances)",AGTX,OTC,CA,DANA POINT,2014-04-01,2013-04-18,True
+ALDAGEN INC,0001128188,2836,"Biological Products, (No Diagnostic Substances)",,,NC,DURHAM,2008-05-09,2000-03-01,True
+"Alector, Inc.",0001653087,2836,"Biological Products, (No Diagnostic Substances)",ALEC,Nasdaq,CA,SOUTH SAN FRANCISCO,2019-01-07,2013-05-01,True
+"Allena Pharmaceuticals, Inc.",0001624658,2836,"Biological Products, (No Diagnostic Substances)",,,MA,SUDBURY,2017-10-06,2014-12-01,True
+"Allogene Therapeutics, Inc.",0001737287,2836,"Biological Products, (No Diagnostic Substances)",ALLO,Nasdaq,CA,SOUTH SAN FRANCISCO,2018-09-14,2017-11-01,True
+"Alopexx, Inc.",0001880995,2836,"Biological Products, (No Diagnostic Substances)",,,MA,CAMBRIDGE,2022-03-07,2021-05-01,True
+Alpha Cognition Inc.,0001655923,2836,"Biological Products, (No Diagnostic Substances)",ACOG,Nasdaq,TX,GRAPEVINE,2024-04-30,2023-07-01,True
+"Apogee Therapeutics, Inc.",0001974640,2836,"Biological Products, (No Diagnostic Substances)",APGE,Nasdaq,MA,WALTHAM,2023-06-22,2022-01-01,True
+"Arcellx, Inc.",0001786205,2836,"Biological Products, (No Diagnostic Substances)",ACLX,Nasdaq,CA,REDWOOD CITY,2022-01-14,2014-12-01,True
+"Artiva Biotherapeutics, Inc.",0001817241,2836,"Biological Products, (No Diagnostic Substances)",ARTV,Nasdaq,CA,SAN DIEGO,2021-04-08,2019-02-01,True
+"Asterias Biotherapeutics, Inc.",0001572552,2836,"Biological Products, (No Diagnostic Substances)",,,CA,FREMONT,2013-04-03,2012-09-01,True
+"Atara Biotherapeutics, Inc.",0001604464,2836,"Biological Products, (No Diagnostic Substances)",ATRA,Nasdaq,CA,THOUSAND OAKS,2015-06-29,2012-08-01,True
+aTYR PHARMA INC,0001339970,2836,"Biological Products, (No Diagnostic Substances)",ATYR,Nasdaq,CA,SAN DIEGO,2015-04-06,2005-09-01,True
+"Audentes Therapeutics, Inc.",0001628738,2836,"Biological Products, (No Diagnostic Substances)",,,CA,SAN FRANCISCO,2016-01-04,2012-11-01,True
+"Aurion Biotech, Inc.",0001924356,2836,"Biological Products, (No Diagnostic Substances)",,,WA,SEATTLE,2025-01-24,2016-07-01,True
+"AveXis, Inc.",0001652923,2836,"Biological Products, (No Diagnostic Substances)",,,IL,BANNOCKBURN,2016-01-15,2010-04-01,True
+Axcella Health Inc.,0001633070,2836,"Biological Products, (No Diagnostic Substances)",,,MA,CAMBRIDGE,2019-04-12,2008-08-01,True
+Axium Pharmaceuticals Inc.,0001715028,2836,"Biological Products, (No Diagnostic Substances)",,,NC,HIGHPOINT,2017-08-21,2017-05-30,True
+Beam Therapeutics Inc.,0001745999,2836,"Biological Products, (No Diagnostic Substances)",BEAM,Nasdaq,MA,CAMBRIDGE,2019-09-27,2017-01-01,True
+"BioAtla, Inc.",0001826892,2836,"Biological Products, (No Diagnostic Substances)",BCAB,Nasdaq,CA,SAN DIEGO,2020-11-13,2007-03-01,True
+"BIOCARDIA LIFESCIENCES, INC.",0001635886,2836,"Biological Products, (No Diagnostic Substances)",,,CA,SAN CARLOS,2015-06-16,2002-03-01,True
+"BioCardia, Inc.",0000925741,2836,"Biological Products, (No Diagnostic Substances)",BCDA,Nasdaq,CA,SUNNYVALE,2009-12-18,2007-04-06,True
+BioLife4D Corp,0001714919,2836,"Biological Products, (No Diagnostic Substances)",,,IL,BUFFALO GROVE,2022-06-03,2016-11-01,True
+BiomX Inc.,0001739174,2836,"Biological Products, (No Diagnostic Substances)",PHGE,NYSE,,NESS ZIONA,2018-11-26,2017-11-01,True
+"BioVex Group, Inc.",0001365651,2836,"Biological Products, (No Diagnostic Substances)",,,MA,WOBURN,2006-06-20,2005-07-01,True
+"Black Diamond Therapeutics, Inc.",0001701541,2836,"Biological Products, (No Diagnostic Substances)",BDTX,Nasdaq,MA,CAMBRIDGE,2020-01-03,2018-09-01,True
+"C4 Therapeutics, Inc.",0001662579,2836,"Biological Products, (No Diagnostic Substances)",CCCC,Nasdaq,MA,WATERTOWN,2020-09-10,2015-10-01,True
+"Cabaletta Bio, Inc.",0001759138,2836,"Biological Products, (No Diagnostic Substances)",CABA,Nasdaq,PA,PHILADELPHIA,2019-09-30,2017-04-01,True
+"Candel Therapeutics, Inc.",0001841387,2836,"Biological Products, (No Diagnostic Substances)",CADL,Nasdaq,MA,NEEDHAM,2021-06-25,2003-06-01,True
+"CANNABIS GLOBAL, INC.",0001413488,2836,"Biological Products, (No Diagnostic Substances)",,,CA,LOS ANGELES,2019-08-26,2005-02-28,True
+"CARGO Therapeutics, Inc.",0001966494,2836,"Biological Products, (No Diagnostic Substances)",,,CA,SAN CARLOS,2023-10-20,2019-12-01,True
+"Caribou Biosciences, Inc.",0001619856,2836,"Biological Products, (No Diagnostic Substances)",CRBU,Nasdaq,CA,BERKELEY,2021-07-01,2014-07-01,True
+"CG Oncology, Inc.",0001991792,2836,"Biological Products, (No Diagnostic Substances)",CGON,Nasdaq,CA,IRVINE,2024-01-02,2010-09-01,True
+"Checkmate Pharmaceuticals, Inc.",0001651431,2836,"Biological Products, (No Diagnostic Substances)",,,MA,CAMBRIDGE,2020-07-17,2015-07-01,True
+"Chelsea Therapeutics International, Ltd.",0001333763,2836,"Biological Products, (No Diagnostic Substances)",,,NC,CHARLOTTE,2005-08-18,2002-04-01,True
+CHEMOKINE THERAPEUTICS CORP,0001092959,2836,"Biological Products, (No Diagnostic Substances)",,,A1,VANCOUVER,2008-04-08,2005-01-01,True
+"Cidara Therapeutics, Inc.",0001610618,2836,"Biological Products, (No Diagnostic Substances)",,,CA,SAN DIEGO,2015-03-13,2012-12-01,True
+"Civitas Therapeutics, Inc.",0001509697,2836,"Biological Products, (No Diagnostic Substances)",,,MA,CHELSEA,2014-08-26,2009-06-01,True
+"Coherus Oncology, Inc.",0001512762,2836,"Biological Products, (No Diagnostic Substances)",CHRS,Nasdaq,CA,REDWOOD CITY,2014-09-25,2010-09-01,True
+"Compass Therapeutics, Inc.",0001738021,2836,"Biological Products, (No Diagnostic Substances)",CMPX,Nasdaq,MA,BOSTON,2020-08-11,2015-02-01,True
+COTHERIX INC,0001138812,2836,"Biological Products, (No Diagnostic Substances)",,,CA,SOUTH SAN FRANCISCO,2004-03-11,2000-02-01,True
+CRISPR Therapeutics AG,0001674416,2836,"Biological Products, (No Diagnostic Substances)",CRSP,Nasdaq,,ZUG,2016-09-09,2013-10-01,True
+"Cullinan Therapeutics, Inc.",0001789972,2836,"Biological Products, (No Diagnostic Substances)",CGEM,Nasdaq,MA,CAMBRIDGE,2020-12-18,2016-09-01,True
+Denali Therapeutics Inc.,0001714899,2836,"Biological Products, (No Diagnostic Substances)",DNLI,Nasdaq,CA,SOUTH SAN FRANCISCO,2017-11-13,2013-10-01,True
+Edison Oncology Holding Corp,0001753347,2836,"Biological Products, (No Diagnostic Substances)",EOHC,,CA,MENLO PARK,2025-11-28,2018-07-01,True
+"Editas Medicine, Inc.",0001650664,2836,"Biological Products, (No Diagnostic Substances)",EDIT,Nasdaq,MA,CAMBRIDGE,2016-01-04,2013-09-01,True
+"Eiger BioPharmaceuticals, Inc.",0001305253,2836,"Biological Products, (No Diagnostic Substances)",,,CA,PALO ALTO,2013-10-11,2000-12-01,True
+"Eikon Therapeutics, Inc.",0001861123,2836,"Biological Products, (No Diagnostic Substances)",EIKN,,CA,MILLBRAE,2026-01-09,2019-07-01,True
+"Eloxx Pharmaceuticals, Inc.",0001035354,2836,"Biological Products, (No Diagnostic Substances)",,,MA,WATERTOWN,2013-07-17,2004-09-29,True
+enGene Holdings Inc.,0001980845,2836,"Biological Products, (No Diagnostic Substances)",ENGN,Nasdaq,A8,SAINT-LAURENT,2023-11-22,2023-09-05,True
+"Estrella Immunopharma, Inc.",0001844417,2836,"Biological Products, (No Diagnostic Substances)",ESLA,Nasdaq,CA,EMERYVILLE,2021-02-19,2012-01-01,True
+EXOZYMES INC.,0002010788,2836,"Biological Products, (No Diagnostic Substances)",EXOZ,Nasdaq,CA,MONROVIA,2024-02-09,2019-01-01,True
+FATE THERAPEUTICS INC,0001434316,2836,"Biological Products, (No Diagnostic Substances)",FATE,Nasdaq,CA,SAN DIEGO,2013-08-14,2012-10-01,True
+"Finch Therapeutics Group, Inc.",0001733257,2836,"Biological Products, (No Diagnostic Substances)",FNCH,OTC,MA,BOSTON,2021-02-26,2014-11-01,True
+"Forma Therapeutics Holdings, Inc.",0001538927,2836,"Biological Products, (No Diagnostic Substances)",,,MA,WATERTOWN,2020-05-29,2011-12-01,True
+Fusion Pharmaceuticals Inc.,0001805890,2836,"Biological Products, (No Diagnostic Substances)",,,A6,HAMILTON,2020-06-05,2014-12-01,True
+FutureTech II Acquisition Corp.,0001889450,2836,"Biological Products, (No Diagnostic Substances)",FTII,OTC,NY,NEW ROCHELLE,2021-12-23,2021-08-19,True
+"GENOCEA BIOSCIENCES, INC.",0001457612,2836,"Biological Products, (No Diagnostic Substances)",,,MA,CAMBRIDGE,2013-12-23,2006-08-01,True
+"Gritstone bio, Inc.",0001656634,2836,"Biological Products, (No Diagnostic Substances)",,,CA,EMERYVILLE,2018-08-23,2015-08-01,True
+"Harpoon Therapeutics, Inc.",0001708493,2836,"Biological Products, (No Diagnostic Substances)",,,CA,SOUTH SAN FRANCISCO,2018-12-27,2015-03-01,True
+"HEMOBIOTECH, INC.",0001301348,2836,"Biological Products, (No Diagnostic Substances)",,,TX,LUBBOCK,2008-12-16,2006-05-01,True
+"HilleVax, Inc.",0001888012,2836,"Biological Products, (No Diagnostic Substances)",,,MA,BOSTON,2022-04-06,2020-03-01,True
+"ImmunityBio, Inc.",0001326110,2836,"Biological Products, (No Diagnostic Substances)",IBRX,Nasdaq,CA,SAN DIEGO,2015-06-19,2011-01-01,True
+"Immunovant, Inc.",0001764013,2836,"Biological Products, (No Diagnostic Substances)",IMVT,Nasdaq,NY,NEW YORK,2019-04-16,2018-12-06,True
+"Inhibikase Therapeutics, Inc.",0001750149,2836,"Biological Products, (No Diagnostic Substances)",IKT,Nasdaq,DE,WILMINGTON,2020-07-23,2010-06-03,True
+"Inhibrx Biosciences, Inc.",0002007919,2836,"Biological Products, (No Diagnostic Substances)",INBX,Nasdaq,CA,LA JOLLA,2024-06-11,2024-01-08,True
+"Inmune Bio, Inc.",0001711754,2836,"Biological Products, (No Diagnostic Substances)",INMB,Nasdaq,FL,BOCA RATON,2018-08-30,2015-09-01,True
+"Instil Bio, Inc.",0001789769,2836,"Biological Products, (No Diagnostic Substances)",TIL,Nasdaq,TX,DALLAS,2021-02-26,2018-08-01,True
+"Intrinsic Medicine, Inc.",0001885768,2836,"Biological Products, (No Diagnostic Substances)",,,WA,SEATTLE,2022-04-08,2018-08-01,True
+"Invivyd, Inc.",0001832038,2836,"Biological Products, (No Diagnostic Substances)",IVVD,Nasdaq,CT,NEW HAVEN,2021-07-16,2020-06-01,True
+"iTeos Therapeutics, Inc.",0001808865,2836,"Biological Products, (No Diagnostic Substances)",,,MA,WATERTOWN,2020-06-24,2019-10-01,True
+IVORY CAPITAL CORP,0000841096,2836,"Biological Products, (No Diagnostic Substances)",,,NC,CHARLOTTE,2005-04-07,2002-04-01,True
+"Jounce Therapeutics, Inc.",0001640455,2836,"Biological Products, (No Diagnostic Substances)",,,MA,CAMBRIDGE,2016-12-30,2007-01-01,True
+"Kalaris Therapeutics, Inc.",0001754068,2836,"Biological Products, (No Diagnostic Substances)",KLRS,Nasdaq,NJ,BERKELEY HEIGHTS,2020-07-06,2013-08-01,True
+"Kaleido Biosciences, Inc.",0001751299,2836,"Biological Products, (No Diagnostic Substances)",,,MA,BEDFORD,2019-01-11,2015-01-01,True
+"Kite Pharma, Inc.",0001510580,2836,"Biological Products, (No Diagnostic Substances)",,,CA,SANTA MONICA,2014-05-19,2009-06-01,True
+"Krystal Biotech, Inc.",0001711279,2836,"Biological Products, (No Diagnostic Substances)",KRYS,Nasdaq,PA,PITTSBURGH,2017-08-21,2015-12-01,True
+"Kymera Therapeutics, Inc.",0001815442,2836,"Biological Products, (No Diagnostic Substances)",KYMR,Nasdaq,MA,WATERTOWN,2020-07-31,2015-09-01,True
+"Kyverna Therapeutics, Inc.",0001994702,2836,"Biological Products, (No Diagnostic Substances)",KYTX,Nasdaq,CA,EMERYVILLE,2024-01-16,2018-06-01,True
+LA JOLLA PHARMACEUTICAL CO,0000920465,2836,"Biological Products, (No Diagnostic Substances)",,,MA,WALTHAM,2013-11-08,2011-12-01,True
+"LENZ Therapeutics, Inc.",0001815776,2836,"Biological Products, (No Diagnostic Substances)",LENZ,Nasdaq,CA,SOLANA BEACH,2021-06-04,2019-10-01,True
+"LeonaBio, Inc.",0001620463,2836,"Biological Products, (No Diagnostic Substances)",LONA,Nasdaq,WA,BOTHELL,2020-08-26,2011-03-01,True
+Life Stem Genetics Inc.,0001556377,2836,"Biological Products, (No Diagnostic Substances)",,,CA,BEVERLY HILLS,2012-09-11,2012-07-05,True
+"Liminatus Pharma, Inc.",0001971387,2836,"Biological Products, (No Diagnostic Substances)",LIMN,Nasdaq,CA,LA PALMA,2025-06-24,2018-01-01,True
+"LogicBio Therapeutics, Inc.",0001664106,2836,"Biological Products, (No Diagnostic Substances)",,,MA,LEXINGTON,2018-09-25,2014-01-01,True
+"Maze Therapeutics, Inc.",0001842295,2836,"Biological Products, (No Diagnostic Substances)",MAZE,Nasdaq,CA,SOUTH SAN FRANCISCO,2025-01-07,2017-08-01,True
+"Metagenomi, Inc.",0001785279,2836,"Biological Products, (No Diagnostic Substances)",MGX,Nasdaq,CA,EMERYVILLE,2024-01-05,2016-09-01,True
+"Monte Rosa Therapeutics, Inc.",0001826457,2836,"Biological Products, (No Diagnostic Substances)",GLUE,Nasdaq,MA,BOSTON,2021-06-04,2019-11-01,True
+"Neon Therapeutics, Inc.",0001694187,2836,"Biological Products, (No Diagnostic Substances)",,,MA,CAMBRIDGE,2018-05-31,2007-01-01,True
+"Neumora Therapeutics, Inc.",0001885522,2836,"Biological Products, (No Diagnostic Substances)",NMRA,Nasdaq,MA,WATERTOWN,2023-08-25,2019-11-01,True
+"NS Wind Down Co., Inc.",0001401708,2836,"Biological Products, (No Diagnostic Substances)",,,WA,SEATTLE,2013-05-20,2003-06-01,True
+"Odyssey Therapeutics, Inc.",0001882782,2836,"Biological Products, (No Diagnostic Substances)",,,MA,BOSTON,2025-01-17,2021-04-01,True
+"Old Ayala, Inc",0001797336,2836,"Biological Products, (No Diagnostic Substances)",,,DE,WILMINGTON,2020-03-06,2017-11-01,True
+"Omega Therapeutics, Inc.",0001850838,2836,"Biological Products, (No Diagnostic Substances)",,,MA,CAMBRIDGE,2021-07-09,2016-07-01,True
+"Oyster Point Pharma, Inc.",0001720725,2836,"Biological Products, (No Diagnostic Substances)",,,NJ,PRINCETON,2019-10-04,2015-06-01,True
+"PALISADE BIO, INC.",0001357459,2836,"Biological Products, (No Diagnostic Substances)",PALI,Nasdaq,CA,CARLSBAD,2019-06-21,2006-01-01,True
+"Passage BIO, Inc.",0001787297,2836,"Biological Products, (No Diagnostic Substances)",PASG,Nasdaq,PA,PHILADELPHIA,2020-02-03,2017-07-01,True
+"Peak Bio, Inc.",0001834645,2836,"Biological Products, (No Diagnostic Substances)",,,CA,PLEASANTON,2021-01-11,2020-08-06,True
+"Peloton Therapeutics, Inc.",0001525145,2836,"Biological Products, (No Diagnostic Substances)",,,TX,DALLAS,2019-04-26,2010-08-01,True
+Pelthos Therapeutics Inc.,0001919246,2836,"Biological Products, (No Diagnostic Substances)",PTHS,NYSE,NC,DURHAM,2023-01-11,2002-01-01,True
+"Point of Care Nano-Technology, Inc.",0001504239,2836,"Biological Products, (No Diagnostic Substances)",,,NJ,WHITEHOUSE STATION,2010-10-25,2010-06-10,True
+"Poseida Therapeutics, Inc.",0001661460,2836,"Biological Products, (No Diagnostic Substances)",,,CA,SAN DIEGO,2019-01-04,2014-12-01,True
+PRECISION BIOSCIENCES INC,0001357874,2836,"Biological Products, (No Diagnostic Substances)",DTIL,Nasdaq,NC,DURHAM,2019-03-01,2006-01-01,True
+PREMIER BIOMEDICAL INC,0001515740,2836,"Biological Products, (No Diagnostic Substances)",,,MT,WHITEFISH,2011-06-14,2010-05-10,True
+"Prime Medicine, Inc.",0001894562,2836,"Biological Products, (No Diagnostic Substances)",PRME,Nasdaq,MA,CAMBRIDGE,2022-09-23,2019-09-01,True
+PROKIDNEY CORP.,0001850270,2836,"Biological Products, (No Diagnostic Substances)",PROK,Nasdaq,NC,WINSTON-SALEM,2021-06-02,2011-01-01,True
+"Protara Therapeutics, Inc.",0001359931,2836,"Biological Products, (No Diagnostic Substances)",TARA,Nasdaq,NY,NEW YORK,2014-09-16,2001-06-01,True
+"Quince Therapeutics, Inc.",0001662774,2836,"Biological Products, (No Diagnostic Substances)",QNCX,Nasdaq,CA,SOUTH SAN FRANCISCO,2019-04-12,2012-06-01,True
+"RECURSION PHARMACEUTICALS, INC.",0001601830,2836,"Biological Products, (No Diagnostic Substances)",RXRX,Nasdaq,UT,SALT LAKE CITY,2021-03-22,2019-01-01,True
+REGENXBIO Inc.,0001590877,2836,"Biological Products, (No Diagnostic Substances)",RGNX,Nasdaq,MD,ROCKVILLE,2015-08-17,2008-07-01,True
+"Relay Therapeutics, Inc.",0001812364,2836,"Biological Products, (No Diagnostic Substances)",RLAY,Nasdaq,MA,CAMBRIDGE,2020-06-24,2015-05-01,True
+"Replimune Group, Inc.",0001737953,2836,"Biological Products, (No Diagnostic Substances)",REPL,Nasdaq,MA,WOBURN,2018-06-22,2017-07-01,True
+"Rubius Therapeutics, Inc.",0001709401,2836,"Biological Products, (No Diagnostic Substances)",,,MA,FOXBORO,2018-06-22,2013-04-01,True
+"Sana Biotechnology, Inc.",0001770121,2836,"Biological Products, (No Diagnostic Substances)",SANA,Nasdaq,WA,SEATTLE,2021-01-13,2018-07-01,True
+Scilex Holding Co,0001820190,2836,"Biological Products, (No Diagnostic Substances)",SCLX,Nasdaq,CA,PALO ALTO,2020-12-15,2014-01-01,True
+Silexion Therapeutics Corp,0002022416,2836,"Biological Products, (No Diagnostic Substances)",SLXN,Nasdaq,L3,RAMAT GAN,2024-09-10,2024-04-02,True
+Solid Biosciences Inc.,0001707502,2836,"Biological Products, (No Diagnostic Substances)",SLDB,Nasdaq,MA,CHARLESTOWN,2017-12-29,2014-08-01,True
+"Spark Therapeutics, Inc.",0001609351,2836,"Biological Products, (No Diagnostic Substances)",,,PA,PHILADELPHIA,2014-12-30,2013-03-01,True
+SPK Acquisition Corp.,0001848097,2836,"Biological Products, (No Diagnostic Substances)",,,F4,SHANGHAI,2021-04-23,2020-12-31,True
+"SpringWorks Therapeutics, Inc.",0001773427,2836,"Biological Products, (No Diagnostic Substances)",,,CT,STAMFORD,2019-08-16,2017-08-01,True
+SQZ Biotechnologies Co,0001604477,2836,"Biological Products, (No Diagnostic Substances)",,,MA,WATERTOWN,2020-10-09,2013-03-01,True
+"Surface Oncology, Inc.",0001718108,2836,"Biological Products, (No Diagnostic Substances)",,,MA,CAMBRIDGE,2018-03-23,2014-04-01,True
+"Surrozen, Inc./DE",0001824893,2836,"Biological Products, (No Diagnostic Substances)",SRZN,Nasdaq,CA,SOUTH SAN FRANCISCO,2020-10-09,2007-01-01,True
+"SUTRO BIOPHARMA, INC.",0001382101,2836,"Biological Products, (No Diagnostic Substances)",STRO,Nasdaq,CA,SOUTH SAN FRANCISCO,2018-08-29,2003-04-21,True
+"Taysha Gene Therapies, Inc.",0001806310,2836,"Biological Products, (No Diagnostic Substances)",TSHA,Nasdaq,TX,DALLAS,2020-09-02,2010-01-01,True
+TCR2 THERAPEUTICS INC.,0001750019,2836,"Biological Products, (No Diagnostic Substances)",,,MA,CAMBRIDGE,2018-12-28,2015-05-01,True
+"Tenaya Therapeutics, Inc.",0001858848,2836,"Biological Products, (No Diagnostic Substances)",TNYA,Nasdaq,CA,SOUTH SAN FRANCISCO,2021-07-09,2016-08-01,True
+TENGION INC,0001296391,2836,"Biological Products, (No Diagnostic Substances)",,,NC,WINSTON-SALEM,2009-12-24,2003-01-01,True
+Tevogen Bio Holdings Inc.,0001860871,2836,"Biological Products, (No Diagnostic Substances)",TVGN,Nasdaq,NJ,WARREN,2021-10-07,2018-01-01,True
+"Tourmaline Bio, Inc.",0001827506,2836,"Biological Products, (No Diagnostic Substances)",TRML,,NY,NEW YORK,2021-04-16,2002-02-01,True
+"Tracon Pharmaceuticals, Inc.",0001394319,2836,"Biological Products, (No Diagnostic Substances)",,,CA,San Diego,2014-12-29,2004-10-01,True
+"Translate Bio, Inc.",0001693415,2836,"Biological Products, (No Diagnostic Substances)",,,MA,LEXINGTON,2018-06-01,2011-04-01,True
+"TScan Therapeutics, Inc.",0001783328,2836,"Biological Products, (No Diagnostic Substances)",TCRX,Nasdaq,MA,WALTHAM,2021-04-23,2018-04-01,True
+Turnstone Biologics Corp.,0001764974,2836,"Biological Products, (No Diagnostic Substances)",,,CA,LA JOLLA,2023-06-12,2015-01-01,True
+"TVAX Biomedical, Inc.",0001526959,2836,"Biological Products, (No Diagnostic Substances)",,,KS,LENEXA,2011-11-07,2009-01-01,True
+"Vaxart, Inc.",0000072444,2836,"Biological Products, (No Diagnostic Substances)",VXRT,OTC,CA,SOUTH SAN FRANCISCO,2019-02-06,2004-03-01,True
+"Vaxcyte, Inc.",0001649094,2836,"Biological Products, (No Diagnostic Substances)",PCVX,Nasdaq,CA,SAN CARLOS,2020-05-22,2013-11-01,True
+"Vigil Neuroscience, Inc.",0001827087,2836,"Biological Products, (No Diagnostic Substances)",,,MA,WATERTOWN,2021-11-19,2020-06-01,True
+"Vir Biotechnology, Inc.",0001706431,2836,"Biological Products, (No Diagnostic Substances)",VIR,Nasdaq,CA,SAN FRANCISCO,2019-09-03,2016-04-01,True
+"VivoSim Labs, INC.",0001497253,2836,"Biological Products, (No Diagnostic Substances)",VIVS,Nasdaq,CA,SAN DIEGO,2010-10-13,2009-12-01,True
+Vor Biopharma Inc.,0001817229,2836,"Biological Products, (No Diagnostic Substances)",VOR,Nasdaq,MA,BOSTON,2021-01-15,2015-12-01,True
+"Voyager Therapeutics, Inc.",0001640266,2836,"Biological Products, (No Diagnostic Substances)",VYGR,Nasdaq,MA,LEXINGTON,2015-10-09,2013-06-01,True
+"X4 Pharmaceuticals, Inc",0001501697,2836,"Biological Products, (No Diagnostic Substances)",XFOR,Nasdaq,MA,BOSTON,2017-10-20,2004-01-01,True
+"Zeo ScientifiX, Inc.",0001557376,2836,"Biological Products, (No Diagnostic Substances)",ZEOX,OTC,FL,DAVIE,2012-09-04,2011-08-09,True
+"Zivo Bioscience, Inc.",0001101026,2836,"Biological Products, (No Diagnostic Substances)",ZIVO,OTC,MI,BLOOMFIELD HILLS,2020-12-09,2020-02-01,True
+Zura Bio Ltd,0001855644,2836,"Biological Products, (No Diagnostic Substances)",ZURA,Nasdaq,CA,LA JOLLA,2021-06-15,2015-01-01,True
