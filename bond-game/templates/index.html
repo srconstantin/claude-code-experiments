@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to Bondistan 🏔️</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0a0e1a;
+    color: #e2e8f0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+  }
+
+  header {
+    background: linear-gradient(135deg, #1a2035 0%, #0d1526 100%);
+    border-bottom: 1px solid #00d4aa44;
+    padding: 1.2rem 2rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  header h1 { font-size: 1.5rem; color: #00d4aa; font-weight: 700; }
+  header p { font-size: 0.85rem; color: #a0aec0; }
+
+  nav {
+    background: #111827;
+    border-bottom: 1px solid #2d3748;
+    padding: 0 1rem;
+    display: flex; gap: 0.25rem; overflow-x: auto;
+  }
+
+  .nav-btn {
+    background: none; border: none; cursor: pointer;
+    color: #718096; font-size: 0.85rem; font-weight: 500;
+    padding: 0.9rem 1.1rem;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap; transition: all 0.2s;
+  }
+  .nav-btn:hover { color: #e2e8f0; }
+  .nav-btn.active { color: #00d4aa; border-bottom-color: #00d4aa; }
+
+  main { padding: 1.5rem; max-width: 1100px; margin: 0 auto; }
+
+  .section { display: none; }
+  .section.active { display: block; }
+
+  .section-intro {
+    background: linear-gradient(135deg, #1a2035, #151d30);
+    border: 1px solid #2d3748;
+    border-left: 3px solid #00d4aa;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  .section-intro h2 { font-size: 1.15rem; color: #00d4aa; margin-bottom: 0.4rem; }
+  .section-intro p { font-size: 0.88rem; color: #a0aec0; line-height: 1.6; }
+  .section-intro .tip {
+    margin-top: 0.6rem; padding: 0.5rem 0.75rem;
+    background: #00d4aa15; border-radius: 6px;
+    font-size: 0.82rem; color: #81e6d9;
+  }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1.6fr; gap: 1.25rem; align-items: start; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+
+  .card {
+    background: #1a2035;
+    border: 1px solid #2d3748;
+    border-radius: 10px;
+    padding: 1.25rem;
+  }
+  .card h3 { font-size: 0.9rem; color: #a0aec0; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* Sliders */
+  .slider-row { margin-bottom: 0.85rem; }
+  .slider-row label {
+    display: flex; justify-content: space-between;
+    font-size: 0.83rem; color: #a0aec0; margin-bottom: 0.3rem;
+  }
+  .slider-row label span { color: #e2e8f0; font-weight: 600; }
+  input[type=range] {
+    width: 100%; height: 4px;
+    -webkit-appearance: none; background: #2d3748; border-radius: 2px; cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 16px; height: 16px;
+    background: #00d4aa; border-radius: 50%; cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb:hover { background: #81e6d9; }
+
+  /* Stat boxes */
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .stat {
+    background: #0d1526;
+    border: 1px solid #2d3748;
+    border-radius: 8px;
+    padding: 0.75rem;
+    text-align: center;
+  }
+  .stat .label { font-size: 0.73rem; color: #718096; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.3rem; }
+  .stat .value { font-size: 1.4rem; font-weight: 700; color: #e2e8f0; }
+  .stat.big .value { font-size: 2rem; color: #00d4aa; }
+
+  #b-premium {
+    margin-top: 0.75rem; padding: 0.5rem 0.75rem;
+    background: #0d1526; border-radius: 6px;
+    font-size: 0.85rem; text-align: center; font-weight: 600;
+  }
+
+  /* Chart canvas */
+  canvas { max-height: 320px; }
+
+  /* Insight box */
+  .insight {
+    margin-top: 0.75rem;
+    padding: 0.6rem 0.85rem;
+    background: #00d4aa12;
+    border: 1px solid #00d4aa33;
+    border-radius: 6px;
+    font-size: 0.83rem;
+    color: #81e6d9;
+    line-height: 1.5;
+  }
+
+  /* Preset buttons */
+  .preset-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .preset-btn {
+    background: #2d3748; border: 1px solid #4a5568; color: #a0aec0;
+    padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.8rem;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .preset-btn:hover { background: #4a5568; color: #e2e8f0; }
+  .preset-btn.active { background: #00d4aa22; border-color: #00d4aa; color: #00d4aa; }
+
+  /* Duration table */
+  table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+  th { color: #718096; font-weight: 500; text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid #2d3748; }
+  td { padding: 0.4rem 0.6rem; border-bottom: 1px solid #1a2035; }
+
+  /* Credit select */
+  select {
+    background: #0d1526; border: 1px solid #2d3748; color: #e2e8f0;
+    padding: 0.4rem 0.6rem; border-radius: 6px; font-size: 0.88rem;
+    width: 100%; margin-top: 0.3rem; cursor: pointer;
+  }
+
+  /* Quiz */
+  #quiz-progress { font-size: 0.83rem; color: #718096; margin-bottom: 1rem; }
+  #quiz-question { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 1.25rem; line-height: 1.5; }
+  #quiz-options { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1rem; }
+
+  .quiz-option {
+    background: #1a2035; border: 1px solid #2d3748; color: #a0aec0;
+    padding: 0.7rem 1rem; border-radius: 8px; text-align: left;
+    cursor: pointer; font-size: 0.88rem; transition: all 0.2s;
+  }
+  .quiz-option:hover:not(:disabled) { background: #2d3748; color: #e2e8f0; border-color: #4a5568; }
+  .quiz-option.correct { background: #22543d; border-color: #68d391; color: #68d391; }
+  .quiz-option.wrong { background: #742a2a; border-color: #fc8181; color: #fc8181; }
+  .quiz-option:disabled { cursor: default; }
+
+  #quiz-result { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  #quiz-explanation { background: #0d1526; border: 1px solid #2d3748; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
+  #quiz-explanation-text { font-size: 0.88rem; color: #a0aec0; line-height: 1.6; }
+
+  .quiz-btn {
+    background: #00d4aa; color: #0a0e1a; font-weight: 700;
+    border: none; padding: 0.6rem 1.5rem; border-radius: 8px; cursor: pointer; font-size: 0.9rem;
+    margin-right: 0.5rem; transition: background 0.2s;
+  }
+  .quiz-btn:hover { background: #81e6d9; }
+  .quiz-btn.secondary { background: #2d3748; color: #e2e8f0; }
+  .quiz-btn.secondary:hover { background: #4a5568; }
+
+  #quiz-final { margin-top: 1rem; padding: 1.25rem; background: #0d1526; border-radius: 8px; text-align: center; }
+  #quiz-final h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+
+  #py-dur-approx { font-size: 0.83rem; color: #a0aec0; line-height: 1.7; margin-top: 0.4rem; }
+
+  .formula-box {
+    background: #0d1526; border: 1px solid #2d3748; border-radius: 6px;
+    padding: 0.75rem 1rem; font-family: 'Courier New', monospace;
+    font-size: 0.82rem; color: #81e6d9; margin: 0.75rem 0; line-height: 1.7;
+  }
+
+  .yc-stats { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.75rem; }
+  .yc-stat { background: #0d1526; border-radius: 6px; padding: 0.5rem 0.75rem; font-size: 0.83rem; }
+  .yc-stat span { color: #a0aec0; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>🏔️ Welcome to Bondistan</h1>
+    <p>A practical guide to fixed income for future finance professionals</p>
+  </div>
+</header>
+
+<nav>
+  <button class="nav-btn active" data-section="sec-basics">📐 Bond Basics</button>
+  <button class="nav-btn" data-section="sec-price-yield">⚖️ Price vs Yield</button>
+  <button class="nav-btn" data-section="sec-duration">⏱️ Duration</button>
+  <button class="nav-btn" data-section="sec-yield-curve">📈 Yield Curve</button>
+  <button class="nav-btn" data-section="sec-credit">💳 Credit Risk</button>
+  <button class="nav-btn" data-section="sec-quiz">🎯 Quiz</button>
+</nav>
+
+<main>
+
+<!-- ── SECTION 1: BOND BASICS ── -->
+<section id="sec-basics" class="section active">
+  <div class="section-intro">
+    <h2>📐 Bond Basics — What Is a Bond?</h2>
+    <p>A bond is a loan you make to a government or company. They promise to pay you regular <b>coupons</b> (interest) and return your <b>face value</b> (principal) at <b>maturity</b>. But the bond's <em>market price</em> changes daily based on interest rates.</p>
+    <div class="tip">💡 Key insight: Bond price = the present value of all future cash flows, discounted at the current market yield.</div>
+  </div>
+
+  <div class="grid-2">
+    <div>
+      <div class="card">
+        <h3>Bond Parameters</h3>
+        <div class="slider-row">
+          <label>Face Value <span>$<span id="b-face-val">1000</span></span></label>
+          <input type="range" id="b-face" min="100" max="2000" step="100" value="1000">
+        </div>
+        <div class="slider-row">
+          <label>Coupon Rate <span><span id="b-coupon-val">5</span>%</span></label>
+          <input type="range" id="b-coupon" min="0" max="15" step="0.25" value="5">
+        </div>
+        <div class="slider-row">
+          <label>Market Yield (YTM) <span><span id="b-ytm-val">5</span>%</span></label>
+          <input type="range" id="b-ytm" min="0.5" max="15" step="0.25" value="5">
+        </div>
+        <div class="slider-row">
+          <label>Maturity <span><span id="b-maturity-val">10</span> years</span></label>
+          <input type="range" id="b-maturity" min="1" max="30" step="1" value="10">
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:1rem">
+        <h3>Calculated Values</h3>
+        <div class="stat-grid">
+          <div class="stat big" style="grid-column:span 2">
+            <div class="label">Market Price</div>
+            <div class="value" id="b-price">$1,000.00</div>
+          </div>
+          <div class="stat">
+            <div class="label">Macaulay Duration</div>
+            <div class="value" id="b-mac-dur">7.72 yrs</div>
+          </div>
+          <div class="stat">
+            <div class="label">Modified Duration</div>
+            <div class="value" id="b-mod-dur">7.53</div>
+          </div>
+          <div class="stat" style="grid-column:span 2">
+            <div class="label">Current Yield</div>
+            <div class="value" id="b-cur-yield">5.00%</div>
+          </div>
+        </div>
+        <div id="b-premium"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Cash Flow Timeline</h3>
+      <canvas id="cf-chart"></canvas>
+      <div class="insight">
+        <b>Blue bar</b> = coupon + face value at maturity &nbsp;|&nbsp; <b>Teal bars</b> = coupon payments<br>
+        The market price is the sum of all those bars, each divided by (1 + yield)^t.
+      </div>
+      <div class="formula-box">
+        Price = Σ [Coupon / (1 + YTM/2)^t] + Face / (1 + YTM/2)^(2×T)
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 2: PRICE vs YIELD ── -->
+<section id="sec-price-yield" class="section">
+  <div class="section-intro">
+    <h2>⚖️ The Price-Yield Seesaw</h2>
+    <p>Bond prices and yields move in <b>opposite directions</b> — always. When new bonds offer higher yields, existing bonds must drop in price to compete. The relationship isn't linear — it's <b>convex</b>, which is great news for bondholders.</p>
+    <div class="tip">💡 Rule of thumb: Price change ≈ −ModifiedDuration × ΔYield. But convexity makes reality a bit better than this estimate.</div>
+  </div>
+
+  <div class="grid-2">
+    <div>
+      <div class="card">
+        <h3>Bond Settings</h3>
+        <div class="slider-row">
+          <label>Coupon Rate <span><span id="py-coupon-val">5</span>%</span></label>
+          <input type="range" id="py-coupon" min="0" max="15" step="0.25" value="5">
+        </div>
+        <div class="slider-row">
+          <label>Maturity <span><span id="py-maturity-val">10</span> yrs</span></label>
+          <input type="range" id="py-maturity" min="1" max="30" step="1" value="10">
+        </div>
+        <div class="slider-row">
+          <label>Current Yield ★ <span><span id="py-ytm-val">5</span>%</span></label>
+          <input type="range" id="py-ytm" min="0.5" max="15" step="0.1" value="5">
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:1rem">
+        <h3>At Current Yield</h3>
+        <div class="stat-grid">
+          <div class="stat big" style="grid-column:span 2">
+            <div class="label">Price</div>
+            <div class="value" id="py-price"></div>
+          </div>
+          <div class="stat">
+            <div class="label">Mod. Duration</div>
+            <div class="value" id="py-moddur"></div>
+          </div>
+          <div class="stat">
+            <div class="label">Convexity</div>
+            <div class="value" id="py-convexity"></div>
+          </div>
+        </div>
+        <div style="margin-top:0.75rem">
+          <div style="font-size:0.8rem;color:#718096;margin-bottom:0.3rem">Duration approximation vs actual:</div>
+          <div id="py-dur-approx"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Price-Yield Curve (★ = your bond)</h3>
+      <canvas id="py-chart"></canvas>
+      <div class="insight">
+        The <b>convex curve</b> means price rises more when yields fall than it drops when yields rise by the same amount. This asymmetry — convexity — is always favorable for bondholders.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 3: DURATION ── -->
+<section id="sec-duration" class="section">
+  <div class="section-intro">
+    <h2>⏱️ Duration — Your Bond's Interest Rate Sensitivity</h2>
+    <p>Duration measures how much a bond's price changes when rates move. Think of it as the bond's "sensitivity to rate shocks." A bond with duration 8 loses ~8% if yields rise 1%.</p>
+    <div class="tip">💡 Two factors increase duration: longer maturity and lower coupon rate. Both push more cash flow further into the future.</div>
+  </div>
+
+  <div class="card" style="margin-bottom:1.25rem">
+    <h3>Rate Shock Scenario</h3>
+    <div class="slider-row" style="max-width:400px">
+      <label>Rate Shock <span><span id="dur-shock-val">100</span> bps</span></label>
+      <input type="range" id="dur-shock" min="-300" max="300" step="25" value="100">
+    </div>
+    <div class="insight" style="margin-top:0">
+      Drag left for a rate cut (prices rise), right for a rate hike (prices fall). All bonds start at 5% yield.
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>Price Impact by Bond</h3>
+      <canvas id="dur-chart"></canvas>
+    </div>
+    <div class="card">
+      <h3>Duration Comparison Table</h3>
+      <table>
+        <thead>
+          <tr><th>Bond</th><th>Mod. Duration</th><th>Price Change</th></tr>
+        </thead>
+        <tbody id="dur-table-body"></tbody>
+      </table>
+      <div class="formula-box" style="margin-top:1rem">
+        ΔP ≈ −ModDuration × ΔYield × Price
+        <br>Full: ΔP ≈ −MD×ΔY×P + ½×Convexity×ΔY²×P
+      </div>
+      <div class="insight">
+        <b>30Y, 5% coupon</b> has the highest duration — a long maturity pushes cash flows far into the future. Compare <b>10Y, 2% coupon</b> vs <b>10Y, 5% coupon</b>: same maturity, but the lower coupon bond is meaningfully more sensitive. Both effects are real!
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 4: YIELD CURVE ── -->
+<section id="sec-yield-curve" class="section">
+  <div class="section-intro">
+    <h2>📈 The Yield Curve — A Map of the Bond Market</h2>
+    <p>The yield curve plots yields for bonds of different maturities. Its <b>shape</b> encodes what the market expects about future rates and the economy. Traders make billions watching it shift.</p>
+    <div class="tip">💡 The 2s10s spread (10Y yield minus 2Y yield) is the most watched indicator. Negative = inverted = recession signal.</div>
+  </div>
+
+  <div class="grid-2">
+    <div>
+      <div class="card">
+        <h3>Curve Shape Presets</h3>
+        <div class="preset-row">
+          <button class="preset-btn" data-preset="normal">Normal ↗</button>
+          <button class="preset-btn" data-preset="inverted">Inverted ↘</button>
+          <button class="preset-btn" data-preset="flat">Flat →</button>
+          <button class="preset-btn" data-preset="humped">Humped ∩</button>
+        </div>
+        <h3 style="margin-top:0.5rem">Nelson-Siegel Parameters</h3>
+        <div class="slider-row">
+          <label>β₀ Long-run level <span><span id="yc-beta0-val">4.5</span></span></label>
+          <input type="range" id="yc-beta0" min="1" max="8" step="0.1" value="4.5">
+        </div>
+        <div class="slider-row">
+          <label>β₁ Short-term slope <span><span id="yc-beta1-val">-2.5</span></span></label>
+          <input type="range" id="yc-beta1" min="-5" max="5" step="0.1" value="-2.5">
+        </div>
+        <div class="slider-row">
+          <label>β₂ Curvature/hump <span><span id="yc-beta2-val">1.5</span></span></label>
+          <input type="range" id="yc-beta2" min="-5" max="5" step="0.1" value="1.5">
+        </div>
+        <div class="slider-row">
+          <label>τ Decay factor <span><span id="yc-tau-val">2.0</span></span></label>
+          <input type="range" id="yc-tau" min="0.5" max="5" step="0.1" value="2">
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:1rem">
+        <h3>Curve Analysis</h3>
+        <div style="font-size:1rem;font-weight:700;margin-bottom:0.4rem" id="yc-shape"></div>
+        <div style="font-size:0.85rem;color:#a0aec0;line-height:1.6" id="yc-interpretation"></div>
+        <div class="yc-stats">
+          <div class="yc-stat"><span>2s10s:</span> <b id="yc-2s10s"></b></div>
+          <div class="yc-stat"><span>3m10y:</span> <b id="yc-3m10y"></b></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <canvas id="yc-chart"></canvas>
+        <div class="insight">
+          <b>Normal (upward):</b> typical expansion phase. Long-term bonds yield more (term premium).<br>
+          <b>Inverted:</b> markets expect rate cuts ahead (recession or Fed easing).<br>
+          <b>Carry + Rolldown:</b> in an upward curve, holding a 10Y bond for 1 year earns the 10Y yield AND the bond "rolls down" to a 9Y (lower yield = higher price). Double win!
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 5: CREDIT RISK ── -->
+<section id="sec-credit" class="section">
+  <div class="section-intro">
+    <h2>💳 Credit Risk & Spreads</h2>
+    <p>Not all bonds are equal. Corporate bonds must pay a <b>spread</b> above risk-free Treasuries to compensate for default risk. The riskier the issuer, the higher the spread, the lower the price.</p>
+    <div class="tip">💡 Spread = total yield − risk-free yield. A BBB bond at 1.4% spread pays 1.4% above Treasuries. Junk bonds (BB and below) can trade at hundreds of basis points of spread.</div>
+  </div>
+
+  <div class="grid-2">
+    <div>
+      <div class="card">
+        <h3>Bond Settings</h3>
+        <div class="slider-row">
+          <label>Maturity <span><span id="cr-maturity-val">10</span> yrs</span></label>
+          <input type="range" id="cr-maturity" min="1" max="30" step="1" value="10">
+        </div>
+        <div class="slider-row">
+          <label>Coupon Rate <span><span id="cr-coupon-val">5</span>%</span></label>
+          <input type="range" id="cr-coupon" min="1" max="12" step="0.25" value="5">
+        </div>
+        <div style="margin-bottom:0.85rem">
+          <label style="font-size:0.83rem;color:#a0aec0">Credit Rating</label>
+          <select id="cr-rating">
+            <option>AAA</option><option>AA</option><option>A</option>
+            <option selected>BBB</option><option>BB</option><option>B</option><option>CCC</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:1rem">
+        <h3>Yield Breakdown</h3>
+        <div class="stat-grid">
+          <div class="stat">
+            <div class="label">Risk-Free (Treasury)</div>
+            <div class="value" id="cr-rf-yield"></div>
+          </div>
+          <div class="stat">
+            <div class="label">Credit Spread</div>
+            <div class="value" id="cr-spread"></div>
+          </div>
+          <div class="stat">
+            <div class="label">Total Yield (YTM)</div>
+            <div class="value" id="cr-total-yield"></div>
+          </div>
+          <div class="stat big">
+            <div class="label">Bond Price</div>
+            <div class="value" id="cr-price"></div>
+          </div>
+        </div>
+        <div class="insight" style="margin-top:0.75rem">
+          Investment grade = BBB and above. High yield ("junk") = BB and below. The gap in spreads between IG and HY is huge — that's the market pricing default risk.
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Price by Credit Rating (same coupon, same maturity)</h3>
+      <canvas id="cr-chart"></canvas>
+      <div class="insight">
+        Higher credit risk → higher yield demanded → lower price. A CCC-rated bond might trade at 60 cents on the dollar even with the same coupon!
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 6: QUIZ ── -->
+<section id="sec-quiz" class="section">
+  <div class="section-intro">
+    <h2>🎯 Test Your Bond Intuition</h2>
+    <p>10 scenario-based questions covering bond pricing, duration, yield curves, and credit risk. These are the kinds of questions you'll face in interviews and on the trading floor.</p>
+    <div class="tip">💡 Take your time — read each question carefully. Explanations are shown after each answer.</div>
+  </div>
+
+  <div class="card" style="max-width:700px;margin:0 auto">
+    <div id="quiz-progress"></div>
+    <div id="quiz-question"></div>
+    <div id="quiz-options"></div>
+    <div id="quiz-result"></div>
+    <div id="quiz-explanation" style="display:none">
+      <div id="quiz-explanation-text"></div>
+    </div>
+    <div id="quiz-final" style="display:none"></div>
+    <button id="quiz-next" class="quiz-btn" style="display:none">Next Question →</button>
+    <button id="quiz-restart" class="quiz-btn secondary" style="display:none">Restart Quiz</button>
+  </div>
+</section>
+
+</main>
+
+<script src="/static/game.js"></script>
+</body>
+</html>
