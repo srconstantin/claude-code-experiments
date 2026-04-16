@@ -1,0 +1,6 @@
+venv/
+batches/
+build_data.py
+download_images.py
+Perfume Quiz.xlsx
+.DS_Store

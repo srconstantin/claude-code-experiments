@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Ultimate Perfume Quiz</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: '#121214',
+              paper: '#ebe7e0',
+              accent: {
+                300: '#f4c98a',
+                400: '#e8b273',
+                500: '#d09757',
+              },
+            },
+            fontFamily: {
+              serif: ['Lora', 'Georgia', 'serif'],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      html,
+      body {
+        background: #121214;
+        color: #ebe7e0;
+        font-family: 'Lora', Georgia, serif;
+        -webkit-font-smoothing: antialiased;
+        min-height: 100vh;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: 'Lora', Georgia, serif;
+      }
+      .option-btn {
+        transition: background-color 140ms ease, border-color 140ms ease,
+          color 140ms ease;
+      }
+      .option-btn:hover {
+        background-color: rgba(232, 178, 115, 0.06);
+        border-color: rgba(232, 178, 115, 0.5);
+      }
+      .option-btn.selected {
+        background-color: rgba(232, 178, 115, 0.12);
+        border-color: #e8b273;
+        color: #f4c98a;
+      }
+      .fade {
+        animation: fadeIn 300ms ease both;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .hairline {
+        border-color: rgba(235, 231, 224, 0.14);
+      }
+      .axis-track {
+        background: rgba(235, 231, 224, 0.07);
+      }
+      .axis-fill-neg,
+      .axis-fill-pos {
+        background: rgba(232, 178, 115, 0.35);
+      }
+      .marker {
+        box-shadow: 0 0 0 3px #121214, 0 0 10px rgba(232, 178, 115, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" class="min-h-screen"></div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

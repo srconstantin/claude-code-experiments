@@ -5,3 +5,5 @@ pan-cancer/data/*.zip
 pan-cancer/venv/
 biotech-startups/venv/
 biotech-startups/step2_price_history/
+perfume-quiz/venv/
+perfume-quiz/__pycache__/
