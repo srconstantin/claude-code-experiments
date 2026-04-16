@@ -61,6 +61,7 @@ function render() {
   if (state.view === 'start') root.appendChild(renderStart());
   else if (state.view === 'quiz') root.appendChild(renderQuiz());
   else if (state.view === 'result') root.appendChild(renderResult());
+  else if (state.view === 'stats') root.appendChild(renderStats());
 }
 
 function renderStart() {
@@ -99,6 +100,17 @@ function renderStart() {
         'p',
         { class: 'text-sm text-paper/40 mt-8' },
         `${QUESTIONS.length} questions · about 10 minutes`,
+      ),
+      el(
+        'button',
+        {
+          class: 'text-xs text-paper/40 hover:text-accent-300 mt-6',
+          onclick: () => {
+            state.view = 'stats';
+            render();
+          },
+        },
+        'See what others got →',
       ),
     ),
   );
@@ -268,6 +280,13 @@ function finish() {
   const { entry, exact } = lookupAnswer(key);
   state.result = { means, key, entry, exact };
   state.view = 'result';
+
+  const slug = slugify(entry.name);
+  fetch('/api/submit', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ slug }),
+  }).catch(() => {});
 }
 
 function renderAxisChart(means) {
@@ -461,6 +480,121 @@ function renderResult() {
   );
 
   return shell(el('div', {}, ...parts));
+}
+
+function renderStats() {
+  const container = el('div', {});
+  const body = el(
+    'div',
+    {},
+    el(
+      'h1',
+      {
+        class:
+          'text-4xl sm:text-5xl font-medium text-paper mb-3 leading-[1.05]',
+      },
+      'Results so far',
+    ),
+    el(
+      'p',
+      { class: 'text-base text-paper/60 mb-10' },
+      'Frequency of each perfume result across everyone who has taken the quiz.',
+    ),
+    el('div', { id: 'stats-body', class: 'text-sm text-paper/50' }, 'Loading…'),
+    el(
+      'div',
+      { class: 'mt-12' },
+      el(
+        'button',
+        {
+          class:
+            'option-btn px-8 py-3 border border-accent-400 text-accent-300 hover:text-paper rounded-full text-base',
+          onclick: () => {
+            state.view = 'start';
+            render();
+          },
+        },
+        '← Back',
+      ),
+    ),
+  );
+  container.appendChild(body);
+
+  fetch('/api/stats', { cache: 'no-store' })
+    .then((r) => (r.ok ? r.json() : {}))
+    .then((data) => {
+      const host = container.querySelector('#stats-body');
+      if (!host || state.view !== 'stats') return;
+      host.innerHTML = '';
+      host.appendChild(renderStatsTable(data));
+    })
+    .catch(() => {
+      const host = container.querySelector('#stats-body');
+      if (host) host.textContent = 'Could not load stats.';
+    });
+
+  return shell(container);
+}
+
+function renderStatsTable(data) {
+  const entries = Object.entries(data || {}).filter(
+    ([, n]) => typeof n === 'number' && n > 0,
+  );
+  const total = entries.reduce((s, [, n]) => s + n, 0);
+
+  if (total === 0) {
+    return el(
+      'p',
+      { class: 'text-paper/60' },
+      'No results recorded yet. Be the first!',
+    );
+  }
+
+  const nameBySlug = Object.fromEntries(
+    ANSWERS.map((a) => [slugify(a.name), a.name]),
+  );
+
+  entries.sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  const max = entries[0][1];
+
+  const rows = entries.map(([slug, count]) => {
+    const name = nameBySlug[slug] || slug;
+    const pct = (count / total) * 100;
+    const barPct = (count / max) * 100;
+    return el(
+      'div',
+      { class: 'mb-3' },
+      el(
+        'div',
+        { class: 'flex justify-between items-baseline mb-1' },
+        el('span', { class: 'text-paper/90 text-sm' }, name),
+        el(
+          'span',
+          { class: 'text-paper/50 text-xs' },
+          `${count} · ${pct.toFixed(1)}%`,
+        ),
+      ),
+      el(
+        'div',
+        { class: 'h-1.5 axis-track rounded-full relative overflow-hidden' },
+        el('div', {
+          class: 'absolute inset-y-0 left-0 bg-accent-400/60 rounded-full',
+          style: `width: ${barPct}%;`,
+        }),
+      ),
+    );
+  });
+
+  return el(
+    'div',
+    {},
+    el(
+      'p',
+      { class: 'text-sm text-paper/50 mb-6' },
+      `${total.toLocaleString()} total ${total === 1 ? 'result' : 'results'} · ${entries.length} distinct ${entries.length === 1 ? 'perfume' : 'perfumes'}`,
+    ),
+    el('div', {}, ...rows),
+  );
 }
 
 render();
