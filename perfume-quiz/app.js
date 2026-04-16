@@ -95,8 +95,7 @@ function renderStart() {
           class:
             'text-5xl sm:text-6xl font-medium text-paper mb-5 leading-[1.02]',
         },
-        'The Ultimate ',
-        el('em', { class: 'quiet', style: 'font-weight: 500;' }, 'Perfume Quiz'),
+        'The Ultimate Perfume Quiz',
       ),
       el(
         'p',
@@ -548,8 +547,7 @@ function renderStats() {
         class:
           'text-4xl sm:text-5xl font-medium text-paper mb-4 leading-[1.05] text-center',
       },
-      'Results ',
-      el('em', { class: 'quiet', style: 'font-weight: 500;' }, 'so far'),
+      'Results so far',
     ),
     el(
       'p',
