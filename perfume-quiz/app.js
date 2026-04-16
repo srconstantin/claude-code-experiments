@@ -56,6 +56,20 @@ function shell(inner) {
   );
 }
 
+function ornament({ width = 140, extraClass = '' } = {}) {
+  return el('div', {
+    class: 'flex items-center justify-center gap-3 ornament ' + extraClass,
+    style: `width: 100%; max-width: ${width + 60}px; margin-left: auto; margin-right: auto;`,
+    html: `
+      <span class="rule" style="flex: 0 1 ${width / 2}px; max-width: ${width / 2}px;"></span>
+      <svg viewBox="0 0 14 14" width="11" height="11" aria-hidden="true" fill="currentColor">
+        <path d="M7 0 L8.3 5.7 L14 7 L8.3 8.3 L7 14 L5.7 8.3 L0 7 L5.7 5.7 Z" />
+      </svg>
+      <span class="rule" style="flex: 0 1 ${width / 2}px; max-width: ${width / 2}px;"></span>
+    `,
+  });
+}
+
 function render() {
   root.innerHTML = '';
   if (state.view === 'start') root.appendChild(renderStart());
@@ -69,24 +83,35 @@ function renderStart() {
     el(
       'div',
       { class: 'text-center' },
+      el('div', { class: 'mb-7' }, ornament({ width: 120 })),
+      el(
+        'p',
+        { class: 'eyebrow mb-6' },
+        'An Aesthetic Profile',
+      ),
       el(
         'h1',
         {
           class:
-            'text-5xl sm:text-6xl font-medium text-paper mb-5 leading-[1.05]',
+            'text-5xl sm:text-6xl font-medium text-paper mb-5 leading-[1.02]',
         },
-        'The Ultimate Perfume Quiz',
+        'The Ultimate ',
+        el('em', { class: 'quiet', style: 'font-weight: 500;' }, 'Perfume Quiz'),
       ),
       el(
         'p',
-        { class: 'text-lg sm:text-xl text-paper/70 mb-12' },
+        {
+          class:
+            'text-lg sm:text-xl text-paper/75 mb-10 max-w-xl mx-auto leading-relaxed italic',
+        },
         'Find the perfume that suits your aesthetic.',
       ),
+      el('div', { class: 'mb-10' }, ornament({ width: 60 })),
       el(
         'button',
         {
           class:
-            'option-btn px-8 py-3 border border-accent-400 text-accent-300 hover:text-paper rounded-full text-base',
+            'option-btn cta-btn px-10 py-3.5 border border-accent-400 text-accent-300 hover:text-paper rounded-full text-base tracking-wide',
           onclick: () => {
             state.view = 'quiz';
             state.current = 0;
@@ -94,23 +119,24 @@ function renderStart() {
             render();
           },
         },
-        'Start',
+        'Begin',
       ),
       el(
         'p',
-        { class: 'text-sm text-paper/40 mt-8' },
-        `${QUESTIONS.length} questions · about 10 minutes`,
+        { class: 'text-sm text-paper/50 mt-8 italic' },
+        `${QUESTIONS.length} questions · eight axes · about ten minutes`,
       ),
       el(
         'button',
         {
-          class: 'text-xs text-paper/40 hover:text-accent-300 mt-6',
+          class: 'text-xs text-paper/45 hover:text-accent-300 mt-10 tracking-wider uppercase',
+          style: 'letter-spacing: 0.18em;',
           onclick: () => {
             state.view = 'stats';
             render();
           },
         },
-        'See what others got →',
+        'See what others chose →',
       ),
     ),
   );
@@ -391,24 +417,28 @@ function renderResult() {
     el(
       'div',
       { class: 'text-center mb-12' },
+      el('div', { class: 'mb-5' }, ornament({ width: 60 })),
       el(
         'p',
-        { class: 'text-sm text-accent-400 mb-4' },
+        { class: 'eyebrow mb-6' },
         'Your perfume',
       ),
       imageFile
         ? el(
             'div',
             { class: 'flex justify-center mb-8' },
-            el('img', {
-              src: `./images/${imageFile}`,
-              alt: entry.name,
-              class:
-                'max-h-80 max-w-full rounded-md shadow-2xl border hairline',
-              onerror: function () {
-                this.style.display = 'none';
-              },
-            }),
+            el(
+              'div',
+              { class: 'bottle-frame' },
+              el('img', {
+                src: `./images/${imageFile}`,
+                alt: entry.name,
+                class: 'max-h-80 max-w-full rounded-sm shadow-2xl block',
+                onerror: function () {
+                  this.style.display = 'none';
+                },
+              }),
+            ),
           )
         : null,
       el(
@@ -423,14 +453,14 @@ function renderResult() {
         'p',
         {
           class:
-            'text-base sm:text-lg text-paper/80 leading-relaxed max-w-2xl mx-auto',
+            'text-base sm:text-lg text-paper/85 leading-relaxed max-w-2xl mx-auto italic',
         },
         entry.description,
       ),
       !exact
         ? el(
             'p',
-            { class: 'text-xs text-paper/40 mt-5' },
+            { class: 'text-xs text-paper/45 mt-5' },
             'Nearest match — your exact profile had no listing.',
           )
         : null,
@@ -450,13 +480,13 @@ function renderResult() {
       'div',
       {
         class:
-          'flex flex-col sm:flex-row gap-4 justify-center items-center mt-10',
+          'flex flex-col sm:flex-row gap-4 justify-center items-center mt-12',
       },
       el(
         'button',
         {
           class:
-            'option-btn px-8 py-3 border border-accent-400 text-accent-300 hover:text-paper rounded-full text-base',
+            'option-btn cta-btn px-8 py-3 border border-accent-400 text-accent-300 hover:text-paper rounded-full text-base',
           onclick: () => {
             state.view = 'start';
             render();
@@ -465,12 +495,31 @@ function renderResult() {
         'Take the quiz again',
       ),
       el(
+        'button',
+        {
+          class: 'text-xs text-paper/45 hover:text-accent-300 tracking-wider uppercase',
+          style: 'letter-spacing: 0.18em;',
+          onclick: () => {
+            state.view = 'stats';
+            render();
+          },
+        },
+        'See what others chose →',
+      ),
+    ),
+  );
+
+  parts.push(
+    el(
+      'div',
+      { class: 'text-center mt-10' },
+      el(
         'details',
-        { class: 'text-xs text-paper/40 cursor-pointer' },
+        { class: 'text-xs text-paper/40 cursor-pointer inline-block' },
         el('summary', {}, `Profile key: ${key}`),
         el(
           'p',
-          { class: 'mt-2 max-w-md' },
+          { class: 'mt-2 max-w-md mx-auto' },
           AXES.map((a, i) => (key[i] === '1' ? a.negative : a.positive)).join(
             ' · ',
           ),
@@ -487,28 +536,35 @@ function renderStats() {
   const body = el(
     'div',
     {},
+    el('div', { class: 'text-center mb-7' }, ornament({ width: 100 })),
+    el(
+      'p',
+      { class: 'eyebrow text-center mb-5' },
+      'The ledger',
+    ),
     el(
       'h1',
       {
         class:
-          'text-4xl sm:text-5xl font-medium text-paper mb-3 leading-[1.05]',
+          'text-4xl sm:text-5xl font-medium text-paper mb-4 leading-[1.05] text-center',
       },
-      'Results so far',
+      'Results ',
+      el('em', { class: 'quiet', style: 'font-weight: 500;' }, 'so far'),
     ),
     el(
       'p',
-      { class: 'text-base text-paper/60 mb-10' },
-      'Frequency of each perfume result across everyone who has taken the quiz.',
+      { class: 'text-base text-paper/70 mb-10 text-center italic max-w-xl mx-auto' },
+      'How the fragrances have fallen across everyone who has taken the quiz.',
     ),
-    el('div', { id: 'stats-body', class: 'text-sm text-paper/50' }, 'Loading…'),
+    el('div', { id: 'stats-body', class: 'text-sm text-paper/60' }, 'Loading…'),
     el(
       'div',
-      { class: 'mt-12' },
+      { class: 'mt-12 text-center' },
       el(
         'button',
         {
           class:
-            'option-btn px-8 py-3 border border-accent-400 text-accent-300 hover:text-paper rounded-full text-base',
+            'option-btn cta-btn px-8 py-3 border border-accent-400 text-accent-300 hover:text-paper rounded-full text-base',
           onclick: () => {
             state.view = 'start';
             render();
