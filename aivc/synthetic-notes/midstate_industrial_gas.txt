@@ -1,0 +1,60 @@
+midstate industrial gas - 4/29 - voice memo on drive back from peoria
+
+ok so midstate industrial gas. industrial gas distribution: oxygen, acetylene, argon, co2, nitrogen, refrigerants, etc. plus welding supplies (consumables, gear, abrasives) plus some specialty stuff for medical and food customers. classic route-based regional distributor.
+
+owners are bill mcginnis and gregory chen. bill founded it in 1987, greg bought in as 50/50 partner in 2001. both in their early 60s, both want out, neither has succession in family. bill's son works there but is an estimator not a candidate to run the business.
+
+financials they showed us
+- ttm rev: $22.8M
+- ttm ebitda: $3.6M after addbacks (15.8% margin, very healthy for industrial gas distribution)
+- 4 locations: peoria HQ + distribution depots in springfield, bloomington, decatur
+- 31 employees, 14 cdl drivers, 5 inside sales/customer service, ops/mgmt rest
+- 14 trucks (5 bulk delivery, 6 cylinder route, 3 pickup/service)
+- ~2,400 active commercial customers, top 20 = 19% of revenue (not concentrated by industry standards, very good)
+
+what makes industrial gas a great rollup target
+- recurring revenue. customers need their gas every week. cylinder rental + monthly gas delivery = subscription dynamics.
+- switching costs. customers own their relationship w one distributor because the cylinders are tracked, the regulators are matched, the safety training is integrated. ~9% annual customer churn industry-wide which is incredibly low.
+- route density economics. once you have a delivery route established, marginal customer add is highly profitable. fragmented markets reward consolidation.
+- aging owners. most independent industrial gas distributors were founded by guys now in their 60s-70s. supply of sellers is high.
+- 3 major consolidators have been active: airgas (owned by air liquide), praxair (linde), and a few PE platforms (general welding supply, indelco, others). multiples have moved up 7-9x ebitda for quality assets in attractive geos.
+
+so why is this still independent
+- bill and greg are 50/50 and have to agree. that's the friction.
+- they have turned down 3 inbound offers in last 5 yrs per their broker. they want to do this on their terms, not air liquide's.
+
+valuation
+- comparable transactions in midwest indep distributors w/ $3-5M ebitda: 6.5-8.5x in 2024-2025
+- they asking 8x = $28.8M EV
+- i think 7.0x is the right number = $25.2M, plus the real estate (they own peoria HQ + decatur depot, the other 2 leased)
+- real estate at the 2 owned locations: ~$2.8M combined, sale-leaseback
+
+deal structure
+- 80% cash, 10% seller note (5 yr, 7%), 10% rollover into our platform (this is our 2nd industrial gas platform investment, after the initial wisc deal last year)
+- bill's son stays as estimator + offered shadowing for ops role
+- both bill + greg in 12 mo consulting roles, then out
+- 5 yr non-compete + non-solicit
+- the wisc platform CEO (mike krueger) becomes regional president for midwest
+
+key risks
+- the 50/50 dynamic during diligence + transition. if they start disagreeing on terms we get whipsawed. legal needs to lock down the partnership operating agt early.
+- driver/dispatcher labor. cdl driver shortage is real. ~12-month turnover in the industry is normal but their last hire took 5 months.
+- bulk customer concentration in specific industries — they have ~4 large food processing customers that use a lot of nitrogen. if any of those move plants or change packaging, big revenue hole.
+- air liquide / linde competitive pressure. these guys can come into a market with price + capital and crush an independent. midstate has held them off for 30+ years on service quality but the platform consolidation is accelerating
+- helium supply situation. global shortage cycle hasnt really resolved. they have a helium book worth maybe $1.4M that could be at risk if supply spikes
+
+thesis
+this is a textbook industrial gas rollup target. fits well with our wisc platform - geographic adjacency, similar customer base (industrial / manufacturing / agricultural midwest). adding midstate gets us scale advantage w/ suppliers (we can get better gas supply contracts) and route synergies in 2-3 markets near the wisc footprint.
+
+7x is a great price. should move fast — i suspect airgas is also looking at this even if bill says they aren't.
+
+next
+- conflict check on broker, make sure not double-listed w/ airgas team
+- QoE w/ gas-industry experienced firm (use BPM again, they did the wisc deal)
+- cylinder inventory audit — this is a special diligence item. cylinders are assets but tracking is often imperfect. need physical count.
+- helium book risk analysis
+- 1:1 with each of bill and greg, alone, sound them out about what theyll do post-transaction (golf or boat? more nuanced than that for some sellers...)
+- ref calls 6-8 customers, mix industries
+- check 4 large food processing customer contracts for term + renewal mechanics
+
+going to recommend we move to LOI at 7.0x = $25.2M plus real estate, contingent on QoE

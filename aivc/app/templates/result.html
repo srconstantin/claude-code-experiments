@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PE Deal Memo Generator — Memo ready</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+    <h1>PE Deal Memo Generator</h1>
+    <p class="subtitle">Memo ready</p>
+</header>
+
+<main class="main">
+    <div class="stepper">
+        <div class="step done"><span>1</span> Upload notes</div>
+        <div class="step done"><span>2</span> Fill unknowns</div>
+        <div class="step active"><span>3</span> Review &amp; download</div>
+    </div>
+
+    <section class="card">
+        <h2>Memo generated</h2>
+        <p class="hint">Preview the PDF below. Use the buttons to download or to view the raw markdown.</p>
+        <div class="action-row">
+            <a href="/download/{{ session_id }}" class="btn-primary" download="{{ filename_stem }}.pdf">⬇ Download PDF</a>
+            <a href="/markdown/{{ session_id }}" class="btn-secondary" target="_blank">View raw markdown</a>
+            <a href="/" class="btn-secondary">+ Start a new memo</a>
+        </div>
+    </section>
+
+    <section class="card preview-card">
+        <h2>Preview</h2>
+        <iframe class="pdf-preview" src="/view/{{ session_id }}#view=FitH" title="Memo preview"></iframe>
+    </section>
+</main>
+</body>
+</html>

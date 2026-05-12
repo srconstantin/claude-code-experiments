@@ -1,0 +1,58 @@
+Holstrom & Associates, CPA — Tucson AZ
+Meeting Tuesday April 28, 1:30pm at their office on Speedway
+
+Met with Walter Holstrom, Sr. (managing partner, 71) and his daughter Janet Holstrom (junior partner, 44). Walter wants to retire end of '27, Janet wants to stay on but recognizes the firm needs a buyer for the equity transition.
+
+This is a classic succession sale. Walter has been doing it for 45 years, Janet for 14, no third partner. A few licensed CPAs as employees (4) and bookkeepers (6 staff).
+
+Firm profile
+- Founded 1979 by Walter
+- 2025 revenue: $2.85M
+- Service mix:
+  - Tax compliance (1040s, 1120s, 1065s): ~$1.6M (56%)
+  - Bookkeeping / outsourced accounting: $720K (25%)
+  - Audit/review (small nonprofit + private co): $310K (11%)
+  - Consulting (estate, succession): $220K (8%)
+- Profit per partner: ~$430K (Walter) / $190K (Janet)
+- EBITDA roughly $890K after adding back Walter's above-market comp and a few personal items
+- ~1,100 client engagements/yr
+
+This is a really sticky book. Tax clients have been with Walter for 20+ years on average. He's done 3 generations of some local families. Walter knows everyone in the Tucson commercial real estate community.
+
+Client concentration
+- No single client > 4% of revenue
+- Top 50 clients = 38% of revenue
+- 73% of revenue is recurring (annual tax + monthly bookkeeping)
+- Strong stickiness — typical CPA firm churn is 4-6%, theirs is 2.8%
+
+Valuation context
+- Lower-middle CPA firms historically traded at 1.0-1.25x revenue
+- Modern PE-backed accounting platform consolidators (Ascend, Aprio, BPM expansion) are paying 1.4-1.75x revenue or 6-8x EBITDA for quality firms in growth markets
+- Walter asking 1.5x revenue = $4.28M, plus an earnout based on Janet's continued tenure
+- I think 1.35x is the right number = $3.85M EV, structured 60% cash / 20% rollover / 20% earnout over 3 years tied to revenue retention
+
+Things that make this firm attractive for our accounting platform play
+- Tucson is a growth market (population +8% last 5 yrs, businesses +12%)
+- Janet is the right age and right credential to be a regional platform leader
+- Adding their bookkeeping book accelerates our outsourced accounting offering — that's the segment with real growth and recurring revenue
+- Their tax book is steady-state cash flow, finances the bookkeeping growth
+
+Risks
+- Walter's personal brand is genuinely the firm. When he leaves, will the long-term clients stay or follow him out the door (some retire alongside him)?
+- Janet has to step up significantly. She's competent but reserved — selling and managing partner work is different from being the doer-partner. Need to assess.
+- Workforce: 4 licensed CPAs sounds fine, but tax season they ran lean and were turning away work last year. Hiring CPAs in Tucson is hard.
+- Accounting industry compensation arms race — Big 4 + PE consolidators are paying CPA staff 20%+ more than 2 yrs ago. Margin pressure is real.
+- Technology transition. Their tech stack is dated (still using a 2018 version of Lacerte + QuickBooks Desktop for many bookkeeping clients). Platform integration will require investment.
+
+Thesis
+This is a good add-on to our southwest accounting platform (we have firms in Phoenix, Albuquerque, Las Vegas, Denver). Tucson fits. Janet is a real successor. The 73% recurring revenue + low client churn make the cash flows highly visible. The bookkeeping growth gives us optionality for outsourced accounting expansion.
+
+Concerns are addressable — Walter's transition managed via a 2-year emeritus role + careful client relationship handoff, Janet given operational mentorship from our platform CEO, tech upgrade funded by us post-close.
+
+Next steps
+- QoE w/ accounting-industry specialist (Bauer Adams Group has done 3 for us)
+- Client list review — flag accounts > $25K annual where Walter is personal contact
+- 1:1 w/ Janet, get her read on next 5 years and her comp expectations
+- Review state CPA licensure transfer / firm name continuity rules in AZ
+- Comp pull from Aprio / Ascend / Whitman Business Advisors on recent SW accounting deals
+- Tech assessment of QB Desktop migration cost

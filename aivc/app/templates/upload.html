@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PE Deal Memo Generator — Upload Notes</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+    <h1>PE Deal Memo Generator</h1>
+    <p class="subtitle">Generate an initial screening memo from meeting notes + web research.</p>
+</header>
+
+<main class="main">
+    <div class="stepper">
+        <div class="step active"><span>1</span> Upload notes</div>
+        <div class="step"><span>2</span> Fill unknowns</div>
+        <div class="step"><span>3</span> Review &amp; download</div>
+    </div>
+
+    <form action="/analyze" method="post" enctype="multipart/form-data" id="upload-form">
+        <section class="card">
+            <h2>Provide meeting notes</h2>
+            <p class="hint">Paste the notes below, or upload a <code>.txt</code> / <code>.md</code> file. Either is fine; if you provide both, the uploaded file wins.</p>
+
+            <label for="notes_text">Paste notes</label>
+            <textarea name="notes_text" id="notes_text" rows="20"
+                placeholder="e.g.&#10;summit hvac — site visit notes, 4/9&#10;drove down to greensboro w/ marcus, met w/ ron carlsen at the shop after lunch&#10;..."></textarea>
+
+            <p class="separator">— or —</p>
+
+            <label for="notes_file">Upload a file</label>
+            <input type="file" name="notes_file" id="notes_file" accept=".txt,.md,.markdown,text/plain">
+        </section>
+
+        <section class="card actions">
+            <button type="submit" class="btn-primary" id="submit-btn">Analyze and continue →</button>
+            <p class="hint">This step uses Claude to identify which template topics the notes cover and which require follow-up. Takes ~15–30 seconds.</p>
+        </section>
+    </form>
+</main>
+
+<footer class="footer">
+    <p>Backed by Claude API + web search. All data stays in-process — sessions are in-memory only.</p>
+</footer>
+
+<script>
+document.getElementById("upload-form").addEventListener("submit", function() {
+    var btn = document.getElementById("submit-btn");
+    btn.disabled = true;
+    btn.innerText = "Analyzing notes… (this can take 30 seconds)";
+});
+</script>
+</body>
+</html>

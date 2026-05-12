@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PE Deal Memo Generator — Fill Unknowns</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+    <h1>PE Deal Memo Generator</h1>
+    <p class="subtitle">Step 2 of 3</p>
+</header>
+
+<main class="main">
+    <div class="stepper">
+        <div class="step done"><span>1</span> Upload notes</div>
+        <div class="step active"><span>2</span> Fill unknowns</div>
+        <div class="step"><span>3</span> Review &amp; download</div>
+    </div>
+
+    <section class="card">
+        <h2>Covered by your notes ({{ covered|length }})</h2>
+        <p class="hint">Claude extracted these facts from the notes. Skim to confirm.</p>
+        <details>
+            <summary>Show extracted topics</summary>
+            <ul class="covered-list">
+                {% for c in covered %}
+                <li>
+                    <strong>{{ c.topic }}</strong>
+                    <span class="section-label">{{ c.section }}</span>
+                    <div class="answer">{{ c.answer_from_notes }}</div>
+                    {% if c.evidence_quote %}
+                    <div class="quote">“{{ c.evidence_quote }}”</div>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </details>
+    </section>
+
+    <form action="/generate/{{ session_id }}" method="post" id="gen-form">
+        <section class="card">
+            <h2>Not covered ({{ uncovered|length }})</h2>
+            {% if uncovered %}
+            <p class="hint">The template asks for the items below, but your notes don't address them. Provide what you can — leave blank to mark a topic as <em>Unknown</em> in the final memo.</p>
+
+            {% for u in uncovered %}
+            <div class="unknown-block">
+                <label for="topic_{{ u.id }}">
+                    <strong>{{ u.topic }}</strong>
+                    <span class="section-label">{{ u.section }}</span>
+                </label>
+                <p class="question">{{ u.question_for_user }}</p>
+                {% if u.why_needed %}
+                <p class="why">Why it matters: {{ u.why_needed }}</p>
+                {% endif %}
+                <textarea name="topic_{{ u.id }}" id="topic_{{ u.id }}" rows="3"
+                    placeholder="Leave blank to mark as Unknown"></textarea>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p class="hint">Your notes appear to cover every topic the template asks for. You can proceed straight to memo generation.</p>
+            {% endif %}
+        </section>
+
+        <section class="card actions">
+            <button type="submit" class="btn-primary" id="gen-btn">Generate memo →</button>
+            <p class="hint">This step calls Claude (Opus 4.7) with web search to fill in industry-research sections. <strong>Expect 60–180 seconds.</strong> Don't close this tab.</p>
+        </section>
+    </form>
+</main>
+
+<script>
+document.getElementById("gen-form").addEventListener("submit", function() {
+    var btn = document.getElementById("gen-btn");
+    btn.disabled = true;
+    btn.innerText = "Generating memo… (60–180 seconds — leave this tab open)";
+});
+</script>
+</body>
+</html>
