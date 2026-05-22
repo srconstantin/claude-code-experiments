@@ -13,3 +13,5 @@ A collection of projects generated with Claude Code.
 - **[bond-game](./bond-game/)** -- An interactive web app for building intuition about fixed income: bond pricing, duration, yield curves, credit spreads, and more. Built with Flask + Chart.js; includes a 10-question quiz. Run with `python app.py` after creating a venv and installing `flask`.
 
 - **[perfume-quiz](/perfume-quiz/)** -- A quiz app for matching people to perfumes based on their tastes.
+
+- **[colors](./colors/)** -- An HSL palette maker with drag-to-reorder swatches and insertable gap zones for building color schemes.

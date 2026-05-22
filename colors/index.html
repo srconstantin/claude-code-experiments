@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colors — HSL Palette Maker</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #fafafa;
+  color: #222;
+  font-size: 14px;
+}
+header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+nav { display: flex; gap: 4px; }
+nav button {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 6px 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #444;
+}
+nav button.active { background: #eee; border-color: #ccc; color: #000; }
+main { padding: 24px; max-width: 1100px; margin: 0 auto; }
+.hidden { display: none !important; }
+.muted { color: #888; font-size: 13px; }
+
+/* ===== Format toggle ===== */
+.format-toggle {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+}
+.format-toggle .muted { margin-right: 4px; }
+.format-toggle button {
+  background: transparent;
+  border: 1px solid #ccc;
+  padding: 4px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: #444;
+}
+.format-toggle button:hover { background: #f4f4f4; }
+.format-toggle button.active { background: #222; color: #fff; border-color: #222; }
+
+/* ===== Palette row ===== */
+.palette-row {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  min-height: 200px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: visible;
+}
+.color-cell {
+  flex: 1 1 0;
+  min-width: 70px;
+  position: relative;
+  cursor: grab;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(0,0,0,0.05);
+}
+.color-cell:active { cursor: grabbing; }
+.color-cell:last-of-type { border-right: none; }
+.color-cell .swatch { flex: 1; }
+.color-cell.selected { outline: 3px solid #222; outline-offset: -3px; z-index: 2; }
+.color-cell.dragging { opacity: 0.3; }
+.color-cell.drop-before { box-shadow: inset 5px 0 0 #222; }
+.color-cell.drop-after  { box-shadow: inset -5px 0 0 #222; }
+.color-cell .label {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  background: #fff;
+  padding: 6px;
+  text-align: center;
+  border-top: 1px solid #eee;
+  user-select: none;
+  line-height: 1.4;
+}
+.color-cell .delete {
+  position: absolute;
+  top: 6px; right: 6px;
+  width: 22px; height: 22px;
+  border: 1px solid #888;
+  background: rgba(255,255,255,0.92);
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0;
+}
+.color-cell:hover .delete { display: block; }
+.color-cell .delete:hover { background: #fff; border-color: #222; }
+
+/* gap zones for the + insert buttons */
+.gap-zone {
+  flex: 0 0 0;
+  width: 0;
+  position: relative;
+  z-index: 3;
+}
+.gap-zone button {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  border: 1px solid #888;
+  background: #fff;
+  color: #222;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.12s, transform 0.12s;
+  font-size: 18px;
+  line-height: 1;
+  padding: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.palette-row:hover .gap-zone button { opacity: 1; }
+.palette-row.has-dragging .gap-zone button { opacity: 0; pointer-events: none; }
+.gap-zone button:hover { background: #222; color: #fff; border-color: #222; transform: translate(-50%, -50%) scale(1.1); }
+
+/* ===== Detail panel ===== */
+.detail {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 18px;
+  margin-top: 16px;
+}
+.detail h2 { margin: 0 0 14px; font-size: 14px; font-weight: 600; }
+.detail-row { display: flex; gap: 24px; align-items: flex-start; }
+.swatch-large {
+  width: 140px;
+  height: 140px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  flex-shrink: 0;
+}
+.sliders { flex: 1; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.slider-row { display: flex; align-items: center; gap: 14px; }
+.slider-row label {
+  width: 16px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 600;
+  font-size: 14px;
+}
+.slider-row input[type="range"] {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 18px;
+  border-radius: 9px;
+  outline: none;
+  margin: 0;
+  border: 1px solid #ccc;
+  padding: 0;
+}
+.slider-row input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #222;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+.slider-row input[type="range"]::-moz-range-thumb {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #222;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+.slider-row input[type="number"] {
+  width: 64px;
+  text-align: right;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  padding: 5px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+}
+.slider-row input[type="number"]:focus { outline: 2px solid #222; outline-offset: -1px; }
+
+.formats {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+}
+.formats .lab { font-weight: 600; color: #666; }
+.formats .val {
+  user-select: all;
+  cursor: copy;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+.formats .val:hover { background: #f0f0f0; }
+.formats .val.copied { background: #d4edda; color: #155724; }
+
+/* ===== Action bar ===== */
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.actions input[type="text"] {
+  font-size: 14px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  min-width: 240px;
+}
+.actions input[type="text"]:focus { outline: 2px solid #222; outline-offset: -1px; }
+.btn {
+  background: #fff;
+  color: #222;
+  border: 1px solid #ccc;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.btn:hover { background: #f4f4f4; border-color: #888; }
+.btn.primary { background: #222; color: #fff; border-color: #222; }
+.btn.primary:hover { background: #444; }
+
+/* ===== Library ===== */
+.library { display: flex; flex-direction: column; gap: 14px; }
+.lib-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+}
+.lib-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.lib-card h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.lib-card .lib-meta { color: #888; font-size: 12px; margin-top: 2px; }
+.lib-card .lib-actions { display: flex; gap: 6px; flex-shrink: 0; }
+.lib-card .lib-actions button { font-size: 13px; padding: 6px 12px; }
+.lib-preview {
+  display: flex;
+  margin-top: 12px;
+  height: 60px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+.lib-preview > div { flex: 1; }
+.lib-preview-hex {
+  display: flex;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+  color: #666;
+  margin-top: 4px;
+}
+.lib-preview-hex > div { flex: 1; text-align: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding: 0 2px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Colors</h1>
+  <nav>
+    <button id="tab-active" class="active">Active palette</button>
+    <button id="tab-library">Library</button>
+  </nav>
+  <div class="format-toggle" id="formatToggle" title="Choose how colors are displayed in cell labels and library previews">
+    <span class="muted">Show as:</span>
+    <button data-fmt="hsl" class="active">HSL</button>
+    <button data-fmt="rgb">RGB</button>
+    <button data-fmt="hex">Hex</button>
+    <button data-fmt="hsv">HSV</button>
+  </div>
+</header>
+<main>
+  <!-- ============ Active palette view ============ -->
+  <section id="view-active">
+    <div class="palette-row" id="paletteRow"></div>
+
+    <div class="detail">
+      <h2 id="detailHeader">Selected color</h2>
+      <div class="detail-row">
+        <div id="largeSwatch" class="swatch-large"></div>
+        <div class="sliders">
+          <div class="slider-row">
+            <label>H</label>
+            <input type="range" id="hSlider" min="0" max="360" step="1">
+            <input type="number" id="hInput" min="0" max="360" step="1">
+          </div>
+          <div class="slider-row">
+            <label>S</label>
+            <input type="range" id="sSlider" min="0" max="100" step="1">
+            <input type="number" id="sInput" min="0" max="100" step="1">
+          </div>
+          <div class="slider-row">
+            <label>L</label>
+            <input type="range" id="lSlider" min="0" max="100" step="1">
+            <input type="number" id="lInput" min="0" max="100" step="1">
+          </div>
+          <div class="formats" id="formats"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <input type="text" id="titleInput" placeholder="Palette title" />
+      <button class="btn primary" id="saveBtn">Save</button>
+      <button class="btn" id="invertBtn">Invert palette</button>
+      <button class="btn" id="downloadBtn">Download PNG</button>
+      <button class="btn" id="newBtn">New</button>
+    </div>
+  </section>
+
+  <!-- ============ Library view ============ -->
+  <section id="view-library" class="hidden">
+    <p id="libEmpty" class="muted hidden">No saved palettes yet. Create one in the Active tab and click Save.</p>
+    <div class="library" id="library"></div>
+  </section>
+</main>
+
+<script>
+// ============ STATE ============
+
+const STORAGE_KEY = 'colors-palettes';
+const FORMAT_KEY = 'colors-display-format';
+
+const DEFAULT_PALETTE = () => ({
+  title: '',
+  colors: [
+    { h: 0, s: 60, l: 50 },
+    { h: 120, s: 60, l: 50 },
+    { h: 240, s: 60, l: 50 },
+  ]
+});
+
+let active = DEFAULT_PALETTE();
+let selectedIndex = 0;
+let saved = loadSaved();
+let displayFormat = loadDisplayFormat();   // 'hsl' | 'rgb' | 'hex' | 'hsv'
+
+function loadDisplayFormat() {
+  const v = localStorage.getItem(FORMAT_KEY);
+  return ['hsl', 'rgb', 'hex', 'hsv'].includes(v) ? v : 'hsl';
+}
+function persistDisplayFormat() {
+  localStorage.setItem(FORMAT_KEY, displayFormat);
+}
+
+function clone(o) { return JSON.parse(JSON.stringify(o)); }
+function loadSaved() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+  catch (e) { return []; }
+}
+function persistSaved() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+}
+
+// ============ COLOR MATH ============
+
+// HSL → RGB (Wikipedia "Alternative HSL to RGB" / hsl_to_rgb in alt-formula form)
+function hslToRgb(h, s, l) {
+  s /= 100; l /= 100;
+  const k = n => (n + h / 30) % 12;
+  const a = s * Math.min(l, 1 - l);
+  const f = n => l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
+  return {
+    r: Math.round(255 * f(0)),
+    g: Math.round(255 * f(8)),
+    b: Math.round(255 * f(4))
+  };
+}
+
+function rgbToHex(r, g, b) {
+  const hex = n => n.toString(16).padStart(2, '0').toUpperCase();
+  return '#' + hex(r) + hex(g) + hex(b);
+}
+
+function rgbToHsv(r, g, b) {
+  r /= 255; g /= 255; b /= 255;
+  const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  const d = max - min;
+  const s = max === 0 ? 0 : d / max;
+  const v = max;
+  let h;
+  if (d === 0) h = 0;
+  else if (max === r) h = ((g - b) / d) % 6;
+  else if (max === g) h = (b - r) / d + 2;
+  else h = (r - g) / d + 4;
+  h = Math.round(h * 60);
+  if (h < 0) h += 360;
+  return { h, s: Math.round(s * 100), v: Math.round(v * 100) };
+}
+
+const hslString = c => `hsl(${c.h}, ${c.s}%, ${c.l}%)`;
+
+// Returns { lines: [...], compact: 'one-line string' } based on the current displayFormat.
+function colorDisplay(c) {
+  const { r, g, b } = hslToRgb(c.h, c.s, c.l);
+  switch (displayFormat) {
+    case 'rgb':
+      return { lines: [`R ${r}`, `G ${g}`, `B ${b}`], compact: `${r}, ${g}, ${b}` };
+    case 'hex': {
+      const hex = rgbToHex(r, g, b);
+      return { lines: [hex], compact: hex };
+    }
+    case 'hsv': {
+      const v = rgbToHsv(r, g, b);
+      return { lines: [`H ${v.h}`, `S ${v.s}`, `V ${v.v}`], compact: `${v.h}, ${v.s}, ${v.v}` };
+    }
+    case 'hsl':
+    default:
+      return { lines: [`H ${c.h}`, `S ${c.s}`, `L ${c.l}`], compact: `${c.h}, ${c.s}, ${c.l}` };
+  }
+}
+
+// ============ DOM SHORTCUTS ============
+
+const $ = id => document.getElementById(id);
+
+// ============ RENDER ============
+
+function render() {
+  renderPalette();
+  renderDetail();
+  if ($('titleInput') !== document.activeElement) {
+    $('titleInput').value = active.title;
+  }
+}
+
+function renderPalette() {
+  const row = $('paletteRow');
+  row.innerHTML = '';
+  const N = active.colors.length;
+
+  for (let i = 0; i < N; i++) {
+    row.appendChild(makeGap(i));
+    row.appendChild(makeCell(i));
+  }
+  row.appendChild(makeGap(N));
+}
+
+function makeCell(i) {
+  const c = active.colors[i];
+  const cell = document.createElement('div');
+  cell.className = 'color-cell' + (i === selectedIndex ? ' selected' : '');
+  cell.draggable = true;
+  cell.dataset.idx = String(i);
+
+  const swatch = document.createElement('div');
+  swatch.className = 'swatch';
+  swatch.style.background = hslString(c);
+
+  const label = document.createElement('div');
+  label.className = 'label';
+  const disp = colorDisplay(c);
+  label.innerHTML = disp.lines.join('<br>');
+
+  const del = document.createElement('button');
+  del.className = 'delete';
+  del.title = 'Delete color';
+  del.textContent = '×';
+  del.draggable = false;  // don't let drags start from the × button
+  del.addEventListener('click', e => {
+    e.stopPropagation();
+    if (active.colors.length === 1) {
+      alert('Palette must have at least one color.');
+      return;
+    }
+    active.colors.splice(i, 1);
+    if (selectedIndex >= active.colors.length) selectedIndex = active.colors.length - 1;
+    render();
+  });
+
+  cell.append(swatch, del, label);
+
+  // click → select (but not when the user just dragged)
+  cell.addEventListener('click', e => {
+    if (e.target.closest('.delete')) return;
+    selectedIndex = i;
+    render();
+  });
+
+  // drag and drop reordering
+  cell.addEventListener('dragstart', e => {
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/plain', String(i));
+    cell.classList.add('dragging');
+  });
+  cell.addEventListener('dragend', () => {
+    document.querySelectorAll('.color-cell').forEach(el => {
+      el.classList.remove('dragging', 'drop-before', 'drop-after');
+    });
+  });
+  cell.addEventListener('dragover', e => {
+    e.preventDefault();   // required to allow drop
+    e.dataTransfer.dropEffect = 'move';
+    const rect = cell.getBoundingClientRect();
+    const before = e.clientX < rect.left + rect.width / 2;
+    // clear all other indicators, set ours
+    document.querySelectorAll('.color-cell').forEach(el => {
+      if (el !== cell) el.classList.remove('drop-before', 'drop-after');
+    });
+    cell.classList.toggle('drop-before', before);
+    cell.classList.toggle('drop-after', !before);
+  });
+  cell.addEventListener('drop', e => {
+    e.preventDefault();
+    const from = parseInt(e.dataTransfer.getData('text/plain'), 10);
+    if (isNaN(from)) return;
+    const rect = cell.getBoundingClientRect();
+    const before = e.clientX < rect.left + rect.width / 2;
+    const to = before ? i : i + 1;
+    moveColor(from, to);
+  });
+  return cell;
+}
+
+function moveColor(from, to) {
+  if (from === to || from + 1 === to) return;  // no-op: drop at own position
+  const [moved] = active.colors.splice(from, 1);
+  const adjustedTo = from < to ? to - 1 : to;
+  active.colors.splice(adjustedTo, 0, moved);
+  selectedIndex = adjustedTo;
+  render();
+}
+
+function makeGap(i) {
+  const gap = document.createElement('div');
+  gap.className = 'gap-zone';
+  const btn = document.createElement('button');
+  btn.textContent = '+';
+  btn.title = `Insert color at position ${i + 1}`;
+  btn.addEventListener('click', () => {
+    const newColor = inheritColor(i);
+    active.colors.splice(i, 0, newColor);
+    selectedIndex = i;
+    render();
+  });
+  gap.appendChild(btn);
+  return gap;
+}
+
+function inheritColor(index) {
+  if (index > 0) return clone(active.colors[index - 1]);
+  if (index < active.colors.length) return clone(active.colors[index]);
+  return { h: 200, s: 50, l: 50 };
+}
+
+function renderDetail() {
+  const c = active.colors[selectedIndex];
+  if (!c) return;
+  $('detailHeader').textContent = `Selected color: ${selectedIndex + 1} of ${active.colors.length}`;
+  $('largeSwatch').style.background = hslString(c);
+
+  // Slider gradients reflect what changes as the user drags
+  $('hSlider').style.background =
+    'linear-gradient(to right, hsl(0,100%,50%), hsl(60,100%,50%), hsl(120,100%,50%), hsl(180,100%,50%), hsl(240,100%,50%), hsl(300,100%,50%), hsl(360,100%,50%))';
+  $('sSlider').style.background =
+    `linear-gradient(to right, hsl(${c.h}, 0%, ${c.l}%), hsl(${c.h}, 100%, ${c.l}%))`;
+  $('lSlider').style.background =
+    `linear-gradient(to right, hsl(${c.h}, ${c.s}%, 0%), hsl(${c.h}, ${c.s}%, 50%), hsl(${c.h}, ${c.s}%, 100%))`;
+
+  // Update values only if they differ (avoid disrupting active drag)
+  setIfDifferent('hSlider', c.h);
+  setIfDifferent('sSlider', c.s);
+  setIfDifferent('lSlider', c.l);
+  setIfDifferent('hInput', c.h);
+  setIfDifferent('sInput', c.s);
+  setIfDifferent('lInput', c.l);
+
+  // Format display
+  const { r, g, b } = hslToRgb(c.h, c.s, c.l);
+  const hex = rgbToHex(r, g, b);
+  const hsv = rgbToHsv(r, g, b);
+  $('formats').innerHTML = `
+    <div class="lab">HSL</div>
+    <div class="val" data-copy="hsl(${c.h}, ${c.s}%, ${c.l}%)">hsl(${c.h}, ${c.s}%, ${c.l}%)</div>
+    <div class="lab">RGB</div>
+    <div class="val" data-copy="rgb(${r}, ${g}, ${b})">rgb(${r}, ${g}, ${b})</div>
+    <div class="lab">Hex</div>
+    <div class="val" data-copy="${hex}">${hex}</div>
+    <div class="lab">HSV</div>
+    <div class="val" data-copy="hsv(${hsv.h}, ${hsv.s}%, ${hsv.v}%)">hsv(${hsv.h}, ${hsv.s}%, ${hsv.v}%)</div>
+  `;
+  // wire up click-to-copy
+  $('formats').querySelectorAll('.val').forEach(el => {
+    el.addEventListener('click', () => copyText(el));
+  });
+}
+
+function setIfDifferent(id, value) {
+  const el = $(id);
+  if (el === document.activeElement) {
+    // user is editing this field — don't clobber
+    if (el.tagName === 'INPUT' && el.type === 'range') {
+      // sliders are fine to keep in sync even while dragging
+      if (parseInt(el.value, 10) !== value) el.value = value;
+    }
+    return;
+  }
+  if (parseInt(el.value, 10) !== value) el.value = value;
+}
+
+function copyText(el) {
+  const text = el.getAttribute('data-copy');
+  navigator.clipboard.writeText(text).then(() => {
+    el.classList.add('copied');
+    setTimeout(() => el.classList.remove('copied'), 700);
+  }).catch(() => {
+    // fallback: select the text for manual copy
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  });
+}
+
+function renderLibrary() {
+  const lib = $('library');
+  lib.innerHTML = '';
+  $('libEmpty').classList.toggle('hidden', saved.length > 0);
+  saved.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'lib-card';
+    const previewSwatches = p.colors.map(c => `<div style="background:${hslString(c)}"></div>`).join('');
+    const previewHexes = p.colors.map(c => `<div>${colorDisplay(c).compact}</div>`).join('');
+    card.innerHTML = `
+      <div class="lib-card-header">
+        <div>
+          <h3>${escapeHTML(p.title || '(untitled)')}</h3>
+          <div class="lib-meta">${p.colors.length} color${p.colors.length === 1 ? '' : 's'}</div>
+        </div>
+        <div class="lib-actions">
+          <button class="btn" data-act="load">Edit</button>
+          <button class="btn" data-act="invert">Invert</button>
+          <button class="btn" data-act="download">PNG</button>
+          <button class="btn" data-act="delete">Delete</button>
+        </div>
+      </div>
+      <div class="lib-preview">${previewSwatches}</div>
+      <div class="lib-preview-hex">${previewHexes}</div>
+    `;
+    card.querySelector('[data-act="load"]').addEventListener('click', () => {
+      active = clone(p);
+      selectedIndex = 0;
+      switchTab('active');
+      render();
+    });
+    card.querySelector('[data-act="invert"]').addEventListener('click', () => {
+      const inverted = invertPalette(p);
+      // save the inverted palette to library; ask if it already exists
+      const existing = saved.findIndex(x => x.title === inverted.title);
+      if (existing >= 0) {
+        if (!confirm(`A palette named "${inverted.title}" already exists. Overwrite?`)) return;
+        saved[existing] = inverted;
+      } else {
+        saved.push(inverted);
+      }
+      persistSaved();
+      renderLibrary();
+    });
+    card.querySelector('[data-act="download"]').addEventListener('click', () => downloadPaletteAsPNG(p));
+    card.querySelector('[data-act="delete"]').addEventListener('click', () => {
+      if (!confirm(`Delete palette "${p.title || '(untitled)'}"?`)) return;
+      saved.splice(i, 1);
+      persistSaved();
+      renderLibrary();
+    });
+    lib.appendChild(card);
+  });
+}
+
+function escapeHTML(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[c]));
+}
+
+// ============ ACTIONS ============
+
+function invertPalette(p) {
+  return {
+    title: 'Inverted ' + (p.title || 'untitled'),
+    colors: p.colors.map(c => ({
+      h: (c.h + 180) % 360,
+      s: 100 - c.s,
+      l: 100 - c.l
+    }))
+  };
+}
+
+function downloadPaletteAsPNG(p) {
+  const W = 160;
+  const H = 220;
+  const TITLE_H = 56;
+  const LABEL_H = 44;
+  const cols = p.colors;
+  const canvas = document.createElement('canvas');
+  canvas.width = Math.max(W * cols.length, 320);
+  canvas.height = TITLE_H + H + LABEL_H;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // title
+  ctx.fillStyle = '#000';
+  ctx.font = 'bold 22px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(p.title || 'Untitled palette', 16, TITLE_H / 2);
+
+  // each color: rectangle + hex + hsl labels
+  const cellW = canvas.width / cols.length;
+  cols.forEach((c, i) => {
+    const x = i * cellW;
+    ctx.fillStyle = hslString(c);
+    ctx.fillRect(x, TITLE_H, cellW, H);
+    const { r, g, b } = hslToRgb(c.h, c.s, c.l);
+    const hex = rgbToHex(r, g, b);
+
+    ctx.fillStyle = '#000';
+    ctx.font = 'bold 14px ui-monospace, SFMono-Regular, Menlo, monospace';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'top';
+    ctx.fillText(hex, x + cellW / 2, TITLE_H + H + 8);
+
+    ctx.fillStyle = '#666';
+    ctx.font = '11px ui-monospace, SFMono-Regular, Menlo, monospace';
+    ctx.fillText(`H ${c.h}  S ${c.s}  L ${c.l}`, x + cellW / 2, TITLE_H + H + 26);
+  });
+
+  canvas.toBlob(blob => {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = (p.title || 'palette').replace(/[^a-z0-9_\-]+/gi, '_') + '.png';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(a.href);
+  });
+}
+
+// ============ EVENT WIRING ============
+
+function bindSliderAndInput(sliderId, inputId, field) {
+  const onChange = e => {
+    let v = parseInt(e.target.value, 10);
+    if (isNaN(v)) return;
+    const max = field === 'h' ? 360 : 100;
+    v = Math.max(0, Math.min(max, v));
+    if (active.colors[selectedIndex][field] === v) return;
+    active.colors[selectedIndex][field] = v;
+    render();
+  };
+  $(sliderId).addEventListener('input', onChange);
+  $(inputId).addEventListener('input', onChange);
+}
+bindSliderAndInput('hSlider', 'hInput', 'h');
+bindSliderAndInput('sSlider', 'sInput', 's');
+bindSliderAndInput('lSlider', 'lInput', 'l');
+
+$('titleInput').addEventListener('input', e => {
+  active.title = e.target.value;
+});
+
+$('saveBtn').addEventListener('click', () => {
+  if (!active.title.trim()) {
+    alert('Give the palette a title before saving.');
+    $('titleInput').focus();
+    return;
+  }
+  const idx = saved.findIndex(p => p.title === active.title);
+  if (idx >= 0) {
+    if (!confirm(`A palette named "${active.title}" already exists. Overwrite?`)) return;
+    saved[idx] = clone(active);
+  } else {
+    saved.push(clone(active));
+  }
+  persistSaved();
+  alert(`Saved "${active.title}".`);
+});
+
+$('invertBtn').addEventListener('click', () => {
+  active = invertPalette(active);
+  selectedIndex = 0;
+  render();
+});
+
+$('newBtn').addEventListener('click', () => {
+  if (!confirm('Discard the current palette and start a new one?')) return;
+  active = DEFAULT_PALETTE();
+  selectedIndex = 0;
+  render();
+});
+
+$('downloadBtn').addEventListener('click', () => downloadPaletteAsPNG(active));
+
+// Format toggle: applies to per-cell labels in the active palette AND library previews.
+function refreshFormatToggleHighlight() {
+  document.querySelectorAll('#formatToggle button').forEach(b => {
+    b.classList.toggle('active', b.dataset.fmt === displayFormat);
+  });
+}
+document.querySelectorAll('#formatToggle button').forEach(b => {
+  b.addEventListener('click', () => {
+    displayFormat = b.dataset.fmt;
+    persistDisplayFormat();
+    refreshFormatToggleHighlight();
+    render();
+    renderLibrary();
+  });
+});
+refreshFormatToggleHighlight();
+
+// Tabs
+function switchTab(which) {
+  const isActive = which === 'active';
+  $('tab-active').classList.toggle('active', isActive);
+  $('tab-library').classList.toggle('active', !isActive);
+  $('view-active').classList.toggle('hidden', !isActive);
+  $('view-library').classList.toggle('hidden', isActive);
+  if (!isActive) renderLibrary();
+}
+$('tab-active').addEventListener('click', () => switchTab('active'));
+$('tab-library').addEventListener('click', () => switchTab('library'));
+
+// Initial render
+render();
+</script>
+</body>
+</html>
