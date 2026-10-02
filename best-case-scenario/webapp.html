@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Best-Case Scenario</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' aria-hidden='true'%3E%3Cg stroke='%23ffaf00' stroke-width='2.6' stroke-linecap='round'%3E%3Cline x1='32.0' y1='13.0' x2='32.0' y2='3.0'/%3E%3Cline x1='41.5' y1='15.5' x2='44.5' y2='10.3'/%3E%3Cline x1='48.5' y1='22.5' x2='57.1' y2='17.5'/%3E%3Cline x1='51.0' y1='32.0' x2='57.0' y2='32.0'/%3E%3Cline x1='48.5' y1='41.5' x2='57.1' y2='46.5'/%3E%3Cline x1='41.5' y1='48.5' x2='44.5' y2='53.7'/%3E%3Cline x1='32.0' y1='51.0' x2='32.0' y2='61.0'/%3E%3Cline x1='22.5' y1='48.5' x2='19.5' y2='53.7'/%3E%3Cline x1='15.5' y1='41.5' x2='6.9' y2='46.5'/%3E%3Cline x1='13.0' y1='32.0' x2='7.0' y2='32.0'/%3E%3Cline x1='15.5' y1='22.5' x2='6.9' y2='17.5'/%3E%3Cline x1='22.5' y1='15.5' x2='19.5' y2='10.3'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='13' fill='%23ffaf00'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap">
+<style>
+  /* Sunny, code-like, a little alive: monospace, warm bright accents on pale orange, square panels
+     with faintly glowing 1px borders, [ bracket ] section labels. */
+  :root {
+    color-scheme: light;
+    --bg: #ffefd6; --panel: rgba(255, 250, 240, .78); --panel-solid: #fff8ec;
+    --ink: #1f1208; --text: #2b1a0d; --dim: #6a5140; --faint: rgba(60, 30, 10, .2);
+    /* deep versions for text and borders (legible on the pale background) */
+    --pink: #be185d; --orange: #c2410c; --amber: #a85400; --green: #3f6b0b; --rose: #b91c1c;
+    /* bright versions for fills, the sun, and glow */
+    --sun: #ff9500; --sun-hot: #ff6a00; --gold: #ffc233;
+    --edge-orange: rgba(234, 88, 12, .55); --edge-pink: rgba(219, 39, 119, .5);
+    --mono: "Fira Code", ui-monospace, "SF Mono", Menlo, "Courier New", Courier, monospace;
+    --glow-orange: 0 0 0 1px rgba(255, 122, 0, .22), 0 6px 30px rgba(255, 140, 0, .22);
+    --glow-pink: 0 0 0 1px rgba(236, 72, 153, .2), 0 6px 30px rgba(255, 90, 150, .2);
+  }
+  * { box-sizing: border-box; }
+  ::selection { background: rgba(255, 149, 0, .38); }
+  body { margin: 0; color: var(--text); font: 400 14.5px/1.75 var(--mono); background: var(--bg); min-height: 100vh;
+         -webkit-font-smoothing: antialiased; font-variant-ligatures: none; }
+  /* a slow aurora behind everything, plus a whisper of grain */
+  body::before { content: ""; position: fixed; inset: -20%; z-index: -2; pointer-events: none;
+    background:
+      radial-gradient(42% 38% at 14% 10%, rgba(255, 176, 0, .42), transparent 70%),
+      radial-gradient(38% 34% at 88% 18%, rgba(255, 120, 150, .26), transparent 70%),
+      radial-gradient(46% 42% at 62% 90%, rgba(255, 150, 60, .28), transparent 70%),
+      radial-gradient(30% 26% at 30% 58%, rgba(255, 225, 120, .30), transparent 70%);
+    animation: drift 48s ease-in-out infinite alternate; }
+  body::after { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .07; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  @keyframes drift { from { transform: translate3d(-3%, -2%, 0) rotate(0deg); } to { transform: translate3d(4%, 3%, 0) rotate(4deg); } }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 30px 24px 90px; }
+
+  header.top { display: flex; align-items: center; gap: 14px; padding: 14px 18px; margin-bottom: 38px;
+               border: 1px solid var(--edge-pink); background: var(--panel); backdrop-filter: blur(6px); }
+  .brand { display: flex; align-items: center; gap: 16px; text-decoration: none; color: inherit; }
+  .sun { width: 54px; height: 54px; flex: none; filter: drop-shadow(0 0 6px rgba(255, 140, 0, .7)) drop-shadow(0 0 20px rgba(255, 176, 0, .55));
+         animation: breathe 5.5s ease-in-out infinite; }
+  .sun g { stroke: var(--sun-hot); stroke-width: 2.2; }
+  @keyframes breathe { 0%, 100% { transform: scale(.94) rotate(0deg); opacity: .85; } 50% { transform: scale(1.04) rotate(8deg); opacity: 1; } }
+  .brand b { display: block; font: 400 29px/1.15 var(--mono); letter-spacing: -.02em; color: var(--ink); text-shadow: 0 0 20px rgba(255, 150, 0, .45); text-transform: lowercase; }
+  .brand span { font-size: 12.5px; color: var(--orange); opacity: .85; }
+  header.top .spacer { flex: 1; }
+
+  h1 { font: 400 28px/1.3 var(--mono); margin: 0 0 10px; letter-spacing: -.02em; color: var(--ink); text-shadow: 0 0 22px rgba(255, 150, 0, .3); }
+  h2 { font: 400 18px/1.45 var(--mono); margin: 0 0 6px; color: var(--ink); }
+  p { margin: 0 0 .9em; } p:last-child { margin-bottom: 0; }
+  b { font-weight: 500; color: var(--ink); }
+  i { color: var(--dim); }
+  .sub { color: var(--dim); margin-bottom: 28px; }
+  .muted { color: var(--dim); } .small { font-size: 13px; }
+  .kicker { font-size: 12.5px; font-weight: 400; text-transform: lowercase; letter-spacing: .02em;
+            background: linear-gradient(90deg, var(--orange), var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .kicker::before { content: "[ "; } .kicker::after { content: " ]"; }
+  .kicker.amber { background: linear-gradient(90deg, var(--amber), var(--rose)); -webkit-background-clip: text; background-clip: text; }
+  .amber { color: var(--amber); } .teal { color: var(--orange); } .violet { color: var(--pink); } .green { color: var(--green); } .rose { color: var(--rose); }
+  .kicker, .kicker.amber, .kicker.teal, .kicker.green, .kicker.violet { color: transparent; }  /* keep the gradient fill; the color classes above would flatten it */
+
+  /* buttons */
+  button { font: inherit; cursor: pointer; }
+  .btn { border: 1px solid rgba(60, 30, 10, .32); background: rgba(255, 255, 255, .55); color: var(--text); border-radius: 0; padding: 7px 15px;
+         font-weight: 400; font-size: 13.5px; text-transform: lowercase; white-space: nowrap; transition: border-color .15s, box-shadow .2s, background .15s, color .15s; }
+  .btn:hover { border-color: var(--edge-orange); box-shadow: var(--glow-orange); color: var(--ink); }
+  .btn:disabled { opacity: .4; cursor: default; }
+  .btn.primary { background: var(--sun); border-color: var(--sun-hot); color: var(--ink); font-weight: 500; box-shadow: 0 0 22px rgba(255, 122, 0, .35); }
+  .btn.primary:hover { background: #ffa726; color: var(--ink); box-shadow: 0 0 30px rgba(255, 122, 0, .6); }
+  .btn.big { padding: 11px 22px; font-size: 14.5px; }
+  .btn.ghost { border-color: transparent; background: transparent; color: var(--dim); }
+  .btn.ghost:hover { color: var(--orange); box-shadow: none; border-color: transparent; }
+  .btn.c-teal { color: var(--orange); border-color: var(--edge-orange); } .btn.c-violet { color: var(--pink); border-color: var(--edge-pink); }
+  .btn.c-violet:hover { box-shadow: var(--glow-pink); border-color: var(--pink); }
+  .btn.c-amber { color: var(--amber); border-color: rgba(245, 158, 11, .4); } .btn.c-amber:hover { border-color: var(--amber); box-shadow: 0 0 24px rgba(245, 158, 11, .22); }
+  .btn.c-green { color: var(--green); border-color: rgba(77, 124, 15, .4); } .btn.c-green:hover { border-color: var(--green); box-shadow: 0 0 24px rgba(77, 124, 15, .22); }
+  .btn.c-rose { color: var(--rose); border-color: rgba(225, 29, 72, .4); } .btn.c-rose:hover { border-color: var(--rose); box-shadow: 0 0 24px rgba(225, 29, 72, .22); }
+  .btn.on { border-color: currentColor; background: rgba(255, 255, 255, .9); box-shadow: inset 0 0 0 1px currentColor, 0 0 18px -4px currentColor; }
+  .btn.mini { padding: 2px 10px; font-size: 12.5px; }
+  .card .row .btn:not(.mini) { white-space: normal; text-align: left; }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .row.end { justify-content: flex-end; } .row.spread { justify-content: space-between; }
+  .bar { margin-top: 28px; }
+
+  /* panels */
+  .card { background: var(--panel); border: 1px solid var(--faint); border-radius: 0; padding: 22px 24px; margin-bottom: 18px; backdrop-filter: blur(6px); }
+  .card.tint-amber { border-color: rgba(245, 158, 11, .38); }
+  .card.tint-violet { border-color: var(--edge-pink); box-shadow: var(--glow-pink); }
+  .card.tint-green { border-color: rgba(77, 124, 15, .4); }
+  .card.tint-slate { color: var(--dim); }
+  .card.scenario { border-color: var(--edge-orange); box-shadow: var(--glow-orange); }
+  .card.scenario.resolved { border-color: var(--faint); box-shadow: none; }
+  .card .kicker { margin-bottom: 6px; display: inline-block; }
+  .card > .kicker:first-child { display: block; }
+  .section { margin-top: 20px; }
+  .section > .kicker { margin-bottom: 4px; display: block; }
+  ul.clean { margin: 0; padding-left: 0; list-style: none; } ul.clean li { margin-bottom: 3px; padding-left: 1.6em; text-indent: -1.6em; }
+  ul.clean li::before { content: "⊹ "; color: var(--pink); }
+  .pre { white-space: pre-wrap; }
+  .clamp { max-height: 8.6em; overflow: hidden; -webkit-mask-image: linear-gradient(#000 55%, transparent); mask-image: linear-gradient(#000 55%, transparent); }
+
+  /* home tiles */
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 30px; }
+  @media (max-width: 640px) { .tiles { grid-template-columns: 1fr; } h1 { font-size: 23px; } .brand b { font-size: 21px; } .sun { width: 42px; height: 42px; } }
+  .tile { text-align: left; background: var(--panel); border: 1px solid var(--edge-pink); border-radius: 0; padding: 20px 22px 20px; min-height: 128px;
+          color: var(--text); position: relative; backdrop-filter: blur(6px); transition: border-color .15s, box-shadow .25s, transform .25s; }
+  .tile.t-amber, .tile.t-green { border-color: var(--edge-orange); }
+  .tile:hover { border-color: var(--pink); box-shadow: var(--glow-pink); transform: translateY(-1px); }
+  .tile.t-amber:hover, .tile.t-green:hover { border-color: var(--orange); box-shadow: var(--glow-orange); }
+  .tile b { font: 400 16px/1.4 var(--mono); display: block; text-transform: lowercase; margin-bottom: 4px;
+            background: linear-gradient(90deg, var(--orange), var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none; }
+  .tile b::before { content: "[ "; } .tile b::after { content: " ]"; }
+  .tile span.d { color: var(--text); font-size: 13.5px; display: block; }
+  .tile .count { position: absolute; top: 18px; right: 20px; font-size: 13px; color: var(--amber); }
+  .tile .glyph { display: none; }
+
+  /* lists */
+  .item { display: block; width: 100%; text-align: left; background: var(--panel); border: 1px solid var(--faint); border-radius: 0;
+          padding: 14px 18px; margin-bottom: 10px; color: var(--text); backdrop-filter: blur(6px); transition: border-color .15s, box-shadow .2s; }
+  button.item:hover { border-color: var(--edge-orange); box-shadow: var(--glow-orange); }
+  .item b { display: block; font-weight: 400; font-size: 15px; color: var(--ink); }
+  .item b::before { content: "◇ "; color: var(--pink); }
+  .pill { display: inline-block; border-radius: 0; padding: 0 8px; font-size: 12px; margin-right: 6px; border: 1px solid var(--faint); color: var(--dim); }
+  .pill.green { color: var(--green); border-color: rgba(77, 124, 15, .35); } .pill.rose { color: var(--rose); border-color: rgba(225, 29, 72, .35); }
+  .pill.amber { color: var(--amber); border-color: rgba(245, 158, 11, .35); } .pill.teal { color: var(--orange); border-color: var(--edge-orange); }
+  .pill.violet { color: var(--pink); border-color: var(--edge-pink); }
+
+  /* active outcomes: a situation with its outcomes branching off it */
+  .tree { position: relative; display: grid; grid-template-columns: minmax(190px, 250px) 1fr; column-gap: 84px; align-items: center; margin-bottom: 44px; }
+  .tree .item { margin-bottom: 0; position: relative; z-index: 1; }
+  .tree .root { border-color: rgba(245, 158, 11, .6); box-shadow: 0 0 0 1px rgba(255, 176, 0, .2), 0 6px 30px rgba(255, 176, 0, .25); }
+  .tree .root b::before { content: ""; } .tree .root .kicker { display: block; margin-bottom: 4px; }
+  .tree .root b { margin-bottom: 4px; }
+  .tree .leaves { display: flex; flex-direction: column; gap: 12px; }
+  .tree .leaf b { font-size: 14.5px; }
+  svg.branches { position: absolute; inset: 0; pointer-events: none; overflow: visible; filter: drop-shadow(0 0 5px rgba(255, 140, 0, .55)); }
+  svg.branches path { fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+  svg.branches circle { fill: #e0457b; } svg.branches circle.bud { fill: #ff9500; }
+  svg.branches path.ended { stroke: var(--dim); stroke-width: 1.2; stroke-dasharray: 3 6; opacity: .55; }
+  svg.branches circle.ended { fill: var(--panel-solid); stroke: var(--dim); stroke-width: 1.2; opacity: .8; }
+  svg.branches.grow path.ended { animation: fadein .9s ease-out backwards; }
+  @keyframes fadein { from { opacity: 0; } }
+  .tree .leaf.ended { border-style: dashed; background: rgba(255, 250, 240, .45); backdrop-filter: none; }
+  .tree .leaf.ended b { color: var(--dim); font-weight: 400; } .tree .leaf.ended b::before { content: "○ "; color: var(--dim); }
+  /* how it turned out, readable at a glance: happened is filled in, partly is half filled, didn't is left empty */
+  .tree .leaf.happened { background: #ffb020; border: 1px solid #e07f00; box-shadow: 0 4px 22px rgba(255, 149, 0, .3); }
+  .tree .leaf.happened b { color: var(--ink); font-weight: 500; } .tree .leaf.happened b::before { content: "● "; color: var(--ink); }
+  .tree .leaf.partly { background: linear-gradient(90deg, #ffb020 0 50%, rgba(255, 250, 240, .35) 50% 100%); border: 1px dashed #e07f00; }
+  .tree .leaf.partly b { color: var(--ink); } .tree .leaf.partly b::before { content: "◐ "; color: var(--ink); }
+  .tree .leaf.didnt { background: transparent; }
+  .tree .leaf.happened .pill, .tree .leaf.partly .pill { color: var(--ink); border-color: rgba(31, 18, 8, .55); background: rgba(255, 255, 255, .6); }
+  svg.branches path.happened { stroke: #e07f00; opacity: .9; stroke-dasharray: 5 4; stroke-width: 1.5; }
+  svg.branches path.partly { stroke: #e07f00; opacity: .7; }
+  svg.branches circle.happened { fill: #ff9500; stroke: #e07f00; opacity: 1; }
+  svg.branches circle.partly { fill: var(--half); stroke: #e07f00; opacity: 1; }
+  .tree-heading { margin: 10px 0 26px; padding-top: 26px; border-top: 1px dashed var(--faint); }
+  svg.branches.grow path { animation: grow .8s ease-out both; } svg.branches.grow circle:not(.bud) { animation: bloom .35s ease-out both; }
+  @keyframes grow { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+  @keyframes bloom { from { opacity: 0; transform: scale(0); } to { opacity: 1; transform: scale(1); } }
+  svg.branches circle { transform-box: fill-box; transform-origin: center; }
+  @media (max-width: 700px) { .tree { grid-template-columns: 1fr; row-gap: 14px; } .tree .leaves { margin-left: 46px; } }
+
+  /* actions */
+  .action { border-top: 1px dashed var(--faint); padding: 15px 0; }
+  .action:first-of-type { border-top: 0; }
+  .action .text::before { content: "⊹ "; color: var(--orange); }
+  .action.closed .text { color: var(--dim); text-decoration: line-through; text-decoration-color: rgba(60, 30, 10, .3); }
+  .action .meta { color: var(--dim); font-size: 12.5px; margin-top: 5px; }
+  .action .marks { margin-top: 9px; gap: 7px; }
+  .group-thread { margin: 34px 0 12px; font-size: 16px; color: var(--amber); text-shadow: 0 0 16px rgba(245, 158, 11, .35); }
+  .group-thread::before { content: "# "; opacity: .6; }
+  .group-outcome { background: none; border: 0; padding: 0; color: var(--orange); font-weight: 400; font-size: 14.5px; text-align: left; }
+  .group-outcome::before { content: "◇ "; color: var(--pink); }
+  .group-outcome:hover { color: var(--ink); text-decoration: underline; }
+
+  /* forms */
+  textarea { width: 100%; font: inherit; color: var(--ink); caret-color: var(--orange); border: 1px solid var(--edge-pink); border-radius: 0; padding: 14px 16px;
+             background: rgba(255, 255, 255, .8); resize: vertical; min-height: 120px; outline: none; transition: border-color .15s, box-shadow .2s; }
+  textarea::placeholder { color: var(--dim); opacity: .7; }
+  textarea:focus { border-color: var(--orange); box-shadow: var(--glow-orange); }
+  textarea.tall { min-height: 270px; } textarea.short { min-height: 70px; }
+  label.q { display: block; font-weight: 400; color: var(--ink); margin: 18px 0 8px; }
+  .ratebox { border: 1px dashed var(--edge-pink); padding: 16px 18px; margin-top: 20px; }
+  .ratebox .line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .ratebox .line > span { min-width: 330px; color: var(--ink); }
+  .ratebox .line > span::before { content: "? "; color: var(--pink); }
+
+  /* step-through */
+  .progress { height: 2px; background: var(--faint); overflow: visible; margin: 12px 0 26px; }
+  .progress > i { display: block; height: 100%; background: linear-gradient(90deg, var(--orange), var(--pink)); box-shadow: 0 0 12px var(--orange); transition: width .3s; }
+  .bigaction { font-size: 16.5px; line-height: 1.75; color: var(--ink); }
+
+  /* loading + messages */
+  .veil { position: fixed; inset: 0; background: rgba(255, 239, 214, .86); backdrop-filter: blur(5px); display: none; align-items: center; justify-content: center; z-index: 10; }
+  .veil.show { display: flex; }
+  .veil .box { text-align: center; border: 1px solid var(--edge-orange); box-shadow: var(--glow-orange); background: var(--panel-solid); padding: 30px 38px; max-width: 90vw; }
+  .veil h2 { text-transform: lowercase; font-weight: 300; }
+  .spinner { font-size: 30px; line-height: 1; color: var(--orange); text-shadow: 0 0 16px var(--orange); margin-bottom: 14px; }
+  .toast { position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%); padding: 9px 18px; font-size: 13.5px; z-index: 20; max-width: 90vw;
+           background: var(--panel-solid); border: 1px solid; text-transform: lowercase; }
+  .toast::before { content: "> "; }
+  .toast.ok { color: var(--green); box-shadow: 0 0 26px rgba(77, 124, 15, .25); } .toast.error { color: var(--rose); box-shadow: 0 0 26px rgba(225, 29, 72, .25); text-transform: none; }
+  footer { margin-top: 56px; color: var(--dim); font-size: 11.5px; text-align: center; opacity: .8; }
+  @media (prefers-reduced-motion: reduce) { body::before, .sun, svg.branches.grow path, svg.branches.grow circle { animation: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#/"><svg class="sun" viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="sunfill" cx="40%" cy="38%" r="70%"><stop offset="0" stop-color="#ffd84d"/><stop offset="1" stop-color="#ff7a00"/></radialGradient></defs><g stroke="#ffaf00" stroke-width="2.6" stroke-linecap="round"><line x1="32.0" y1="13.0" x2="32.0" y2="3.0"/><line x1="41.5" y1="15.5" x2="44.5" y2="10.3"/><line x1="48.5" y1="22.5" x2="57.1" y2="17.5"/><line x1="51.0" y1="32.0" x2="57.0" y2="32.0"/><line x1="48.5" y1="41.5" x2="57.1" y2="46.5"/><line x1="41.5" y1="48.5" x2="44.5" y2="53.7"/><line x1="32.0" y1="51.0" x2="32.0" y2="61.0"/><line x1="22.5" y1="48.5" x2="19.5" y2="53.7"/><line x1="15.5" y1="41.5" x2="6.9" y2="46.5"/><line x1="13.0" y1="32.0" x2="7.0" y2="32.0"/><line x1="15.5" y1="22.5" x2="6.9" y2="17.5"/><line x1="22.5" y1="15.5" x2="19.5" y2="10.3"/></g><circle cx="32" cy="32" r="13" fill="url(#sunfill)"/></svg><div><b>Best-Case Scenario</b><span>realistic, credible, positive ways this could go</span></div></a>
+    <div class="spacer"></div>
+    <button class="btn ghost" id="homeBtn" onclick="go('#/')">← Home</button>
+  </header>
+  <main id="app"></main>
+  <footer id="foot"></footer>
+</div>
+<div class="veil" id="veil"><div class="box"><div class="spinner" id="spin">⠋</div>
+  <h2 id="veilTitle">Thinking…</h2><div class="muted" id="veilSub"></div></div></div>
+
+<script>
+"use strict";
+// ───────────────────────────── state & helpers ─────────────────────────────
+const S = { threads: [], today: "", model: "", pending: null, review: null, notes: {}, flash: null };
+
+function h(tag, attrs, ...kids) {
+  const el = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) {
+    if (v == null || v === false) continue;
+    if (k === "class") el.className = v;
+    else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+    else el.setAttribute(k, v === true ? "" : v);
+  }
+  for (const kid of kids.flat(Infinity)) if (kid != null && kid !== false) el.append(kid.nodeType ? kid : String(kid));
+  return el;
+}
+const paras = (text) => String(text || "").split(/\n\s*\n|\n/).filter(s => s.trim()).map(s => h("p", {}, s));
+const btn = (label, onclick, cls = "") => h("button", { class: "btn " + cls, onclick }, label);
+const go = (hash) => { if (location.hash === hash) render(); else location.hash = hash; };
+const threadTitle = (t) => t.title || (t.situation.replace(/\s+/g, " ").slice(0, 60) + (t.situation.length > 60 ? "…" : ""));
+const isActive = (sc) => !!sc.liked && !!sc.possible && (sc.status || "active") === "active";
+const isOpen = (a) => a.status !== "wont" && a.status !== "did";
+const actionsOf = (sc) => (sc.bot_actions || []).concat(sc.my_actions || []);
+const unrated = (sc) => sc.liked == null && sc.possible == null;
+const WORD = { wont: "won't", may: "may", did: "did" }, GLYPH = { wont: "✘", may: "◐", did: "✔" };
+function daysAgo(date) {
+  const n = Math.round((new Date(S.today) - new Date(date.slice(0, 10))) / 864e5);
+  return n <= 0 ? "today" : n + (n === 1 ? " day ago" : " days ago");
+}
+// every action on every active outcome, newest thread first (same order as the terminal app)
+function activeActions() {
+  const out = [];
+  for (const t of [...S.threads].reverse()) for (const sc of t.scenarios || []) if (isActive(sc))
+    actionsOf(sc).forEach((a, index) => out.push({ t, sc, a, index }));
+  return out;
+}
+
+let veilTimer = null;
+function showVeil(title) {
+  const t0 = Date.now();
+  document.getElementById("veilTitle").textContent = title;
+  const tick = () => document.getElementById("veilSub").textContent =
+    `${Math.round((Date.now() - t0) / 1000)}s · the advisor thinks carefully, so this can take a minute or two`;
+  const frames = "⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏"; let f = 0;
+  tick(); veilTimer = setInterval(() => { document.getElementById("spin").textContent = frames[f++ % frames.length]; tick(); }, 90);
+  document.getElementById("veil").classList.add("show");
+}
+function hideVeil() { clearInterval(veilTimer); document.getElementById("veil").classList.remove("show"); }
+function toast(msg, kind = "ok") {
+  document.querySelectorAll(".toast").forEach(e => e.remove());
+  const el = h("div", { class: "toast " + kind }, msg);
+  document.body.append(el); setTimeout(() => el.remove(), kind === "error" ? 7000 : 2600);
+}
+async function api(op, body, loading) {
+  if (loading) showVeil(loading);
+  try {
+    const r = await fetch("/api/" + op, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body || {}) });
+    const j = await r.json();
+    if (!r.ok) throw new Error(j.error || r.statusText);
+    if (j.thread) {
+      const i = S.threads.findIndex(t => t.id === j.thread.id);
+      if (i >= 0) S.threads[i] = j.thread; else S.threads.push(j.thread);
+    }
+    return j;
+  } catch (e) { toast(e.message, "error"); throw e; }
+  finally { if (loading) hideVeil(); }
+}
+const getThread = (id) => S.threads.find(t => t.id === id);
+
+// ───────────────────────────── shared pieces ─────────────────────────────
+function ratingLine(sc) {
+  const mark = (v, word) => v === true ? h("span", { class: "pill green" }, "✔ " + word)
+    : v === false ? h("span", { class: "pill rose" }, "✘ " + word) : h("span", { class: "pill slate" }, "– " + word + "?");
+  const st = sc.status || "active";
+  return h("div", { class: "section" }, mark(sc.liked, "desirable"), mark(sc.possible, "possible"),
+    st === "active" ? h("span", { class: "pill amber" }, "active") : h("span", { class: "pill slate" }, "○ " + st));
+}
+
+function markButtons(t, sc, a, index, after) {
+  const set = async (status) => { await api("mark", { id: t.id, n: sc.n, index, action: a.action, status }); after ? after(status) : render(); };
+  return h("div", { class: "row marks" },
+    h("button", { class: "btn mini c-rose" + (a.status === "wont" ? " on" : ""), onclick: () => set("wont") }, "✘ Won't"),
+    h("button", { class: "btn mini c-amber" + (a.status === "may" ? " on" : ""), onclick: () => set("may") }, "◐ May"),
+    h("button", { class: "btn mini c-green" + (a.status === "did" ? " on" : ""), onclick: () => set("did") }, "✔ Did"),
+    a.status ? h("button", { class: "btn mini ghost", onclick: () => set(null) }, "open again") : null);
+}
+
+function actionRow(t, sc, a, index, { detail = true } = {}) {
+  const meta = [];
+  if (a.status) meta.push(`${GLYPH[a.status]} ${WORD[a.status]} (${a.status_date || "?"})`);
+  if (detail && a.why) meta.push("why: " + a.why);
+  if (detail && a.when) meta.push("when: " + a.when);
+  if (detail) meta.push(a.suggested ? "suggested " + a.suggested : "yours, added " + (a.added || "?"));
+  return h("div", { class: "action" + (isOpen(a) ? "" : " closed") },
+    h("div", { class: "text" }, a.action),
+    meta.length ? h("div", { class: "meta" }, meta.join("  ·  ")) : null,
+    markButtons(t, sc, a, index));
+}
+
+// The full scenario card: story, ratings, actions, updates, and (for active outcomes) the action buttons.
+function scenarioCard(t, sc, { rateState = null, openLink = false } = {}) {
+  const key = t.id + "/" + sc.n;
+  const card = h("div", { class: "card scenario" + (sc.status === "resolved" ? " resolved" : "") },
+    h("span", { class: "kicker teal" }, "Scenario " + sc.n),
+    h("h2", {}, sc.title), h("div", { class: "section" }, paras(sc.story)),
+    h("div", { class: "section" }, h("span", { class: "kicker green" }, "Why credible"), paras(sc.why_credible)),
+    (sc.depends_on || []).length ? h("div", { class: "section" }, h("span", { class: "kicker amber" }, "Depends on"),
+      h("ul", { class: "clean" }, sc.depends_on.map(d => h("li", {}, d)))) : null,
+    (sc.early_signs || []).length ? h("div", { class: "section" }, h("span", { class: "kicker violet" }, "Early signs"),
+      h("ul", { class: "clean" }, sc.early_signs.map(d => h("li", {}, d)))) : null);
+
+  if (rateState && unrated(sc)) {           // rating controls, the web version of the y / n / skip questions
+    const r = rateState[sc.n] = rateState[sc.n] || { n: sc.n, liked: null, possible: null, comment: "" };
+    const choice = (field, question) => {
+      const line = h("div", { class: "line" }, h("span", {}, question));
+      const opts = [["Yes", true, "c-green"], ["No", false, "c-rose"], ["Skip", null, "ghost"]];
+      const draw = () => { line.querySelectorAll("button").forEach(b => b.remove());
+        for (const [label, val, cls] of opts) line.append(h("button", { class: `btn mini ${cls}` + (r[field] === val && val !== null ? " on" : ""),
+          onclick: () => { r[field] = val; draw(); } }, label)); };
+      draw(); return line;
+    };
+    card.append(h("div", { class: "ratebox" }, choice("liked", "Would you want this outcome?"),
+      choice("possible", "Do you believe it's genuinely possible?"),
+      h("textarea", { class: "short", placeholder: "Comment on why (optional)", oninput: (e) => r.comment = e.target.value })));
+    return card;
+  }
+
+  card.append(ratingLine(sc));
+  if (sc.comment) card.append(h("p", { class: "muted small section" }, h("i", {}, "your comment: " + sc.comment)));
+  const acts = actionsOf(sc), nBot = (sc.bot_actions || []).length;
+  if (acts.length) {
+    const box = h("div", { class: "section" });
+    acts.forEach((a, i) => {
+      if (i === 0 && nBot) box.append(h("span", { class: "kicker green" }, "Suggested next actions"));
+      if (i === nBot) box.append(h("span", { class: "kicker amber", style: i ? "margin-top:16px" : "" }, "Your next actions"));
+      box.append(actionRow(t, sc, a, i));
+    });
+    card.append(box);
+  }
+  if (S.notes[key]) card.append(h("div", { class: "card tint-green section small" }, h("i", {}, "Advisor's note: " + S.notes[key])));
+  if ((sc.updates || []).length) card.append(h("div", { class: "section" }, h("span", { class: "kicker violet" }, "Updates"),
+    sc.updates.map(u => h("p", {}, h("b", {}, u.date + (u.resolution ? ` [${u.resolution}]` : "") + ": "), u.text))));
+
+  if (isActive(sc)) {
+    const panel = h("div", { class: "section" });
+    const closePanel = () => panel.replaceChildren();
+    const suggest = async () => {
+      const j = await api("suggest", { id: t.id, n: sc.n }, "Working out next actions…");
+      S.notes[key] = j.note; toast(`${j.count} action(s) suggested`); render();
+    };
+    const ownForm = () => { const ta = h("textarea", { class: "short", placeholder: "Your own next actions, one per line" });
+      panel.replaceChildren(ta, h("div", { class: "row end", style: "margin-top:10px" }, btn("Cancel", closePanel, "ghost"),
+        btn("Add these", async () => { await api("my_actions", { id: t.id, n: sc.n, text: ta.value }); toast("added"); render(); }, "primary")));
+      ta.focus(); };
+    const updateForm = () => { const ta = h("textarea", { placeholder: "What happened?" });
+      const send = (resolution) => async () => { await api("update", { id: t.id, n: sc.n, text: ta.value, resolution });
+        toast("saved"); resolution ? go("#/active") : render(); };
+      panel.replaceChildren(ta, h("p", { class: "small muted", style: "margin:12px 0 8px" }, "Does this resolve the outcome?"),
+        h("div", { class: "row" }, btn("Yes — it happened (more or less)", send("happened"), "c-green"), btn("Partly — some of it happened", send("partly"), "c-amber"),
+          btn("No — it didn't happen / no longer possible", send("didnt"), "c-rose"), btn("Still open — just a progress note", send(null), "c-teal"), btn("Cancel", closePanel, "ghost")));
+      ta.focus(); };
+    card.append(h("div", { class: "row section" }, btn("Ask the advisor for next actions", suggest, "c-teal"), btn("Add my own next actions", ownForm),
+      btn("Record an update / what happened", updateForm),
+      openLink ? btn("Open this outcome →", () => go(`#/outcome/${t.id}/${sc.n}`), "ghost") : null), panel);
+  }
+  return card;
+}
+
+function threadHeader(t) {
+  return [h("span", { class: "kicker amber" }, `Thread · started ${t.created.slice(0, 10)} (${daysAgo(t.created)})`), h("h1", {}, threadTitle(t))];
+}
+function situationCard(t, { collapsed = false } = {}) {
+  const text = h("div", { class: "pre" + (collapsed && t.situation.length > 500 ? " clamp" : "") }, t.situation);
+  const more = text.classList.contains("clamp") ? btn("Show all", () => { text.classList.remove("clamp"); more.remove(); }, "ghost mini") : null;
+  return h("div", { class: "card tint-amber" }, h("span", { class: "kicker amber" }, "Situation"), text, more);
+}
+
+// ───────────────────────────── views ─────────────────────────────
+const V = {};
+
+V.home = () => {
+  const nActive = S.threads.flatMap(t => t.scenarios || []).filter(isActive).length;
+  const nOpen = activeActions().filter(e => isOpen(e.a)).length;
+  const tile = (cls, glyph, title, desc, count, hash) => h("button", { class: "tile " + cls, onclick: () => go(hash) },
+    count == null ? null : h("span", { class: "count" }, count), h("span", { class: "glyph" }, glyph), h("b", {}, title), h("span", { class: "d" }, desc));
+  return [h("h1", {}, "What could go right?"),
+    h("p", { class: "sub" }, "Envisioning optimistic possibilities: outcomes with a real chance given best effort"),
+    h("div", { class: "tiles" },
+      tile("t-amber", "◆", "New situation", "Describe what you're in and see how it could go well", null, "#/new"),
+      tile("t-teal", "●", "Active outcomes", "Scenarios you want and believe in, not yet resolved", nActive, "#/active"),
+      tile("t-green", "➜", "Next actions", "Every open action, grouped by thread and outcome", nOpen + " open", "#/actions"),
+      tile("t-violet", "◈", "Browse threads", "Read any past thread in full", S.threads.length, "#/threads"))];
+};
+
+V.new = () => {
+  const ta = h("textarea", { class: "tall", placeholder: "What's the situation?" });
+  const submit = async () => {
+    if (!ta.value.trim()) return toast("Describe the situation first.", "error");
+    const { thread } = await api("new_thread", { situation: ta.value });
+    await generate(thread.id, {});
+  };
+  setTimeout(() => ta.focus());
+  return [h("span", { class: "kicker amber" }, "New situation"), h("h1", {}, "What's the situation?"),
+    h("p", { class: "sub" }, "Include what's at stake, what you've tried, the real constraints, and anything about the other people involved. The more specific you are, the more credible the scenarios will be. Write or paste as much as you like."),
+    ta, h("div", { class: "row end bar" }, btn("Cancel", () => go("#/"), "ghost"), btn("See best-case scenarios", submit, "primary big"))];
+};
+
+async function generate(id, extra) {
+  try {
+    const j = await api("generate", { id, ...extra }, "Thinking through your situation…");
+    if (j.questions) { S.pending = { id, questions: j.questions }; go("#/questions/" + id); }
+    else { S.pending = null; go("#/thread/" + id); }
+  } catch (e) { go("#/thread/" + id); }
+}
+
+V.questions = (id) => {
+  if (!S.pending || S.pending.id !== id) return go("#/thread/" + id), [];
+  const areas = S.pending.questions.map(() => h("textarea", { class: "short" }));
+  const submit = () => generate(id, { answers: S.pending.questions.map((q, i) => ({ q, a: areas[i].value })) });
+  setTimeout(() => areas[0].focus());
+  return [h("span", { class: "kicker violet" }, "A few questions first"), h("h1", {}, "The advisor wants to check a couple of things"),
+    h("p", { class: "sub" }, "The answers would change which scenarios are credible. Leave any blank if you'd rather not say."),
+    h("div", { class: "card" }, S.pending.questions.map((q, i) => [h("label", { class: "q" }, `${i + 1}. ${q}`), areas[i]])),
+    h("div", { class: "row end bar" }, btn("Continue", submit, "primary big"))];
+};
+
+V.thread = (id) => {
+  const t = getThread(id);
+  if (!t) return [h("p", {}, "That thread doesn't exist.")];
+  const scs = t.scenarios || [], toRate = scs.filter(unrated), rateState = {};
+  const out = [...threadHeader(t), h("div", { style: "height:14px" }), situationCard(t),
+    (t.context_additions || []).map(c => h("div", { class: "card tint-amber" }, h("span", { class: "kicker amber" }, "Added context"), h("div", { class: "pre" }, c)))];
+  if (!t.read && !scs.length) {
+    out.push(h("div", { class: "card" }, h("p", {}, "No scenarios have been generated for this thread yet."),
+      btn("Generate scenarios", () => generate(id, {}), "primary")));
+    return out;
+  }
+  out.push(h("div", { class: "card tint-violet" }, h("span", { class: "kicker violet" }, "The advisor's read"), paras(t.read),
+    (t.assumptions || []).length ? h("p", { class: "small muted" }, h("i", {}, "assuming: " + t.assumptions.join("; "))) : null));
+  if (!scs.length) out.push(h("div", { class: "card tint-slate" }, "No scenario cleared the bar. That is itself information; see the note below."));
+  if (S.flash === id) { S.flash = null;
+    const keepers = scs.filter(isActive);
+    out.push(h("div", { class: "card tint-green" }, keepers.length
+      ? [h("b", { class: "green" }, `${keepers.length} scenario(s) marked desirable and possible. `), "Each one now has buttons below for next actions."]
+      : "No scenario was marked both desirable and possible. The thread is saved, and the advisor will learn from your ratings.")); }
+  scs.forEach(sc => out.push(scenarioCard(t, sc, { rateState: toRate.length ? rateState : null, openLink: true })));
+  if (t.note) out.push(h("p", { class: "muted" }, h("i", {}, "advisor's note: " + t.note)));
+
+  const nothingRated = scs.length === toRate.length;
+  if (toRate.length || nothingRated) {
+    const ctxPanel = h("div", {});
+    const ctxForm = () => { const ta = h("textarea", { placeholder: "What else should the advisor know?" });
+      ctxPanel.replaceChildren(h("div", { class: "card" }, ta, h("div", { class: "row end", style: "margin-top:12px" },
+        btn("Cancel", () => ctxPanel.replaceChildren(), "ghost"),
+        btn("Regenerate scenarios", () => ta.value.trim() ? generate(id, { context: ta.value }) : toast("Add some context first.", "error"), "primary"))));
+      ta.focus(); };
+    if (toRate.length) out.push(h("p", { class: "muted small", style: "text-align:right" }, "Honest ratings make future scenarios better."));
+    out.push(ctxPanel, h("div", { class: "row end bar" },
+      nothingRated ? btn("Add context and regenerate", ctxForm, "c-amber") : null,
+      toRate.length ? btn("Save my ratings", async () => {
+        await api("rate", { id, ratings: Object.values(rateState) }); S.flash = id; toast("ratings saved"); render(); window.scrollTo(0, 0);
+      }, "primary big") : null));
+  }
+  return out;
+};
+
+V.outcome = (id, n) => {
+  const t = getThread(id), sc = t && (t.scenarios || []).find(s => String(s.n) === n);
+  if (!sc) return [h("p", {}, "That outcome doesn't exist.")];
+  return [h("span", { class: "kicker teal" }, "Outcome"), h("h1", {}, sc.title),
+    h("p", { class: "sub" }, `from "${threadTitle(t)}" · started ${t.created.slice(0, 10)} (${daysAgo(t.created)})`),
+    situationCard(t, { collapsed: true }), scenarioCard(t, sc),
+    h("div", { class: "row spread bar" }, btn("← Active outcomes", () => go("#/active"), "ghost"), btn("View the whole thread", () => go("#/thread/" + id), "c-teal"))];
+};
+
+V.active = () => {
+  // every situation with outcomes you kept: active ones as live branches, resolved ones as ended branches
+  const groups = [...S.threads].reverse().map(t => ({ t, scs: (t.scenarios || []).filter(isActive),
+    ended: (t.scenarios || []).filter(sc => sc.status === "resolved") })).filter(g => g.scs.length || g.ended.length)
+    .sort((a, b) => !a.scs.length - !b.scs.length);
+  const out = [h("span", { class: "kicker teal" }, "Active outcomes"), h("h1", {}, "What you're hoping for"),
+    h("p", { class: "sub" }, "Each situation, and the outcomes branching from it that you marked desirable and possible and haven't resolved yet. Resolved outcomes stay on as dashed branches: filled in if they happened, half filled if partly, empty if they didn't. Open an outcome to record what happened or to work on next actions.")];
+  if (!groups.length) return out.concat(h("div", { class: "card tint-slate" }, "No outcomes yet. Rate a scenario as desirable and possible to track it here."));
+  let headed = false;
+  for (const { t, scs, ended } of groups) {
+    if (!scs.length && !headed) { headed = true; out.push(h("div", { class: "tree-heading" }, h("span", { class: "kicker teal" }, "fully resolved"))); }
+    const root = h("button", { class: "item root", onclick: () => go("#/thread/" + t.id) }, h("span", { class: "kicker amber" }, "situation"),
+      h("b", {}, threadTitle(t)), h("span", { class: "muted small" }, `${t.created.slice(0, 10)} · ${daysAgo(t.created)}`));
+    const leaves = h("div", { class: "leaves" }, scs.map(sc => { const open = actionsOf(sc).filter(isOpen).length, ups = (sc.updates || []).length;
+      return h("button", { class: "item leaf", onclick: () => go(`#/outcome/${t.id}/${sc.n}`) }, h("b", {}, sc.title),
+        open || ups ? h("div", { style: "margin-top:6px" }, open ? h("span", { class: "pill green" }, open + " open action" + (open > 1 ? "s" : "")) : null,
+          ups ? h("span", { class: "pill violet" }, ups + " update" + (ups > 1 ? "s" : "")) : null) : null); }),
+      ended.map(sc => { const res = resolutionOf(sc);
+        return h("button", { class: "item leaf ended " + (res || ""), "data-res": res || "", onclick: () => go(`#/outcome/${t.id}/${sc.n}`) }, h("b", {}, sc.title),
+          h("div", { style: "margin-top:6px" }, h("span", { class: "pill " + RES_COLOR[res] }, RES_WORD[res] || "resolved"))); }));
+    out.push(h("div", { class: "tree" }, root, leaves));
+  }
+  requestAnimationFrame(drawBranches);
+  return out;
+};
+
+// how a resolved outcome turned out: the resolution on its most recent resolving update
+const resolutionOf = (sc) => ([...(sc.updates || [])].reverse().find(u => u.resolution) || {}).resolution;
+const RES_WORD = { happened: "happened", partly: "partly", didnt: "didn't" }, RES_COLOR = { happened: "green", partly: "amber", didnt: "rose" };
+
+// Draw the branches once the tree is laid out: a curve from each situation to each of its outcomes.
+// Wide screens: root on the left, branches fan out to the right. Narrow: root on top, branches drop down its left side.
+const SVGNS = "http://www.w3.org/2000/svg";
+const svg = (tag, attrs) => { const el = document.createElementNS(SVGNS, tag); for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v); return el; };
+function drawBranches(animate = true) {
+  document.querySelectorAll(".tree").forEach((tree, k) => {
+    tree.querySelector("svg.branches")?.remove();
+    const box = tree.getBoundingClientRect(), root = tree.querySelector(".root").getBoundingClientRect();
+    const stacked = getComputedStyle(tree).gridTemplateColumns.split(" ").length < 2;
+    const x1 = stacked ? root.left - box.left + 18 : root.right - box.left, y1 = stacked ? root.bottom - box.top : root.top - box.top + root.height / 2;
+    const art = svg("svg", { class: "branches" + (animate ? " grow" : ""), width: box.width, height: box.height, viewBox: `0 0 ${box.width} ${box.height}` });
+    const half = svg("linearGradient", { id: "half" + k });   // the half-filled node of a "partly"
+    half.append(svg("stop", { offset: .5, "stop-color": "#ffb020" }), svg("stop", { offset: .5, "stop-color": "#fff8ec" }));
+    const grad = svg("linearGradient", { id: "branch" + k, gradientUnits: "userSpaceOnUse", x1, y1, x2: stacked ? x1 : box.width * .55, y2: stacked ? box.height : y1 });
+    grad.append(svg("stop", { offset: 0, "stop-color": "#ff9500" }), svg("stop", { offset: 1, "stop-color": "#e0457b" }));
+    art.append(svg("defs", {})); art.firstChild.append(grad, half);
+    art.style.setProperty("--half", `url(#half${k})`);
+    tree.querySelectorAll(".leaf").forEach((leaf, i) => {
+      const r = leaf.getBoundingClientRect(), x2 = r.left - box.left, y2 = r.top - box.top + r.height / 2, bend = (x2 - x1) * .55;
+      const d = stacked ? `M ${x1} ${y1} C ${x1} ${y2 - 4}, ${x1} ${y2}, ${x2} ${y2}` : `M ${x1} ${y1} C ${x1 + bend} ${y1}, ${x2 - bend} ${y2}, ${x2} ${y2}`;
+      const over = leaf.classList.contains("ended");   // a resolved outcome: faint dashed branch, hollow node
+      const res = leaf.dataset.res || "";
+      const path = over ? svg("path", { d, class: "ended " + res, style: `animation-delay:${i * 90}ms` })
+                        : svg("path", { d, pathLength: 1, stroke: `url(#branch${k})`, style: `animation-delay:${i * 90}ms` });
+      art.append(path, svg("circle", { cx: x2, cy: y2, r: 3.2, class: over ? "ended " + res : "", style: `animation-delay:${500 + i * 90}ms` }));
+    });
+    art.append(svg("circle", { cx: x1, cy: y1, r: 4, class: "bud" }));
+    tree.prepend(art);
+  });
+}
+let redraw = null;
+window.addEventListener("resize", () => { clearTimeout(redraw); redraw = setTimeout(() => drawBranches(false), 80); });
+document.fonts?.ready.then(() => drawBranches(false));
+
+V.threads = () => [h("span", { class: "kicker violet" }, "All threads"), h("h1", {}, "Your threads"), h("div", { style: "height:12px" }),
+  S.threads.length ? [...S.threads].reverse().map(t => { const scs = t.scenarios || [];
+    const nA = scs.filter(isActive).length, nR = scs.filter(s => s.status === "resolved").length, nU = scs.filter(unrated).length;
+    return h("button", { class: "item", onclick: () => go("#/thread/" + t.id) }, h("b", {}, threadTitle(t)),
+      h("span", { class: "muted small" }, `${t.created.slice(0, 10)} · ${daysAgo(t.created)}`),
+      h("div", { style: "margin-top:6px" }, h("span", { class: "pill " + (nA ? "green" : "slate") }, nA + " active"),
+        nR ? h("span", { class: "pill slate" }, nR + " resolved") : null, nU ? h("span", { class: "pill amber" }, nU + " to rate") : null)); })
+    : h("div", { class: "card tint-slate" }, "No threads yet.")];
+
+// Next actions: the one-page list (what the home tile opens), plus a one-at-a-time review of any unmarked ones.
+function startReview() {
+  const entries = activeActions().filter(e => !e.a.status).map(e => ({ id: e.t.id, n: e.sc.n, index: e.index }));
+  S.review = { entries, i: 0, done: {} }; go("#/actions/review");
+}
+
+V.review = () => {
+  const R = S.review;
+  if (!R) return go("#/actions"), [];
+  const total = R.entries.length;
+  if (R.i >= total || R.stopped) {
+    const tally = (k) => Object.values(R.done).filter(v => v === k).length;
+    return [h("span", { class: "kicker green" }, "Review finished"), h("h1", {}, `Reviewed ${Object.keys(R.done).length} of ${total}`),
+      h("p", { class: "sub" }, h("span", { class: "pill green" }, tally("did") + " did"), h("span", { class: "pill amber" }, tally("may") + " may"),
+        h("span", { class: "pill rose" }, tally("wont") + " won't"), h("span", { class: "pill slate" }, tally("skipped") + " skipped")),
+      h("div", { class: "row" }, btn("Back to next actions", () => go("#/actions"), "primary"))];
+  }
+  const e = R.entries[R.i], t = getThread(e.id), sc = t.scenarios.find(s => s.n === e.n), a = actionsOf(sc)[e.index];
+  const next = (what) => { if (what) R.done[R.i] = what; else R.done[R.i] = R.done[R.i] || "skipped"; R.i++; render(); window.scrollTo(0, 0); };
+  const mark = (status) => async () => { await api("mark", { id: t.id, n: sc.n, index: e.index, action: a.action, status }); next(status); };
+  return [h("div", { class: "row spread" }, h("span", { class: "kicker green" }, `Next action ${R.i + 1} of ${total}`),
+      btn("Back to the list", () => go("#/actions"), "ghost mini")),
+    h("div", { class: "progress" }, h("i", { style: `width:${Math.round(100 * R.i / total)}%` })),
+    h("div", { class: "card" }, h("div", { class: "amber", style: "font-weight:700" }, threadTitle(t)),
+      h("button", { class: "group-outcome", onclick: () => go(`#/outcome/${t.id}/${sc.n}`) }, sc.title),
+      h("p", { class: "bigaction section" }, a.action),
+      h("div", { class: "section muted small" }, a.why ? h("p", {}, h("b", {}, "why: "), a.why) : null, a.when ? h("p", {}, h("b", {}, "when: "), a.when) : null,
+        h("p", {}, (a.suggested ? "suggested " + a.suggested : "yours, added " + (a.added || "?")) + (a.status ? `  ·  currently: ${GLYPH[a.status]} ${WORD[a.status]}` : "")))),
+    h("div", { class: "row", style: "justify-content:center; gap:14px" }, btn("✘ Won't", mark("wont"), "c-rose big"), btn("◐ May", mark("may"), "c-amber big"), btn("✔ Did", mark("did"), "c-green big")),
+    h("div", { class: "row bar", style: "justify-content:center" }, R.i ? btn("← Back one", () => { R.i--; render(); }, "ghost") : null,
+      btn("Skip →", () => next(null), "ghost"), btn("Stop", () => { R.stopped = true; render(); }, "ghost"))];
+};
+
+V.list = () => {
+  const all = activeActions(), showClosed = !!S.showClosed;
+  const entries = all.filter(e => showClosed || isOpen(e.a));
+  const nDid = all.filter(e => e.a.status === "did").length, nWont = all.filter(e => e.a.status === "wont").length;
+  const nNew = all.filter(e => !e.a.status).length;
+  const out = [h("div", { class: "row spread" }, h("span", { class: "kicker green" }, "Next actions"),
+      btn(showClosed ? "Hide did / won't" : "Show did / won't", () => { S.showClosed = !showClosed; render(); }, "ghost mini")),
+    h("h1", {}, "Open next actions"),
+    h("p", { class: "sub" }, h("span", { class: "pill slate" }, (all.length - nDid - nWont) + " open"), h("span", { class: "pill green" }, nDid + " did"), h("span", { class: "pill rose" }, nWont + " won't"),
+      nNew ? btn(`Step through the ${nNew} unmarked, one at a time`, startReview, "c-teal mini") : null)];
+  if (!entries.length) out.push(h("div", { class: "card tint-green" }, all.length ? "Nothing open. Every action is marked did or won't." : "No next actions yet."));
+  let lastT = null, lastSc = null, card = null;
+  for (const e of entries) {
+    if (e.t !== lastT) out.push(h("div", { class: "group-thread" }, threadTitle(e.t)));
+    if (e.sc !== lastSc) { card = h("div", { class: "card" }, h("button", { class: "group-outcome", onclick: () => go(`#/outcome/${e.t.id}/${e.sc.n}`) }, e.sc.title)); out.push(card); }
+    lastT = e.t; lastSc = e.sc;
+    card.append(actionRow(e.t, e.sc, e.a, e.index, { detail: false }));
+  }
+  return out;
+};
+
+// ───────────────────────────── router ─────────────────────────────
+function render() {
+  const parts = location.hash.replace(/^#\/?/, "").split("/").filter(Boolean);
+  const [a, b, c] = parts;
+  let view;
+  if (!a) view = V.home();
+  else if (a === "new") view = V.new();
+  else if (a === "questions") view = V.questions(b);
+  else if (a === "thread") view = V.thread(b);
+  else if (a === "outcome") view = V.outcome(b, c);
+  else if (a === "active") view = V.active();
+  else if (a === "threads") view = V.threads();
+  else if (a === "actions") view = b === "review" ? V.review() : V.list();
+  else view = V.home();
+  document.getElementById("homeBtn").style.visibility = a ? "visible" : "hidden";
+  document.getElementById("app").replaceChildren(...[view].flat(Infinity).filter(x => x != null && x !== false));
+  document.getElementById("foot").textContent = `model: ${S.model} · threads: ${S.threads_dir || ""}`;
+}
+let lastHash = null;
+// Threads can change outside this tab (the terminal app shares the same files), so re-read them on every screen change.
+const refresh = async () => { try { Object.assign(S, await api("state")); } catch (e) { /* keep what we have */ } };
+window.addEventListener("hashchange", async () => {
+  if (location.hash === lastHash) return;
+  lastHash = location.hash; render(); window.scrollTo(0, 0);
+  const shown = location.hash; await refresh();
+  if (location.hash === shown && !document.querySelector("textarea")) render();  // don't redraw under someone typing
+});
+(async () => { Object.assign(S, await api("state")); lastHash = location.hash; render(); })();
+</script>
+</body>
+</html>
