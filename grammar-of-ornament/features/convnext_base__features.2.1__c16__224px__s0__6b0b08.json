@@ -1,0 +1,19 @@
+{
+ "name": "convnext_base__features.2.1__c16__224px__s0__6b0b08",
+ "url": "/features/convnext_base__features.2.1__c16__224px__s0__6b0b08.png",
+ "saved": "2026-10-05 08:49:57",
+ "note": "",
+ "model": "convnext_base",
+ "layer": "features.2.1",
+ "size": 224,
+ "steps": 512,
+ "seed": 0,
+ "decay": 1.25,
+ "tv": 0.0,
+ "target": {
+  "channel": 16,
+  "y": null,
+  "x": null,
+  "negate": false
+ }
+}

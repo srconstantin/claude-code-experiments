@@ -4,7 +4,7 @@ Grammar of Ornament — local server for the feature-visualization browser.
 
 Serves webapp.html on 127.0.0.1, renders activation-maximization images in a
 single background worker (one GPU job at a time), caches every render in
-./cache/, and copies the ones you like into ./saved/.
+./cache/, and copies the ones you like into ./features/.
 
 Run:  python3 server.py
 """
@@ -31,7 +31,7 @@ import vis
 HERE = Path(__file__).resolve().parent
 PAGE = HERE / "webapp.html"
 CACHE = HERE / "cache"
-SAVED = HERE / "saved"
+SAVED = HERE / "features"
 INDEX = SAVED / "index.json"
 PORTS = range(8790, 8801)
 BATCH = 16  # images optimized together in one job chunk
@@ -182,9 +182,12 @@ SAVE_LOCK = threading.Lock()
 
 
 def read_index() -> list[dict]:
-    if INDEX.exists():
-        return json.loads(INDEX.read_text())
-    return []
+    if not INDEX.exists():
+        return []
+    items = json.loads(INDEX.read_text())
+    for it in items:  # the url is derived from the name, so a folder rename can't strand it
+        it["url"] = f"/features/{it['name']}.png"
+    return items
 
 
 def write_index(items: list[dict]) -> None:
@@ -204,7 +207,7 @@ def save_image(s: dict, t: vis.Target, note: str) -> dict:
             raise Problem("Already saved.", 409)
         SAVED.mkdir(exist_ok=True)
         shutil.copyfile(src, SAVED / f"{name}.png")
-        item = {"name": name, "url": f"/saved/{name}.png", "saved": time.strftime("%Y-%m-%d %H:%M:%S"),
+        item = {"name": name, "url": f"/features/{name}.png", "saved": time.strftime("%Y-%m-%d %H:%M:%S"),
                 "note": note, **s, "target": asdict(t)}
         (SAVED / f"{name}.json").write_text(json.dumps(item, indent=1))
         items.append(item)
@@ -280,8 +283,8 @@ class Handler(BaseHTTPRequestHandler):
                 return self._file(PAGE, "text/html; charset=utf-8", False)
             if u.path.startswith("/cache/"):
                 return self._static(CACHE, u.path[len("/cache/"):], True)
-            if u.path.startswith("/saved/"):
-                return self._static(SAVED, u.path[len("/saved/"):], False)
+            if u.path.startswith("/features/"):
+                return self._static(SAVED, u.path[len("/features/"):], False)
             if u.path == "/api/models":
                 return self._json({"builtin": vis.BUILTIN_MODELS, "loaded": list(vis._LOADED),
                                    "device": str(vis.DEVICE), "presets": vis.PRESETS})
@@ -300,7 +303,7 @@ class Handler(BaseHTTPRequestHandler):
                 if job is None:
                     raise Problem("no such job", 404)
                 return self._json(job_view(job))
-            if u.path == "/api/saved":
+            if u.path == "/api/features":
                 return self._json({"items": list(reversed(read_index()))})
             raise Problem("not found", 404)
         except Problem as p:
@@ -348,8 +351,8 @@ class Handler(BaseHTTPRequestHandler):
     def do_DELETE(self) -> None:
         u = urlparse(self.path)
         try:
-            if u.path.startswith("/api/saved/"):
-                delete_saved(u.path[len("/api/saved/"):])
+            if u.path.startswith("/api/features/"):
+                delete_saved(u.path[len("/api/features/"):])
                 return self._json({"ok": True})
             raise Problem("not found", 404)
         except Problem as p:
@@ -369,7 +372,7 @@ def main() -> None:
         print("No free port in", PORTS)
         sys.exit(1)
     url = f"http://127.0.0.1:{port}/"
-    print(f"\n  Grammar of Ornament — {url}\n  device: {vis.DEVICE}   cache: {CACHE}   saved: {SAVED}\n"
+    print(f"\n  Grammar of Ornament — {url}\n  device: {vis.DEVICE}   cache: {CACHE}   features: {SAVED}\n"
           f"  Leave this window open; Ctrl-C stops the server.\n", flush=True)
     if "--no-browser" not in sys.argv:
         threading.Timer(0.5, lambda: webbrowser.open(url)).start()

@@ -102,7 +102,7 @@
   <div id="bar">
     <div class="tabs row">
       <button id="tabBrowse" class="on">Browse</button>
-      <button id="tabSaved">Saved <span id="savedCount" class="muted"></span></button>
+      <button id="tabSaved">Features <span id="savedCount" class="muted"></span></button>
     </div>
     <div id="pager" class="row">
       <button id="prev" class="small">‹</button>
@@ -203,7 +203,7 @@ function savedChannels() {
 function readHash() {
   const p = new URLSearchParams(location.hash.slice(1));
   const c = p.get("c");
-  return { model: p.get("model"), layer: p.get("layer"), c: c === null || c === "" ? null : +c, tab: p.get("tab") };
+  return { model: p.get("model"), layer: p.get("layer"), c: c === null || c === "" ? null : +c, tab: p.get("tab") === "saved" ? "features" : p.get("tab") };
 }
 function writeHash() {
   const p = new URLSearchParams({ model: S.model, layer: S.layer || "" });
@@ -385,13 +385,13 @@ async function saveDetail() {
 
 // ── saved gallery ─────────────────────────────────────────────────────────
 async function loadSaved() {
-  const r = await api("/api/saved"); S.saved = r.items;
+  const r = await api("/api/features"); S.saved = r.items;
   $("savedCount").textContent = S.saved.length ? `(${S.saved.length})` : "";
-  if (S.tab === "saved") renderGallery();
+  if (S.tab === "features") renderGallery();
 }
 function renderGallery() {
   const g = $("gallery"); g.innerHTML = "";
-  if (!S.saved.length) { g.innerHTML = `<div id="empty">Nothing saved yet. Render something you like and press Save.</div>`; return; }
+  if (!S.saved.length) { g.innerHTML = `<div id="empty">No features yet. Render something you like and press Save.</div>`; return; }
   for (const it of S.saved) {
     const t = it.target;
     const loc = t.y != null ? ` @ y${t.y} x${t.x}` : "";
@@ -409,8 +409,8 @@ function renderGallery() {
       </div>`;
     div.querySelector(".jump").onclick = () => jumpTo(it);
     div.querySelector(".del").onclick = async () => {
-      if (!confirm(`Delete ${it.name}.png from saved/?`)) return;
-      try { await api(`/api/saved/${encodeURIComponent(it.name)}`, { method: "DELETE" }); await loadSaved(); } catch (e) { err(e.message); }
+      if (!confirm(`Delete ${it.name}.png from features/?`)) return;
+      try { await api(`/api/features/${encodeURIComponent(it.name)}`, { method: "DELETE" }); await loadSaved(); } catch (e) { err(e.message); }
     };
     g.appendChild(div);
   }
@@ -428,11 +428,11 @@ async function jumpTo(it) {
 }
 function showTab(tab) {
   S.tab = tab;
-  $("tabBrowse").classList.toggle("on", tab === "browse"); $("tabSaved").classList.toggle("on", tab === "saved");
+  $("tabBrowse").classList.toggle("on", tab === "browse"); $("tabSaved").classList.toggle("on", tab === "features");
   $("grid").style.display = tab === "browse" ? "grid" : "none";
   $("pager").style.display = tab === "browse" ? "flex" : "none";
-  $("gallery").style.display = tab === "saved" ? "flex" : "none";
-  if (tab === "saved") renderGallery();
+  $("gallery").style.display = tab === "features" ? "flex" : "none";
+  if (tab === "features") renderGallery();
 }
 
 // ── controls ──────────────────────────────────────────────────────────────
@@ -454,7 +454,7 @@ function wire() {
   $("prev").onclick = () => { S.page--; renderGrid(); };
   $("next").onclick = () => { S.page++; renderGrid(); };
   $("tabBrowse").onclick = () => showTab("browse");
-  $("tabSaved").onclick = () => showTab("saved");
+  $("tabSaved").onclick = () => showTab("features");
   $("render").onclick = renderDetail;
   $("save").onclick = saveDetail;
   $("reseed").onclick = () => { S.d.seed = Math.floor(Math.random() * 1e6); syncControls(); renderDetail(); };
@@ -489,7 +489,7 @@ function wire() {
     await loadModels(); await loadSaved();
     const h = readHash();
     await loadLayers(h.model || S.model);
-    if (h.tab === "saved") showTab("saved");
+    if (h.tab === "features") showTab("features");
   } catch (e) { err(e.message); }
 })();
 </script>
