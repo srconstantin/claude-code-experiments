@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grammar of Ornament</title>
+<style>
+  :root {
+    --bg: #15161a; --panel: #1d1f25; --panel2: #23262e; --line: #30333c;
+    --ink: #e8e6e1; --dim: #9a9890; --accent: #d9a441; --accent2: #6fb3d2; --bad: #d9655a;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font-size: 14px; }
+  body { display: grid; grid-template-columns: 270px 1fr 380px; grid-template-rows: 100vh; }
+  h1 { font-size: 15px; font-weight: 600; margin: 0; letter-spacing: .02em; }
+  button, select, input[type=text], input[type=number] {
+    font: inherit; color: var(--ink); background: var(--panel2); border: 1px solid var(--line);
+    border-radius: 6px; padding: 5px 9px;
+  }
+  button { cursor: pointer; }
+  button:hover { border-color: var(--dim); }
+  button.primary { background: var(--accent); color: #1a1407; border-color: var(--accent); font-weight: 600; }
+  button.primary:disabled { opacity: .5; cursor: default; }
+  button.small { padding: 2px 7px; font-size: 12px; }
+  .muted { color: var(--dim); }
+  .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+  /* left: model + layers */
+  #side { background: var(--panel); border-right: 1px solid var(--line); display: flex; flex-direction: column; min-height: 0; }
+  #side .top { padding: 12px 14px; border-bottom: 1px solid var(--line); }
+  #side .top select, #side .top input { width: 100%; margin-top: 6px; }
+  #layers { overflow-y: auto; flex: 1; padding: 6px 0; }
+  .group { padding: 10px 14px 4px; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--dim); }
+  .layer { padding: 5px 14px; cursor: pointer; display: flex; justify-content: space-between; gap: 8px; font-size: 13px; }
+  .layer:hover { background: var(--panel2); }
+  .layer.on { background: #2d2a1f; color: var(--accent); }
+  .layer .n { font-family: ui-monospace, Menlo, monospace; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .layer .m { color: var(--dim); font-size: 11px; white-space: nowrap; }
+  #status { padding: 8px 14px; border-top: 1px solid var(--line); font-size: 11px; color: var(--dim); }
+
+  /* center: grid */
+  #main { display: flex; flex-direction: column; min-height: 0; }
+  #bar { padding: 10px 16px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 12px; }
+  #bar .tabs button.on { border-color: var(--accent); color: var(--accent); }
+  #progress { height: 3px; background: var(--line); }
+  #progress > div { height: 100%; width: 0; background: var(--accent); transition: width .3s; }
+  #grid { overflow-y: auto; flex: 1; padding: 14px 16px; display: grid; grid-template-columns: repeat(auto-fill, minmax(136px, 1fr)); gap: 10px; align-content: start; align-items: start; }
+  .cell { position: relative; height: 0; padding-bottom: 100%; background: var(--panel2); border-radius: 6px; overflow: hidden; cursor: pointer; border: 2px solid transparent; }
+  .cell img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; }
+  .cell.on { border-color: var(--accent); }
+  .cell .tag { position: absolute; left: 5px; bottom: 4px; font-size: 11px; background: rgba(0,0,0,.55); padding: 1px 5px; border-radius: 4px; }
+  .cell .saved { position: absolute; right: 5px; top: 4px; font-size: 11px; color: var(--accent); }
+  .cell.pending::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent 0 8px, rgba(255,255,255,.03) 8px 16px); }
+  /* Fixed-size cards in a wrapping row layout: every card is 220px wide with a
+     220px image, 16px apart, and the pane scrolls when they don't fit. */
+  #gallery { overflow-y: auto; flex: 1 1 0; min-height: 0; padding: 16px; display: none; flex-wrap: wrap; gap: 16px; align-content: flex-start; align-items: flex-start; }
+  .gitem { flex: 0 0 220px; width: 220px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .gitem .pic { width: 220px; height: 220px; background: var(--panel2); }
+  .gitem img { width: 220px; height: 220px; display: block; object-fit: cover; }
+  .gitem .meta { padding: 8px 10px; font-size: 12px; }
+  .gitem .meta .n { font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: var(--dim); word-break: break-all; }
+  #empty { padding: 40px; color: var(--dim); text-align: center; width: 100%; }
+
+  /* right: detail */
+  #detail { background: var(--panel); border-left: 1px solid var(--line); overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+  #detail .title { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--dim); word-break: break-all; }
+  #big { position: relative; width: 100%; aspect-ratio: 1; background: var(--panel2); border-radius: 8px; overflow: hidden; }
+  #big img { width: 100%; height: 100%; display: block; object-fit: contain; }
+  #pick { position: absolute; inset: 0; cursor: crosshair; display: none; }
+  #pick.on { display: block; }
+  #marker { position: absolute; border: 2px solid var(--accent); box-shadow: 0 0 0 1px #000; pointer-events: none; display: none; }
+  #dprog { height: 3px; background: var(--line); border-radius: 2px; }
+  #dprog > div { height: 100%; width: 0; background: var(--accent2); transition: width .3s; }
+  .ctl { display: grid; grid-template-columns: 90px 1fr; gap: 6px 10px; align-items: center; font-size: 13px; }
+  .ctl input[type=range] { width: 100%; }
+  .ctl .val { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--dim); }
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .seg button { border: 0; border-radius: 0; background: transparent; }
+  .seg button.on { background: var(--accent); color: #1a1407; }
+  #err { color: var(--bad); font-size: 12px; white-space: pre-wrap; }
+  kbd { font-family: ui-monospace, Menlo, monospace; font-size: 11px; border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; color: var(--dim); }
+</style>
+</head>
+<body>
+
+<aside id="side">
+  <div class="top">
+    <h1>Grammar of Ornament</h1>
+    <div class="muted" style="font-size:12px;margin-top:2px">what a classifier's neurons want to see</div>
+    <select id="model"></select>
+    <div class="row" style="margin-top:6px">
+      <input type="text" id="timm" placeholder="or a timm model name…" style="flex:1">
+      <button id="timmgo" class="small">load</button>
+    </div>
+  </div>
+  <div id="layers"></div>
+  <div id="status">…</div>
+</aside>
+
+<main id="main">
+  <div id="bar">
+    <div class="tabs row">
+      <button id="tabBrowse" class="on">Browse</button>
+      <button id="tabSaved">Saved <span id="savedCount" class="muted"></span></button>
+    </div>
+    <div id="pager" class="row">
+      <button id="prev" class="small">‹</button>
+      <span id="pageinfo" class="muted"></span>
+      <button id="next" class="small">›</button>
+    </div>
+    <div style="flex:1"></div>
+    <span id="gridmsg" class="muted" style="font-size:12px"></span>
+  </div>
+  <div id="progress"><div></div></div>
+  <div id="grid"></div>
+  <div id="gallery"></div>
+</main>
+
+<aside id="detail">
+  <div class="title" id="dtitle">pick a layer, then a channel</div>
+  <div id="big">
+    <img id="bigimg" alt="">
+    <div id="pick"><div id="marker"></div></div>
+  </div>
+  <div id="dprog"><div></div></div>
+  <div class="row">
+    <button id="render" class="primary">Render</button>
+    <button id="save" class="primary" disabled>Save</button>
+    <button id="reseed" class="small" title="new seed and re-render (r)">new seed</button>
+    <span id="savedflag" class="muted" style="font-size:12px"></span>
+  </div>
+  <div class="ctl">
+    <span>objective</span>
+    <span class="seg"><button id="objChannel" class="on">channel</button><button id="objNeuron">neuron</button></span>
+    <span>location</span><span id="locinfo" class="val">whole map</span>
+    <span>negate</span><span><input type="checkbox" id="negate"> <span class="muted">push the activation negative</span></span>
+    <span>size</span><span class="seg"><button data-size="224" class="on">224</button><button data-size="320">320</button><button data-size="448">448</button></span>
+    <span>steps</span><span class="row"><input type="range" id="steps" min="64" max="1024" step="64" value="512"><span class="val" id="stepsv">512</span></span>
+    <span>seed</span><span class="row"><input type="number" id="seed" value="0" style="width:90px"></span>
+    <span>low-freq bias</span><span class="row"><input type="range" id="decay" min="1" max="2" step="0.05" value="1.25"><span class="val" id="decayv">1.25</span></span>
+    <span>smoothness</span><span class="row"><input type="range" id="tv" min="0" max="10" step="0.5" value="0"><span class="val" id="tvv">0</span></span>
+    <span>note</span><input type="text" id="note" placeholder="optional, stored with the saved image">
+    <span></span><span><label><input type="checkbox" id="auto" checked> render on click</label></span>
+  </div>
+  <div id="err"></div>
+  <div class="muted" style="font-size:12px;line-height:1.5">
+    <kbd>←</kbd> <kbd>→</kbd> previous / next channel · <kbd>s</kbd> save · <kbd>r</kbd> new seed.
+    In <b>neuron</b> mode, click on the image to choose which position of the feature map to maximize.
+    Thumbnails are quick 128px renders; the detail pane uses the settings above.
+  </div>
+</aside>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const PER_PAGE = 32;
+const S = {
+  model: "convnext_base", device: "", presets: {},
+  layers: [], layer: null, page: 0, sel: null,
+  gridJob: null, gridPoll: null, detailJob: null, detailPoll: null,
+  saved: [], tab: "browse",
+  d: { objective: "channel", y: null, x: null, negate: false, size: 224, steps: 512, seed: 0, decay: 1.25, tv: 0 },
+};
+
+async function api(path, opts = {}) {
+  const r = await fetch(path, { headers: { "Content-Type": "application/json" }, ...opts });
+  const j = await r.json().catch(() => ({ error: r.statusText }));
+  if (!r.ok) throw new Error(j.error || r.statusText);
+  return j;
+}
+const post = (path, body) => api(path, { method: "POST", body: JSON.stringify(body) });
+function err(msg) { $("err").textContent = msg || ""; if (msg) console.error(msg); }
+function layerInfo() { return S.layers.find((l) => l.name === S.layer); }
+
+// ── settings for the detail render / save ─────────────────────────────────
+function detailTarget() {
+  const t = { c: S.sel, negate: S.d.negate };
+  if (S.d.objective === "neuron") {
+    const li = layerInfo();
+    t.y = S.d.y ?? Math.floor(li.height / 2);
+    t.x = S.d.x ?? Math.floor(li.width / 2);
+  }
+  return t;
+}
+function detailSettings() {
+  return { model: S.model, layer: S.layer, size: S.d.size, steps: S.d.steps, seed: S.d.seed, decay: S.d.decay, tv: S.d.tv };
+}
+function sameTarget(a, b) {
+  return a.c === b.c && (a.y ?? null) === (b.y ?? null) && (a.x ?? null) === (b.x ?? null) && !!a.negate === !!b.negate;
+}
+function isSaved(s, t) {
+  return S.saved.find((it) => it.model === s.model && it.layer === s.layer && it.size === s.size && it.steps === s.steps
+    && it.seed === s.seed && Math.abs(it.decay - s.decay) < 1e-9 && Math.abs(it.tv - s.tv) < 1e-9
+    && sameTarget({ c: it.target.channel, y: it.target.y, x: it.target.x, negate: it.target.negate }, t));
+}
+function savedChannels() {
+  const set = new Set();
+  for (const it of S.saved) if (it.model === S.model && it.layer === S.layer) set.add(it.target.channel);
+  return set;
+}
+
+// ── URL hash: #model=…&layer=…&c=… so a neuron can be bookmarked ──────────
+function readHash() {
+  const p = new URLSearchParams(location.hash.slice(1));
+  const c = p.get("c");
+  return { model: p.get("model"), layer: p.get("layer"), c: c === null || c === "" ? null : +c, tab: p.get("tab") };
+}
+function writeHash() {
+  const p = new URLSearchParams({ model: S.model, layer: S.layer || "" });
+  if (S.sel !== null) p.set("c", S.sel);
+  history.replaceState(null, "", "#" + p.toString());
+}
+
+// ── models and layers ─────────────────────────────────────────────────────
+async function loadModels() {
+  const m = await api("/api/models");
+  S.device = m.device; S.presets = m.presets;
+  const names = [...m.builtin, ...m.loaded.filter((n) => !m.builtin.includes(n))];
+  $("model").innerHTML = names.map((n) => `<option value="${n}">${n}</option>`).join("");
+  $("model").value = S.model;
+  $("status").textContent = `device: ${m.device}`;
+}
+async function loadLayers(name) {
+  cancelGrid();
+  $("layers").innerHTML = `<div class="group">loading ${name}…</div>`;
+  $("gridmsg").textContent = "loading model (first time downloads weights)…";
+  try {
+    const r = await api(`/api/layers?model=${encodeURIComponent(name)}`);
+    S.model = r.model; S.layers = r.layers;
+    if (![...$("model").options].some((o) => o.value === S.model)) {
+      $("model").insertAdjacentHTML("beforeend", `<option value="${S.model}">${S.model}</option>`);
+    }
+    $("model").value = S.model;
+    renderLayerList();
+    // Start at the first real block rather than the stem convolution, whose
+    // channels are mostly flat colour; a #layer=…&c=… hash overrides that.
+    const h = readHash();
+    const first = S.layers.find((l) => l.name === h.layer) || S.layers.find((l) => l.kind !== "conv") || S.layers[0];
+    selectLayer(first.name, h.c != null ? Math.floor(h.c / PER_PAGE) : 0);
+    if (h.c != null && h.layer === first.name) selectChannel(h.c, true);
+  } catch (e) {
+    err(e.message); $("layers").innerHTML = ""; $("gridmsg").textContent = "";
+  }
+}
+function renderLayerList() {
+  const box = $("layers"); box.innerHTML = "";
+  let lastGroup = null;
+  for (const l of S.layers) {
+    const g = `${l.height}×${l.width} maps`;
+    if (g !== lastGroup) { box.insertAdjacentHTML("beforeend", `<div class="group">${g}</div>`); lastGroup = g; }
+    const div = document.createElement("div");
+    div.className = "layer" + (l.name === S.layer ? " on" : "");
+    div.dataset.name = l.name;
+    div.innerHTML = `<span class="n" title="${l.kind}">${l.name}</span><span class="m">${l.channels} ch</span>`;
+    div.onclick = () => selectLayer(l.name);
+    box.appendChild(div);
+  }
+}
+function selectLayer(name, page = 0) {
+  S.layer = name; S.page = page; S.sel = null; S.d.y = S.d.x = null;
+  for (const el of document.querySelectorAll(".layer")) el.classList.toggle("on", el.dataset.name === name);
+  document.querySelector(".layer.on")?.scrollIntoView({ block: "nearest" });
+  showTab("browse");
+  $("dtitle").textContent = `${S.model} / ${name}`;
+  $("bigimg").removeAttribute("src"); $("save").disabled = true; $("savedflag").textContent = "";
+  writeHash();
+  renderGrid();
+}
+
+// ── thumbnail grid ────────────────────────────────────────────────────────
+function cancelGrid() {
+  if (S.gridPoll) { clearInterval(S.gridPoll); S.gridPoll = null; }
+  if (S.gridJob) { post("/api/cancel", { job_id: S.gridJob }).catch(() => {}); S.gridJob = null; }
+  setProgress($("progress"), 0);
+}
+function setProgress(el, frac) { el.firstElementChild.style.width = `${Math.round(frac * 100)}%`; }
+async function renderGrid() {
+  cancelGrid();
+  const li = layerInfo(); if (!li) return;
+  const pages = Math.ceil(li.channels / PER_PAGE);
+  S.page = Math.min(S.page, pages - 1);
+  const start = S.page * PER_PAGE, end = Math.min(li.channels, start + PER_PAGE);
+  $("pageinfo").textContent = `channels ${start}–${end - 1} of ${li.channels}`;
+  $("prev").disabled = S.page === 0; $("next").disabled = S.page >= pages - 1;
+  const grid = $("grid"); grid.innerHTML = "";
+  const savedSet = savedChannels();
+  for (let c = start; c < end; c++) {
+    const cell = document.createElement("div");
+    cell.className = "cell pending" + (c === S.sel ? " on" : ""); cell.dataset.c = c;
+    cell.innerHTML = `<img alt=""><span class="tag">${c}</span>${savedSet.has(c) ? '<span class="saved">★</span>' : ""}`;
+    cell.onclick = () => selectChannel(c);
+    grid.appendChild(cell);
+  }
+  const targets = []; for (let c = start; c < end; c++) targets.push({ c });
+  const p = S.presets.thumb || { size: 128, steps: 128, decay: 1.25, tv: 0 };
+  $("gridmsg").textContent = "rendering…";
+  try {
+    const r = await post("/api/render", { model: S.model, layer: S.layer, targets, preset: "thumb",
+      size: p.size, steps: p.steps, seed: 0, decay: p.decay, tv: p.tv });
+    fillGrid(r.images);
+    if (r.done) { $("gridmsg").textContent = ""; setProgress($("progress"), 0); return; }
+    S.gridJob = r.job_id;
+    S.gridPoll = setInterval(async () => {
+      try {
+        const j = await api(`/api/job/${r.job_id}`);
+        fillGrid(j.images); setProgress($("progress"), j.progress);
+        if (j.error) err(j.error);
+        if (j.done) { clearInterval(S.gridPoll); S.gridPoll = null; S.gridJob = null; $("gridmsg").textContent = ""; setProgress($("progress"), 0); }
+      } catch (e) { err(e.message); clearInterval(S.gridPoll); S.gridPoll = null; }
+    }, 500);
+  } catch (e) { err(e.message); $("gridmsg").textContent = ""; }
+}
+function fillGrid(images) {
+  for (const im of images) {
+    const cell = document.querySelector(`.cell[data-c="${im.target.channel}"]`);
+    if (!cell || !cell.classList.contains("pending")) continue;
+    cell.querySelector("img").src = im.url; cell.classList.remove("pending");
+  }
+}
+
+// ── detail pane ───────────────────────────────────────────────────────────
+function selectChannel(c, render = $("auto").checked) {
+  const li = layerInfo(); if (!li) return;
+  c = Math.max(0, Math.min(li.channels - 1, c));
+  const page = Math.floor(c / PER_PAGE);
+  if (page !== S.page) { S.page = page; S.sel = c; renderGrid(); } else { S.sel = c; }
+  for (const el of document.querySelectorAll(".cell")) el.classList.toggle("on", +el.dataset.c === c);
+  document.querySelector(".cell.on")?.scrollIntoView({ block: "nearest" });
+  $("dtitle").textContent = `${S.model} / ${S.layer} / channel ${c}`;
+  $("bigimg").removeAttribute("src"); $("save").disabled = true; $("savedflag").textContent = "";
+  updateLoc(); writeHash();
+  if (render) renderDetail();
+}
+function updateLoc() {
+  const li = layerInfo(); const pick = $("pick"), marker = $("marker");
+  if (!li || S.d.objective !== "neuron") { $("locinfo").textContent = "whole map (mean)"; pick.classList.remove("on"); marker.style.display = "none"; return; }
+  const t = detailTarget();
+  $("locinfo").textContent = `y ${t.y}, x ${t.x} of ${li.height}×${li.width}`;
+  pick.classList.add("on"); marker.style.display = "block";
+  marker.style.left = `${(t.x / li.width) * 100}%`; marker.style.top = `${(t.y / li.height) * 100}%`;
+  marker.style.width = `${100 / li.width}%`; marker.style.height = `${100 / li.height}%`;
+}
+function cancelDetail() {
+  if (S.detailPoll) { clearInterval(S.detailPoll); S.detailPoll = null; }
+  if (S.detailJob) { post("/api/cancel", { job_id: S.detailJob }).catch(() => {}); S.detailJob = null; }
+  setProgress($("dprog"), 0);
+}
+async function renderDetail() {
+  if (S.sel === null) return;
+  cancelDetail(); err("");
+  const s = detailSettings(), t = detailTarget();
+  $("render").disabled = true;
+  const done = (im) => {
+    $("bigimg").src = im.url; $("save").disabled = false; $("render").disabled = false;
+    $("savedflag").textContent = isSaved(s, t) ? "★ saved" : "";
+    setProgress($("dprog"), 0);
+  };
+  try {
+    const r = await post("/api/render", { ...s, targets: [t] });
+    if (r.done) return done(r.images[0]);
+    S.detailJob = r.job_id;
+    S.detailPoll = setInterval(async () => {
+      try {
+        const j = await api(`/api/job/${r.job_id}`);
+        setProgress($("dprog"), j.progress);
+        if (j.error) { err(j.error); $("render").disabled = false; }
+        if (j.done) {
+          clearInterval(S.detailPoll); S.detailPoll = null; S.detailJob = null;
+          if (j.images[0]) done(j.images[0]); else $("render").disabled = false;
+        }
+      } catch (e) { err(e.message); clearInterval(S.detailPoll); S.detailPoll = null; $("render").disabled = false; }
+    }, 400);
+  } catch (e) { err(e.message); $("render").disabled = false; }
+}
+async function saveDetail() {
+  if ($("save").disabled) return;
+  const s = detailSettings(), t = detailTarget();
+  try {
+    await post("/api/save", { ...s, target: t, note: $("note").value });
+    await loadSaved();
+    $("savedflag").textContent = "★ saved";
+    document.querySelector(`.cell[data-c="${S.sel}"]`)?.insertAdjacentHTML("beforeend", '<span class="saved">★</span>');
+  } catch (e) { err(e.message); }
+}
+
+// ── saved gallery ─────────────────────────────────────────────────────────
+async function loadSaved() {
+  const r = await api("/api/saved"); S.saved = r.items;
+  $("savedCount").textContent = S.saved.length ? `(${S.saved.length})` : "";
+  if (S.tab === "saved") renderGallery();
+}
+function renderGallery() {
+  const g = $("gallery"); g.innerHTML = "";
+  if (!S.saved.length) { g.innerHTML = `<div id="empty">Nothing saved yet. Render something you like and press Save.</div>`; return; }
+  for (const it of S.saved) {
+    const t = it.target;
+    const loc = t.y != null ? ` @ y${t.y} x${t.x}` : "";
+    const div = document.createElement("div"); div.className = "gitem";
+    div.innerHTML = `<div class="pic"><img src="${it.url}?${encodeURIComponent(it.saved)}" alt=""></div>
+      <div class="meta">
+        <div class="n">${it.model} / ${it.layer} / c${t.channel}${loc}${t.negate ? " (neg)" : ""}</div>
+        <div class="muted" style="margin-top:3px">${it.size}px · ${it.steps} steps · seed ${it.seed} · bias ${it.decay} · smooth ${it.tv}</div>
+        ${it.note ? `<div style="margin-top:4px">${escapeHtml(it.note)}</div>` : ""}
+        <div class="row" style="margin-top:8px">
+          <button class="small jump">open</button>
+          <button class="small del">delete</button>
+          <span class="muted" style="font-size:11px;margin-left:auto">${it.saved.slice(0, 10)}</span>
+        </div>
+      </div>`;
+    div.querySelector(".jump").onclick = () => jumpTo(it);
+    div.querySelector(".del").onclick = async () => {
+      if (!confirm(`Delete ${it.name}.png from saved/?`)) return;
+      try { await api(`/api/saved/${encodeURIComponent(it.name)}`, { method: "DELETE" }); await loadSaved(); } catch (e) { err(e.message); }
+    };
+    g.appendChild(div);
+  }
+}
+function escapeHtml(s) { return s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+async function jumpTo(it) {
+  const t = it.target;
+  Object.assign(S.d, { objective: t.y != null ? "neuron" : "channel", y: t.y, x: t.x, negate: !!t.negate,
+    size: it.size, steps: it.steps, seed: it.seed, decay: it.decay, tv: it.tv });
+  syncControls();
+  if (it.model !== S.model) await loadLayers(it.model);
+  showTab("browse");
+  selectLayer(it.layer, Math.floor(t.channel / PER_PAGE));
+  selectChannel(t.channel, true);
+}
+function showTab(tab) {
+  S.tab = tab;
+  $("tabBrowse").classList.toggle("on", tab === "browse"); $("tabSaved").classList.toggle("on", tab === "saved");
+  $("grid").style.display = tab === "browse" ? "grid" : "none";
+  $("pager").style.display = tab === "browse" ? "flex" : "none";
+  $("gallery").style.display = tab === "saved" ? "flex" : "none";
+  if (tab === "saved") renderGallery();
+}
+
+// ── controls ──────────────────────────────────────────────────────────────
+function syncControls() {
+  $("objChannel").classList.toggle("on", S.d.objective === "channel");
+  $("objNeuron").classList.toggle("on", S.d.objective === "neuron");
+  $("negate").checked = S.d.negate;
+  for (const b of document.querySelectorAll("[data-size]")) b.classList.toggle("on", +b.dataset.size === S.d.size);
+  $("steps").value = S.d.steps; $("stepsv").textContent = S.d.steps;
+  $("seed").value = S.d.seed;
+  $("decay").value = S.d.decay; $("decayv").textContent = S.d.decay.toFixed(2);
+  $("tv").value = S.d.tv; $("tvv").textContent = S.d.tv;
+  updateLoc();
+}
+function wire() {
+  $("model").onchange = () => loadLayers($("model").value);
+  $("timmgo").onclick = () => { const n = $("timm").value.trim(); if (n) loadLayers(n); };
+  $("timm").onkeydown = (e) => { if (e.key === "Enter") $("timmgo").click(); };
+  $("prev").onclick = () => { S.page--; renderGrid(); };
+  $("next").onclick = () => { S.page++; renderGrid(); };
+  $("tabBrowse").onclick = () => showTab("browse");
+  $("tabSaved").onclick = () => showTab("saved");
+  $("render").onclick = renderDetail;
+  $("save").onclick = saveDetail;
+  $("reseed").onclick = () => { S.d.seed = Math.floor(Math.random() * 1e6); syncControls(); renderDetail(); };
+  $("objChannel").onclick = () => { S.d.objective = "channel"; syncControls(); };
+  $("objNeuron").onclick = () => { S.d.objective = "neuron"; syncControls(); };
+  $("negate").onchange = () => { S.d.negate = $("negate").checked; };
+  for (const b of document.querySelectorAll("[data-size]")) b.onclick = () => { S.d.size = +b.dataset.size; syncControls(); };
+  $("steps").oninput = () => { S.d.steps = +$("steps").value; $("stepsv").textContent = S.d.steps; };
+  $("seed").onchange = () => { S.d.seed = parseInt($("seed").value, 10) || 0; };
+  $("decay").oninput = () => { S.d.decay = +$("decay").value; $("decayv").textContent = S.d.decay.toFixed(2); };
+  $("tv").oninput = () => { S.d.tv = +$("tv").value; $("tvv").textContent = S.d.tv; };
+  $("pick").onclick = (e) => {
+    const li = layerInfo(); if (!li) return;
+    const r = $("pick").getBoundingClientRect();
+    S.d.x = Math.min(li.width - 1, Math.floor((e.clientX - r.left) / r.width * li.width));
+    S.d.y = Math.min(li.height - 1, Math.floor((e.clientY - r.top) / r.height * li.height));
+    updateLoc();
+    if ($("auto").checked) renderDetail();
+  };
+  document.addEventListener("keydown", (e) => {
+    if (["INPUT", "SELECT", "TEXTAREA"].includes(document.activeElement.tagName)) return;
+    if (e.key === "ArrowLeft" && S.sel !== null) selectChannel(S.sel - 1);
+    else if (e.key === "ArrowRight" && S.sel !== null) selectChannel(S.sel + 1);
+    else if (e.key === "s") saveDetail();
+    else if (e.key === "r") $("reseed").click();
+  });
+}
+
+(async function init() {
+  wire(); syncControls();
+  try {
+    await loadModels(); await loadSaved();
+    const h = readHash();
+    await loadLayers(h.model || S.model);
+    if (h.tab === "saved") showTab("saved");
+  } catch (e) { err(e.message); }
+})();
+</script>
+</body>
+</html>
