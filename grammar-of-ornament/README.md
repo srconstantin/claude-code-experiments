@@ -74,6 +74,17 @@ Rather than converting to grayscale, each image is projected onto the colour axi
 
 It uses the same principal-colour-axis projection as `forms.py`, oriented so brighter in the original is lighter, but keeps it as continuous tone (stretched between the `--clip` percentiles, shaped by `--gamma`) and dithers it to black and white: Floyd–Steinberg error diffusion by default, or an ordered 8×8 Bayer pattern with `--method bayer`. Output is 2× the feature's size by default (`--scale`) so the dither grain is fine relative to the forms; at native size the grain swamps them.
 
+## Palettes
+
+`palettes.py` picks seven colours from every image in `features/` and writes a strip of swatches with hex codes to `palettes/`, plus a `.json` sidecar listing them.
+
+```
+.venv/bin/python palettes.py
+.venv/bin/python palettes.py --method spread --n 5
+```
+
+Colours are chosen in CIELAB so the spacing is perceptual, and the strip is ordered dark to light. The default `spread` method is farthest-point sampling: start from the pixel colour farthest from the image's mean, then repeatedly add the pixel colour farthest from everything chosen so far. Every swatch is a real pixel colour, stray colours (fewer than `--min-frac` of the pixels, about ten pixels by default) are excluded as candidates, and the set is as widely spread through the image's colour space as seven points can be, so red, yellow and blue blobs each get a swatch. `--method axis` instead takes equal steps along the image's principal colour axis and `--method kmeans` takes cluster centres; both average hues together and come out muted. A light blur (`--sigma`) is applied first so the fine hatching doesn't contribute colours.
+
 ## How it works
 
 `vis.py` is a self-contained implementation of the Lucid/lucent feature-visualization recipe (Olah, Mordvintsev & Schubert, *Feature Visualization*, 2017): the image is parameterized by its Fourier spectrum with a frequency-dependent scale, colours are decorrelated with a fixed ImageNet colour matrix, and each optimization step sees a randomly padded, jittered, scaled and rotated copy of the image so the result is robust to those transforms. Adam maximizes the chosen activation. A forward hook on the target layer stops the forward pass there, so shallow layers are cheap.
@@ -96,3 +107,5 @@ Layers are discovered by running one forward pass with hooks on every module and
 | `forms/` | the region maps, same file names |
 | `dithered_forms.py` | renders every feature image as dithered black and white |
 | `dithered-forms/` | the dithered images, same file names |
+| `palettes.py` | picks seven colours from every feature image |
+| `palettes/` | swatch strips with hex codes, plus `.json` colour lists |
