@@ -15,3 +15,7 @@ A collection of projects generated with Claude Code.
 - **[perfume-quiz](/perfume-quiz/)** -- A quiz app for matching people to perfumes based on their tastes.
 
 - **[colors](./colors/)** -- An HSL palette maker with drag-to-reorder swatches and insertable gap zones for building color schemes.
+  
+- **[best-case-scenario](./best-case-scenario/)** -- an app for positive visualization, suggesting the "best case scenario" for how situations can turn out, and next actions to make positive outcomes more likely.
+
+- **[grammar-of-ornament](./grammar-of-ornament/)**  -- design elements derived from feature visualizations in image-recognition neural nets.
