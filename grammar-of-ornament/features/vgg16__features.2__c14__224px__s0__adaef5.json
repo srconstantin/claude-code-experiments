@@ -1,0 +1,19 @@
+{
+ "name": "vgg16__features.2__c14__224px__s0__adaef5",
+ "url": "/features/vgg16__features.2__c14__224px__s0__adaef5.png",
+ "saved": "2026-10-06 09:37:57",
+ "note": "",
+ "model": "vgg16",
+ "layer": "features.2",
+ "size": 224,
+ "steps": 512,
+ "seed": 0,
+ "decay": 1.25,
+ "tv": 0.0,
+ "target": {
+  "channel": 14,
+  "y": null,
+  "x": null,
+  "negate": false
+ }
+}

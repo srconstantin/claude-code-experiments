@@ -34,7 +34,7 @@ or `./launch.sh` to start it in a new Terminal window. The server binds to `127.
   - **smoothness**: a total-variation penalty, 0 to 10. Both of these reduce high-frequency striping at the cost of detail.
   - **Save** (or `s`) copies the current render into `features/` with a JSON sidecar recording every setting. The **Features** tab lists them; `open` restores a saved image's exact settings in the browser.
 - `←` / `→` step through channels.
-- The URL hash tracks the current model, layer and channel (`#model=convnext_base&layer=features.1.0&c=13`, or `#tab=features` for the gallery), so a neuron can be bookmarked or pasted into a note.
+- The URL hash tracks the current model, layer and channel (`#model=convnext_base&layer=features.1.0&c=13`), or `#tab=features` for the gallery, so a neuron can be bookmarked or pasted into a note.
 
 ## Outlines
 
