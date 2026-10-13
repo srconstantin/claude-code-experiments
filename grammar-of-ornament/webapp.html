@@ -62,6 +62,22 @@
   .gitem .meta .n { font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: var(--dim); word-break: break-all; }
   #empty { padding: 40px; color: var(--dim); text-align: center; width: 100%; }
 
+  /* motifs tab: the black-and-white print of a feature, and a lasso to cut one motif out of it */
+  #motifs { overflow-y: auto; flex: 1 1 0; min-height: 0; display: none; flex-direction: column; }
+  #motifs .mbar { padding: 8px 16px 0; }
+  #motifs .mbody { padding: 8px 16px; }
+  #motifs .stage { position: relative; width: 672px; height: 672px; background: #fff; border-radius: 6px; overflow: hidden; }
+  #motifs .stage img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+  #motifs .stage svg { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: crosshair; }
+  #mPrint { mix-blend-mode: multiply; }
+  #mPrint.busy { opacity: .35; }
+  #msvg .cropline { fill: none; stroke: var(--accent); stroke-width: 2; stroke-dasharray: 6 4; pointer-events: none; vector-effect: non-scaling-stroke; }
+  #msvg .guide { fill: none; stroke: var(--accent2); stroke-dasharray: 4 3; pointer-events: none; vector-effect: non-scaling-stroke; }
+  #mgallery { display: flex; flex-wrap: wrap; gap: 16px; padding: 8px 16px 16px; align-content: flex-start; }
+  #mgallery .gitem { width: 260px; flex-basis: 260px; }
+  #mgallery .gitem .pic, #mgallery .gitem .pic img { width: 260px; height: 260px; }
+  #mgallery .gitem .pic img { object-fit: contain; background: #fff; }
+
   /* right: detail */
   #detail { background: var(--panel); border-left: 1px solid var(--line); overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 12px; }
   #detail .title { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--dim); word-break: break-all; }
@@ -103,6 +119,7 @@
     <div class="tabs row">
       <button id="tabBrowse" class="on">Browse</button>
       <button id="tabSaved">Features <span id="savedCount" class="muted"></span></button>
+      <button id="tabMotifs">Motifs <span id="motifCount" class="muted"></span></button>
     </div>
     <div id="pager" class="row">
       <button id="prev" class="small">‹</button>
@@ -115,6 +132,40 @@
   <div id="progress"><div></div></div>
   <div id="grid"></div>
   <div id="gallery"></div>
+  <div id="motifs">
+    <div class="mbar row">
+      <select id="mfeature" title="feature to work on"></select>
+      <span class="row" style="gap:6px"><span class="muted" style="font-size:12px" title="how much the image's own fine detail counts against its shading: 0 is flat black and white shapes, higher brings out pattern everywhere">texture</span>
+        <input type="range" id="mTexture" min="0" max="1.5" step="0.05" style="width:90px"><span class="val" id="mTexturev"></span></span>
+      <span class="row" style="gap:6px"><span class="muted" style="font-size:12px" title="how much of the original feature's finest detail (dots, hatching), which the upscaler smooths away, is put back">fine detail</span>
+        <input type="range" id="mRestore" min="0" max="1.5" step="0.05" style="width:90px"><span class="val" id="mRestorev"></span></span>
+      <span class="row" style="gap:6px"><span class="muted" style="font-size:12px" title="black lines where forms meet, even if they differ only in colour">outlines</span>
+        <input type="range" id="mBoundaries" min="0" max="3" step="0.1" style="width:90px"><span class="val" id="mBoundariesv"></span></span>
+      <span class="row" style="gap:6px"><span class="muted" style="font-size:12px" title="higher makes the print darker">threshold</span>
+        <input type="range" id="mThreshold" min="0.2" max="0.8" step="0.01" style="width:90px"><span class="val" id="mThresholdv"></span></span>
+      <label title="swap black and white"><input type="checkbox" id="mInvert"> invert</label>
+      <button id="mReset" class="small" title="back to the default settings">reset</button>
+    </div>
+    <div class="mbar row">
+      <label title="the outline you draw is rerouted along the strongest contours near it"><input type="checkbox" id="mSnap"> snap outline</label>
+      <select id="mGround" title="what fills everything outside the outline"><option value="white">white ground</option><option value="black">black ground</option></select>
+      <button id="mCropClear" class="small" style="display:none" title="remove the outline">clear outline</button>
+      <span class="row" style="gap:6px"><span class="muted" style="font-size:12px">show feature</span>
+        <input type="range" id="mUnder" min="0" max="1" step="0.05" value="0" style="width:80px" title="fade the upscaled colour feature in under the print, to see what you are outlining"></span>
+      <input type="text" id="mLabel" placeholder="label" style="width:110px">
+      <button id="mSave" class="primary" title="save the print, cut to the outline if there is one, as a motif">Save motif</button>
+    </div>
+    <div id="mStatus" class="muted" style="font-size:12px;padding:6px 16px 0;white-space:pre-wrap"></div>
+    <div class="mbody">
+      <div class="stage"><img id="mColour" alt=""><img id="mPrint" alt=""><svg id="msvg" viewBox="0 0 896 896"></svg></div>
+      <div class="muted" style="font-size:12px;line-height:1.5;margin-top:6px;max-width:672px">
+        The feature is upscaled 4×, its finest detail is put back, and shading, texture and outlines are thresholded together into pure black and white.
+        Drag around one motif to outline it (<kbd>Esc</kbd> cancels); everything outside becomes the ground colour and the saved image is trimmed to the outline. Without an outline, <b>Save motif</b> keeps the whole print.
+        Motifs are saved as <code>motif.png</code> and <code>motif.svg</code> in <code>motifs/&lt;feature&gt;/</code>.
+      </div>
+    </div>
+    <div id="mgallery"></div>
+  </div>
 </main>
 
 <aside id="detail">
@@ -203,11 +254,14 @@ function savedChannels() {
 function readHash() {
   const p = new URLSearchParams(location.hash.slice(1));
   const c = p.get("c");
-  return { model: p.get("model"), layer: p.get("layer"), c: c === null || c === "" ? null : +c, tab: p.get("tab") === "saved" ? "features" : p.get("tab") };
+  return { model: p.get("model"), layer: p.get("layer"), c: c === null || c === "" ? null : +c,
+           tab: p.get("tab") === "saved" ? "features" : p.get("tab"), feature: p.get("feature") };
 }
 function writeHash() {
   const p = new URLSearchParams({ model: S.model, layer: S.layer || "" });
   if (S.sel !== null) p.set("c", S.sel);
+  if (S.tab && S.tab !== "browse") p.set("tab", S.tab);
+  if (S.tab === "motifs" && typeof M !== "undefined" && M.feature) p.set("feature", M.feature);
   history.replaceState(null, "", "#" + p.toString());
 }
 
@@ -403,11 +457,13 @@ function renderGallery() {
         ${it.note ? `<div style="margin-top:4px">${escapeHtml(it.note)}</div>` : ""}
         <div class="row" style="margin-top:8px">
           <button class="small jump">open</button>
+          <button class="small motif">motif</button>
           <button class="small del">delete</button>
           <span class="muted" style="font-size:11px;margin-left:auto">${it.saved.slice(0, 10)}</span>
         </div>
       </div>`;
     div.querySelector(".jump").onclick = () => jumpTo(it);
+    div.querySelector(".motif").onclick = () => { showTab("motifs"); motifLoadFeature(it.name); };
     div.querySelector(".del").onclick = async () => {
       if (!confirm(`Delete ${it.name}.png from features/?`)) return;
       try { await api(`/api/features/${encodeURIComponent(it.name)}`, { method: "DELETE" }); await loadSaved(); } catch (e) { err(e.message); }
@@ -429,6 +485,9 @@ async function jumpTo(it) {
 function showTab(tab) {
   S.tab = tab;
   $("tabBrowse").classList.toggle("on", tab === "browse"); $("tabSaved").classList.toggle("on", tab === "features");
+  $("tabMotifs").classList.toggle("on", tab === "motifs");
+  $("motifs").style.display = tab === "motifs" ? "flex" : "none";
+  if (tab === "motifs") motifEnter();
   $("grid").style.display = tab === "browse" ? "grid" : "none";
   $("pager").style.display = tab === "browse" ? "flex" : "none";
   $("gallery").style.display = tab === "features" ? "flex" : "none";
@@ -476,6 +535,7 @@ function wire() {
   };
   document.addEventListener("keydown", (e) => {
     if (["INPUT", "SELECT", "TEXTAREA"].includes(document.activeElement.tagName)) return;
+    if (S.tab === "motifs") { if (e.key === "Escape" && M.cur) { M.cur = null; motifDrawCrop(); } return; }
     if (e.key === "ArrowLeft" && S.sel !== null) selectChannel(S.sel - 1);
     else if (e.key === "ArrowRight" && S.sel !== null) selectChannel(S.sel + 1);
     else if (e.key === "s") saveDetail();
@@ -483,13 +543,202 @@ function wire() {
   });
 }
 
+// ── motifs: a black-and-white print of the feature, and a hand-drawn outline to cut one motif from it ──
+const M = { feature: null, items: [], defaults: null, crop: null, cur: null, req: 0, timer: null, lastUrl: null };
+const M_CTL = { texture: "mTexture", restore: "mRestore", boundaries: "mBoundaries", threshold: "mThreshold" };
+const SVG_NS = "http://www.w3.org/2000/svg";
+const fmt = (p) => `${p[0].toFixed(1)},${p[1].toFixed(1)}`;
+const dist = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1]);
+const munit = () => 896 / 672;   // one screen pixel in working pixels
+function el(tag, attrs) { const e = document.createElementNS(SVG_NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; }
+function penPath(pts) {   // open Catmull-Rom through the points
+  if (pts.length === 1) return `M${fmt(pts[0])} l0,0`;
+  if (pts.length === 2) return `M${fmt(pts[0])} L${fmt(pts[1])}`;
+  let d = `M${fmt(pts[0])}`;
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p0 = pts[Math.max(i - 1, 0)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(i + 2, pts.length - 1)];
+    d += ` C${fmt([p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6])} ${fmt([p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6])} ${fmt(p2)}`;
+  }
+  return d;
+}
+function closedSpline(pts, per = 6) {   // the closed Catmull-Rom loop through the points, sampled densely
+  const n = pts.length, out = [];
+  for (let i = 0; i < n; i++) {
+    const p0 = pts[(i - 1 + n) % n], p1 = pts[i], p2 = pts[(i + 1) % n], p3 = pts[(i + 2) % n];
+    for (let k = 0; k < per; k++) {
+      const t = k / per, t2 = t * t, t3 = t2 * t;
+      out.push([0, 1].map((a) => 0.5 * (2 * p1[a] + (p2[a] - p0[a]) * t + (2 * p0[a] - 5 * p1[a] + 4 * p2[a] - p3[a]) * t2 + (3 * p1[a] - p0[a] - 3 * p2[a] + p3[a]) * t3)));
+    }
+  }
+  return out;
+}
+function smooth(pts) {   // 3-point moving average, endpoints fixed
+  return pts.map((p, i) => (i === 0 || i === pts.length - 1) ? p
+    : [(pts[i - 1][0] + p[0] + pts[i + 1][0]) / 3, (pts[i - 1][1] + p[1] + pts[i + 1][1]) / 3]);
+}
+function simplify(pts, eps) {   // Ramer–Douglas–Peucker
+  if (pts.length < 3) return pts;
+  const a = pts[0], b = pts[pts.length - 1], dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy);
+  let imax = 0, dmax = 0;
+  for (let i = 1; i < pts.length - 1; i++) {
+    const d = L > 1e-6 ? Math.abs(dy * (pts[i][0] - a[0]) - dx * (pts[i][1] - a[1])) / L : dist(pts[i], a);
+    if (d > dmax) { dmax = d; imax = i; }
+  }
+  if (dmax <= eps) return [a, b];
+  return simplify(pts.slice(0, imax + 1), eps).slice(0, -1).concat(simplify(pts.slice(imax), eps));
+}
+function motifMsg(msg, bad = false) { const e = $("mStatus"); e.textContent = msg; e.style.color = bad ? "var(--bad)" : ""; }
+function motifParams() {
+  const p = { invert: $("mInvert").checked, ground: $("mGround").value };
+  for (const [k, id] of Object.entries(M_CTL)) p[k] = +$(id).value;
+  return p;
+}
+function motifSetControls(p) {
+  for (const [k, id] of Object.entries(M_CTL)) { $(id).value = p[k]; $(id + "v").textContent = (+p[k]).toFixed(2); }
+  $("mInvert").checked = !!p.invert; $("mGround").value = p.ground || "white";
+}
+async function motifEnter() {
+  const sel = $("mfeature");
+  const names = S.saved.map((it) => it.name);
+  if ([...sel.options].map((o) => o.value).join() !== names.join()) {
+    sel.innerHTML = S.saved.map((it) => `<option value="${it.name}">${it.model} / ${it.layer} / c${it.target.channel}${it.target.y != null ? ` @${it.target.y},${it.target.x}` : ""}</option>`).join("");
+  }
+  await loadMotifs();
+  if (!M.feature && S.saved.length) motifLoadFeature(readHash().feature || S.saved[0].name);
+  else if (M.feature) sel.value = M.feature;
+}
+function motifLoadFeature(name) {
+  if (!S.saved.some((it) => it.name === name)) return;
+  M.feature = name; $("mfeature").value = name;
+  M.crop = null; M.cur = null; $("mCropClear").style.display = "none";
+  $("mColour").removeAttribute("src"); $("mPrint").removeAttribute("src");
+  $("mColour").src = `/api/motif/upscaled?feature=${encodeURIComponent(name)}`;
+  motifDrawCrop(); renderMotifGallery(); writeHash();
+  if (M.defaults) motifRefresh(true);
+}
+// the outline as the server gets it: the same smooth closed curve that is drawn on screen
+const motifOutline = () => (M.crop ? closedSpline(M.crop) : null);
+function motifSchedule() { clearTimeout(M.timer); M.timer = setTimeout(motifRefresh, 120); }
+async function motifRefresh(first = false) {
+  if (!M.feature || !M.defaults) return;
+  const req = ++M.req, feature = M.feature;
+  const o = motifOutline();
+  const q = new URLSearchParams({ feature, ...motifParams(), crop: o ? o.map((p) => `${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(";") : "" });
+  $("mPrint").classList.add("busy");
+  if (first === true) motifMsg("Preparing this feature: upscaling it and building its layers takes about half a minute the first time, then changes are instant.");
+  try {
+    const r = await fetch(`/api/motif/preview?${q}`);
+    if (!r.ok) { const j = await r.json().catch(() => ({})); throw new Error(j.error || r.statusText); }
+    const blob = await r.blob();
+    if (req !== M.req) return;
+    const old = M.lastUrl; M.lastUrl = URL.createObjectURL(blob);
+    $("mPrint").onload = () => { if (old) URL.revokeObjectURL(old); };
+    $("mPrint").src = M.lastUrl; $("mPrint").classList.remove("busy");
+    if (first === true && feature === M.feature) motifMsg("Drag around one motif to outline it, then Save motif.");
+  } catch (e) { if (req === M.req) { motifMsg(e.message, true); $("mPrint").classList.remove("busy"); } }
+}
+function motifPos(e) { const r = $("msvg").getBoundingClientRect(); return [(e.clientX - r.left) / r.width * 896, (e.clientY - r.top) / r.height * 896]; }
+function motifDrawCrop() {
+  const svg = $("msvg"); svg.innerHTML = "";
+  if (M.cur) {
+    svg.appendChild(el("path", { d: penPath(M.cur), class: "cropline" }));
+    if (M.cur.length > 2) svg.appendChild(el("line", { x1: M.cur[M.cur.length - 1][0], y1: M.cur[M.cur.length - 1][1], x2: M.cur[0][0], y2: M.cur[0][1], class: "guide" }));
+  } else if (M.crop) {
+    svg.appendChild(el("path", { d: "M" + closedSpline(M.crop).map(fmt).join(" L") + " Z", class: "cropline" }));
+  }
+}
+function motifSetCrop(pts) {
+  M.crop = pts && pts.length >= 3 ? pts : null;
+  $("mCropClear").style.display = M.crop ? "" : "none";
+  motifDrawCrop(); motifRefresh();
+}
+async function motifSnapCrop(pts) {
+  if (!$("mSnap").checked) return motifSetCrop(pts);
+  motifMsg("Snapping the outline…");
+  try {
+    const r = await post("/api/motif/crop-snap", { feature: M.feature, pts: simplify(pts, 3 * munit()), radius: 14 * munit() });
+    motifSetCrop(simplify(r.pts, 0.75 * munit()));
+    motifMsg("Outline snapped to the nearest contours. Turn snapping off to keep an outline exactly as drawn.");
+  } catch (e) { motifMsg(e.message, true); motifSetCrop(pts); }
+}
+async function motifSave() {
+  if (!M.feature) return;
+  const b = $("mSave"); b.disabled = true; motifMsg("Saving…");
+  try {
+    const it = await post("/api/motif/save", { feature: M.feature, params: motifParams(), crop: motifOutline(), label: $("mLabel").value });
+    motifMsg(`Saved ${it.id.split("/")[1]} (${it.width}×${it.height}${it.crop ? ", cut to the outline" : ", the whole print"}) as motif.png and motif.svg.`);
+    await loadMotifs();
+  } catch (e) { motifMsg(e.message, true); }
+  b.disabled = false;
+}
+async function loadMotifs() {
+  try {
+    const r = await api("/api/motifs"); M.items = r.items;
+    if (!M.defaults) { M.defaults = r.defaults; motifSetControls(M.defaults); if (M.feature) motifRefresh(true); }
+    $("motifCount").textContent = M.items.length ? `(${M.items.length})` : "";
+    renderMotifGallery();
+  } catch (e) { motifMsg(e.message, true); }
+}
+function renderMotifGallery() {
+  const g = $("mgallery"); g.innerHTML = "";
+  const items = M.items.filter((it) => it.feature === M.feature);
+  if (!items.length) { g.innerHTML = `<div class="muted" style="font-size:12px">No motifs saved from this feature yet.</div>`; return; }
+  for (const it of items) {
+    const base = `/motifs/${it.id}/`;
+    const div = document.createElement("div"); div.className = "gitem";
+    div.innerHTML = `<div class="pic"><img src="${base}motif.png?${encodeURIComponent(it.saved)}" alt=""></div>
+      <div class="meta">
+        <div><b>${escapeHtml(it.label || "motif")}</b> <span class="muted">· ${it.width}×${it.height}${it.crop ? "" : " · whole print"}</span></div>
+        <div class="row" style="margin-top:8px">
+          <button class="small reopen" title="load this motif's settings and outline back into the tool">reopen</button>
+          <a href="${base}motif.png" download style="font-size:12px">png</a>
+          <a href="${base}motif.svg" download style="font-size:12px">svg</a>
+          <button class="small del" style="margin-left:auto">delete</button>
+        </div>
+      </div>`;
+    div.querySelector(".reopen").onclick = () => {
+      motifSetControls({ ...M.defaults, ...it.params });
+      M.crop = it.crop && it.crop.length >= 3 ? simplify(it.crop.concat([it.crop[0]]), 0.5).slice(0, -1) : null;
+      $("mCropClear").style.display = M.crop ? "" : "none";
+      $("mLabel").value = it.label || "";
+      motifDrawCrop(); motifRefresh(); $("motifs").scrollTop = 0;
+      motifMsg("Settings and outline loaded. Saving again makes a new motif; the old one stays until you delete it.");
+    };
+    div.querySelector(".del").onclick = async () => {
+      if (!confirm("Delete this motif?")) return;
+      try { await api(`/api/motifs/${it.id}`, { method: "DELETE" }); await loadMotifs(); } catch (e) { motifMsg(e.message, true); }
+    };
+    g.appendChild(div);
+  }
+}
+function wireMotifs() {
+  $("tabMotifs").onclick = () => showTab("motifs");
+  $("mfeature").onchange = () => motifLoadFeature($("mfeature").value);
+  for (const id of Object.values(M_CTL)) $(id).oninput = () => { $(id + "v").textContent = (+$(id).value).toFixed(2); motifSchedule(); };
+  $("mInvert").onchange = () => motifRefresh(); $("mGround").onchange = () => motifRefresh();
+  $("mReset").onclick = () => { if (M.defaults) { motifSetControls(M.defaults); motifRefresh(); } };
+  $("mUnder").oninput = () => { $("mColour").style.opacity = $("mUnder").value; $("mPrint").style.opacity = 1 - 0.75 * $("mUnder").value; };
+  $("mColour").style.opacity = 0;
+  $("mCropClear").onclick = () => motifSetCrop(null);
+  $("mSave").onclick = motifSave;
+  $("mLabel").onkeydown = (e) => { if (e.key === "Enter") motifSave(); };
+  const svg = $("msvg");
+  svg.onpointerdown = (e) => { if (e.button !== 0 || !M.feature) return; svg.setPointerCapture(e.pointerId); M.cur = [motifPos(e)]; motifDrawCrop(); };
+  svg.onpointermove = (e) => { if (!M.cur) return; const p = motifPos(e); if (dist(p, M.cur[M.cur.length - 1]) >= 1.2 * munit()) { M.cur.push(p); motifDrawCrop(); } };
+  svg.onpointerup = () => {
+    if (!M.cur) return;
+    const pts = simplify(smooth(M.cur), 1.5 * munit()); M.cur = null;
+    if (pts.length >= 3) motifSnapCrop(pts); else motifDrawCrop();
+  };
+}
+
 (async function init() {
-  wire(); syncControls();
+  wire(); wireMotifs(); syncControls();
   try {
     await loadModels(); await loadSaved();
     const h = readHash();
     await loadLayers(h.model || S.model);
-    if (h.tab === "features") showTab("features");
+    if (h.tab === "features" || h.tab === "motifs") showTab(h.tab);
   } catch (e) { err(e.message); }
 })();
 </script>

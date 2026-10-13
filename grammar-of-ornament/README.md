@@ -85,6 +85,27 @@ It uses the same principal-colour-axis projection as `forms.py`, oriented so bri
 
 Colours are chosen in CIELAB so the spacing is perceptual, and the strip is ordered dark to light. The default `spread` method is farthest-point sampling: start from the pixel colour farthest from the image's mean, then repeatedly add the pixel colour farthest from everything chosen so far. Every swatch is a real pixel colour, stray colours (fewer than `--min-frac` of the pixels, about ten pixels by default) are excluded as candidates, and the set is as widely spread through the image's colour space as seven points can be, so red, yellow and blue blobs each get a swatch. `--method axis` instead takes equal steps along the image's principal colour axis and `--method kmeans` takes cluster centres; both average hues together and come out muted. A light blur (`--sigma`) is applied first so the fine hatching doesn't contribute colours.
 
+## Motifs
+
+The **Motifs** tab turns a feature into a pure black-and-white print and lets you cut single motifs out of it by hand. Pick a feature (or press **motif** on a card in the Features tab). The first time a feature is opened it takes about half a minute to prepare; after that every change is immediate.
+
+What happens to the feature:
+
+1. **Upscale.** The 224px feature is enlarged 4× with Real-ESRGAN (the photo model), a learned super-resolution network that turns the pixel mush of a small image into clean shapes while staying faithful to it. The result is kept in `cache/sr/`; the weights (64 MB) are downloaded once into `models/`.
+2. **Put the fine detail back.** The upscaler smooths away the very finest texture, such as dot lattices three pixels apart. The difference between the original's fine detail and the upscaled image's is added back, so dots and hatching return exactly where the feature has them.
+3. **One threshold over shading, texture and outlines.** The shading (smoothed without crossing the edges of forms), the image's own fine texture, the restored detail and the colour boundaries between forms are added together and cut at a single level, at 1792px. Because texture is added to shading before the cut, mark width follows the shading: thin white marks in the darks, thin black ones in the lights, solid masses where the tone is extreme.
+
+The controls: **texture** is how much the image's own detail counts against its shading (0 gives flat shapes, higher brings out pattern everywhere); **fine detail** is how much of the restored texture is added; **outlines** is the strength of the black lines where forms meet, including forms that differ only in colour; **threshold** makes the print lighter or darker; **invert** swaps black and white; **reset** returns to the defaults.
+
+To take one motif, drag around it on the print. The outline is smoothed into a closed curve; with **snap outline** on it is rerouted along the strongest contours near where you drew. Everything outside becomes the **ground** colour (white or black), `Esc` cancels a drag, **clear outline** removes it, and **show feature** fades the upscaled colour image in underneath so you can see what you are outlining. **Save motif** writes the print, trimmed to a square around the outline (or the whole print if there is none), into `motifs/<feature>/<id>[-label]/` as `motif.png` (one bit per pixel), `motif.svg` (the black areas as one path) and `motif.json` (the settings and the outline). Saved motifs are listed under the print; **reopen** loads a motif's settings and outline back into the tool.
+
+```
+.venv/bin/python motifs.py                                   # every whole feature → prints/<name>.png
+.venv/bin/python motifs.py --only c141 --texture 0.3 --restore 0.6 --force
+```
+
+The pipeline is deterministic: the same feature and settings always give the same image.
+
 ## How it works
 
 `vis.py` is a self-contained implementation of the Lucid/lucent feature-visualization recipe (Olah, Mordvintsev & Schubert, *Feature Visualization*, 2017): the image is parameterized by its Fourier spectrum with a frequency-dependent scale, colours are decorrelated with a fixed ImageNet colour matrix, and each optimization step sees a randomly padded, jittered, scaled and rotated copy of the image so the result is robust to those transforms. Adam maximizes the chosen activation. A forward hook on the target layer stops the forward pass there, so shallow layers are cheap.
@@ -108,4 +129,8 @@ Layers are discovered by running one forward pass with hooks on every module and
 | `dithered_forms.py` | renders every feature image as dithered black and white |
 | `dithered-forms/` | the dithered images, same file names |
 | `palettes.py` | picks seven colours from every feature image |
+| `motifs.py` | the black-and-white print pipeline (upscale, detail restoration, threshold), outlines, saved motifs; also a batch CLI |
+| `motifs/` | saved motifs, one folder per motif under its feature |
+| `models/` | the upscaler's weights, downloaded on first use (gitignored) |
+| `prints/` | whole-feature prints from `motifs.py` run as a script |
 | `palettes/` | swatch strips with hex codes, plus `.json` colour lists |

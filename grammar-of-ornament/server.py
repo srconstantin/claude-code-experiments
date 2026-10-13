@@ -12,6 +12,7 @@ Run:  python3 server.py
 from __future__ import annotations
 
 import hashlib
+import io
 import json
 import queue
 import shutil
@@ -26,6 +27,9 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
+from PIL import Image
+
+import motifs
 import vis
 
 HERE = Path(__file__).resolve().parent
@@ -269,11 +273,34 @@ class Handler(BaseHTTPRequestHandler):
         except json.JSONDecodeError:
             raise Problem("invalid JSON")
 
-    def _static(self, root: Path, sub: str, cache: bool) -> None:
+    TYPES = {".png": "image/png", ".json": "application/json", ".svg": "image/svg+xml"}
+
+    def _static(self, root: Path, sub: str, cache: bool, suffixes=(".png",)) -> None:
         p = (root / sub).resolve()
-        if not str(p).startswith(str(root.resolve())) or p.suffix != ".png":
+        if not str(p).startswith(str(root.resolve())) or p.suffix not in suffixes:
             return self._json({"error": "not found"}, 404)
-        self._file(p, "image/png", cache)
+        self._file(p, self.TYPES[p.suffix], cache)
+
+    @staticmethod
+    def _feature_name(body: dict) -> str:
+        name = str(body.get("feature") or "")
+        if not name or "/" in name or ".." in name or not (SAVED / f"{name}.png").exists():
+            raise Problem("unknown feature", 404)
+        return name
+
+    @staticmethod
+    def _crop(v) -> list | None:
+        """A crop outline as [[x, y], …]: a JSON list (POST bodies) or "x,y;x,y;…" (query strings)."""
+        if not v:
+            return None
+        try:
+            pts = [[float(a) for a in p.split(",")] for p in v.split(";") if p] if isinstance(v, str) \
+                else [[float(p[0]), float(p[1])] for p in v]
+        except (TypeError, ValueError, IndexError, AttributeError):
+            raise Problem("crop must be a list of [x, y] points")
+        if any(len(p) != 2 for p in pts) or len(pts) > 5000:
+            raise Problem("crop must be a list of [x, y] points")
+        return pts if len(pts) >= 3 else None
 
     def do_GET(self) -> None:
         u = urlparse(self.path)
@@ -305,6 +332,29 @@ class Handler(BaseHTTPRequestHandler):
                 return self._json(job_view(job))
             if u.path == "/api/features":
                 return self._json({"items": list(reversed(read_index()))})
+            # ── motifs ──
+            if u.path.startswith("/motifs/"):
+                return self._static(motifs.MOTIFS, u.path[len("/motifs/"):], False, (".png", ".json", ".svg"))
+            if u.path == "/api/motifs":
+                return self._json({"items": motifs.list_motifs(), "defaults": motifs.DEFAULTS, "ranges": motifs.RANGES, "work_px": motifs.WORK})
+            if u.path in ("/api/motif/preview", "/api/motif/upscaled"):
+                # the first request for a feature upscales it (about 15 s on the CPU) and builds its layers
+                name = self._feature_name({"feature": q.get("feature")})
+                buf = io.BytesIO()
+                try:
+                    if u.path == "/api/motif/upscaled":
+                        Image.fromarray((motifs.upscaled(SAVED, name) * 255).round().astype("uint8")).save(buf, "PNG")
+                    else:
+                        motifs.to_image(motifs.render(SAVED, name, motifs.params(q), self._crop(q.get("crop")))).save(buf, "PNG")
+                except ValueError as e:
+                    raise Problem(f"bad parameters: {e}")
+                data = buf.getvalue()
+                self.send_response(200)
+                self.send_header("Content-Type", "image/png")
+                self.send_header("Content-Length", str(len(data)))
+                self.send_header("Cache-Control", "no-store")
+                self.end_headers()
+                return self.wfile.write(data)
             raise Problem("not found", 404)
         except Problem as p:
             self._json({"error": str(p)}, p.status)
@@ -341,6 +391,26 @@ class Handler(BaseHTTPRequestHandler):
                 s = parse_settings(body)
                 t = parse_target(body.get("target") or {})
                 return self._json(save_image(s, t, str(body.get("note") or "").strip()))
+            # ── motifs ──
+            if u.path == "/api/motif/crop-snap":
+                name = self._feature_name(body)
+                pts = self._crop(body.get("pts"))
+                if not pts:
+                    raise Problem("pts must be at least three [x, y] points")
+                try:
+                    snapped = motifs.snap_outline(motifs.upscaled(SAVED, name), pts, radius=float(body.get("radius") or 14))
+                except (TypeError, ValueError) as e:
+                    raise Problem(f"bad snap parameters: {e}")
+                return self._json({"pts": [[round(x, 2), round(y, 2)] for x, y in snapped]})
+            if u.path == "/api/motif/save":
+                name = self._feature_name(body)
+                try:
+                    item = motifs.save_motif(SAVED, name, motifs.params(body.get("params") or {}),
+                                             self._crop(body.get("crop")), str(body.get("label") or "").strip())
+                except (TypeError, ValueError) as e:
+                    raise Problem(f"bad parameters: {e}")
+                say(f"motif {item['id']} saved ({item['width']}×{item['height']})")
+                return self._json(item)
             raise Problem("not found", 404)
         except Problem as p:
             self._json({"error": str(p)}, p.status)
@@ -353,6 +423,14 @@ class Handler(BaseHTTPRequestHandler):
         try:
             if u.path.startswith("/api/features/"):
                 delete_saved(u.path[len("/api/features/"):])
+                return self._json({"ok": True})
+            if u.path.startswith("/api/motifs/"):
+                try:
+                    motifs.delete_motif(u.path[len("/api/motifs/"):])
+                except FileNotFoundError:
+                    raise Problem("No such motif.", 404)
+                except ValueError:
+                    raise Problem("bad id")
                 return self._json({"ok": True})
             raise Problem("not found", 404)
         except Problem as p:
