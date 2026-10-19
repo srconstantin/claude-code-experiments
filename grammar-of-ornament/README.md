@@ -1,6 +1,6 @@
 # Grammar of Ornament
 
-A local browser for the patterns an image classifier has learned to detect. Pick a model, a layer, and a channel (or one neuron at one position of that channel's feature map), and the app synthesizes the image that makes it fire hardest. Save the ones you like into `vgg16features/` (the saved-features folder, `SAVED` in `server.py`).
+A local browser for the patterns an image classifier has learned to detect, and a design-library website built from them (see [The design library website](#the-design-library-website)). Pick a model, a layer, and a channel (or one neuron at one position of that channel's feature map), and the app synthesizes the image that makes it fire hardest. Save the ones you like into `vgg16features/` (the saved-features folder, `SAVED` in `server.py`).
 
 The emphasis is on low-level features: layers are listed shallowest first, grouped by feature-map size, and those early layers are where the abstract forms live (edges, gratings, dots, lattices, diagonal weaves). Deeper layers drift toward fur, eyes and faces.
 
@@ -35,6 +35,49 @@ or `./launch.sh` to start it in a new Terminal window. The server binds to `127.
   - **Save** (or `s`) copies the current render into `vgg16features/` with a JSON sidecar recording every setting. The **Features** tab lists them; `open` restores a saved image's exact settings in the browser.
 - `←` / `→` step through channels.
 - The URL hash tracks the current model, layer and channel (`#model=convnext_base&layer=features.1.0&c=13`), or `#tab=features` for the gallery, so a neuron can be bookmarked or pasted into a note.
+
+## The design library website
+
+The same server also hosts a small website of style tiles: web components (buttons, fields, checkboxes, tabs, cards, alerts and more) built entirely from shapes found in the features. Start the server as above, then open:
+
+```
+http://127.0.0.1:8790/designlib/tiles/
+```
+
+**Pages.** The index links the three current tiles, one per source of shapes, each showing the same components:
+
+- **Bands** (`bands.html`): buttons, alerts and badges are outlines of real band compounds; card pictures sit in mostly convex band and blob outlines; includes a grid of feature cards.
+- **Marks** (`marks.html`): shapes are silhouettes of crosshatch clusters and hatching bundles; lines are a repeated feather, comb or hatching bundle.
+- **Strokes** (`strokes.html`): boxes are framed by four real tapered strokes from the stroke library; lines are a repeated wave stroke.
+
+The nav bar at the top switches between them. The index also lists earlier experiments (woodcut, engraving, herbarium, bloom), which are kept for comparison but no longer maintained.
+
+**The View panel** (the bar under the nav) restyles the page you are on:
+
+- **Colorway**: recolours the whole page, inks, ground, accent and every ornament, from one of ten convnext colorways. The swatch beside the menu shows the pair. "The page's own" returns to the default.
+- **Background on**: puts a picture behind nothing, the whole page, the hero band, the cards band, or every other section. Text always keeps a solid panel, so it never sits on the picture.
+- **Picture**: the feature in its own colours, the feature remapped to the page's two colours, or a linework drawing in the page's colours (choose which drawing in the menu that appears).
+
+**Working with specimens.** Every component and every ornament on a page is a specimen. Hover over one to show its toolbar:
+
+- **↻ variant** draws it again with a different real piece and slightly different proportions. Press it repeatedly to explore.
+- **Save** keeps it exactly as shown, variants included.
+- **SVG** (ornaments only) downloads the ornament as an SVG file.
+
+The components themselves work: tabs switch, checkboxes and radios toggle, fields take input. "Save pattern" saves its own specimen, "Export SVG" downloads the divider, "Show layers" outlines the drawn shapes, and the hero buttons scroll to the components and the ornaments.
+
+**Saved specimens.** `http://127.0.0.1:8790/designlib/saved/` (the **Saved** link in the nav) shows everything saved, newest first. Each lives in `designlib/saved/<id>/` as `specimen.html` (a standalone page with the theme's styles and fonts), `meta.json`, and its ornaments as SVG files; the gallery links to each. **delete** moves a specimen to `designlib/saved/.trash/`, so it can be recovered by moving the folder back.
+
+**Needs the server.** Opened directly as files, the pages still render and shape variants still work, but saving, ornament variants, colorways and backgrounds need the server. A note at the top of the page says so.
+
+**Rebuilding.** The pages are generated; after changing a script, rebuild and reload the page:
+
+```
+.venv/bin/python atlas.py               # the pieces (about 10 minutes; --convex-only recomputes just the convex outlines)
+.venv/bin/python sourcetiles.py         # Bands, Marks, Strokes and the index (--screenshot also saves PNGs)
+```
+
+The server imports the page code once, so restart it after editing `sourcetiles.py`, `styletiles.py` or `designlib_api.py` for variants and colorways to pick up the changes. The pages use Google Fonts, so they need an internet connection to look right.
 
 ## Outlines
 
