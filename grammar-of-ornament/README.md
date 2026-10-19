@@ -50,7 +50,7 @@ http://127.0.0.1:8790/designlib/tiles/
 - **Marks** (`marks.html`): shapes are silhouettes of crosshatch clusters and hatching bundles; lines are a repeated feather, comb or hatching bundle.
 - **Strokes** (`strokes.html`): boxes are framed by four real tapered strokes from the stroke library; lines are a repeated wave stroke.
 
-The nav bar at the top switches between them. The index also lists earlier experiments (woodcut, engraving, herbarium, bloom), which are kept for comparison but no longer maintained.
+The nav bar at the top switches between them.
 
 **The View panel** (the bar under the nav) restyles the page you are on:
 
@@ -91,7 +91,7 @@ The server imports the page code once, so restart it after editing `sourcetiles.
 .venv/bin/python outlines.py --method contour --levels 0.5 --sigma 3 --width 2.5   # one bold contour per form
 ```
 
-It starts from the same continuous-tone field as `dithered_forms.py` (each pixel projected onto the image's principal colour axis). The default method is **XDoG** (extended difference of Gaussians), the standard ink-drawing filter: the tone is compared with a blurred copy of itself, and places that are darker than their surroundings are inked, with a soft threshold, so the result reads like a woodcut. `--sigma` sets the scale of the comparison, `--xdog-p` the sharpening, `--xdog-eps` how much of the image gets inked, `--xdog-phi` how hard the threshold is.
+It starts from the same continuous-tone field as `dithered_forms.py` (each pixel projected onto the image's principal colour axis). The default method is **XDoG** (extended difference of Gaussians), the standard ink-drawing filter: the tone is compared with a blurred copy of itself, and places that are darker than their surroundings are inked, with a soft threshold, so the result reads like an ink drawing. `--sigma` sets the scale of the comparison, `--xdog-p` the sharpening, `--xdog-eps` how much of the image gets inked, `--xdog-phi` how hard the threshold is.
 
 `--method contour` draws **isolines** of the smoothed field instead: closed curves where the tone crosses each of the `--levels` (default five levels from 0.2 to 0.8), which run perpendicular to the brightness gradient and so follow the curves of the shapes. Contours shorter than `--min-len` are dropped and lines are drawn at `--width`. `--method canny` is the old sharpest-gradient edge detector, kept for comparison. `--gamma` and `--invert` reshape the tone before any method.
 
@@ -209,63 +209,63 @@ Feature visualizations pair opponent colours: the renderer decorrelates the colo
 
 Per feature it writes `<name>.json` (hex and Lab colours, CSS strings, the SVG filter) and `<name>.card.png` (the feature, the pair, both gradients, the duotone applied to the feature, the mesh field). For the folder it writes `colorways.css` (custom properties `--cw-<short>-a`, `-b`, `-shadow`, `-highlight` and classes `.cw-<short>-gradient`, `-pair`, `-mesh`, `-duotone`), `filters.svg` (the duotone filters, `duo-<short>`), `gallery.html` (everything on one page, opened from that folder), `summary.json`, `summary.csv`, and `pairs.png` (every pair, sorted by hue). It prints a table of which named hue pairs occur in each layer stage.
 
-## Ornament and style tiles
+## How the design library is built
 
-`ornament.py` draws new vector ornaments from the measured proportions of the strokes and compounds, rather than cutting real ones out of features, so they look like the features without copying any, repeat seamlessly, and are reproducible from a seed. Strokes are centerlines (length, turn, waviness) drawn with tapered width profiles. Friezes are single seamless tiles: `comb_frieze` (spacing, spine width and 64° tooth angle from the measured straight comb), `feather_frieze` (barbs on both sides), `hatch_frieze` (the measured fine hatching), `wave_frieze` (the 'short wave' family end to end), `band_frieze` (a woodcut band with gouges cut into its edges) and `dash_frieze` (hairline dashes in glide reflection). `rosette` repeats any element round a centre, with or without mirrors; `check`, `loop`, `caret`, `gouges` and `band_mark` are glyphs for controls.
+`atlas.py` collects real pieces of the features for design use; nothing is generated. From every vgg16 feature it takes the compounds `compounds.py` finds, ranks each type by a score that favours clear examples (combs with many aligned, evenly spaced teeth; crosshatching with many strokes crossing near 90°; large bands and blobs; long branching lines; loops that curl closed), keeps the top twelve per type with at most two per feature, turns each so its long axis is horizontal (combs with teeth down), and lightly smooths mass outlines. It adds the representative strokes of every strokelib family (in group `stroke`). Each piece is written to `designlib/atlas/`, with up to four paths in `atlas.json`:
 
-`styletiles.py` builds three directions for a web component library as one page each with the same components, in `designlib/tiles/`:
+- `ink` (and `relief`, the white marks over masses): the piece itself.
+- `outline`: the outer contour of a band, blob or loop.
+- `hull`: the silhouette of a cluster of marks, made by closing the gaps between them.
+- `convex`: a mostly convex version of a band, blob or mark cluster, from a closing with a disc about half the piece's size. It fills the bays between lumps but keeps the irregular contour.
 
-```
-.venv/bin/python styletiles.py                 # → designlib/tiles/{woodcut,engraving,filigree}.html
-.venv/bin/python styletiles.py --screenshot    # also PNGs via headless Chrome
-```
-
-Open them through the server, at `http://127.0.0.1:8790/designlib/tiles/`, so saving works.
-
-- **Woodcut**: chipped slabs with relief gouges at the button ends, torn-bottom cards, gouged bands; black on paper with one hot accent; the hero is a motif from `vgg16motifs/`.
-- **Engraving**: cartouche buttons with comb fringes, cards with concave corners, a double rule and rosette corners, swallowtail ribbon badges and flag alerts, feather underlines, hatched rules; violet ink on cream with ochre; the hero is the vgg16 feature richest in combs and feathers, as a duotone in a cartouche.
-- **Filigree**: ogee-leaf buttons, pointed-arch cards crowned with a double rosette, running-scroll rules and dividers; gold and cream on night blue; the hero is a convnext feature under an arch.
-
-Shapes are not rounded rectangles. `designlib/tiles/shapes.js` draws each shaped element (`data-shape="slab"`, `cartouche`, `ribbon`, `leaf`, `arch` and so on) as an SVG computed from the element's actual size, so points and curves never stretch; it can add an inner rule and clip the element's content (a card's picture) to the shape. Ornaments are named recipes from `ornament.py` with parameters (`SPECS` in `styletiles.py`), so any of them can be regenerated.
-
-Every component and every ornament is a **specimen**: hovering it shows **↻ variant** (a new seed and proportions jittered by up to 18% for its ornaments, and a new seed for its shapes), **Save**, and for ornaments **SVG** (download). Save writes `designlib/saved/<id>/` with `specimen.html` (a standalone page: the theme's styles and fonts, the shapes script, and the element exactly as shown, variants included), `meta.json`, and each of its ornaments as an SVG. `http://127.0.0.1:8790/designlib/saved/` shows everything saved, with links and delete. The page's own controls work too: tabs switch, "Save pattern" saves its specimen, "Export SVG" downloads the divider, "Show layers" outlines the drawn shapes. Opened as a plain file the pages still render and shape variants work, but saving and ornament variants need the server; `designlib_api.py` holds those routes.
-
-Fills are the features themselves (upscaled), duotones of them in the page's inks, and colorway meshes; motifs only in large spots. Ornament sits at the edges of controls and never under words; colours come from the measured colorway pairs; focus and large-text accents are adjusted until they pass, and every text and background pair is checked against WCAG contrast and listed at the foot of the page.
-
-## Atlas and the compound tiles
-
-`atlas.py` collects real compound pieces (and, in group `stroke`, the strokelib families' representative strokes) for design use: nothing is generated. Mark clusters also get a `hull`, their silhouette. From every vgg16 feature it takes the compounds `compounds.py` finds, ranks each type by a score that favours clear examples (combs with many aligned, evenly spaced teeth; crosshatching with many strokes crossing near 90°; large bands and blobs; long branching lines), keeps the top twelve per type with at most two per feature, turns each so its long axis is horizontal (combs with teeth down), smooths mass outlines lightly and writes them to `designlib/atlas/`: `atlas.json` (each piece's ink, relief and outline paths), one SVG per piece under its group (`comb`, `feather`, `crosshatch`, `hatching`, `blob`, `band`, `branch`) and `atlas.png`, a contact sheet.
+There is one SVG per piece under its group (`band`, `blob`, `comb`, `feather`, `crosshatch`, `hatching`, `branch`, `loop`, `sprig`, `stroke`) and a contact sheet, `atlas.png`.
 
 ```
-.venv/bin/python atlas.py              # about a minute
-.venv/bin/python atlastiles.py         # → designlib/tiles/{herbarium,bloom}.html
+.venv/bin/python atlas.py                 # about ten minutes
+.venv/bin/python atlas.py --convex-only   # just the convex outlines of an existing atlas, a few seconds
 ```
 
-`sourcetiles.py` builds the current style tiles, one per source of shapes, each using only real atlas pieces and the same components:
+`sourcetiles.py` builds the three pages from the atlas, each with the same components:
 
 ```
-.venv/bin/python sourcetiles.py [--screenshot]   # → designlib/tiles/{bands,marks,strokes}.html
+.venv/bin/python sourcetiles.py [--screenshot]   # → designlib/tiles/{bands,marks,strokes}.html and index.html
 ```
 
-- **Bands** (cream and gold on deep green) is built from the band and blob compounds. Buttons, alerts and badges are band outlines, and each line is a long band repeated. Card pictures are framed by *mostly convex* versions of bands and blobs (`convex` in the atlas: a closing with a disc about half the piece's size fills the bays between lumps but keeps the irregular contour; only shapes at least 95% convex that fill 70% of their bounding box are used), and a grid of feature cards shows the same frames at small size. Checks, dots and bullets are blobs.
-- **Marks** (violet ink on cream) is built from hatching, crosshatching, combs, sprigs, loops, feathers and branching lines. Buttons and alerts are the silhouettes of crosshatch clusters and hatching bundles, and card pictures are framed by mostly convex versions of mark clusters (same thresholds as Bands). `atlas.py` computes each silhouette by closing the gaps between a cluster's marks. Each line is a feather, comb or hatching bundle repeated, checks and bullets are crosshatch clusters, the radio ring is the roundest loop, and the spinner is a comb.
-- **Strokes** (deep blue and vermilion on white) is built from the strokelib families. Buttons, cards and alerts are framed by four real tapered strokes (`shapes.js` kind `frame`), each line is a wave stroke repeated, the check is a hook, the radio ring is a loop stroke, and bullets are tapered dashes.
+- **Bands** (cream and gold on deep green) is built from the band and blob compounds. Buttons, alerts and badges are band outlines, each line is a long band repeated, card pictures are framed by convex outlines of bands and blobs, and checks, dots and bullets are blobs.
+- **Marks** (violet ink on cream) is built from hatching, crosshatching, combs, sprigs, loops, feathers and branching lines. Buttons and alerts are mark-cluster silhouettes, card pictures are framed by convex outlines of mark clusters, and each line is a feather, comb or hatching bundle repeated. Checks and bullets are crosshatch clusters, the radio ring is the roundest loop, and the spinner is a comb.
+- **Strokes** (deep blue and vermilion on white) is built from the strokelib families. Buttons, cards and alerts are framed by four real tapered strokes, each line is a wave stroke repeated, the radio ring is a loop stroke, and bullets are tapered dashes.
 
-Each element uses one shape: outlines never carry attached ornament, alerts have no mark (an error alert has a danger-coloured outline and title), dividers have no centre piece, and a checked box or selected radio is its own shape filled rather than a second mark inside it. Alert text is always inside the outline: for every outline the largest rectangle inside it is computed, and `shapes.js` (`data-contain`) sizes the shape so that rectangle covers the alert's text box; only shapes whose inner rectangle spans at least 55% of their width and 45% of their height are used for alerts, so a shape grows at most about twofold around its text. Every line is a single piece repeated with its ends overlapping. The pictures on each page come from `vgg16motifs/`, `linework/` (outline and stroke drawings, recoloured to the page's inks), the three features folders (vgg16, resnet50, convnext_base, upscaled) and the convnext colorways (meshes and gradients), and each card names its source. ↻ variant draws another piece of the same kind for both shapes and ornaments.
+Card frames use only convex outlines that are at least 95% convex and fill 70% of their bounding box.
 
-**Section edges.** Each page is a stack of full-width bands, one per section, alternating between the page's ground and a slightly tinted ground (5 points of lightness toward the ink, its hue nudged 7% toward the ink's). Each boundary is the top contour of a real piece repeated across the width: a long band's lumpy top on Bands, the silhouette of a hatching bundle or feather on Marks, a wave stroke on Strokes. The contour is the first ink in each column of the piece, smoothed and tilted so its ends meet, and filled below with the colour of the band it tops; each band starts the repeat at a different offset. The edge replaces the hero rule, and the tinted ground is included in the contrast checks. When the View panel puts a picture behind a band, the picture takes the same contour at its top and the next band's contour at its foot.
+**One shape per element.** Outlines never carry attached ornament. Alerts have no mark: an error alert has a danger-coloured outline and title. Dividers have no centre piece. A checked box or a selected radio is its own shape filled, not a second mark inside it.
 
-Each page has a **View** panel (`designlib/tiles/view.js`; it needs the server):
+**Text inside shapes.** For every outline, the largest rectangle inside it is computed. `shapes.js` (`data-contain`) sizes the shape so that rectangle covers the alert's text. Only outlines whose inner rectangle spans at least 55% of their width and 45% of their height are used for alerts, so a shape grows at most about twofold around its text.
 
-- **Colorway** recolours the whole page (inks, ground, accent and every ornament) from one of ten convnext colorways, the most vivid of each hue pair. On light pages the darker end of the pair becomes the ink and the other the accent; on dark pages the darker end becomes the ground. Every derived colour is pushed until its contrast check passes. The server route is `POST /api/designlib/palette`.
-- **Background on** puts a picture behind the whole page, the hero band, the cards band, or every other section as full-width bands. Text and controls keep a solid panel of the page's ground, so words never sit on the picture.
-- **Picture** is the feature in its own colours (the colorway's feature, or the page's), the feature remapped to the page's two colours, or a linework drawing (the outlines of a vgg16 feature) in the page's colours. The page-colour versions are made in the browser from whatever colorway is showing.
+**Section edges.** Each page is a stack of full-width bands, one per section, alternating between the page's ground and a slightly tinted ground. Each boundary is the top contour of a real piece repeated across the width: a band on Bands, a hatching bundle or feather silhouette on Marks, a wave stroke on Strokes. The contour is the first ink in each column of the piece, smoothed and tilted so its ends meet, and filled below with the colour of the band it tops. When the View panel puts a picture behind a band, the picture takes the same contours.
 
-`python3 atlas.py --convex-only` recomputes just the mostly convex shapes of an existing atlas in a few seconds.
+**Pictures and colours.** The pictures come from `vgg16motifs/`, `linework/` (recoloured to the page's inks), the three features folders (upscaled) and the convnext colorways, and each card names its source. Colours come from the colorway pairs. Every text and background pair is checked against WCAG contrast, colours are adjusted until they pass, and the results are listed at the foot of each page. A colorway chosen in the View panel is derived the same way on the server (`POST /api/designlib/palette`). The picture versions in the page's colours are made in the browser.
 
-The earlier experiments (`styletiles.py`: woodcut, engraving; `atlastiles.py`: herbarium, bloom) are still built and listed at the foot of the index, but are no longer in the navigation. Filigree was removed.
+**The page code.**
+- `designlib/tiles/shapes.js` draws each shaped element as an SVG computed from the element's actual size, so curves and points never stretch. Kind `atlas` scales a piece's outline to the element; kind `frame` draws four strokes around it.
+- `app.js` adds the specimen toolbars.
+- `view.js` runs the View panel.
+- `designlib_api.py` holds the server routes for variants, colorways, saving and the saved gallery.
+- `styletiles.py` and `ornament.py` provide shared colour, page and SVG helpers.
 
-Deleting a saved specimen from the gallery moves it to `designlib/saved/.trash/` rather than erasing it.
+The index also links a few earlier experimental pages, which are kept but not maintained.
+
+## Pattern analysis
+
+`patterns.py` measures tessellation and multiscale structure in all three features folders and in the vgg16 linework prints. `patterns_checks.py` adds the follow-up checks: repeats at motif scale, evenly spaced repetition without a lattice, grid-aligned directions, and box-counting controls.
+
+```
+.venv/bin/python patterns.py          # a few seconds → patterns/
+.venv/bin/python patterns_checks.py
+```
+
+Tessellation is read from each image's circular autocorrelation, as a lattice type (square, hexagonal, rectangular, centered, oblique or stripes) and its strength. Symmetry is read from the power spectrum's 2-, 4- and 6-fold order. Repeat periods are compared with each layer's stride. Multiscale structure is measured three ways: the power spectrum's slope and how strongly its energy concentrates at one scale; box-counting dimension of the prints, octave by octave; and the distribution of mark sizes.
+
+In short, true lattices appear only at the finest pixel scale. At motif scale the features repeat motifs at an even spacing without a lattice. Each feature has one characteristic scale, growing with layer depth (about 7 px at stride 1, 28 px at stride 16 and up), rather than self-similarity. The outputs are `patterns/features.csv`, `patterns/prints.csv`, `patterns/lattice_10px.json` and `patterns/examples.png`.
 
 ## How it works
 
@@ -284,30 +284,28 @@ Layers are discovered by running one forward pass with hooks on every module and
 | `cache/` | every render, keyed by its parameters (gitignored) |
 | `vgg16features/` | the images you kept, each with a `.json` sidecar, indexed in `index.json` |
 | `outlines.py` | makes line drawings of every feature image |
-| `outlines/` | the line drawings, one per feature image, same file names |
 | `forms.py` | makes black-and-white region maps of every feature image |
-| `forms/` | the region maps, same file names |
 | `dithered_forms.py` | renders every feature image as dithered black and white |
 | `dithered-forms/` | the dithered images, same file names |
 | `palettes.py` | picks seven colours from every feature image |
 | `motifs.py` | the black-and-white print pipeline (upscale, detail restoration, threshold), outlines, saved motifs; also a batch CLI |
 | `vgg16motifs/` | saved motifs, one folder per motif under its feature |
 | `models/` | the upscaler's weights, downloaded on first use (gitignored) |
-| `prints/` | whole-feature prints from `motifs.py` run as a script |
 | `linework.py` | strokes, dots and masses of every print, their measurements, and SVG exports |
 | `linework/` | one folder per feature set: `.strokes.svg`, `.outlines.svg`, `.strokes.json`, `.classes.png`, `.json` per feature, plus `summary.json` / `summary.csv` |
 | `strokelib.py` | clusters the strokes of a feature set into families and writes representative strokes |
 | `strokelib/` | one folder per feature set: `families.png`, `families.json`, `families.csv`, `by_feature.csv`, and a folder of SVGs per family |
 | `compounds.py` | structures made of several marks (combs, hatching, bands and more) with representatives of each type |
 | `compounds/` | one folder per feature set: `compounds.png`, `compounds.json`, `by_feature.csv`, and a folder of SVGs per type |
-| `ornament.py` | generators for friezes, rosettes and glyphs drawn from the measured stroke proportions |
-| `styletiles.py` | three style-tile pages for a component library, in `designlib/tiles/` |
-| `atlas.py` | real compound pieces, oriented and cleaned, in `designlib/atlas/` |
-| `atlastiles.py` | the earlier Herbarium and Bloom style tiles |
-| `sourcetiles.py` | the current style tiles: Bands, Marks and Strokes, one per source of shapes |
+| `ornament.py` | SVG helpers used by the page builders |
+| `styletiles.py` | shared page styles and colour helpers for the design library |
+| `atlas.py` | real pieces of the features (compounds and strokes) with their outlines, in `designlib/atlas/` |
+| `sourcetiles.py` | builds the design library pages: Bands, Marks and Strokes |
 | `designlib_api.py` | the server routes for the style tiles: pages, variants, saving, the saved gallery |
-| `designlib/` | `tiles/` (pages, `shapes.js`, `app.js`, assets) and `saved/` (saved specimens) |
+| `designlib/` | `tiles/` (pages, `shapes.js`, `app.js`, `view.js`, assets), `atlas/` (the pieces) and `saved/` (saved specimens) |
 | `colorways.py` | opponent colour pairs, gradients, duotones and mesh backgrounds for every feature |
 | `colorways/` | one folder per feature set: per-feature JSON and card, plus `colorways.css`, `filters.svg`, `gallery.html`, `pairs.png` |
 | `sample_resnet50.py`, `sample_convnext.py` | render a fixed random sample of channels spread across a model's block layers into `<model>features/` |
-| `palettes/` | swatch strips with hex codes, plus `.json` colour lists |
+| `resnet50features/`, `convnext_basefeatures/` | those samples, each image with a `.json` sidecar |
+| `patterns.py`, `patterns_checks.py` | tessellation and multiscale analysis of the features and prints |
+| `patterns/` | the analysis results |
