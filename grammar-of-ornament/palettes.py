@@ -144,7 +144,7 @@ def strip(hexes: list[str], swatch: int = 160, label_h: int = 44) -> Image.Image
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--src", default=str(HERE / "features"))
+    ap.add_argument("--src", default=str(HERE / "vgg16features"))
     ap.add_argument("--dst", default=str(HERE / "palettes"))
     ap.add_argument("--only", help="substring; process only files whose name contains it")
     ap.add_argument("--n", type=int, default=7, help="number of colours")

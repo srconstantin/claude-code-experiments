@@ -1,0 +1,19 @@
+{
+ "name": "resnet50__layer2.1__c508__224px__s0__ceea1c",
+ "url": "/resnet50features/resnet50__layer2.1__c508__224px__s0__ceea1c.png",
+ "saved": "2026-10-15 09:26:35",
+ "note": "random sample, default settings",
+ "model": "resnet50",
+ "size": 224,
+ "steps": 512,
+ "seed": 0,
+ "decay": 1.25,
+ "tv": 0.0,
+ "layer": "layer2.1",
+ "target": {
+  "channel": 508,
+  "y": null,
+  "x": null,
+  "negate": false
+ }
+}

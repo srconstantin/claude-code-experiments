@@ -1,0 +1,502 @@
+:root{
+  --cw-f10-c100-a:#d9d53a; --cw-f10-c100-b:#774c94; --cw-f10-c100-shadow:#583075; --cw-f10-c100-highlight:#e7e248;
+  --cw-f10-c60-a:#32df2d; --cw-f10-c60-b:#4022d9; --cw-f10-c60-shadow:#2c15cc; --cw-f10-c60-highlight:#5bfc4c;
+  --cw-f10-c69-a:#63ae55; --cw-f10-c69-b:#8f4bab; --cw-f10-c69-shadow:#642281; --cw-f10-c69-highlight:#a3f092;
+  --cw-f11-c11-a:#b29d2b; --cw-f11-c11-b:#7598b9; --cw-f11-c11-shadow:#1e4562; --cw-f11-c11-highlight:#f6dc69;
+  --cw-f11-c45-a:#507a36; --cw-f11-c45-b:#0c1896; --cw-f11-c45-shadow:#0c1896; --cw-f11-c45-highlight:#bdea9e;
+  --cw-f11-c6-a:#858173; --cw-f11-c6-b:#6d718a; --cw-f11-c6-shadow:#3d4157; --cw-f11-c6-highlight:#e1ddce;
+  --cw-f12-c0-a:#745f3c; --cw-f12-c0-b:#5b6979; --cw-f12-c0-shadow:#523f1e; --cw-f12-c0-highlight:#d0def1;
+  --cw-f12-c108-a:#46b14c; --cw-f12-c108-b:#8c33ab; --cw-f12-c108-shadow:#6d0f8c; --cw-f12-c108-highlight:#8bf489;
+  --cw-f12-c112-a:#6b662a; --cw-f12-c112-b:#797b94; --cw-f12-c112-shadow:#474407; --cw-f12-c112-highlight:#d9dbf7;
+  --cw-f30-c6-a:#7e7f5a; --cw-f30-c6-b:#59369a; --cw-f30-c6-shadow:#4e2c90; --cw-f30-c6-highlight:#dee0b7;
+  --cw-f30-c85-a:#817274; --cw-f30-c85-b:#404db6; --cw-f30-c85-shadow:#1c389c; --cw-f30-c85-highlight:#ead9da;
+  --cw-f31-c228-a:#837679; --cw-f31-c228-b:#b05828; --cw-f31-c228-shadow:#772800; --cw-f31-c228-highlight:#e8d9dc;
+  --cw-f31-c254-a:#4c7e2c; --cw-f31-c254-b:#707387; --cw-f31-c254-shadow:#174d00; --cw-f31-c254-highlight:#d9dcf2;
+  --cw-f31-c29-a:#708c7e; --cw-f31-c29-b:#714a5c; --cw-f31-c29-shadow:#5c3749; --cw-f31-c29-highlight:#c5e4d4;
+  --cw-f32-c35-a:#4a5e35; --cw-f32-c35-b:#4d4a57; --cw-f32-c35-shadow:#43404e; --cw-f32-c35-highlight:#cfe4b4;
+  --cw-f32-c58-a:#4b3b2f; --cw-f32-c58-b:#697f8f; --cw-f32-c58-shadow:#4b3b2f; --cw-f32-c58-highlight:#c9e0f2;
+  --cw-f32-c97-a:#84725f; --cw-f32-c97-b:#695795; --cw-f32-c97-shadow:#473972; --cw-f32-c97-highlight:#eed9c5;
+  --cw-f50-c208-a:#6d9a5a; --cw-f50-c208-b:#614e86; --cw-f50-c208-shadow:#4a396e; --cw-f50-c208-highlight:#bbeaa4;
+  --cw-f50-c38-a:#97a552; --cw-f50-c38-b:#5e4f81; --cw-f50-c38-shadow:#483a6a; --cw-f50-c38-highlight:#d7e48e;
+  --cw-f50-c451-a:#cc5f1f; --cw-f50-c451-b:#406b37; --cw-f50-c451-shadow:#204b1a; --cw-f50-c451-highlight:#ffbd78;
+  --cw-f510-c250-a:#bda06b; --cw-f510-c250-b:#6d84a9; --cw-f510-c250-shadow:#2a4364; --cw-f510-c250-highlight:#f9d8a1;
+  --cw-f510-c453-a:#6f7946; --cw-f510-c453-b:#373e65; --cw-f510-c453-shadow:#373e65; --cw-f510-c453-highlight:#d8e2aa;
+  --cw-f510-c485-a:#96a86b; --cw-f510-c485-b:#775198; --cw-f510-c485-shadow:#553175; --cw-f510-c485-highlight:#d2e4a4;
+  --cw-f511-c273-a:#dd7b25; --cw-f511-c273-b:#406a7f; --cw-f511-c273-shadow:#19475a; --cw-f511-c273-highlight:#ffc36b;
+  --cw-f511-c403-a:#af8943; --cw-f511-c403-b:#6d7384; --cw-f511-c403-shadow:#3c4252; --cw-f511-c403-highlight:#ffd68b;
+  --cw-f512-c190-a:#938149; --cw-f512-c190-b:#5e59a1; --cw-f512-c190-shadow:#3b3a7e; --cw-f512-c190-highlight:#f2db9e;
+  --cw-f512-c250-a:#c07a4f; --cw-f512-c250-b:#74819f; --cw-f512-c250-shadow:#34425d; --cw-f512-c250-highlight:#ffcb9c;
+  --cw-f512-c428-a:#ba8846; --cw-f512-c428-b:#486895; --cw-f512-c428-shadow:#1d446e; --cw-f512-c428-highlight:#ffd28d;
+  --cw-f513-c127-a:#c1b268; --cw-f513-c127-b:#456a9c; --cw-f513-c127-shadow:#144472; --cw-f513-c127-highlight:#eedd91;
+  --cw-f513-c13-a:#a79655; --cw-f513-c13-b:#4a5597; --cw-f513-c13-shadow:#2f3e7c; --cw-f513-c13-highlight:#f1dc97;
+  --cw-f513-c432-a:#bc906b; --cw-f513-c432-b:#6c7b8a; --cw-f513-c432-shadow:#354452; --cw-f513-c432-highlight:#ffd3ac;
+  --cw-f514-c113-a:#ce9856; --cw-f514-c113-b:#648691; --cw-f514-c113-shadow:#254751; --cw-f514-c113-highlight:#ffd28d;
+  --cw-f514-c404-a:#b08e4f; --cw-f514-c404-b:#466eb8; --cw-f514-c404-shadow:#004286; --cw-f514-c404-highlight:#fed794;
+  --cw-f514-c486-a:#85945e; --cw-f514-c486-b:#4e5992; --cw-f514-c486-shadow:#313f75; --cw-f514-c486-highlight:#d5e3a9;
+  --cw-f515-c115-a:#9b8254; --cw-f515-c115-b:#5d5882; --cw-f515-c115-shadow:#413e65; --cw-f515-c115-highlight:#f6d9a7;
+  --cw-f515-c196-a:#ad7135; --cw-f515-c196-b:#5492cc; --cw-f515-c196-shadow:#663600; --cw-f515-c196-highlight:#a9e1ff;
+  --cw-f515-c411-a:#8d905e; --cw-f515-c411-b:#766289; --cw-f515-c411-shadow:#4d3a5f; --cw-f515-c411-highlight:#dee1aa;
+  --cw-f516-c353-a:#915630; --cw-f516-c353-b:#537488; --cw-f516-c353-shadow:#69340f; --cw-f516-c353-highlight:#bfe2f8;
+  --cw-f516-c361-a:#91925c; --cw-f516-c361-b:#434d8e; --cw-f516-c361-shadow:#313d7c; --cw-f516-c361-highlight:#e0e0a6;
+  --cw-f516-c48-a:#c18241; --cw-f516-c48-b:#597cb9; --cw-f516-c48-shadow:#0c437a; --cw-f516-c48-highlight:#ffce8a;
+  --cw-f517-c35-a:#a38836; --cw-f517-c35-b:#4e5e85; --cw-f517-c35-shadow:#304267; --cw-f517-c35-highlight:#fbda83;
+  --cw-f517-c88-a:#9f854a; --cw-f517-c88-b:#534f7f; --cw-f517-c88-shadow:#3f3d6b; --cw-f517-c88-highlight:#f9d99a;
+  --cw-f518-c186-a:#967b42; --cw-f518-c186-b:#6e5b87; --cw-f518-c186-shadow:#4c3a64; --cw-f518-c186-highlight:#fad99a;
+  --cw-f518-c21-a:#ba8950; --cw-f518-c21-b:#484891; --cw-f518-c21-shadow:#383a81; --cw-f518-c21-highlight:#ffd395;
+  --cw-f518-c95-a:#86c955; --cw-f518-c95-b:#60576f; --cw-f518-c95-shadow:#473e56; --cw-f518-c95-highlight:#acef79;
+  --cw-f519-c181-a:#a09558; --cw-f519-c181-b:#585592; --cw-f519-c181-shadow:#3c3c76; --cw-f519-c181-highlight:#ebdd9c;
+  --cw-f519-c304-a:#97a45c; --cw-f519-c304-b:#4e4e95; --cw-f519-c304-shadow:#373b7f; --cw-f519-c304-highlight:#d7e497;
+  --cw-f51-c18-a:#9f8f6f; --cw-f51-c18-b:#3f3b62; --cw-f51-c18-shadow:#3f3b62; --cw-f51-c18-highlight:#eddbb8;
+  --cw-f51-c479-a:#aaa261; --cw-f51-c479-b:#515861; --cw-f51-c479-shadow:#3b434b; --cw-f51-c479-highlight:#e8df9b;
+  --cw-f51-c484-a:#64644d; --cw-f51-c484-b:#493e56; --cw-f51-c484-shadow:#493d56; --cw-f51-c484-highlight:#dfdec4;
+  --cw-f520-c119-a:#bb9f4a; --cw-f520-c119-b:#535792; --cw-f520-c119-shadow:#373d75; --cw-f520-c119-highlight:#fbda82;
+  --cw-f520-c334-a:#cd8828; --cw-f520-c334-b:#556b84; --cw-f520-c334-shadow:#2e445b; --cw-f520-c334-highlight:#ffcd6d;
+  --cw-f520-c381-a:#b49f51; --cw-f520-c381-b:#6b73a2; --cw-f520-c381-shadow:#36406b; --cw-f520-c381-highlight:#f4dc8b;
+  --cw-f521-c151-a:#a5603f; --cw-f521-c151-b:#5079a2; --cw-f521-c151-shadow:#6d3012; --cw-f521-c151-highlight:#b9e0ff;
+  --cw-f521-c301-a:#bc6f42; --cw-f521-c301-b:#576b81; --cw-f521-c301-shadow:#304458; --cw-f521-c301-highlight:#ffc997;
+  --cw-f521-c83-a:#aba251; --cw-f521-c83-b:#6c6d95; --cw-f521-c83-shadow:#3d3f63; --cw-f521-c83-highlight:#ebdf8a;
+  --cw-f522-c120-a:#96662d; --cw-f522-c120-b:#767594; --cw-f522-c120-shadow:#613900; --cw-f522-c120-highlight:#dbd9fd;
+  --cw-f522-c260-a:#99924f; --cw-f522-c260-b:#9577b4; --cw-f522-c260-shadow:#50366d; --cw-f522-c260-highlight:#e8df97;
+  --cw-f522-c319-a:#ca8131; --cw-f522-c319-b:#5f75ab; --cw-f522-c319-shadow:#254173; --cw-f522-c319-highlight:#ffcb79;
+  --cw-f523-c330-a:#a16e47; --cw-f523-c330-b:#5b89a1; --cw-f523-c330-shadow:#633714; --cw-f523-c330-highlight:#b5e3fd;
+  --cw-f523-c402-a:#bd934a; --cw-f523-c402-b:#505771; --cw-f523-c402-shadow:#3a415a; --cw-f523-c402-highlight:#ffd589;
+  --cw-f524-c249-a:#da8c24; --cw-f524-c249-b:#52639f; --cw-f524-c249-shadow:#294078; --cw-f524-c249-highlight:#ffca64;
+  --cw-f524-c480-a:#9e9c5f; --cw-f524-c480-b:#6b53b2; --cw-f524-c480-shadow:#45328c; --cw-f524-c480-highlight:#e3e09f;
+  --cw-f524-c51-a:#a67b34; --cw-f524-c51-b:#6778a5; --cw-f524-c51-shadow:#2e416a; --cw-f524-c51-highlight:#ffd489;
+  --cw-f525-c303-a:#ae7c49; --cw-f525-c303-b:#53669e; --cw-f525-c303-shadow:#294075; --cw-f525-c303-highlight:#ffd29a;
+  --cw-f525-c343-a:#d87529; --cw-f525-c343-b:#608595; --cw-f525-c343-shadow:#204755; --cw-f525-c343-highlight:#ffc273;
+  --cw-f525-c378-a:#c2bb4e; --cw-f525-c378-b:#7b748c; --cw-f525-c378-shadow:#453f55; --cw-f525-c378-highlight:#e9e072;
+  --cw-f526-c146-a:#c08f31; --cw-f526-c146-b:#404b76; --cw-f526-c146-shadow:#34406a; --cw-f526-c146-highlight:#ffd474;
+  --cw-f526-c252-a:#b27240; --cw-f526-c252-b:#5389ae; --cw-f526-c252-shadow:#693402; --cw-f526-c252-highlight:#afe3ff;
+  --cw-f526-c78-a:#b98649; --cw-f526-c78-b:#5e74a2; --cw-f526-c78-shadow:#28426c; --cw-f526-c78-highlight:#ffd291;
+  --cw-f52-c189-a:#d88a33; --cw-f52-c189-b:#665092; --cw-f52-c189-shadow:#4a3776; --cw-f52-c189-highlight:#ffca71;
+  --cw-f52-c253-a:#83633d; --cw-f52-c253-b:#6659a0; --cw-f52-c253-shadow:#41397b; --cw-f52-c253-highlight:#fed6ab;
+  --cw-f52-c278-a:#a86a32; --cw-f52-c278-b:#4b5986; --cw-f52-c278-shadow:#30416b; --cw-f52-c278-highlight:#ffcd90;
+  --cw-f53-c136-a:#121b12; --cw-f53-c136-b:#0e1016; --cw-f53-c136-shadow:#0e1016; --cw-f53-c136-highlight:#d4e0d5;
+  --cw-f53-c388-a:#9a6045; --cw-f53-c388-b:#3d597f; --cw-f53-c388-shadow:#264368; --cw-f53-c388-highlight:#ffcdaf;
+  --cw-f54-c100-a:#a2563a; --cw-f54-c100-b:#4b6295; --cw-f54-c100-shadow:#264271; --cw-f54-c100-highlight:#ffc7a5;
+  --cw-f54-c136-a:#252b16; --cw-f54-c136-b:#181920; --cw-f54-c136-shadow:#181920; --cw-f54-c136-highlight:#d9e0c5;
+  --cw-f54-c312-a:#a88c55; --cw-f54-c312-b:#446775; --cw-f54-c312-shadow:#234754; --cw-f54-c312-highlight:#f9d99e;
+  --cw-f55-c33-a:#c37e41; --cw-f55-c33-b:#53637f; --cw-f55-c33-shadow:#32435d; --cw-f55-c33-highlight:#ffcc8a;
+  --cw-f55-c394-a:#454f35; --cw-f55-c394-b:#6f4e5c; --cw-f55-c394-shadow:#3b462c; --cw-f55-c394-highlight:#fbd2e2;
+  --cw-f56-c245-a:#9e9535; --cw-f56-c245-b:#6d7878; --cw-f56-c245-shadow:#3a4444; --cw-f56-c245-highlight:#ecdf7b;
+  --cw-f56-c360-a:#7e8358; --cw-f56-c360-b:#63587c; --cw-f56-c360-shadow:#473d5f; --cw-f56-c360-highlight:#dce1b2;
+  --cw-f56-c423-a:#b87b40; --cw-f56-c423-b:#777ba8; --cw-f56-c423-shadow:#393f68; --cw-f56-c423-highlight:#ffce8f;
+  --cw-f57-c11-a:#738245; --cw-f57-c11-b:#7077a1; --cw-f57-c11-shadow:#374066; --cw-f57-c11-highlight:#d5e4a1;
+  --cw-f57-c465-a:#455639; --cw-f57-c465-b:#48658a; --cw-f57-c465-shadow:#36472b; --cw-f57-c465-highlight:#c3dfff;
+  --cw-f57-c477-a:#b39f6a; --cw-f57-c477-b:#3e324c; --cw-f57-c477-shadow:#3e324c; --cw-f57-c477-highlight:#f2dba3;
+  --cw-f58-c211-a:#98764e; --cw-f58-c211-b:#474c82; --cw-f58-c211-shadow:#383e72; --cw-f58-c211-highlight:#ffd6a9;
+  --cw-f58-c302-a:#7b553b; --cw-f58-c302-b:#454871; --cw-f58-c302-shadow:#3b3f66; --cw-f58-c302-highlight:#ffd3b5;
+  --cw-f59-c137-a:#905533; --cw-f59-c137-b:#8189b1; --cw-f59-c137-shadow:#693413; --cw-f59-c137-highlight:#d3dbff;
+  --cw-f59-c308-a:#9a6f30; --cw-f59-c308-b:#466069; --cw-f59-c308-shadow:#2c464e; --cw-f59-c308-highlight:#ffd48f;
+  --cw-f59-c40-a:#a4703b; --cw-f59-c40-b:#75758c; --cw-f59-c40-shadow:#404055; --cw-f59-c40-highlight:#ffd096;
+  --cw-f70-c290-a:#c29534; --cw-f70-c290-b:#4d677a; --cw-f70-c290-shadow:#2b4557; --cw-f70-c290-highlight:#ffd572;
+  --cw-f70-c325-a:#ad8c42; --cw-f70-c325-b:#4b5aad; --cw-f70-c325-shadow:#223c8a; --cw-f70-c325-highlight:#ffd88a;
+  --cw-f70-c777-a:#cf9848; --cw-f70-c777-b:#5b5dad; --cw-f70-c777-shadow:#333a85; --cw-f70-c777-highlight:#ffd27f;
+  --cw-f71-c110-a:#a7a65e; --cw-f71-c110-b:#4c529f; --cw-f71-c110-shadow:#313b84; --cw-f71-c110-highlight:#e3e095;
+  --cw-f71-c296-a:#c49a44; --cw-f71-c296-b:#615bae; --cw-f71-c296-shadow:#383986; --cw-f71-c296-highlight:#ffd67d;
+  --cw-f71-c345-a:#979d4e; --cw-f71-c345-b:#6a67ba; --cw-f71-c345-shadow:#363986; --cw-f71-c345-highlight:#dee28f;
+  --cw-f72-c298-a:#aa9450; --cw-f72-c298-b:#5351a2; --cw-f72-c298-shadow:#363987; --cw-f72-c298-highlight:#f5db93;
+  --cw-f72-c73-a:#c7a44f; --cw-f72-c73-b:#475ea2; --cw-f72-c73-shadow:#203f7f; --cw-f72-c73-highlight:#ffd880;
+  --cw-f72-c889-a:#a39b54; --cw-f72-c889-b:#71589d; --cw-f72-c889-shadow:#4c3577; --cw-f72-c889-highlight:#e9df94;
+}
+.cw-f10-c100-gradient{background:linear-gradient(90deg, #824f82 0%, #98594c 17%, #9f6d46 33%, #a98447 50%, #b79e4a 67%, #c8b549 83%, #d7cd40 100%)}
+.cw-f10-c100-pair{background:linear-gradient(90deg, #d9d53a 0%, #ccbe53 17%, #bea664 33%, #af8f73 50%, #9f787f 67%, #8c628a 83%, #774c94 100%)}
+.cw-f10-c100-mesh{background:radial-gradient(circle at 43.3% 20.0%, #b58c1b 0%, transparent 49%), radial-gradient(circle at 85.7% 82.8%, #ab7c8c 0%, transparent 26%), radial-gradient(circle at 84.8% 41.1%, #bb874c 0%, transparent 39%), radial-gradient(circle at 24.1% 79.9%, #9f8856 0%, transparent 37%), radial-gradient(circle at 35.5% 57.7%, #bc8922 0%, transparent 47%), #b4883e}
+.cw-f10-c100-duotone{filter:url(filters.svg#duo-f10-c100)}
+.cw-f10-c60-gradient{background:linear-gradient(90deg, #462dc6 0%, #4b4991 17%, #52677b 33%, #6e948c 50%, #50865c 67%, #419d45 83%, #38cf34 100%)}
+.cw-f10-c60-pair{background:linear-gradient(90deg, #32df2d 0%, #5dc25a 17%, #6da579 33%, #728893 50%, #6e6aab 67%, #604ac2 83%, #4022d9 100%)}
+.cw-f10-c60-mesh{background:radial-gradient(circle at 34.9% 41.9%, #29a031 0%, transparent 52%), radial-gradient(circle at 83.9% 57.4%, #4b3bbe 0%, transparent 36%), radial-gradient(circle at 12.6% 85.6%, #5344a5 0%, transparent 23%), radial-gradient(circle at 79.0% 42.7%, #55619d 0%, transparent 38%), radial-gradient(circle at 36.3% 49.5%, #487d59 0%, transparent 46%), #557771}
+.cw-f10-c60-duotone{filter:url(filters.svg#duo-f10-c60)}
+.cw-f10-c69-gradient{background:linear-gradient(90deg, #8f4ea5 0%, #895b98 17%, #7e698c 33%, #767780 50%, #728973 67%, #6a9a66 83%, #64a858 100%)}
+.cw-f10-c69-pair{background:linear-gradient(90deg, #63ae55 0%, #729f66 17%, #7d9075 33%, #848184 50%, #8a7091 67%, #8d5f9e 83%, #8f4bab 100%)}
+.cw-f10-c69-mesh{background:radial-gradient(circle at 24.1% 22.3%, #827981 0%, transparent 43%), radial-gradient(circle at 75.6% 21.2%, #867a80 0%, transparent 42%), radial-gradient(circle at 19.6% 74.8%, #7f7a80 0%, transparent 41%), radial-gradient(circle at 79.4% 77.0%, #857687 0%, transparent 37%), radial-gradient(circle at 57.5% 62.0%, #7f837e 0%, transparent 38%), #827b81}
+.cw-f10-c69-duotone{filter:url(filters.svg#duo-f10-c69)}
+.cw-f11-c11-gradient{background:linear-gradient(90deg, #7a9bb0 0%, #7e9f88 17%, #869e71 33%, #8e9d60 50%, #959c52 67%, #9e9c44 83%, #ab9c32 100%)}
+.cw-f11-c11-pair{background:linear-gradient(90deg, #b29d2b 0%, #ad9c48 17%, #a79b61 33%, #9e9a77 50%, #94998d 67%, #8798a3 83%, #7598b9 100%)}
+.cw-f11-c11-mesh{background:radial-gradient(circle at 48.1% 29.2%, #8ea045 0%, transparent 49%), radial-gradient(circle at 16.8% 16.3%, #939b72 0%, transparent 31%), radial-gradient(circle at 51.7% 71.4%, #8da044 0%, transparent 49%), radial-gradient(circle at 89.5% 46.2%, #979864 0%, transparent 38%), radial-gradient(circle at 17.4% 83.7%, #939971 0%, transparent 30%), #919d55}
+.cw-f11-c11-duotone{filter:url(filters.svg#duo-f11-c11)}
+.cw-f11-c45-gradient{background:linear-gradient(90deg, #111e8b 0%, #262f78 17%, #644d69 33%, #7f776f 50%, #9e8673 67%, #9fa086 83%, #617f48 100%)}
+.cw-f11-c45-pair{background:linear-gradient(90deg, #507a36 0%, #536b49 17%, #525b5a 33%, #4d4b6a 50%, #443b79 67%, #342b87 83%, #0c1896 100%)}
+.cw-f11-c45-mesh{background:radial-gradient(circle at 36.5% 42.0%, #bacfc1 0%, transparent 48%), radial-gradient(circle at 85.7% 61.4%, #262e93 0%, transparent 35%), radial-gradient(circle at 47.7% 51.5%, #302e21 0%, transparent 44%), radial-gradient(circle at 11.2% 62.1%, #3a418a 0%, transparent 36%), radial-gradient(circle at 77.7% 35.1%, #88839e 0%, transparent 36%), #6b6a84}
+.cw-f11-c45-duotone{filter:url(filters.svg#duo-f11-c45)}
+.cw-f11-c6-gradient{background:linear-gradient(90deg, #6f7288 0%, #737384 17%, #767381 33%, #79747e 50%, #7c747c 67%, #7f7579 83%, #837e75 100%)}
+.cw-f11-c6-pair{background:linear-gradient(90deg, #858173 0%, #817e77 17%, #7e7c7b 33%, #7a797f 50%, #767682 67%, #727486 83%, #6d718a 100%)}
+.cw-f11-c6-mesh{background:radial-gradient(circle at 52.6% 25.2%, #7b7282 0%, transparent 38%), radial-gradient(circle at 84.9% 27.3%, #797682 0%, transparent 36%), radial-gradient(circle at 73.7% 76.4%, #7b7581 0%, transparent 43%), radial-gradient(circle at 24.1% 74.9%, #7b7381 0%, transparent 44%), radial-gradient(circle at 17.1% 24.9%, #7b7382 0%, transparent 39%), #7b7482}
+.cw-f11-c6-duotone{filter:url(filters.svg#duo-f11-c6)}
+.cw-f12-c0-gradient{background:linear-gradient(90deg, #5f6e75 0%, #697965 17%, #6c745a 33%, #6c6b4f 50%, #6b6347 67%, #6b5e40 83%, #705d3c 100%)}
+.cw-f12-c0-pair{background:linear-gradient(90deg, #745f3c 0%, #716046 17%, #6e6250 33%, #6b635b 50%, #676565 67%, #61676f 83%, #5b6979 100%)}
+.cw-f12-c0-mesh{background:radial-gradient(circle at 24.4% 23.1%, #6d6849 0%, transparent 44%), radial-gradient(circle at 83.0% 74.8%, #716a4c 0%, transparent 37%), radial-gradient(circle at 15.6% 74.2%, #706a4b 0%, transparent 37%), radial-gradient(circle at 49.4% 70.3%, #696746 0%, transparent 39%), radial-gradient(circle at 75.0% 23.2%, #6f684a 0%, transparent 44%), #6e6849}
+.cw-f12-c0-duotone{filter:url(filters.svg#duo-f12-c0)}
+.cw-f12-c108-gradient{background:linear-gradient(90deg, #833692 0%, #724769 17%, #6f5965 33%, #6e6963 50%, #67725d 67%, #5c7f56 83%, #4ea24f 100%)}
+.cw-f12-c108-pair{background:linear-gradient(90deg, #46b14c 0%, #619f5f 17%, #728d70 33%, #7d7b80 50%, #85678e 67%, #8a509d 83%, #8c33ab 100%)}
+.cw-f12-c108-mesh{background:radial-gradient(circle at 52.2% 22.4%, #677258 0%, transparent 38%), radial-gradient(circle at 72.2% 34.1%, #785f6a 0%, transparent 43%), radial-gradient(circle at 73.6% 78.0%, #696b5a 0%, transparent 42%), radial-gradient(circle at 22.3% 74.8%, #746763 0%, transparent 42%), radial-gradient(circle at 17.1% 24.2%, #7b5a68 0%, transparent 36%), #726662}
+.cw-f12-c108-duotone{filter:url(filters.svg#duo-f12-c108)}
+.cw-f12-c112-gradient{background:linear-gradient(90deg, #787488 0%, #76686b 17%, #72635d 33%, #6c5c4e 50%, #685841 67%, #665837 83%, #68602d 100%)}
+.cw-f12-c112-pair{background:linear-gradient(90deg, #6b662a 0%, #6f693d 17%, #736d4e 33%, #76705f 50%, #787371 67%, #797782 83%, #797b94 100%)}
+.cw-f12-c112-mesh{background:radial-gradient(circle at 75.0% 23.0%, #746555 0%, transparent 44%), radial-gradient(circle at 24.0% 23.5%, #736551 0%, transparent 44%), radial-gradient(circle at 16.4% 74.9%, #71604c 0%, transparent 38%), radial-gradient(circle at 82.8% 74.7%, #70624f 0%, transparent 37%), radial-gradient(circle at 50.0% 69.7%, #73664f 0%, transparent 38%), #726450}
+.cw-f12-c112-duotone{filter:url(filters.svg#duo-f12-c112)}
+.cw-f30-c6-gradient{background:linear-gradient(90deg, #593a8f 0%, #654a80 17%, #6b4f75 33%, #644a60 50%, #62464f 67%, #68514c 83%, #777256 100%)}
+.cw-f30-c6-pair{background:linear-gradient(90deg, #7e7f5a 0%, #7b7366 17%, #776771 33%, #725b7c 50%, #6c4f86 67%, #634390 83%, #59369a 100%)}
+.cw-f30-c6-mesh{background:radial-gradient(circle at 56.0% 64.1%, #5a3f8c 0%, transparent 48%), radial-gradient(circle at 23.1% 22.2%, #785161 0%, transparent 43%), radial-gradient(circle at 75.1% 19.6%, #7a5967 0%, transparent 41%), radial-gradient(circle at 16.8% 74.6%, #614560 0%, transparent 37%), radial-gradient(circle at 84.6% 79.6%, #795b75 0%, transparent 32%), #6e4d70}
+.cw-f30-c6-duotone{filter:url(filters.svg#duo-f30-c6)}
+.cw-f30-c85-gradient{background:linear-gradient(90deg, #4752b2 0%, #5459a5 17%, #5d5c9c 33%, #635f94 50%, #6a638f 67%, #716889 83%, #7e6f7d 100%)}
+.cw-f30-c85-pair{background:linear-gradient(90deg, #817274 0%, #7b6c7f 17%, #74658a 33%, #6b5f95 50%, #6159a0 67%, #5353ab 83%, #404db6 100%)}
+.cw-f30-c85-mesh{background:radial-gradient(circle at 22.4% 19.3%, #6e62a0 0%, transparent 40%), radial-gradient(circle at 67.9% 26.9%, #5e56b1 0%, transparent 44%), radial-gradient(circle at 17.4% 79.1%, #6a67a5 0%, transparent 35%), radial-gradient(circle at 49.4% 67.3%, #5a52ae 0%, transparent 46%), radial-gradient(circle at 89.3% 63.2%, #6f68a6 0%, transparent 35%), #665da9}
+.cw-f30-c85-duotone{filter:url(filters.svg#duo-f30-c85)}
+.cw-f31-c228-gradient{background:linear-gradient(90deg, #85706f 0%, #8c6e66 17%, #916b61 33%, #9a6d62 50%, #9b685c 67%, #935b4b 83%, #a45932 100%)}
+.cw-f31-c228-pair{background:linear-gradient(90deg, #837679 0%, #8d716c 17%, #966d5e 33%, #9e6851 50%, #a56344 67%, #ab5d37 83%, #b05828 100%)}
+.cw-f31-c228-mesh{background:radial-gradient(circle at 49.6% 47.2%, #b15d4b 0%, transparent 43%), radial-gradient(circle at 20.7% 78.4%, #996654 0%, transparent 40%), radial-gradient(circle at 78.0% 77.9%, #9b6453 0%, transparent 40%), radial-gradient(circle at 19.4% 20.6%, #a06752 0%, transparent 39%), radial-gradient(circle at 78.7% 19.6%, #9c6450 0%, transparent 39%), #a16350}
+.cw-f31-c228-duotone{filter:url(filters.svg#duo-f31-c228)}
+.cw-f31-c254-gradient{background:linear-gradient(90deg, #706e7c 0%, #6e5d5c 17%, #6c554d 33%, #6e5243 50%, #73563d 67%, #6c643a 83%, #527731 100%)}
+.cw-f31-c254-pair{background:linear-gradient(90deg, #4c7e2c 0%, #547c3d 17%, #5b7b4d 33%, #62795b 50%, #67776a 67%, #6c7578 83%, #707387 100%)}
+.cw-f31-c254-mesh{background:radial-gradient(circle at 24.6% 23.0%, #665e45 0%, transparent 44%), radial-gradient(circle at 82.4% 74.1%, #696046 0%, transparent 38%), radial-gradient(circle at 15.1% 73.3%, #695f45 0%, transparent 37%), radial-gradient(circle at 48.3% 72.1%, #665e45 0%, transparent 38%), radial-gradient(circle at 74.8% 23.5%, #686148 0%, transparent 44%), #685f46}
+.cw-f31-c254-duotone{filter:url(filters.svg#duo-f31-c254)}
+.cw-f31-c29-gradient{background:linear-gradient(90deg, #674655 0%, #57434c 17%, #453a41 33%, #383237 50%, #373539 67%, #4e5152 83%, #6d8176 100%)}
+.cw-f31-c29-pair{background:linear-gradient(90deg, #708c7e 0%, #718178 17%, #727672 33%, #736b6d 50%, #736067 67%, #725562 83%, #714a5c 100%)}
+.cw-f31-c29-mesh{background:radial-gradient(circle at 70.4% 22.9%, #513943 0%, transparent 47%), radial-gradient(circle at 78.9% 73.1%, #4f444a 0%, transparent 42%), radial-gradient(circle at 19.0% 88.0%, #717f72 0%, transparent 26%), radial-gradient(circle at 33.6% 68.2%, #323133 0%, transparent 41%), radial-gradient(circle at 19.8% 25.2%, #4a3c45 0%, transparent 42%), #4b4046}
+.cw-f31-c29-duotone{filter:url(filters.svg#duo-f31-c29)}
+.cw-f32-c35-gradient{background:linear-gradient(90deg, #46424c 0%, #2b2a2b 17%, #252624 33%, #242622 50%, #252821 67%, #292e22 83%, #414f2f 100%)}
+.cw-f32-c35-pair{background:linear-gradient(90deg, #4a5e35 0%, #4b5a3b 17%, #4c5741 33%, #4d5447 50%, #4d504c 67%, #4d4d52 83%, #4d4a57 100%)}
+.cw-f32-c35-mesh{background:radial-gradient(circle at 18.9% 18.8%, #363c30 0%, transparent 37%), radial-gradient(circle at 79.1% 19.9%, #353a31 0%, transparent 39%), radial-gradient(circle at 20.1% 78.9%, #2b2d24 0%, transparent 39%), radial-gradient(circle at 77.7% 77.4%, #2c3028 0%, transparent 41%), radial-gradient(circle at 46.5% 46.4%, #161813 0%, transparent 45%), #2a2d25}
+.cw-f32-c35-duotone{filter:url(filters.svg#duo-f32-c35)}
+.cw-f32-c58-gradient{background:linear-gradient(90deg, #6c7d8a 0%, #5a5d60 17%, #4d4a49 33%, #4b4542 50%, #49413c 67%, #493e37 83%, #4a3c31 100%)}
+.cw-f32-c58-pair{background:linear-gradient(90deg, #4b3b2f 0%, #51463e 17%, #57514d 33%, #5c5c5d 50%, #61676d 67%, #65737e 83%, #697f8f 100%)}
+.cw-f32-c58-mesh{background:radial-gradient(circle at 75.4% 22.7%, #5b5351 0%, transparent 43%), radial-gradient(circle at 30.7% 50.8%, #504742 0%, transparent 39%), radial-gradient(circle at 24.2% 83.7%, #544e4c 0%, transparent 37%), radial-gradient(circle at 76.1% 73.9%, #524a47 0%, transparent 44%), radial-gradient(circle at 22.7% 17.1%, #59514f 0%, transparent 38%), #554d4b}
+.cw-f32-c58-duotone{filter:url(filters.svg#duo-f32-c58)}
+.cw-f32-c97-gradient{background:linear-gradient(90deg, #6c5988 0%, #705d6a 17%, #6d5b5e 33%, #695857 50%, #655753 67%, #655851 83%, #7c6859 100%)}
+.cw-f32-c97-pair{background:linear-gradient(90deg, #84725f 0%, #816d69 17%, #7d6972 33%, #79657a 50%, #746083 67%, #6f5c8c 83%, #695795 100%)}
+.cw-f32-c97-mesh{background:radial-gradient(circle at 26.3% 21.1%, #6c5b64 0%, transparent 43%), radial-gradient(circle at 14.9% 67.0%, #655359 0%, transparent 38%), radial-gradient(circle at 81.6% 73.4%, #6c5c63 0%, transparent 38%), radial-gradient(circle at 45.6% 77.2%, #716067 0%, transparent 38%), radial-gradient(circle at 75.0% 24.4%, #6f5c62 0%, transparent 44%), #6c5b62}
+.cw-f32-c97-duotone{filter:url(filters.svg#duo-f32-c97)}
+.cw-f50-c208-gradient{background:linear-gradient(90deg, #675380 0%, #716176 17%, #786d7a 33%, #7c747a 50%, #807978 67%, #7f7b6f 83%, #739260 100%)}
+.cw-f50-c208-pair{background:linear-gradient(90deg, #6d9a5a 0%, #6e8e63 17%, #6e816b 33%, #6c7572 50%, #6a6879 67%, #665b80 83%, #614e86 100%)}
+.cw-f50-c208-mesh{background:radial-gradient(circle at 23.4% 20.8%, #7e787e 0%, transparent 42%), radial-gradient(circle at 77.0% 23.2%, #7b757c 0%, transparent 43%), radial-gradient(circle at 77.3% 78.4%, #767078 0%, transparent 40%), radial-gradient(circle at 17.8% 77.5%, #746d72 0%, transparent 38%), radial-gradient(circle at 46.5% 56.5%, #69626b 0%, transparent 38%), #767077}
+.cw-f50-c208-duotone{filter:url(filters.svg#duo-f50-c208)}
+.cw-f50-c38-gradient{background:linear-gradient(90deg, #65567d 0%, #7f6f78 17%, #94817e 33%, #9f8b7e 50%, #a48f79 67%, #a89370 83%, #a09e5c 100%)}
+.cw-f50-c38-pair{background:linear-gradient(90deg, #97a552 0%, #90965c 17%, #888765 33%, #7f796d 50%, #756a74 67%, #6b5c7a 83%, #5e4f81 100%)}
+.cw-f50-c38-mesh{background:radial-gradient(circle at 26.7% 21.9%, #988375 0%, transparent 45%), radial-gradient(circle at 78.7% 23.9%, #977f7a 0%, transparent 42%), radial-gradient(circle at 14.4% 76.8%, #988765 0%, transparent 35%), radial-gradient(circle at 40.3% 64.4%, #90776b 0%, transparent 35%), radial-gradient(circle at 75.3% 74.7%, #97846e 0%, transparent 43%), #968171}
+.cw-f50-c38-duotone{filter:url(filters.svg#duo-f50-c38)}
+.cw-f50-c451-gradient{background:linear-gradient(90deg, #c66221 0%, #b96424 17%, #af6426 33%, #a56327 50%, #9b6228 67%, #8b6029 83%, #616a2e 100%)}
+.cw-f50-c451-pair{background:linear-gradient(90deg, #cc5f1f 0%, #b76423 17%, #a26828 33%, #8c6a2c 50%, #756b30 67%, #5d6b33 83%, #406b37 100%)}
+.cw-f50-c451-mesh{background:radial-gradient(circle at 72.9% 20.3%, #b65500 0%, transparent 44%), radial-gradient(circle at 65.8% 65.5%, #b25a00 0%, transparent 43%), radial-gradient(circle at 85.9% 83.7%, #795c06 0%, transparent 25%), radial-gradient(circle at 23.3% 84.2%, #8d6002 0%, transparent 35%), radial-gradient(circle at 22.2% 32.6%, #b56000 0%, transparent 49%), #aa5c01}
+.cw-f50-c451-duotone{filter:url(filters.svg#duo-f50-c451)}
+.cw-f510-c250-gradient{background:linear-gradient(90deg, #7384a2 0%, #7f8491 17%, #807a81 33%, #827473 50%, #9e8a80 67%, #ab937c 83%, #ba9d71 100%)}
+.cw-f510-c250-pair{background:linear-gradient(90deg, #bda06b 0%, #b39b76 17%, #a79681 33%, #9b918b 50%, #8e8d95 67%, #7f889f 83%, #6d84a9 100%)}
+.cw-f510-c250-mesh{background:radial-gradient(circle at 25.5% 26.0%, #7b7783 0%, transparent 48%), radial-gradient(circle at 76.8% 25.0%, #9c979f 0%, transparent 44%), radial-gradient(circle at 55.7% 70.9%, #c2ad8b 0%, transparent 37%), radial-gradient(circle at 84.4% 80.1%, #857166 0%, transparent 32%), radial-gradient(circle at 19.3% 76.1%, #917962 0%, transparent 38%), #958781}
+.cw-f510-c250-duotone{filter:url(filters.svg#duo-f510-c250)}
+.cw-f510-c453-gradient{background:linear-gradient(90deg, #3e4362 0%, #524c56 17%, #544242 33%, #5f4d44 50%, #665644 67%, #6c6046 83%, #6f7146 100%)}
+.cw-f510-c453-pair{background:linear-gradient(90deg, #6f7946 0%, #676e4c 17%, #5f6452 33%, #575a57 50%, #4e505c 67%, #434761 83%, #373e65 100%)}
+.cw-f510-c453-mesh{background:radial-gradient(circle at 73.2% 20.6%, #5d4d54 0%, transparent 40%), radial-gradient(circle at 61.1% 76.1%, #555549 0%, transparent 45%), radial-gradient(circle at 88.9% 57.0%, #633f41 0%, transparent 30%), radial-gradient(circle at 16.7% 74.6%, #716957 0%, transparent 38%), radial-gradient(circle at 25.7% 24.4%, #635c44 0%, transparent 46%), #61564c}
+.cw-f510-c453-duotone{filter:url(filters.svg#duo-f510-c453)}
+.cw-f510-c485-gradient{background:linear-gradient(90deg, #7a538c 0%, #6d5771 17%, #6e5e6c 33%, #7b6f73 50%, #8a7d78 67%, #908573 83%, #9ca06e 100%)}
+.cw-f510-c485-pair{background:linear-gradient(90deg, #96a86b 0%, #939a74 17%, #908b7c 33%, #8b7d84 50%, #866e8b 67%, #7f6092 83%, #775198 100%)}
+.cw-f510-c485-mesh{background:radial-gradient(circle at 67.7% 27.3%, #715480 0%, transparent 47%), radial-gradient(circle at 24.8% 22.5%, #a19e9d 0%, transparent 42%), radial-gradient(circle at 54.4% 80.7%, #46343e 0%, transparent 30%), radial-gradient(circle at 27.5% 73.8%, #928872 0%, transparent 44%), radial-gradient(circle at 81.7% 66.4%, #715857 0%, transparent 35%), #7f6d75}
+.cw-f510-c485-duotone{filter:url(filters.svg#duo-f510-c485)}
+.cw-f511-c273-gradient{background:linear-gradient(90deg, #516a6e 0%, #7f694c 17%, #9d7043 33%, #b2793c 50%, #be7b35 67%, #ca7c31 83%, #d97d2b 100%)}
+.cw-f511-c273-pair{background:linear-gradient(90deg, #dd7b25 0%, #c87939 17%, #b27749 33%, #9b7457 50%, #837165 67%, #666e72 83%, #406a7f 100%)}
+.cw-f511-c273-mesh{background:radial-gradient(circle at 45.1% 20.5%, #d77109 0%, transparent 57%), radial-gradient(circle at 12.1% 66.5%, #947046 0%, transparent 32%), radial-gradient(circle at 85.4% 51.4%, #797d62 0%, transparent 31%), radial-gradient(circle at 56.3% 71.4%, #b57517 0%, transparent 44%), radial-gradient(circle at 52.6% 83.0%, #7c4a33 0%, transparent 31%), #b26f2b}
+.cw-f511-c273-duotone{filter:url(filters.svg#duo-f511-c273)}
+.cw-f511-c403-gradient{background:linear-gradient(90deg, #6e6c79 0%, #836f6d 17%, #826a62 33%, #7c6153 50%, #795b47 67%, #7d5c41 83%, #9c7640 100%)}
+.cw-f511-c403-pair{background:linear-gradient(90deg, #af8943 0%, #a6854f 17%, #9c815a 33%, #927e65 50%, #877a70 67%, #7a767a 83%, #6d7384 100%)}
+.cw-f511-c403-mesh{background:radial-gradient(circle at 53.4% 19.5%, #79533b 0%, transparent 50%), radial-gradient(circle at 66.1% 80.5%, #ad9078 0%, transparent 33%), radial-gradient(circle at 8.5% 50.5%, #a98d7c 0%, transparent 35%), radial-gradient(circle at 30.3% 65.6%, #6f4c33 0%, transparent 43%), radial-gradient(circle at 86.8% 54.4%, #8c6d5c 0%, transparent 39%), #886750}
+.cw-f511-c403-duotone{filter:url(filters.svg#duo-f511-c403)}
+.cw-f512-c190-gradient{background:linear-gradient(90deg, #65639d 0%, #686b82 17%, #5e5962 33%, #564c4b 50%, #5b5046 67%, #695b44 83%, #857044 100%)}
+.cw-f512-c190-pair{background:linear-gradient(90deg, #938149 0%, #8e7a59 17%, #887368 33%, #806c77 50%, #776685 67%, #6c5f93 83%, #5e59a1 100%)}
+.cw-f512-c190-mesh{background:radial-gradient(circle at 36.6% 19.3%, #544847 0%, transparent 48%), radial-gradient(circle at 51.7% 54.9%, #7d7052 0%, transparent 35%), radial-gradient(circle at 85.7% 28.4%, #5c6479 0%, transparent 34%), radial-gradient(circle at 79.4% 80.0%, #6e5058 0%, transparent 37%), radial-gradient(circle at 20.3% 72.9%, #626168 0%, transparent 44%), #64595b}
+.cw-f512-c190-duotone{filter:url(filters.svg#duo-f512-c190)}
+.cw-f512-c250-gradient{background:linear-gradient(90deg, #777f97 0%, #786f6f 17%, #8f8179 33%, #998778 50%, #a08974 67%, #a7876c 83%, #b88058 100%)}
+.cw-f512-c250-pair{background:linear-gradient(90deg, #c07a4f 0%, #b67b5d 17%, #ac7d6a 33%, #a17e77 50%, #947f85 67%, #858092 83%, #74819f 100%)}
+.cw-f512-c250-mesh{background:radial-gradient(circle at 29.0% 23.4%, #b59b8a 0%, transparent 47%), radial-gradient(circle at 74.3% 28.8%, #9d8c87 0%, transparent 44%), radial-gradient(circle at 39.8% 79.5%, #a48563 0%, transparent 40%), radial-gradient(circle at 81.4% 72.7%, #7c5b48 0%, transparent 38%), radial-gradient(circle at 8.6% 67.7%, #7e533f 0%, transparent 30%), #9c7f6d}
+.cw-f512-c250-duotone{filter:url(filters.svg#duo-f512-c250)}
+.cw-f512-c428-gradient{background:linear-gradient(90deg, #4b5c80 0%, #463c44 17%, #4f4040 33%, #5b463f 50%, #745a49 67%, #8e6b4f 83%, #b3804d 100%)}
+.cw-f512-c428-pair{background:linear-gradient(90deg, #ba8846 0%, #ac8255 17%, #9d7d63 33%, #8c7770 50%, #7a727d 67%, #646d89 83%, #486895 100%)}
+.cw-f512-c428-mesh{background:radial-gradient(circle at 26.4% 19.6%, #7a5f4f 0%, transparent 44%), radial-gradient(circle at 62.2% 70.4%, #915936 0%, transparent 39%), radial-gradient(circle at 89.9% 79.9%, #786b6a 0%, transparent 25%), radial-gradient(circle at 24.1% 70.4%, #594647 0%, transparent 47%), radial-gradient(circle at 79.0% 26.9%, #6a5449 0%, transparent 43%), #725549}
+.cw-f512-c428-duotone{filter:url(filters.svg#duo-f512-c428)}
+.cw-f513-c127-gradient{background:linear-gradient(90deg, #4e6a91 0%, #595a66 17%, #6e595f 33%, #826262 50%, #99756e 67%, #a88f77 83%, #bcae72 100%)}
+.cw-f513-c127-pair{background:linear-gradient(90deg, #c1b268 0%, #b1a673 17%, #9f997c 33%, #8d8d85 50%, #79818d 67%, #627594 83%, #456a9c 100%)}
+.cw-f513-c127-mesh{background:radial-gradient(circle at 25.2% 24.7%, #65575d 0%, transparent 46%), radial-gradient(circle at 74.1% 25.5%, #a9937d 0%, transparent 45%), radial-gradient(circle at 40.3% 72.5%, #5b5a66 0%, transparent 38%), radial-gradient(circle at 79.2% 75.8%, #9e8269 0%, transparent 40%), radial-gradient(circle at 11.8% 77.7%, #826359 0%, transparent 30%), #837069}
+.cw-f513-c127-duotone{filter:url(filters.svg#duo-f513-c127)}
+.cw-f513-c13-gradient{background:linear-gradient(90deg, #535a8d 0%, #6d6770 17%, #6a605d 33%, #726659 50%, #7a6d57 67%, #827251 83%, #9b8852 100%)}
+.cw-f513-c13-pair{background:linear-gradient(90deg, #a79655 0%, #9c8a62 17%, #8f7f6e 33%, #827479 50%, #736983 67%, #615f8d 83%, #4a5597 100%)}
+.cw-f513-c13-mesh{background:radial-gradient(circle at 60.0% 17.2%, #76785b 0%, transparent 44%), radial-gradient(circle at 15.6% 45.5%, #736069 0%, transparent 48%), radial-gradient(circle at 44.1% 82.1%, #827956 0%, transparent 39%), radial-gradient(circle at 71.6% 62.3%, #615358 0%, transparent 38%), radial-gradient(circle at 87.4% 53.0%, #906f4b 0%, transparent 30%), #77695c}
+.cw-f513-c13-duotone{filter:url(filters.svg#duo-f513-c13)}
+.cw-f513-c432-gradient{background:linear-gradient(90deg, #73808b 0%, #838987 17%, #8c8b83 33%, #908a7f 50%, #9a8e7e 67%, #a38f7b 83%, #b59071 100%)}
+.cw-f513-c432-pair{background:linear-gradient(90deg, #bc906b 0%, #b08c71 17%, #a48976 33%, #97857b 50%, #8a8281 67%, #7b7e86 83%, #6c7b8a 100%)}
+.cw-f513-c432-mesh{background:radial-gradient(circle at 69.5% 14.4%, #8f7f71 0%, transparent 39%), radial-gradient(circle at 13.6% 32.9%, #8e837e 0%, transparent 41%), radial-gradient(circle at 84.8% 70.8%, #827d74 0%, transparent 38%), radial-gradient(circle at 33.5% 87.7%, #7d766b 0%, transparent 36%), radial-gradient(circle at 49.4% 49.5%, #bfa68b 0%, transparent 46%), #96887a}
+.cw-f513-c432-duotone{filter:url(filters.svg#duo-f513-c432)}
+.cw-f514-c113-gradient{background:linear-gradient(90deg, #69858a 0%, #646d67 17%, #58574e 33%, #585245 50%, #665b47 67%, #816f51 83%, #be905c 100%)}
+.cw-f514-c113-pair{background:linear-gradient(90deg, #ce9856 0%, #c09561 17%, #b0926c 33%, #a08f75 50%, #8e8c7f 67%, #7b8988 83%, #648691 100%)}
+.cw-f514-c113-mesh{background:radial-gradient(circle at 28.3% 20.5%, #675d4d 0%, transparent 43%), radial-gradient(circle at 42.8% 53.7%, #a48455 0%, transparent 35%), radial-gradient(circle at 76.0% 72.2%, #554537 0%, transparent 42%), radial-gradient(circle at 21.9% 77.2%, #726f61 0%, transparent 42%), radial-gradient(circle at 80.0% 24.2%, #71654a 0%, transparent 40%), #70634d}
+.cw-f514-c113-duotone{filter:url(filters.svg#duo-f514-c113)}
+.cw-f514-c404-gradient{background:linear-gradient(90deg, #4e6ba7 0%, #616a80 17%, #5c5b65 33%, #50484b 50%, #60514e 67%, #766254 83%, #a08051 100%)}
+.cw-f514-c404-pair{background:linear-gradient(90deg, #b08e4f 0%, #a58862 17%, #998274 33%, #8b7d85 50%, #7b7897 67%, #6573a7 83%, #466eb8 100%)}
+.cw-f514-c404-mesh{background:radial-gradient(circle at 43.4% 19.6%, #4f4249 0%, transparent 54%), radial-gradient(circle at 80.4% 47.2%, #58576b 0%, transparent 40%), radial-gradient(circle at 27.1% 87.7%, #a0897d 0%, transparent 33%), radial-gradient(circle at 26.6% 58.7%, #726f7f 0%, transparent 41%), radial-gradient(circle at 80.3% 85.6%, #99846c 0%, transparent 30%), #6b5f65}
+.cw-f514-c404-duotone{filter:url(filters.svg#duo-f514-c404)}
+.cw-f514-c486-gradient{background:linear-gradient(90deg, #515a88 0%, #616a7e 17%, #6d7881 33%, #707b79 50%, #7b8376 67%, #838e77 83%, #819064 100%)}
+.cw-f514-c486-pair{background:linear-gradient(90deg, #85945e 0%, #7f8a68 17%, #787f71 33%, #70757a 50%, #666c82 67%, #5c628a 83%, #4e5992 100%)}
+.cw-f514-c486-mesh{background:radial-gradient(circle at 35.5% 22.2%, #5f6c7f 0%, transparent 44%), radial-gradient(circle at 78.4% 26.7%, #7c886f 0%, transparent 40%), radial-gradient(circle at 75.8% 73.2%, #7d8175 0%, transparent 44%), radial-gradient(circle at 30.7% 74.4%, #5d6d7a 0%, transparent 42%), radial-gradient(circle at 7.8% 48.0%, #979589 0%, transparent 30%), #727b7a}
+.cw-f514-c486-duotone{filter:url(filters.svg#duo-f514-c486)}
+.cw-f515-c115-gradient{background:linear-gradient(90deg, #62597a 0%, #6e5b63 17%, #786262 33%, #806a63 50%, #887164 67%, #8d7661 83%, #977c57 100%)}
+.cw-f515-c115-pair{background:linear-gradient(90deg, #9b8254 0%, #927b5d 17%, #897465 33%, #806d6c 50%, #756674 67%, #6a5f7b 83%, #5d5882 100%)}
+.cw-f515-c115-mesh{background:radial-gradient(circle at 24.9% 21.1%, #816560 0%, transparent 43%), radial-gradient(circle at 76.4% 23.3%, #765d51 0%, transparent 42%), radial-gradient(circle at 76.8% 77.6%, #826c6d 0%, transparent 42%), radial-gradient(circle at 14.9% 77.6%, #856e66 0%, transparent 34%), radial-gradient(circle at 43.1% 60.7%, #9d8473 0%, transparent 39%), #856c64}
+.cw-f515-c115-duotone{filter:url(filters.svg#duo-f515-c115)}
+.cw-f515-c196-gradient{background:linear-gradient(90deg, #6096c4 0%, #789eaf 17%, #7d9a9d 33%, #7a9087 50%, #727968 67%, #7a6e52 83%, #9f723f 100%)}
+.cw-f515-c196-pair{background:linear-gradient(90deg, #ad7135 0%, #a77650 17%, #9f7c68 33%, #958181 50%, #87879a 67%, #748cb3 83%, #5492cc 100%)}
+.cw-f515-c196-mesh{background:radial-gradient(circle at 54.9% 44.4%, #81b3c4 0%, transparent 51%), radial-gradient(circle at 85.0% 76.4%, #777568 0%, transparent 34%), radial-gradient(circle at 28.5% 78.8%, #555450 0%, transparent 42%), radial-gradient(circle at 19.1% 24.9%, #907151 0%, transparent 40%), radial-gradient(circle at 78.4% 15.6%, #8a7f75 0%, transparent 32%), #7d817c}
+.cw-f515-c196-duotone{filter:url(filters.svg#duo-f515-c196)}
+.cw-f515-c411-gradient{background:linear-gradient(90deg, #796686 0%, #796a7a 17%, #74636b 33%, #705a5b 50%, #776159 67%, #7d6e5e 83%, #88875f 100%)}
+.cw-f515-c411-pair{background:linear-gradient(90deg, #8d905e 0%, #8a8866 17%, #87806d 33%, #837974 50%, #7f717b 67%, #7b6982 83%, #766289 100%)}
+.cw-f515-c411-mesh{background:radial-gradient(circle at 30.4% 18.7%, #8a7278 0%, transparent 45%), radial-gradient(circle at 79.7% 30.1%, #5e5255 0%, transparent 44%), radial-gradient(circle at 16.9% 68.2%, #816962 0%, transparent 42%), radial-gradient(circle at 80.7% 80.9%, #948a8a 0%, transparent 34%), radial-gradient(circle at 49.5% 71.2%, #6b5c59 0%, transparent 36%), #7a6868}
+.cw-f515-c411-duotone{filter:url(filters.svg#duo-f515-c411)}
+.cw-f516-c353-gradient{background:linear-gradient(90deg, #5b737e 0%, #616456 17%, #66604f 33%, #705e4e 50%, #79604d 67%, #81634a 83%, #8a5a37 100%)}
+.cw-f516-c353-pair{background:linear-gradient(90deg, #915630 0%, #8b5b3f 17%, #84604d 33%, #7c655c 50%, #726a6b 67%, #656f79 83%, #537488 100%)}
+.cw-f516-c353-mesh{background:radial-gradient(circle at 28.4% 22.6%, #5f4534 0%, transparent 46%), radial-gradient(circle at 78.4% 21.7%, #745f4a 0%, transparent 40%), radial-gradient(circle at 19.2% 66.3%, #948573 0%, transparent 40%), radial-gradient(circle at 51.8% 85.9%, #604530 0%, transparent 35%), radial-gradient(circle at 76.4% 66.3%, #957558 0%, transparent 40%), #78604a}
+.cw-f516-c353-duotone{filter:url(filters.svg#duo-f516-c353)}
+.cw-f516-c361-gradient{background:linear-gradient(90deg, #4c5186 0%, #6d6981 17%, #797480 33%, #828387 50%, #8a8d86 67%, #8c8d78 83%, #949468 100%)}
+.cw-f516-c361-pair{background:linear-gradient(90deg, #91925c 0%, #878666 17%, #7d7a6f 33%, #726e77 50%, #65637f 67%, #565787 83%, #434d8e 100%)}
+.cw-f516-c361-mesh{background:radial-gradient(circle at 26.3% 22.5%, #736f5f 0%, transparent 44%), radial-gradient(circle at 21.1% 71.5%, #9a867f 0%, transparent 44%), radial-gradient(circle at 66.5% 78.7%, #5d6594 0%, transparent 36%), radial-gradient(circle at 91.3% 82.8%, #6c5067 0%, transparent 22%), radial-gradient(circle at 73.0% 31.1%, #819197 0%, transparent 50%), #7e7b81}
+.cw-f516-c361-duotone{filter:url(filters.svg#duo-f516-c361)}
+.cw-f516-c48-gradient{background:linear-gradient(90deg, #667aaa 0%, #7e828b 17%, #7b7372 33%, #806f67 50%, #86735f 67%, #997c5b 83%, #b5814a 100%)}
+.cw-f516-c48-pair{background:linear-gradient(90deg, #c18241 0%, #b68057 17%, #aa7f6c 33%, #9c7e7f 50%, #8c7d93 67%, #777da6 83%, #597cb9 100%)}
+.cw-f516-c48-mesh{background:radial-gradient(circle at 52.9% 18.4%, #825f49 0%, transparent 50%), radial-gradient(circle at 16.9% 37.0%, #6f727f 0%, transparent 34%), radial-gradient(circle at 60.1% 88.3%, #939098 0%, transparent 30%), radial-gradient(circle at 30.3% 71.5%, #a99271 0%, transparent 44%), radial-gradient(circle at 86.4% 57.1%, #a18982 0%, transparent 39%), #927b6e}
+.cw-f516-c48-duotone{filter:url(filters.svg#duo-f516-c48)}
+.cw-f517-c35-gradient{background:linear-gradient(90deg, #556483 0%, #5f6e77 17%, #5e6565 33%, #605954 50%, #746254 67%, #846c50 83%, #997c3f 100%)}
+.cw-f517-c35-pair{background:linear-gradient(90deg, #a38836 0%, #988146 17%, #8d7954 33%, #807261 50%, #726b6e 67%, #626479 83%, #4e5e85 100%)}
+.cw-f517-c35-mesh{background:radial-gradient(circle at 67.8% 12.4%, #806a49 0%, transparent 34%), radial-gradient(circle at 79.4% 46.3%, #6d7273 0%, transparent 41%), radial-gradient(circle at 24.3% 77.8%, #7c7263 0%, transparent 41%), radial-gradient(circle at 70.7% 80.0%, #9f7f5b 0%, transparent 36%), radial-gradient(circle at 23.8% 31.2%, #4d494b 0%, transparent 48%), #73675b}
+.cw-f517-c35-duotone{filter:url(filters.svg#duo-f517-c35)}
+.cw-f517-c88-gradient{background:linear-gradient(90deg, #625a81 0%, #877c8a 17%, #92888e 33%, #968d8d 50%, #9c928d 67%, #918072 83%, #987b50 100%)}
+.cw-f517-c88-pair{background:linear-gradient(90deg, #9f854a 0%, #957b55 17%, #8a725e 33%, #7e6967 50%, #71606f 67%, #635778 83%, #534f7f 100%)}
+.cw-f517-c88-mesh{background:radial-gradient(circle at 50.4% 23.5%, #71555b 0%, transparent 46%), radial-gradient(circle at 74.5% 55.4%, #b9b8b6 0%, transparent 54%), radial-gradient(circle at 13.3% 81.9%, #b8b6ab 0%, transparent 28%), radial-gradient(circle at 42.8% 79.1%, #685c57 0%, transparent 35%), radial-gradient(circle at 12.0% 26.0%, #8a7778 0%, transparent 33%), #948786}
+.cw-f517-c88-duotone{filter:url(filters.svg#duo-f517-c88)}
+.cw-f518-c186-gradient{background:linear-gradient(90deg, #745f83 0%, #796673 17%, #796167 33%, #755b5a 50%, #765b51 67%, #7e614c 83%, #8f7345 100%)}
+.cw-f518-c186-pair{background:linear-gradient(90deg, #967b42 0%, #92764f 17%, #8c705b 33%, #866b66 50%, #7f6571 67%, #78607c 83%, #6e5b87 100%)}
+.cw-f518-c186-mesh{background:radial-gradient(circle at 39.4% 34.8%, #64453b 0%, transparent 41%), radial-gradient(circle at 82.4% 25.6%, #887675 0%, transparent 39%), radial-gradient(circle at 24.7% 76.1%, #986f62 0%, transparent 45%), radial-gradient(circle at 26.5% 17.2%, #a48583 0%, transparent 35%), radial-gradient(circle at 75.8% 76.3%, #60484d 0%, transparent 41%), #80625e}
+.cw-f518-c186-duotone{filter:url(filters.svg#duo-f518-c186)}
+.cw-f518-c21-gradient{background:linear-gradient(90deg, #4f4a83 0%, #62535c 17%, #6d5955 33%, #7d6759 50%, #886f58 67%, #997a59 83%, #ad804f 100%)}
+.cw-f518-c21-pair{background:linear-gradient(90deg, #ba8950 0%, #ab7d5d 17%, #9b7268 33%, #8b6773 50%, #785c7d 67%, #635287 83%, #484891 100%)}
+.cw-f518-c21-mesh{background:radial-gradient(circle at 53.7% 14.8%, #836d76 0%, transparent 38%), radial-gradient(circle at 20.1% 28.5%, #ab9580 0%, transparent 39%), radial-gradient(circle at 44.6% 76.3%, #906942 0%, transparent 43%), radial-gradient(circle at 17.6% 84.4%, #6e5b60 0%, transparent 29%), radial-gradient(circle at 78.3% 51.0%, #714e46 0%, transparent 50%), #86685b}
+.cw-f518-c21-duotone{filter:url(filters.svg#duo-f518-c21)}
+.cw-f518-c95-gradient{background:linear-gradient(90deg, #635566 0%, #685658 17%, #6c5751 33%, #765949 50%, #87664d 67%, #9c774f 83%, #90b75d 100%)}
+.cw-f518-c95-pair{background:linear-gradient(90deg, #86c955 0%, #82b55c 17%, #7da262 33%, #778e66 50%, #717c6a 67%, #69696d 83%, #60576f 100%)}
+.cw-f518-c95-mesh{background:radial-gradient(circle at 54.1% 28.2%, #795940 0%, transparent 56%), radial-gradient(circle at 77.9% 48.4%, #879b4f 0%, transparent 30%), radial-gradient(circle at 8.5% 22.2%, #90a472 0%, transparent 25%), radial-gradient(circle at 22.7% 72.3%, #77625a 0%, transparent 46%), radial-gradient(circle at 79.8% 75.4%, #7b6d5f 0%, transparent 37%), #7d6c52}
+.cw-f518-c95-duotone{filter:url(filters.svg#duo-f518-c95)}
+.cw-f519-c181-gradient{background:linear-gradient(90deg, #5e5c8c 0%, #65606c 17%, #6b5e5f 33%, #6e605b 50%, #79685b 67%, #7a6952 83%, #958655 100%)}
+.cw-f519-c181-pair{background:linear-gradient(90deg, #a09558 0%, #978a63 17%, #8d7f6d 33%, #827477 50%, #766980 67%, #685f89 83%, #585592 100%)}
+.cw-f519-c181-mesh{background:radial-gradient(circle at 19.0% 27.0%, #898078 0%, transparent 38%), radial-gradient(circle at 60.8% 23.0%, #60534a 0%, transparent 48%), radial-gradient(circle at 60.7% 76.6%, #8e8b85 0%, transparent 40%), radial-gradient(circle at 19.4% 72.8%, #625a46 0%, transparent 40%), radial-gradient(circle at 89.1% 59.4%, #675c71 0%, transparent 34%), #716862}
+.cw-f519-c181-duotone{filter:url(filters.svg#duo-f519-c181)}
+.cw-f519-c304-gradient{background:linear-gradient(90deg, #4e548d 0%, #53687f 17%, #58737a 33%, #617c75 50%, #657963 67%, #6e805b 83%, #8a985c 100%)}
+.cw-f519-c304-pair{background:linear-gradient(90deg, #97a45c 0%, #8f9567 17%, #858672 33%, #7b787b 50%, #6e6a85 67%, #605c8d 83%, #4e4e95 100%)}
+.cw-f519-c304-mesh{background:radial-gradient(circle at 53.7% 14.5%, #4f648d 0%, transparent 43%), radial-gradient(circle at 77.7% 47.4%, #628776 0%, transparent 40%), radial-gradient(circle at 18.6% 38.4%, #576f76 0%, transparent 41%), radial-gradient(circle at 68.5% 73.1%, #788753 0%, transparent 41%), radial-gradient(circle at 23.5% 83.2%, #63664c 0%, transparent 36%), #63746e}
+.cw-f519-c304-duotone{filter:url(filters.svg#duo-f519-c304)}
+.cw-f51-c18-gradient{background:linear-gradient(90deg, #3e385a 0%, #3f374d 17%, #453d4d 33%, #524651 50%, #65555a 67%, #796661 83%, #95846c 100%)}
+.cw-f51-c18-pair{background:linear-gradient(90deg, #9f8f6f 0%, #8f806d 17%, #80716b 33%, #706369 50%, #605567 67%, #504865 83%, #3f3b62 100%)}
+.cw-f51-c18-mesh{background:radial-gradient(circle at 43.1% 35.2%, #343443 0%, transparent 36%), radial-gradient(circle at 77.2% 24.8%, #564e5b 0%, transparent 43%), radial-gradient(circle at 15.9% 72.6%, #765c66 0%, transparent 38%), radial-gradient(circle at 69.1% 77.5%, #4e4355 0%, transparent 48%), radial-gradient(circle at 15.6% 21.5%, #726264 0%, transparent 35%), #584c58}
+.cw-f51-c18-duotone{filter:url(filters.svg#duo-f51-c18)}
+.cw-f51-c479-gradient{background:linear-gradient(90deg, #4d4f51 0%, #544d42 17%, #625a48 33%, #70664e 50%, #7b6f51 67%, #8a7c55 83%, #9e945d 100%)}
+.cw-f51-c479-pair{background:linear-gradient(90deg, #aaa261 0%, #9b9562 17%, #8c8862 33%, #7e7c62 50%, #6f7062 67%, #606461 83%, #515861 100%)}
+.cw-f51-c479-mesh{background:radial-gradient(circle at 36.1% 58.4%, #8f8d64 0%, transparent 39%), radial-gradient(circle at 80.0% 25.7%, #948659 0%, transparent 40%), radial-gradient(circle at 76.7% 75.8%, #6c5b3b 0%, transparent 40%), radial-gradient(circle at 20.9% 84.1%, #55492f 0%, transparent 34%), radial-gradient(circle at 32.1% 23.5%, #5b5033 0%, transparent 48%), #726644}
+.cw-f51-c479-duotone{filter:url(filters.svg#duo-f51-c479)}
+.cw-f51-c484-gradient{background:linear-gradient(90deg, #4d3f52 0%, #58474f 17%, #5e4b4f 33%, #5e4b4b 50%, #63524e 67%, #675950 83%, #67614f 100%)}
+.cw-f51-c484-pair{background:linear-gradient(90deg, #64644d 0%, #605d4f 17%, #5c5750 33%, #585152 50%, #534a54 67%, #4e4455 83%, #493e56 100%)}
+.cw-f51-c484-mesh{background:radial-gradient(circle at 39.4% 36.1%, #766563 0%, transparent 38%), radial-gradient(circle at 76.2% 23.0%, #5e4d4d 0%, transparent 43%), radial-gradient(circle at 73.8% 74.2%, #594b4e 0%, transparent 46%), radial-gradient(circle at 21.4% 78.5%, #544549 0%, transparent 40%), radial-gradient(circle at 13.5% 22.5%, #5a4748 0%, transparent 34%), #5e4e50}
+.cw-f51-c484-duotone{filter:url(filters.svg#duo-f51-c484)}
+.cw-f520-c119-gradient{background:linear-gradient(90deg, #5c5886 0%, #6c5a65 17%, #6b5755 33%, #7c685a 50%, #9a7e62 67%, #a9875c 83%, #b89650 100%)}
+.cw-f520-c119-pair{background:linear-gradient(90deg, #bb9f4a 0%, #ad9259 17%, #9f8566 33%, #8f7972 50%, #7e6e7d 67%, #6b6288 83%, #535792 100%)}
+.cw-f520-c119-mesh{background:radial-gradient(circle at 58.6% 23.6%, #a58f58 0%, transparent 41%), radial-gradient(circle at 19.0% 20.6%, #64545c 0%, transparent 38%), radial-gradient(circle at 18.3% 77.4%, #62565b 0%, transparent 38%), radial-gradient(circle at 59.2% 68.9%, #ae804e 0%, transparent 45%), radial-gradient(circle at 88.7% 53.1%, #876e6e 0%, transparent 37%), #8b705b}
+.cw-f520-c119-duotone{filter:url(filters.svg#duo-f520-c119)}
+.cw-f520-c334-gradient{background:linear-gradient(90deg, #5a6e7e 0%, #657269 17%, #70705e 33%, #867a5f 50%, #8f7752 67%, #a07e47 83%, #bc8431 100%)}
+.cw-f520-c334-pair{background:linear-gradient(90deg, #cd8828 0%, #bd833d 17%, #ac7e4d 33%, #9a795c 50%, #86746a 67%, #706f77 83%, #556b84 100%)}
+.cw-f520-c334-mesh{background:radial-gradient(circle at 60.5% 14.3%, #796850 0%, transparent 40%), radial-gradient(circle at 18.0% 32.7%, #8a8961 0%, transparent 42%), radial-gradient(circle at 69.1% 61.6%, #b48e4e 0%, transparent 43%), radial-gradient(circle at 26.0% 79.8%, #805a3f 0%, transparent 41%), radial-gradient(circle at 84.4% 59.2%, #735336 0%, transparent 33%), #8c724c}
+.cw-f520-c334-duotone{filter:url(filters.svg#duo-f520-c334)}
+.cw-f520-c381-gradient{background:linear-gradient(90deg, #6a6c91 0%, #44474e 17%, #3c3d3d 33%, #4b4841 50%, #645d4b 67%, #877c58 83%, #aa9857 100%)}
+.cw-f520-c381-pair{background:linear-gradient(90deg, #b49f51 0%, #ab9761 17%, #a18f6f 33%, #96887c 50%, #8a8189 67%, #7c7996 83%, #6b73a2 100%)}
+.cw-f520-c381-mesh{background:radial-gradient(circle at 42.9% 29.6%, #938c56 0%, transparent 35%), radial-gradient(circle at 79.7% 72.4%, #413d3f 0%, transparent 42%), radial-gradient(circle at 11.5% 44.9%, #615f67 0%, transparent 41%), radial-gradient(circle at 35.5% 69.5%, #696440 0%, transparent 43%), radial-gradient(circle at 77.4% 21.5%, #60534c 0%, transparent 40%), #645d4e}
+.cw-f520-c381-duotone{filter:url(filters.svg#duo-f520-c381)}
+.cw-f521-c151-gradient{background:linear-gradient(90deg, #5d7c9d 0%, #77818e 17%, #7a7879 33%, #827770 50%, #826d5e 67%, #84644d 83%, #986141 100%)}
+.cw-f521-c151-pair{background:linear-gradient(90deg, #a5603f 0%, #9d644f 17%, #936960 33%, #886d70 50%, #7a7180 67%, #697591 83%, #5079a2 100%)}
+.cw-f521-c151-mesh{background:radial-gradient(circle at 48.2% 61.7%, #724d43 0%, transparent 46%), radial-gradient(circle at 75.1% 18.7%, #877f7c 0%, transparent 40%), radial-gradient(circle at 81.2% 73.1%, #8c6b51 0%, transparent 39%), radial-gradient(circle at 20.6% 21.4%, #7b8296 0%, transparent 40%), radial-gradient(circle at 14.3% 74.3%, #9b8778 0%, transparent 36%), #857069}
+.cw-f521-c151-duotone{filter:url(filters.svg#duo-f521-c151)}
+.cw-f521-c301-gradient{background:linear-gradient(90deg, #536272 0%, #51544b 17%, #817a6a 33%, #92846d 50%, #988466 67%, #a3845f 83%, #b3774b 100%)}
+.cw-f521-c301-pair{background:linear-gradient(90deg, #bc6f42 0%, #ae6f4e 17%, #a06e58 33%, #906e63 50%, #806d6d 67%, #6d6c77 83%, #576b81 100%)}
+.cw-f521-c301-mesh{background:radial-gradient(circle at 30.9% 18.4%, #918268 0%, transparent 44%), radial-gradient(circle at 47.3% 75.0%, #946b43 0%, transparent 41%), radial-gradient(circle at 13.2% 69.6%, #b8a086 0%, transparent 36%), radial-gradient(circle at 89.8% 63.6%, #907253 0%, transparent 34%), radial-gradient(circle at 68.9% 35.9%, #54412f 0%, transparent 45%), #886f53}
+.cw-f521-c301-duotone{filter:url(filters.svg#duo-f521-c301)}
+.cw-f521-c83-gradient{background:linear-gradient(90deg, #6e6f8f 0%, #7b797b 17%, #8d877e 33%, #938b79 50%, #9a8e72 67%, #a3966c 83%, #ab9f5c 100%)}
+.cw-f521-c83-pair{background:linear-gradient(90deg, #aba251 0%, #a3995e 17%, #9a906a 33%, #908776 50%, #867e80 67%, #7a768b 83%, #6c6d95 100%)}
+.cw-f521-c83-mesh{background:radial-gradient(circle at 41.1% 35.0%, #b9a669 0%, transparent 39%), radial-gradient(circle at 55.3% 12.1%, #706560 0%, transparent 42%), radial-gradient(circle at 16.2% 64.0%, #a4a288 0%, transparent 43%), radial-gradient(circle at 58.0% 89.4%, #6d5b44 0%, transparent 34%), radial-gradient(circle at 79.2% 58.9%, #aca994 0%, transparent 42%), #968c72}
+.cw-f521-c83-duotone{filter:url(filters.svg#duo-f521-c83)}
+.cw-f522-c120-gradient{background:linear-gradient(90deg, #776f8e 0%, #655356 17%, #695250 33%, #70544d 50%, #745447 67%, #7c5642 83%, #8f5f35 100%)}
+.cw-f522-c120-pair{background:linear-gradient(90deg, #96662d 0%, #93683f 17%, #906b51 33%, #8c6d62 50%, #866f73 67%, #7f7283 83%, #767594 100%)}
+.cw-f522-c120-mesh{background:radial-gradient(circle at 76.9% 22.4%, #9a7465 0%, transparent 42%), radial-gradient(circle at 23.1% 15.8%, #9a7c73 0%, transparent 37%), radial-gradient(circle at 80.1% 78.5%, #856050 0%, transparent 35%), radial-gradient(circle at 20.2% 69.6%, #6e4b3c 0%, transparent 46%), radial-gradient(circle at 55.6% 57.2%, #4d2e21 0%, transparent 41%), #7b584a}
+.cw-f522-c120-duotone{filter:url(filters.svg#duo-f522-c120)}
+.cw-f522-c260-gradient{background:linear-gradient(90deg, #987baa 0%, #988693 17%, #8a6d6d 33%, #88665d 50%, #896655 67%, #926f54 83%, #978550 100%)}
+.cw-f522-c260-pair{background:linear-gradient(90deg, #99924f 0%, #9b8d61 17%, #9b8972 33%, #9b8583 50%, #9a8093 67%, #987ca4 83%, #9577b4 100%)}
+.cw-f522-c260-mesh{background:radial-gradient(circle at 31.8% 20.0%, #9e7d81 0%, transparent 45%), radial-gradient(circle at 20.7% 54.0%, #996d5c 0%, transparent 34%), radial-gradient(circle at 68.1% 77.1%, #956750 0%, transparent 44%), radial-gradient(circle at 18.7% 85.1%, #756346 0%, transparent 31%), radial-gradient(circle at 79.7% 32.9%, #9f8286 0%, transparent 45%), #97746a}
+.cw-f522-c260-duotone{filter:url(filters.svg#duo-f522-c260)}
+.cw-f522-c319-gradient{background:linear-gradient(90deg, #6c7aa6 0%, #888892 17%, #887d78 33%, #8b7562 50%, #987858 67%, #ab7f51 83%, #c0813d 100%)}
+.cw-f522-c319-pair{background:linear-gradient(90deg, #ca8131 0%, #be7f49 17%, #b17c5e 33%, #a27a72 50%, #917885 67%, #7b7698 83%, #5f75ab 100%)}
+.cw-f522-c319-mesh{background:radial-gradient(circle at 44.4% 43.2%, #ba7b3e 0%, transparent 49%), radial-gradient(circle at 82.1% 27.2%, #9d7860 0%, transparent 40%), radial-gradient(circle at 78.8% 82.7%, #8f8b89 0%, transparent 34%), radial-gradient(circle at 24.0% 79.6%, #847c7d 0%, transparent 41%), radial-gradient(circle at 22.4% 16.6%, #90786d 0%, transparent 35%), #9e7c65}
+.cw-f522-c319-duotone{filter:url(filters.svg#duo-f522-c319)}
+.cw-f523-c330-gradient{background:linear-gradient(90deg, #5e8797 0%, #5c7b7a 17%, #566d67 33%, #5f6f63 50%, #6c7061 67%, #776a55 83%, #966d4c 100%)}
+.cw-f523-c330-pair{background:linear-gradient(90deg, #a16e47 0%, #9a7356 17%, #927765 33%, #887c74 50%, #7d8083 67%, #6e8592 83%, #5b89a1 100%)}
+.cw-f523-c330-mesh{background:radial-gradient(circle at 24.2% 19.9%, #6d796b 0%, transparent 38%), radial-gradient(circle at 58.6% 62.6%, #7f8a6e 0%, transparent 37%), radial-gradient(circle at 19.2% 67.8%, #604f3e 0%, transparent 45%), radial-gradient(circle at 79.3% 80.4%, #626c64 0%, transparent 36%), radial-gradient(circle at 73.8% 20.7%, #5b6e74 0%, transparent 44%), #686c61}
+.cw-f523-c330-duotone{filter:url(filters.svg#duo-f523-c330)}
+.cw-f523-c402-gradient{background:linear-gradient(90deg, #57596e 0%, #7c6e65 17%, #95806d 33%, #a3896e 50%, #a88a67 67%, #aa875c 83%, #b78e50 100%)}
+.cw-f523-c402-pair{background:linear-gradient(90deg, #bd934a 0%, #ad8952 17%, #9c7e5a 33%, #8b7460 50%, #796a66 67%, #66616c 83%, #505771 100%)}
+.cw-f523-c402-mesh{background:radial-gradient(circle at 29.2% 26.3%, #7f6250 0%, transparent 38%), radial-gradient(circle at 59.7% 14.9%, #a67e5e 0%, transparent 41%), radial-gradient(circle at 20.7% 70.6%, #a28661 0%, transparent 46%), radial-gradient(circle at 77.9% 80.3%, #907253 0%, transparent 37%), radial-gradient(circle at 69.9% 51.8%, #ba925c 0%, transparent 39%), #9e7d5a}
+.cw-f523-c402-duotone{filter:url(filters.svg#duo-f523-c402)}
+.cw-f524-c249-gradient{background:linear-gradient(90deg, #5f6b9e 0%, #7a787b 17%, #918578 33%, #9a856c 50%, #a1855f 67%, #ac8751 83%, #ca8833 100%)}
+.cw-f524-c249-pair{background:linear-gradient(90deg, #da8c24 0%, #c98441 17%, #b87d57 33%, #a4766a 50%, #8f6f7c 67%, #75698e 83%, #52639f 100%)}
+.cw-f524-c249-mesh{background:radial-gradient(circle at 49.2% 48.7%, #b16b36 0%, transparent 31%), radial-gradient(circle at 73.8% 28.1%, #847072 0%, transparent 45%), radial-gradient(circle at 19.3% 20.7%, #988779 0%, transparent 39%), radial-gradient(circle at 78.3% 72.6%, #b78955 0%, transparent 41%), radial-gradient(circle at 22.9% 74.3%, #b0945a 0%, transparent 44%), #a38161}
+.cw-f524-c249-duotone{filter:url(filters.svg#duo-f524-c249)}
+.cw-f524-c480-gradient{background:linear-gradient(90deg, #6d54a2 0%, #725c82 17%, #765c71 33%, #7a5b64 50%, #7e5b57 67%, #856756 83%, #988959 100%)}
+.cw-f524-c480-pair{background:linear-gradient(90deg, #9e9c5f 0%, #9a906f 17%, #94847d 33%, #8d778b 50%, #846b98 67%, #795fa5 83%, #6b53b2 100%)}
+.cw-f524-c480-mesh{background:radial-gradient(circle at 27.6% 22.0%, #8a7e80 0%, transparent 46%), radial-gradient(circle at 77.7% 68.7%, #794d96 0%, transparent 37%), radial-gradient(circle at 59.9% 76.9%, #8b5a6d 0%, transparent 27%), radial-gradient(circle at 24.1% 75.2%, #8b7a6c 0%, transparent 45%), radial-gradient(circle at 78.9% 26.5%, #6e475f 0%, transparent 42%), #836576}
+.cw-f524-c480-duotone{filter:url(filters.svg#duo-f524-c480)}
+.cw-f524-c51-gradient{background:linear-gradient(90deg, #6f7a9e 0%, #7c7e88 17%, #67615e 33%, #675d51 50%, #695b43 67%, #77643f 83%, #97773a 100%)}
+.cw-f524-c51-pair{background:linear-gradient(90deg, #a67b34 0%, #a07a49 17%, #99795c 33%, #90786f 50%, #867881 67%, #787893 83%, #6778a5 100%)}
+.cw-f524-c51-mesh{background:radial-gradient(circle at 25.4% 50.4%, #797472 0%, transparent 43%), radial-gradient(circle at 78.0% 31.3%, #857161 0%, transparent 48%), radial-gradient(circle at 16.1% 82.4%, #735a3a 0%, transparent 30%), radial-gradient(circle at 68.8% 81.6%, #615040 0%, transparent 41%), radial-gradient(circle at 31.3% 16.5%, #867b53 0%, transparent 37%), #796a57}
+.cw-f524-c51-duotone{filter:url(filters.svg#duo-f524-c51)}
+.cw-f525-c303-gradient{background:linear-gradient(90deg, #5e6998 0%, #6c6b84 17%, #716c7b 33%, #776870 50%, #7f6c68 67%, #8b7061 83%, #9f724b 100%)}
+.cw-f525-c303-pair{background:linear-gradient(90deg, #ae7c49 0%, #a37858 17%, #987467 33%, #8b7075 50%, #7c6d83 67%, #6a6991 83%, #53669e 100%)}
+.cw-f525-c303-mesh{background:radial-gradient(circle at 58.8% 16.8%, #847992 0%, transparent 40%), radial-gradient(circle at 21.0% 30.9%, #82645b 0%, transparent 43%), radial-gradient(circle at 84.8% 42.4%, #67606d 0%, transparent 38%), radial-gradient(circle at 64.7% 78.9%, #6f6471 0%, transparent 44%), radial-gradient(circle at 18.4% 77.2%, #8e7f6d 0%, transparent 37%), #7c6c71}
+.cw-f525-c303-duotone{filter:url(filters.svg#duo-f525-c303)}
+.cw-f525-c343-gradient{background:linear-gradient(90deg, #6e8a92 0%, #949484 17%, #9c8f76 33%, #9c8462 50%, #9e7951 67%, #aa7545 83%, #c77333 100%)}
+.cw-f525-c343-pair{background:linear-gradient(90deg, #d87529 0%, #c9793e 17%, #b97c51 33%, #a87f62 50%, #958173 67%, #7e8484 83%, #608595 100%)}
+.cw-f525-c343-mesh{background:radial-gradient(circle at 58.1% 39.8%, #9b9778 0%, transparent 38%), radial-gradient(circle at 20.4% 21.7%, #af8d5c 0%, transparent 40%), radial-gradient(circle at 23.2% 78.5%, #ad8457 0%, transparent 42%), radial-gradient(circle at 74.9% 73.2%, #b17d55 0%, transparent 45%), radial-gradient(circle at 71.4% 17.9%, #af6434 0%, transparent 35%), #ad8358}
+.cw-f525-c343-duotone{filter:url(filters.svg#duo-f525-c343)}
+.cw-f525-c378-gradient{background:linear-gradient(90deg, #857081 0%, #826461 17%, #836a5e 33%, #866f59 50%, #907d5a 67%, #9a8c58 83%, #b5ad53 100%)}
+.cw-f525-c378-pair{background:linear-gradient(90deg, #c2bb4e 0%, #b7af5c 17%, #ada367 33%, #a29771 50%, #968b7b 67%, #897f84 83%, #7b748c 100%)}
+.cw-f525-c378-mesh{background:radial-gradient(circle at 44.2% 16.6%, #988f72 0%, transparent 51%), radial-gradient(circle at 68.0% 46.8%, #bba161 0%, transparent 41%), radial-gradient(circle at 37.1% 85.6%, #6b6a41 0%, transparent 34%), radial-gradient(circle at 83.7% 75.3%, #8c6545 0%, transparent 36%), radial-gradient(circle at 14.2% 59.2%, #7f624a 0%, transparent 37%), #937f59}
+.cw-f525-c378-duotone{filter:url(filters.svg#duo-f525-c378)}
+.cw-f526-c146-gradient{background:linear-gradient(90deg, #4b5173 0%, #64585f 17%, #655250 33%, #6a5148 50%, #715141 67%, #805c3e 83%, #ad8138 100%)}
+.cw-f526-c146-pair{background:linear-gradient(90deg, #c08f31 0%, #ae8342 17%, #9b774f 33%, #886c5a 50%, #736064 67%, #5c566d 83%, #404b76 100%)}
+.cw-f526-c146-mesh{background:radial-gradient(circle at 25.4% 20.9%, #84655e 0%, transparent 42%), radial-gradient(circle at 74.5% 25.2%, #63514b 0%, transparent 45%), radial-gradient(circle at 17.2% 71.8%, #805c4a 0%, transparent 40%), radial-gradient(circle at 46.1% 69.2%, #885f29 0%, transparent 34%), radial-gradient(circle at 79.8% 75.7%, #694a39 0%, transparent 39%), #775847}
+.cw-f526-c146-duotone{filter:url(filters.svg#duo-f526-c146)}
+.cw-f526-c252-gradient{background:linear-gradient(90deg, #5b89a6 0%, #688491 17%, #75898e 33%, #74837e 50%, #717869 67%, #817c60 83%, #a47a4b 100%)}
+.cw-f526-c252-pair{background:linear-gradient(90deg, #b27240 0%, #a97653 17%, #9e7a65 33%, #927e77 50%, #838289 67%, #6f859b 83%, #5389ae 100%)}
+.cw-f526-c252-mesh{background:radial-gradient(circle at 25.3% 19.3%, #87816a 0%, transparent 42%), radial-gradient(circle at 79.1% 19.7%, #666a5c 0%, transparent 38%), radial-gradient(circle at 82.8% 80.8%, #756f6e 0%, transparent 33%), radial-gradient(circle at 21.9% 70.6%, #857c7e 0%, transparent 46%), radial-gradient(circle at 61.5% 57.8%, #8ba4aa 0%, transparent 42%), #80817b}
+.cw-f526-c252-duotone{filter:url(filters.svg#duo-f526-c252)}
+.cw-f526-c78-gradient{background:linear-gradient(90deg, #5d6a8f 0%, #534f5d 17%, #584a53 33%, #695457 50%, #7a5e58 67%, #8c6757 83%, #ac7a4e 100%)}
+.cw-f526-c78-pair{background:linear-gradient(90deg, #b98649 0%, #ae8259 17%, #a27f69 33%, #957c77 50%, #867986 67%, #747694 83%, #5e74a2 100%)}
+.cw-f526-c78-mesh{background:radial-gradient(circle at 34.9% 15.7%, #a18d81 0%, transparent 43%), radial-gradient(circle at 71.6% 30.1%, #8d5e50 0%, transparent 40%), radial-gradient(circle at 85.8% 65.7%, #674a51 0%, transparent 38%), radial-gradient(circle at 48.9% 82.7%, #543b40 0%, transparent 37%), radial-gradient(circle at 16.6% 60.6%, #76676d 0%, transparent 43%), #7c605f}
+.cw-f526-c78-duotone{filter:url(filters.svg#duo-f526-c78)}
+.cw-f52-c189-gradient{background:linear-gradient(90deg, #705085 0%, #794d60 17%, #7c4954 33%, #874d50 50%, #98554e 67%, #aa5e48 83%, #c8783a 100%)}
+.cw-f52-c189-pair{background:linear-gradient(90deg, #d88a33 0%, #c88048 17%, #b87559 33%, #a76b68 50%, #946277 67%, #7f5884 83%, #665092 100%)}
+.cw-f52-c189-mesh{background:radial-gradient(circle at 28.0% 24.6%, #ab5341 0%, transparent 44%), radial-gradient(circle at 75.3% 29.5%, #a25251 0%, transparent 47%), radial-gradient(circle at 43.1% 76.4%, #9a5349 0%, transparent 48%), radial-gradient(circle at 86.7% 75.2%, #844b67 0%, transparent 30%), radial-gradient(circle at 4.8% 58.7%, #91516a 0%, transparent 28%), #9e5250}
+.cw-f52-c189-duotone{filter:url(filters.svg#duo-f52-c189)}
+.cw-f52-c253-gradient{background:linear-gradient(90deg, #6b5b9a 0%, #735d8a 17%, #745c7d 33%, #785b73 50%, #765864 67%, #745555 83%, #7f5d42 100%)}
+.cw-f52-c253-pair{background:linear-gradient(90deg, #83633d 0%, #81614e 17%, #7f5f5f 33%, #7b5e6f 50%, #765c7f 67%, #6f5b8f 83%, #6659a0 100%)}
+.cw-f52-c253-mesh{background:radial-gradient(circle at 24.2% 13.5%, #7f5a6c 0%, transparent 35%), radial-gradient(circle at 30.1% 45.4%, #835a82 0%, transparent 40%), radial-gradient(circle at 75.3% 75.2%, #74577a 0%, transparent 43%), radial-gradient(circle at 23.8% 80.7%, #9b6b97 0%, transparent 40%), radial-gradient(circle at 76.5% 24.2%, #513e4d 0%, transparent 44%), #785674}
+.cw-f52-c253-duotone{filter:url(filters.svg#duo-f52-c253)}
+.cw-f52-c278-gradient{background:linear-gradient(90deg, #585f84 0%, #727074 17%, #8a8380 33%, #91857b 50%, #94806e 67%, #957558 83%, #a16c3c 100%)}
+.cw-f52-c278-pair{background:linear-gradient(90deg, #a86a32 0%, #9d6742 17%, #916451 33%, #83615e 50%, #745f6c 67%, #625c79 83%, #4b5986 100%)}
+.cw-f52-c278-mesh{background:radial-gradient(circle at 23.5% 19.7%, #b49f91 0%, transparent 40%), radial-gradient(circle at 71.0% 21.3%, #684f3f 0%, transparent 42%), radial-gradient(circle at 84.1% 73.6%, #7b5a4a 0%, transparent 36%), radial-gradient(circle at 18.3% 68.4%, #745a4f 0%, transparent 41%), radial-gradient(circle at 55.2% 67.7%, #c4b09f 0%, transparent 42%), #907768}
+.cw-f52-c278-duotone{filter:url(filters.svg#duo-f52-c278)}
+.cw-f53-c136-gradient{background:linear-gradient(90deg, #0d1016 0%, #090a0b 17%, #080a09 33%, #090a09 50%, #0b0c0a 67%, #0c0e0c 83%, #111a12 100%)}
+.cw-f53-c136-pair{background:linear-gradient(90deg, #121b12 0%, #111913 17%, #101814 33%, #101614 50%, #0f1415 67%, #0f1215 83%, #0e1016 100%)}
+.cw-f53-c136-mesh{background:radial-gradient(circle at 73.8% 22.7%, #0c0e0c 0%, transparent 44%), radial-gradient(circle at 83.6% 72.6%, #0b0e0b 0%, transparent 37%), radial-gradient(circle at 16.0% 74.2%, #0c0f0d 0%, transparent 37%), radial-gradient(circle at 50.2% 72.5%, #080b0a 0%, transparent 38%), radial-gradient(circle at 23.8% 23.7%, #0b0d0c 0%, transparent 44%), #0b0d0c}
+.cw-f53-c136-duotone{filter:url(filters.svg#duo-f53-c136)}
+.cw-f53-c388-gradient{background:linear-gradient(90deg, #425776 0%, #525966 17%, #575b5d 33%, #5e5d57 50%, #6b6358 67%, #7a6656 83%, #90614a 100%)}
+.cw-f53-c388-pair{background:linear-gradient(90deg, #9a6045 0%, #8e5f4f 17%, #825e59 33%, #755c63 50%, #665b6c 67%, #545a75 83%, #3d597f 100%)}
+.cw-f53-c388-mesh{background:radial-gradient(circle at 25.8% 19.0%, #645657 0%, transparent 39%), radial-gradient(circle at 73.2% 26.7%, #6c6262 0%, transparent 48%), radial-gradient(circle at 29.5% 76.4%, #544a4e 0%, transparent 39%), radial-gradient(circle at 74.1% 76.7%, #726562 0%, transparent 43%), radial-gradient(circle at 10.6% 53.8%, #9a8074 0%, transparent 30%), #6c5f5e}
+.cw-f53-c388-duotone{filter:url(filters.svg#duo-f53-c388)}
+.cw-f54-c100-gradient{background:linear-gradient(90deg, #4f608c 0%, #585f7b 17%, #5d5c70 33%, #635b67 50%, #6c5b61 67%, #795655 83%, #965341 100%)}
+.cw-f54-c100-pair{background:linear-gradient(90deg, #a2563a 0%, #985849 17%, #8e5a59 33%, #825c68 50%, #745e77 67%, #636086 83%, #4b6295 100%)}
+.cw-f54-c100-mesh{background:radial-gradient(circle at 21.5% 55.5%, #61445d 0%, transparent 38%), radial-gradient(circle at 70.6% 23.1%, #68667c 0%, transparent 47%), radial-gradient(circle at 78.3% 74.2%, #66738b 0%, transparent 42%), radial-gradient(circle at 20.1% 18.1%, #944c49 0%, transparent 36%), radial-gradient(circle at 35.2% 80.0%, #775f5e 0%, transparent 38%), #725e6c}
+.cw-f54-c100-duotone{filter:url(filters.svg#duo-f54-c100)}
+.cw-f54-c136-gradient{background:linear-gradient(90deg, #18181e 0%, #161514 17%, #141412 33%, #161612 50%, #191914 67%, #1d1e15 83%, #232716 100%)}
+.cw-f54-c136-pair{background:linear-gradient(90deg, #252b16 0%, #232818 17%, #21251a 33%, #1f221c 50%, #1d1f1d 67%, #1b1c1f 83%, #181920 100%)}
+.cw-f54-c136-mesh{background:radial-gradient(circle at 73.4% 22.9%, #1a1813 0%, transparent 44%), radial-gradient(circle at 23.2% 23.8%, #1d1c14 0%, transparent 44%), radial-gradient(circle at 15.9% 74.6%, #191b14 0%, transparent 37%), radial-gradient(circle at 49.9% 72.1%, #171811 0%, transparent 38%), radial-gradient(circle at 83.4% 73.0%, #161814 0%, transparent 37%), #191913}
+.cw-f54-c136-duotone{filter:url(filters.svg#duo-f54-c136)}
+.cw-f54-c312-gradient{background:linear-gradient(90deg, #4b6a71 0%, #606d64 17%, #68695c 33%, #6e6858 50%, #766c57 67%, #817257 83%, #9a8356 100%)}
+.cw-f54-c312-pair{background:linear-gradient(90deg, #a88c55 0%, #99865b 17%, #8a7f61 33%, #7b7966 50%, #6b736b 67%, #596d70 83%, #446775 100%)}
+.cw-f54-c312-mesh{background:radial-gradient(circle at 70.8% 15.3%, #746e5a 0%, transparent 38%), radial-gradient(circle at 22.1% 25.3%, #766c56 0%, transparent 44%), radial-gradient(circle at 73.4% 82.3%, #746c55 0%, transparent 38%), radial-gradient(circle at 23.7% 74.9%, #756b54 0%, transparent 44%), radial-gradient(circle at 74.3% 48.2%, #777057 0%, transparent 38%), #756d56}
+.cw-f54-c312-duotone{filter:url(filters.svg#duo-f54-c312)}
+.cw-f55-c33-gradient{background:linear-gradient(90deg, #545e74 0%, #575658 17%, #666259 33%, #6f6652 50%, #7b6849 67%, #9a8353 83%, #b88a4c 100%)}
+.cw-f55-c33-pair{background:linear-gradient(90deg, #c37e41 0%, #b37a4d 17%, #a37558 33%, #927062 50%, #7f6c6c 67%, #6b6776 83%, #53637f 100%)}
+.cw-f55-c33-mesh{background:radial-gradient(circle at 40.5% 48.4%, #98904a 0%, transparent 43%), radial-gradient(circle at 13.9% 46.9%, #6b4f40 0%, transparent 48%), radial-gradient(circle at 67.5% 81.8%, #877862 0%, transparent 38%), radial-gradient(circle at 77.2% 27.2%, #726a63 0%, transparent 41%), radial-gradient(circle at 82.0% 45.2%, #8c593c 0%, transparent 28%), #806b4f}
+.cw-f55-c33-duotone{filter:url(filters.svg#duo-f55-c33)}
+.cw-f55-c394-gradient{background:linear-gradient(90deg, #6d505b 0%, #695759 17%, #695854 33%, #665850 50%, #655a4e 67%, #625a4a 83%, #50533c 100%)}
+.cw-f55-c394-pair{background:linear-gradient(90deg, #454f35 0%, #4c4f3c 17%, #544f42 33%, #5b4f48 50%, #624f4f 67%, #694e55 83%, #6f4e5c 100%)}
+.cw-f55-c394-mesh{background:radial-gradient(circle at 74.5% 20.9%, #645752 0%, transparent 42%), radial-gradient(circle at 84.3% 75.6%, #755d5a 0%, transparent 36%), radial-gradient(circle at 18.4% 77.2%, #6b5851 0%, transparent 38%), radial-gradient(circle at 53.7% 65.0%, #544c3a 0%, transparent 40%), radial-gradient(circle at 22.9% 24.4%, #625049 0%, transparent 44%), #64544c}
+.cw-f55-c394-duotone{filter:url(filters.svg#duo-f55-c394)}
+.cw-f56-c245-gradient{background:linear-gradient(90deg, #606963 0%, #5f6052 17%, #6c6955 33%, #756d52 50%, #7d704c 67%, #877746 83%, #94893a 100%)}
+.cw-f56-c245-pair{background:linear-gradient(90deg, #9e9535 0%, #989042 17%, #908b4e 33%, #898659 50%, #808264 67%, #777d6e 83%, #6d7878 100%)}
+.cw-f56-c245-mesh{background:radial-gradient(circle at 27.8% 20.9%, #7a6e44 0%, transparent 43%), radial-gradient(circle at 9.8% 63.6%, #827748 0%, transparent 32%), radial-gradient(circle at 77.9% 74.8%, #776c45 0%, transparent 41%), radial-gradient(circle at 76.3% 25.0%, #7e7246 0%, transparent 44%), radial-gradient(circle at 37.3% 75.3%, #746739 0%, transparent 40%), #7a6e43}
+.cw-f56-c245-duotone{filter:url(filters.svg#duo-f56-c245)}
+.cw-f56-c360-gradient{background:linear-gradient(90deg, #6b5d79 0%, #77696e 17%, #716562 33%, #746b63 50%, #7b7567 67%, #83816d 83%, #838561 100%)}
+.cw-f56-c360-pair{background:linear-gradient(90deg, #7e8358 0%, #7a7c5f 17%, #777465 33%, #726d6b 50%, #6e6671 67%, #685f76 83%, #63587c 100%)}
+.cw-f56-c360-mesh{background:radial-gradient(circle at 70.4% 19.0%, #726c61 0%, transparent 42%), radial-gradient(circle at 21.4% 25.5%, #787469 0%, transparent 43%), radial-gradient(circle at 24.3% 73.9%, #7e7068 0%, transparent 44%), radial-gradient(circle at 69.5% 91.5%, #554f47 0%, transparent 28%), radial-gradient(circle at 75.4% 60.1%, #7e6f69 0%, transparent 42%), #766d64}
+.cw-f56-c360-duotone{filter:url(filters.svg#duo-f56-c360)}
+.cw-f56-c423-gradient{background:linear-gradient(90deg, #7d789d 0%, #796c76 17%, #766261 33%, #735d52 50%, #7c5f4b 67%, #8b6548 83%, #ab7645 100%)}
+.cw-f56-c423-pair{background:linear-gradient(90deg, #b87b40 0%, #b17b53 17%, #a97a64 33%, #9f7a75 50%, #947a86 67%, #877a97 83%, #777ba8 100%)}
+.cw-f56-c423-mesh{background:radial-gradient(circle at 52.7% 24.2%, #786e48 0%, transparent 36%), radial-gradient(circle at 17.8% 27.8%, #625b59 0%, transparent 40%), radial-gradient(circle at 29.8% 75.7%, #ab6c62 0%, transparent 48%), radial-gradient(circle at 79.4% 69.9%, #825749 0%, transparent 44%), radial-gradient(circle at 83.8% 17.6%, #635847 0%, transparent 31%), #826253}
+.cw-f56-c423-duotone{filter:url(filters.svg#duo-f56-c423)}
+.cw-f57-c11-gradient{background:linear-gradient(90deg, #7b7d9e 0%, #8a7883 17%, #87666a 33%, #896461 50%, #8a655b 67%, #886f58 83%, #7a7f4d 100%)}
+.cw-f57-c11-pair{background:linear-gradient(90deg, #738245 0%, #758055 17%, #767e65 33%, #767c74 50%, #757b83 67%, #737992 83%, #7077a1 100%)}
+.cw-f57-c11-mesh{background:radial-gradient(circle at 30.0% 17.8%, #907b76 0%, transparent 43%), radial-gradient(circle at 29.1% 55.8%, #8b7e87 0%, transparent 39%), radial-gradient(circle at 24.3% 85.0%, #7e6953 0%, transparent 34%), radial-gradient(circle at 76.6% 78.8%, #967973 0%, transparent 40%), radial-gradient(circle at 76.8% 28.8%, #816b5b 0%, transparent 44%), #8a756d}
+.cw-f57-c11-duotone{filter:url(filters.svg#duo-f57-c11)}
+.cw-f57-c465-gradient{background:linear-gradient(90deg, #4a6584 0%, #4b5f70 17%, #485b64 33%, #46585c 50%, #40504f 67%, #3e4b44 83%, #42523c 100%)}
+.cw-f57-c465-pair{background:linear-gradient(90deg, #455639 0%, #475846 17%, #495b54 33%, #4a5d61 50%, #4a606e 67%, #4a627c 83%, #48658a 100%)}
+.cw-f57-c465-mesh{background:radial-gradient(circle at 33.0% 21.5%, #313c41 0%, transparent 42%), radial-gradient(circle at 10.8% 41.8%, #475b5c 0%, transparent 29%), radial-gradient(circle at 75.6% 74.4%, #475f69 0%, transparent 43%), radial-gradient(circle at 27.1% 79.2%, #364543 0%, transparent 42%), radial-gradient(circle at 76.4% 25.9%, #48606e 0%, transparent 43%), #3f5158}
+.cw-f57-c465-duotone{filter:url(filters.svg#duo-f57-c465)}
+.cw-f57-c477-gradient{background:linear-gradient(90deg, #42364b 0%, #504650 17%, #5e5658 33%, #6b6661 50%, #747065 67%, #847e69 83%, #a6966c 100%)}
+.cw-f57-c477-pair{background:linear-gradient(90deg, #b39f6a 0%, #9f8b66 17%, #8b7861 33%, #78665c 50%, #655457 67%, #524352 83%, #3e324c 100%)}
+.cw-f57-c477-mesh{background:radial-gradient(circle at 27.3% 17.8%, #6c6256 0%, transparent 40%), radial-gradient(circle at 75.8% 25.1%, #6e6158 0%, transparent 44%), radial-gradient(circle at 28.3% 86.2%, #645c5e 0%, transparent 35%), radial-gradient(circle at 76.2% 74.1%, #736762 0%, transparent 43%), radial-gradient(circle at 23.3% 54.6%, #786c62 0%, transparent 39%), #6f645d}
+.cw-f57-c477-duotone{filter:url(filters.svg#duo-f57-c477)}
+.cw-f58-c211-gradient{background:linear-gradient(90deg, #4b4f7d 0%, #545573 17%, #5d5c71 33%, #6e6b7a 50%, #756c73 67%, #7b6b69 83%, #8e6f51 100%)}
+.cw-f58-c211-pair{background:linear-gradient(90deg, #98764e 0%, #8e6e57 17%, #826761 33%, #766069 50%, #695972 67%, #5a527a 83%, #474c82 100%)}
+.cw-f58-c211-mesh{background:radial-gradient(circle at 71.5% 19.9%, #90899f 0%, transparent 44%), radial-gradient(circle at 66.8% 60.3%, #524f70 0%, transparent 46%), radial-gradient(circle at 32.2% 86.4%, #5b4a52 0%, transparent 38%), radial-gradient(circle at 19.3% 34.8%, #81737f 0%, transparent 48%), radial-gradient(circle at 88.7% 90.5%, #a08e8b 0%, transparent 18%), #73687b}
+.cw-f58-c211-duotone{filter:url(filters.svg#duo-f58-c211)}
+.cw-f58-c302-gradient{background:linear-gradient(90deg, #514e72 0%, #635870 17%, #68586a 33%, #64505d 50%, #644d55 67%, #5f4748 83%, #744f3f 100%)}
+.cw-f58-c302-pair{background:linear-gradient(90deg, #7b553b 0%, #755345 17%, #6d504e 33%, #654e57 50%, #5c4c5f 67%, #524a68 83%, #454871 100%)}
+.cw-f58-c302-mesh{background:radial-gradient(circle at 24.8% 26.9%, #574951 0%, transparent 46%), radial-gradient(circle at 71.9% 22.1%, #503944 0%, transparent 44%), radial-gradient(circle at 23.6% 75.6%, #684a5e 0%, transparent 44%), radial-gradient(circle at 67.4% 84.9%, #8e7e91 0%, transparent 30%), radial-gradient(circle at 82.0% 63.6%, #6b5266 0%, transparent 36%), #624c5b}
+.cw-f58-c302-duotone{filter:url(filters.svg#duo-f58-c302)}
+.cw-f59-c137-gradient{background:linear-gradient(90deg, #8888aa 0%, #968d9a 17%, #78656d 33%, #745c5f 50%, #775d56 67%, #78584a 83%, #855337 100%)}
+.cw-f59-c137-pair{background:linear-gradient(90deg, #905533 0%, #915d47 17%, #92665c 33%, #916f71 50%, #8e7886 67%, #89809c 83%, #8189b1 100%)}
+.cw-f59-c137-mesh{background:radial-gradient(circle at 24.6% 21.7%, #66403c 0%, transparent 44%), radial-gradient(circle at 52.3% 60.9%, #916867 0%, transparent 38%), radial-gradient(circle at 81.5% 76.1%, #b2b4b5 0%, transparent 38%), radial-gradient(circle at 79.1% 22.2%, #bbb2b4 0%, transparent 40%), radial-gradient(circle at 19.7% 73.1%, #59322b 0%, transparent 41%), #8a6d6a}
+.cw-f59-c137-duotone{filter:url(filters.svg#duo-f59-c137)}
+.cw-f59-c308-gradient{background:linear-gradient(90deg, #526a6c 0%, #6a7265 17%, #797a67 33%, #7b745e 50%, #807357 67%, #7e6b47 83%, #916d37 100%)}
+.cw-f59-c308-pair{background:linear-gradient(90deg, #9a6f30 0%, #8f6d3b 17%, #836a45 33%, #76684e 50%, #686557 67%, #596360 83%, #466069 100%)}
+.cw-f59-c308-mesh{background:radial-gradient(circle at 23.4% 26.4%, #9d9982 0%, transparent 43%), radial-gradient(circle at 72.3% 22.9%, #6f6951 0%, transparent 47%), radial-gradient(circle at 76.8% 75.5%, #655630 0%, transparent 40%), radial-gradient(circle at 17.2% 75.7%, #635334 0%, transparent 37%), radial-gradient(circle at 46.3% 70.2%, #9b8147 0%, transparent 32%), #7b6e4f}
+.cw-f59-c308-duotone{filter:url(filters.svg#duo-f59-c308)}
+.cw-f59-c40-gradient{background:linear-gradient(90deg, #797588 0%, #796e74 17%, #685c5c 33%, #6e5e58 50%, #786356 67%, #826550 83%, #986b40 100%)}
+.cw-f59-c40-pair{background:linear-gradient(90deg, #a4703b 0%, #9f7149 17%, #997157 33%, #917264 50%, #897371 67%, #80747f 83%, #75758c 100%)}
+.cw-f59-c40-mesh{background:radial-gradient(circle at 25.8% 16.9%, #7a645d 0%, transparent 38%), radial-gradient(circle at 74.4% 24.2%, #725c55 0%, transparent 44%), radial-gradient(circle at 28.3% 83.8%, #7b5e4f 0%, transparent 37%), radial-gradient(circle at 76.3% 73.4%, #7e5d50 0%, transparent 44%), radial-gradient(circle at 22.3% 51.6%, #826352 0%, transparent 37%), #7b5f54}
+.cw-f59-c40-duotone{filter:url(filters.svg#duo-f59-c40)}
+.cw-f70-c290-gradient{background:linear-gradient(90deg, #556d78 0%, #797e6f 17%, #868166 33%, #8b7f59 50%, #927f4f 67%, #997f44 83%, #b38c39 100%)}
+.cw-f70-c290-pair{background:linear-gradient(90deg, #c29534 0%, #b18d43 17%, #a08550 33%, #8f7d5c 50%, #7c7567 67%, #676e71 83%, #4d677a 100%)}
+.cw-f70-c290-mesh{background:radial-gradient(circle at 25.3% 29.1%, #937d44 0%, transparent 50%), radial-gradient(circle at 74.9% 26.8%, #9f8e56 0%, transparent 46%), radial-gradient(circle at 33.1% 85.3%, #8c8056 0%, transparent 28%), radial-gradient(circle at 11.4% 75.5%, #45382c 0%, transparent 27%), radial-gradient(circle at 72.8% 75.5%, #8e7a47 0%, transparent 44%), #8d7a49}
+.cw-f70-c290-duotone{filter:url(filters.svg#duo-f70-c290)}
+.cw-f70-c325-gradient{background:linear-gradient(90deg, #5a64a6 0%, #7f7989 17%, #8f7e7f 33%, #8f7a6f 50%, #957d65 67%, #9d805d 83%, #ac8147 100%)}
+.cw-f70-c325-pair{background:linear-gradient(90deg, #ad8c42 0%, #a38357 17%, #977a69 33%, #8a727b 50%, #7b698c 67%, #67629c 83%, #4b5aad 100%)}
+.cw-f70-c325-mesh{background:radial-gradient(circle at 30.5% 32.6%, #717389 0%, transparent 46%), radial-gradient(circle at 19.4% 76.4%, #8c6865 0%, transparent 39%), radial-gradient(circle at 59.9% 89.1%, #829053 0%, transparent 25%), radial-gradient(circle at 62.2% 21.8%, #94896c 0%, transparent 46%), radial-gradient(circle at 80.5% 65.1%, #c47863 0%, transparent 41%), #947a6f}
+.cw-f70-c325-duotone{filter:url(filters.svg#duo-f70-c325)}
+.cw-f70-c777-gradient{background:linear-gradient(90deg, #6c63a5 0%, #817294 17%, #8b7788 33%, #886b6f 50%, #8c7367 67%, #977b5f 83%, #ba894b 100%)}
+.cw-f70-c777-pair{background:linear-gradient(90deg, #cf9848 0%, #c18d5c 17%, #b2836e 33%, #a1797e 50%, #8f6f8e 67%, #78669d 83%, #5b5dad 100%)}
+.cw-f70-c777-mesh{background:radial-gradient(circle at 25.1% 53.6%, #a08766 0%, transparent 45%), radial-gradient(circle at 66.9% 48.3%, #866a5b 0%, transparent 37%), radial-gradient(circle at 22.7% 84.0%, #8b6a8c 0%, transparent 32%), radial-gradient(circle at 82.7% 59.8%, #9b758f 0%, transparent 45%), radial-gradient(circle at 40.1% 12.7%, #867182 0%, transparent 42%), #937579}
+.cw-f70-c777-duotone{filter:url(filters.svg#duo-f70-c777)}
+.cw-f71-c110-gradient{background:linear-gradient(90deg, #575b9a 0%, #6e7692 17%, #797f87 33%, #7d7c74 50%, #8d8b77 67%, #95916f 83%, #a19f63 100%)}
+.cw-f71-c110-pair{background:linear-gradient(90deg, #a7a65e 0%, #9c976b 17%, #918977 33%, #847a82 50%, #756c8c 67%, #635f95 83%, #4c529f 100%)}
+.cw-f71-c110-mesh{background:radial-gradient(circle at 33.4% 28.0%, #7c7c99 0%, transparent 41%), radial-gradient(circle at 39.9% 16.0%, #928166 0%, transparent 36%), radial-gradient(circle at 88.4% 46.9%, #737298 0%, transparent 37%), radial-gradient(circle at 19.8% 71.8%, #757f72 0%, transparent 40%), radial-gradient(circle at 63.6% 70.8%, #9c9574 0%, transparent 47%), #87827f}
+.cw-f71-c110-duotone{filter:url(filters.svg#duo-f71-c110)}
+.cw-f71-c296-gradient{background:linear-gradient(90deg, #6d63a8 0%, #85799b 17%, #85707f 33%, #85726f 50%, #8e7765 67%, #a3815f 83%, #bb904c 100%)}
+.cw-f71-c296-pair{background:linear-gradient(90deg, #c49a44 0%, #b88e59 17%, #ac836c 33%, #9e797d 50%, #8d6e8e 67%, #7a649e 83%, #615bae 100%)}
+.cw-f71-c296-mesh{background:radial-gradient(circle at 46.6% 30.0%, #a18358 0%, transparent 48%), radial-gradient(circle at 10.4% 46.9%, #7d738c 0%, transparent 40%), radial-gradient(circle at 42.9% 78.2%, #9d7059 0%, transparent 43%), radial-gradient(circle at 81.1% 15.8%, #9078ac 0%, transparent 33%), radial-gradient(circle at 85.2% 72.7%, #8d6f8e 0%, transparent 36%), #967777}
+.cw-f71-c296-duotone{filter:url(filters.svg#duo-f71-c296)}
+.cw-f71-c345-gradient{background:linear-gradient(90deg, #6e6aac 0%, #847994 17%, #957c89 33%, #9b7779 50%, #936d63 67%, #967157 83%, #9a8b4e 100%)}
+.cw-f71-c345-pair{background:linear-gradient(90deg, #979d4e 0%, #949462 17%, #908b75 33%, #8a8287 50%, #837998 67%, #7870a9 83%, #6a67ba 100%)}
+.cw-f71-c345-mesh{background:radial-gradient(circle at 52.4% 12.9%, #8a7e86 0%, transparent 44%), radial-gradient(circle at 20.1% 80.1%, #808f77 0%, transparent 38%), radial-gradient(circle at 82.5% 84.0%, #7a6ca4 0%, transparent 30%), radial-gradient(circle at 74.0% 59.7%, #866066 0%, transparent 36%), radial-gradient(circle at 38.8% 41.8%, #af766e 0%, transparent 50%), #93787a}
+.cw-f71-c345-duotone{filter:url(filters.svg#duo-f71-c345)}
+.cw-f72-c298-gradient{background:linear-gradient(90deg, #625b9e 0%, #796e8d 17%, #7f6d7b 33%, #775c5e 50%, #755b51 67%, #85684f 83%, #a0854f 100%)}
+.cw-f72-c298-pair{background:linear-gradient(90deg, #aa9450 0%, #a08860 17%, #957d6f 33%, #89717c 50%, #7a6689 67%, #695b96 83%, #5351a2 100%)}
+.cw-f72-c298-mesh{background:radial-gradient(circle at 69.2% 23.6%, #957168 0%, transparent 41%), radial-gradient(circle at 23.6% 22.2%, #6f5877 0%, transparent 43%), radial-gradient(circle at 52.9% 78.7%, #685145 0%, transparent 41%), radial-gradient(circle at 17.6% 68.0%, #957e75 0%, transparent 37%), radial-gradient(circle at 83.0% 60.9%, #8d778c 0%, transparent 39%), #82686d}
+.cw-f72-c298-duotone{filter:url(filters.svg#duo-f72-c298)}
+.cw-f72-c73-gradient{background:linear-gradient(90deg, #546198 0%, #72708a 17%, #857b89 33%, #927379 50%, #95756d 67%, #a38a6c 83%, #be9e5a 100%)}
+.cw-f72-c73-pair{background:linear-gradient(90deg, #c7a44f 0%, #b79760 17%, #a68b6f 33%, #947f7c 50%, #7f7389 67%, #676896 83%, #475ea2 100%)}
+.cw-f72-c73-mesh{background:radial-gradient(circle at 55.0% 66.6%, #c0a672 0%, transparent 43%), radial-gradient(circle at 32.6% 15.0%, #927183 0%, transparent 42%), radial-gradient(circle at 30.4% 87.8%, #9a7867 0%, transparent 28%), radial-gradient(circle at 83.1% 43.8%, #7f7c98 0%, transparent 49%), radial-gradient(circle at 13.6% 57.2%, #5d5152 0%, transparent 36%), #907b7b}
+.cw-f72-c73-duotone{filter:url(filters.svg#duo-f72-c73)}
+.cw-f72-c889-gradient{background:linear-gradient(90deg, #796098 0%, #8d748d 17%, #93808c 33%, #917c7c 50%, #8d7467 67%, #8d7559 83%, #9d8d54 100%)}
+.cw-f72-c889-pair{background:linear-gradient(90deg, #a39b54 0%, #9d8f62 17%, #97846f 33%, #90787b 50%, #876d87 67%, #7d6292 83%, #71589d 100%)}
+.cw-f72-c889-mesh{background:radial-gradient(circle at 38.8% 32.1%, #937965 0%, transparent 57%), radial-gradient(circle at 17.0% 73.7%, #8c7e7e 0%, transparent 38%), radial-gradient(circle at 55.3% 82.2%, #685f71 0%, transparent 32%), radial-gradient(circle at 86.4% 69.7%, #937687 0%, transparent 36%), radial-gradient(circle at 76.2% 12.2%, #a485a3 0%, transparent 32%), #8f7878}
+.cw-f72-c889-duotone{filter:url(filters.svg#duo-f72-c889)}

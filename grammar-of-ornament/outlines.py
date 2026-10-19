@@ -114,7 +114,7 @@ def outline(img: Image.Image, method: str, scale: int, sigma: float, levels: lis
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--src", default=str(HERE / "features"))
+    ap.add_argument("--src", default=str(HERE / "vgg16features"))
     ap.add_argument("--dst", default=str(HERE / "outlines"))
     ap.add_argument("--only", help="substring; process only files whose name contains it")
     ap.add_argument("--method", choices=["xdog", "contour", "canny"], default="xdog")

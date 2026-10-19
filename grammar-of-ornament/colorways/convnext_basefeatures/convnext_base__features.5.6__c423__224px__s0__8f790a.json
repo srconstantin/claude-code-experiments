@@ -1,0 +1,92 @@
+{
+ "name": "convnext_base__features.5.6__c423__224px__s0__8f790a",
+ "short": "f56-c423",
+ "model": "convnext_base",
+ "layer": "features.5.6",
+ "pair": {
+  "a": "#b87b40",
+  "b": "#777ba8",
+  "lab_a": [
+   56.8,
+   17.9,
+   41.2
+  ],
+  "lab_b": [
+   52.7,
+   9.2,
+   -24.6
+  ],
+  "hue_a": 66.5,
+  "hue_b": 290.6,
+  "name_a": "orange",
+  "name_b": "purple",
+  "opponency": 135.9,
+  "chroma_a": 44.9,
+  "chroma_b": 26.3,
+  "axis_share": 0.6
+ },
+ "gradient": {
+  "image": [
+   "#7d789d",
+   "#796c76",
+   "#766261",
+   "#735d52",
+   "#7c5f4b",
+   "#8b6548",
+   "#ab7645"
+  ],
+  "pair": [
+   "#b87b40",
+   "#b17b53",
+   "#a97a64",
+   "#9f7a75",
+   "#947a86",
+   "#877a97",
+   "#777ba8"
+  ],
+  "image_css": "linear-gradient(90deg, #7d789d 0%, #796c76 17%, #766261 33%, #735d52 50%, #7c5f4b 67%, #8b6548 83%, #ab7645 100%)",
+  "pair_css": "linear-gradient(90deg, #b87b40 0%, #b17b53 17%, #a97a64 33%, #9f7a75 50%, #947a86 67%, #877a97 83%, #777ba8 100%)"
+ },
+ "duotone": {
+  "shadow": "#393f68",
+  "highlight": "#ffce8f",
+  "svg_filter": "<filter id=\"duo-f56-c423\" color-interpolation-filters=\"sRGB\"><feColorMatrix type=\"saturate\" values=\"0\"/><feComponentTransfer><feFuncR type=\"table\" tableValues=\"0.224 1.000\"/><feFuncG type=\"table\" tableValues=\"0.248 0.810\"/><feFuncB type=\"table\" tableValues=\"0.407 0.561\"/></feComponentTransfer></filter>"
+ },
+ "mesh": {
+  "sigma": 12.0,
+  "base": "#826253",
+  "blobs": [
+   {
+    "x": 52.7,
+    "y": 24.2,
+    "r": 36.1,
+    "color": "#786e48"
+   },
+   {
+    "x": 17.8,
+    "y": 27.8,
+    "r": 40.5,
+    "color": "#625b59"
+   },
+   {
+    "x": 29.8,
+    "y": 75.7,
+    "r": 47.5,
+    "color": "#ab6c62"
+   },
+   {
+    "x": 79.4,
+    "y": 69.9,
+    "r": 43.9,
+    "color": "#825749"
+   },
+   {
+    "x": 83.8,
+    "y": 17.6,
+    "r": 31.2,
+    "color": "#635847"
+   }
+  ],
+  "css": "radial-gradient(circle at 52.7% 24.2%, #786e48 0%, transparent 36%), radial-gradient(circle at 17.8% 27.8%, #625b59 0%, transparent 40%), radial-gradient(circle at 29.8% 75.7%, #ab6c62 0%, transparent 48%), radial-gradient(circle at 79.4% 69.9%, #825749 0%, transparent 44%), radial-gradient(circle at 83.8% 17.6%, #635847 0%, transparent 31%), #826253"
+ }
+}

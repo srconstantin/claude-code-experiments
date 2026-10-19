@@ -54,7 +54,7 @@ HERE = Path(__file__).resolve().parent
 MODELS = HERE / "models"
 SR_CACHE = HERE / "cache" / "sr"
 PRINTS = HERE / "prints"
-MOTIFS = HERE / "motifs"
+MOTIFS = HERE / "vgg16motifs"
 WEIGHTS_URL = "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth"
 WEIGHTS = MODELS / "RealESRGAN_x4plus.pth"
 WORK = 896     # the upscaled feature; crop outlines are in these pixels
@@ -369,7 +369,7 @@ def delete_motif(motif_id: str) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--src", default=str(HERE / "features"))
+    ap.add_argument("--src", default=str(HERE / "vgg16features"))
     ap.add_argument("--dst", default=str(PRINTS))
     ap.add_argument("--only", default="", help="substring; process only files whose name contains it")
     for k, (lo, hi) in RANGES.items():

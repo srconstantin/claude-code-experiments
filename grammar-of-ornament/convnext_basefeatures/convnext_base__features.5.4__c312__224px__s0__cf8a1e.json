@@ -1,0 +1,19 @@
+{
+ "name": "convnext_base__features.5.4__c312__224px__s0__cf8a1e",
+ "url": "/convnext_basefeatures/convnext_base__features.5.4__c312__224px__s0__cf8a1e.png",
+ "saved": "2026-10-15 10:19:06",
+ "note": "random sample, default settings",
+ "model": "convnext_base",
+ "size": 224,
+ "steps": 512,
+ "seed": 0,
+ "decay": 1.25,
+ "tv": 0.0,
+ "layer": "features.5.4",
+ "target": {
+  "channel": 312,
+  "y": null,
+  "x": null,
+  "negate": false
+ }
+}

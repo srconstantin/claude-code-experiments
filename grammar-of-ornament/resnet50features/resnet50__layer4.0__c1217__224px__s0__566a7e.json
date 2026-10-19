@@ -1,0 +1,19 @@
+{
+ "name": "resnet50__layer4.0__c1217__224px__s0__566a7e",
+ "url": "/resnet50features/resnet50__layer4.0__c1217__224px__s0__566a7e.png",
+ "saved": "2026-10-15 09:26:35",
+ "note": "random sample, default settings",
+ "model": "resnet50",
+ "size": 224,
+ "steps": 512,
+ "seed": 0,
+ "decay": 1.25,
+ "tv": 0.0,
+ "layer": "layer4.0",
+ "target": {
+  "channel": 1217,
+  "y": null,
+  "x": null,
+  "negate": false
+ }
+}

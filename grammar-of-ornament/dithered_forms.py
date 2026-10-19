@@ -84,7 +84,7 @@ def dither(t: np.ndarray, method: str = "fs") -> Image.Image:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--src", default=str(HERE / "features"))
+    ap.add_argument("--src", default=str(HERE / "vgg16features"))
     ap.add_argument("--dst", default=str(HERE / "dithered-forms"))
     ap.add_argument("--only", help="substring; process only files whose name contains it")
     ap.add_argument("--scale", type=int, default=2, help="upscale factor; the dither pattern is at the output size (1 = native, grainy)")

@@ -29,13 +29,14 @@ from urllib.parse import parse_qs, urlparse
 
 from PIL import Image
 
+import designlib_api
 import motifs
 import vis
 
 HERE = Path(__file__).resolve().parent
 PAGE = HERE / "webapp.html"
 CACHE = HERE / "cache"
-SAVED = HERE / "features"
+SAVED = HERE / "vgg16features"
 INDEX = SAVED / "index.json"
 PORTS = range(8790, 8801)
 BATCH = 16  # images optimized together in one job chunk
@@ -304,6 +305,8 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self) -> None:
         u = urlparse(self.path)
+        if u.path.startswith(("/designlib", "/api/designlib")) and designlib_api.handle(self, "GET", u):
+            return
         q = {k: v[0] for k, v in parse_qs(u.query).items()}
         try:
             if u.path == "/":
@@ -361,6 +364,8 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_POST(self) -> None:
         u = urlparse(self.path)
+        if u.path.startswith(("/designlib", "/api/designlib")) and designlib_api.handle(self, "POST", u):
+            return
         try:
             body = self._body()
             if u.path == "/api/render":
@@ -420,6 +425,8 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_DELETE(self) -> None:
         u = urlparse(self.path)
+        if u.path.startswith(("/designlib", "/api/designlib")) and designlib_api.handle(self, "DELETE", u):
+            return
         try:
             if u.path.startswith("/api/features/"):
                 delete_saved(u.path[len("/api/features/"):])

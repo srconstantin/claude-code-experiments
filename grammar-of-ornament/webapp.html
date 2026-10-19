@@ -465,7 +465,7 @@ function renderGallery() {
     div.querySelector(".jump").onclick = () => jumpTo(it);
     div.querySelector(".motif").onclick = () => { showTab("motifs"); motifLoadFeature(it.name); };
     div.querySelector(".del").onclick = async () => {
-      if (!confirm(`Delete ${it.name}.png from features/?`)) return;
+      if (!confirm(`Delete ${it.name}.png from vgg16features/?`)) return;
       try { await api(`/api/features/${encodeURIComponent(it.name)}`, { method: "DELETE" }); await loadSaved(); } catch (e) { err(e.message); }
     };
     g.appendChild(div);

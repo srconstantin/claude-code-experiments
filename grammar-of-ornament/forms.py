@@ -88,7 +88,7 @@ def form(img: Image.Image, scale: int = 2, sigma: float = 3.0, min_area: float =
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--src", default=str(HERE / "features"))
+    ap.add_argument("--src", default=str(HERE / "vgg16features"))
     ap.add_argument("--dst", default=str(HERE / "forms"))
     ap.add_argument("--only", help="substring; process only files whose name contains it")
     ap.add_argument("--scale", type=int, default=2, help="upscale factor before processing")
