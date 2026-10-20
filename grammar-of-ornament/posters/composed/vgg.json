@@ -1,0 +1,16 @@
+{
+ "model": "vgg16",
+ "figure": [
+  "features.24",
+  119
+ ],
+ "ground": [
+  "features.10",
+  1
+ ],
+ "shape": "features.24__c119",
+ "h": 640,
+ "w": 448,
+ "steps": 768,
+ "seed": 0
+}

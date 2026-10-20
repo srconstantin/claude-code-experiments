@@ -1,0 +1,86 @@
+{
+ "id": "vgg16__features.24__c86__224px__s0__a39ac1/1792071360",
+ "feature": "vgg16__features.24__c86__224px__s0__a39ac1",
+ "source": "vgg16motifs/vgg16__features.24__c86__224px__s0__a39ac1/1792071360",
+ "params": {
+  "texture": 0.45,
+  "restore": 0.45,
+  "boundaries": 1.2,
+  "threshold": 0.5,
+  "invert": false,
+  "ground": "white"
+ },
+ "box": [
+  573,
+  562,
+  1222,
+  1254
+ ],
+ "print_px": 1792,
+ "rim": 4.8,
+ "width": 649,
+ "height": 692,
+ "lasso_overlap": 0.805,
+ "siblings": [
+  {
+   "file": "siblings/s1.png",
+   "score": 0.475,
+   "shift": [
+    -228,
+    492
+   ],
+   "width": 659,
+   "height": 591
+  },
+  {
+   "file": "siblings/s2.png",
+   "score": 0.453,
+   "shift": [
+    -444,
+    -352
+   ],
+   "width": 530,
+   "height": 699
+  },
+  {
+   "file": "siblings/s3.png",
+   "score": 0.428,
+   "shift": [
+    136,
+    -892
+   ],
+   "width": 664,
+   "height": 672
+  },
+  {
+   "file": "siblings/s4.png",
+   "score": 0.419,
+   "shift": [
+    132,
+    892
+   ],
+   "width": 566,
+   "height": 666
+  },
+  {
+   "file": "siblings/s5.png",
+   "score": 0.402,
+   "shift": [
+    632,
+    -532
+   ],
+   "width": 570,
+   "height": 698
+  },
+  {
+   "file": "siblings/s6.png",
+   "score": 0.401,
+   "shift": [
+    204,
+    -440
+   ],
+   "width": 584,
+   "height": 710
+  }
+ ]
+}

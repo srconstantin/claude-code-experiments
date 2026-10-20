@@ -1,0 +1,16 @@
+{
+ "model": "convnext_base",
+ "figure": [
+  "features.5.9",
+  40
+ ],
+ "ground": [
+  "features.1.2",
+  112
+ ],
+ "shape": "features.24__c66",
+ "h": 640,
+ "w": 448,
+ "steps": 768,
+ "seed": 0
+}

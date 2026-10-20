@@ -1,0 +1,25 @@
+{
+ "id": "vgg16__features.24__c100__224px__s0__89e581/1792068676",
+ "feature": "vgg16__features.24__c100__224px__s0__89e581",
+ "source": "vgg16motifs/vgg16__features.24__c100__224px__s0__89e581/1792068676",
+ "params": {
+  "texture": 0.45,
+  "restore": 0.45,
+  "boundaries": 1.2,
+  "threshold": 0.5,
+  "invert": false,
+  "ground": "white"
+ },
+ "box": [
+  302,
+  449,
+  1555,
+  1267
+ ],
+ "print_px": 1792,
+ "rim": 4.8,
+ "width": 1253,
+ "height": 818,
+ "lasso_overlap": 0.889,
+ "siblings": []
+}

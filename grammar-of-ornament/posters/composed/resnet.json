@@ -1,0 +1,16 @@
+{
+ "model": "resnet50",
+ "figure": [
+  "layer4.1",
+  335
+ ],
+ "ground": [
+  "layer1.1",
+  201
+ ],
+ "shape": "features.24__c27",
+ "h": 640,
+ "w": 448,
+ "steps": 768,
+ "seed": 0
+}
