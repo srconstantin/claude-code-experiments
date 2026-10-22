@@ -137,7 +137,7 @@ def save(a: np.ndarray, name: str, q: int = 92) -> str:
 
 def motif(key: str, sib: int = 0) -> tuple[np.ndarray, np.ndarray]:
     """A cleaned motif's ink and body (bool arrays)."""
-    d = next(iter(sorted((HERE / "vgg16motifs-clean").glob(f"*{key}*/*/motif.json")))).parent
+    d = next(iter(sorted((HERE / "vgg16motifs-clean").glob(f"*{key}__*/*/motif.json")))).parent
     f, m = (d / "motif.png", d / "mask.png") if sib == 0 else (d / f"siblings/s{sib}.png", d / f"siblings/s{sib}.mask.png")
     ink = np.asarray(Image.open(f).convert("L")) < 128
     body = np.asarray(Image.open(m).convert("L")) > 127
@@ -191,7 +191,7 @@ FIGURE_MOTIF = "features.24__c11"
 
 
 def family(key: str) -> dict:
-    return next(f for f in FR.motif_families() if key in f["id"])
+    return next(f for f in FR.motif_families() if f"{key}__" in f["id"])
 
 
 def frieze_file(fam: dict, name: str, arr: str, colours: dict, scheme: str = "ink", seed: int = 0, bare: bool = True) -> str:

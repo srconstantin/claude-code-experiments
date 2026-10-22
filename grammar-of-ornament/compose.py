@@ -50,7 +50,7 @@ PRESETS = {
 
 
 def shape_mask(key: str) -> np.ndarray:
-    f = next(iter(sorted(CLEAN.glob(f"*{key}*/*/mask.png"))))
+    f = next(iter(sorted(CLEAN.glob(f"*{key}__*/*/mask.png"))))
     return np.asarray(Image.open(f).convert("L")) > 127
 
 
