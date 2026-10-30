@@ -57,9 +57,10 @@ def _mask(ref, px=PX):
     return m, lo, k, s
 
 
-def part(ref: str, a: float, b: float, px: int = PX, rnd: float = ROUND) -> dict:
+def part(ref: str, a: float, b: float, px: int = PX, rnd: float = ROUND, fat: float = 0.0) -> dict:
     """The stretch a..b of the piece's spine with what grows from it: outline contours in body widths
-    (y up, origin at the stretch's start), its holes and branch tips counted."""
+    (y up, origin at the stretch's start), its holes and branch tips counted. fat thickens the ink by that
+    many body widths, keeping the piece's own shape, so fine teeth can stand beside a heavy stroke."""
     m, lo, k, s = _mask(ref, px)
     sp = (s["spine"] - lo) * k
     sa = np.concatenate([[0], np.cumsum(np.hypot(*np.diff(sp, axis=0).T))])
@@ -75,10 +76,12 @@ def part(ref: str, a: float, b: float, px: int = PX, rnd: float = ROUND) -> dict
         L = lab[np.clip(mid[1], 0, m.shape[0] - 1), np.clip(mid[0], 0, m.shape[1] - 1)]
         L = L or 1 + int(np.argmax(ndi.sum(keep, lab, range(1, n + 1))))
         keep = lab == L
-    keep = np.pad(keep, 12)
+    keep = np.pad(keep, 12 + int(fat * px))
+    if fat:
+        keep = ndi.binary_dilation(keep, ndi.generate_binary_structure(2, 1), iterations=int(fat * px))
     soft = ndi.gaussian_filter(keep.astype(float), rnd * px)
     cs = measure.find_contours(soft, 0.5)
-    o = (sp[np.argmin(np.abs(u - a))] + 12)
+    o = (sp[np.argmin(np.abs(u - a))] + 12 + int(fat * px))
     contours = [np.stack([(c[:, 1] - o[0]), (c[:, 0] - o[1])], 1) / px for c in cs if len(c) > 20]
     solid = soft > 0.5
     sk = skeletonize(solid)

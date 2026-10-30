@@ -67,8 +67,8 @@ ORN = {
 
 
 @lru_cache(maxsize=None)
-def _fragment(ref, a, b, large=False):
-    p = PT.part(ref, a, b, 30, 0.06) if large else PT.part(ref, a, b, 14, 0.1)
+def _fragment(ref, a, b, large=False, fat=0.0):
+    p = PT.part(ref, a, b, 30, 0.06, fat) if large else PT.part(ref, a, b, 14, 0.1, fat)
     return p["contours"]
 
 
@@ -86,7 +86,7 @@ def _ink_centre(cs):
     return lo + np.array([xs.mean(), ys.mean()]) / k
 
 
-def along(spec, s, u0, u1, W, centre, height=1.0, toward=None):
+def along(spec, s, u0, u1, W, centre, height=1.0, toward=None, seat=0.0):
     """The fragment laid along stretch u0..u1 of stroke s, its long axis following the stroke's curve."""
     cs = _fragment(*spec)
     P = np.vstack(cs)
@@ -109,6 +109,8 @@ def along(spec, s, u0, u1, W, centre, height=1.0, toward=None):
     for C in cs:
         X = ((C - m) @ ax - x.min()) / (x.max() - x.min())
         Y = ((C - m) @ ac - y0) * sign * k * height
+        if seat:                                # the ends fold down into the stroke, leaving no horns
+            Y = Y * np.sin(0.5 * np.pi * np.clip(np.minimum(X, 1 - X) / seat, 0, 1)) ** 1.2
         d = s0 + X * (s1 - s0)
         q = np.stack([np.interp(d, sa, c[:, j]) for j in (0, 1)], 1)
         n = np.stack([np.interp(d, sa, nr[:, j]) for j in (0, 1)], 1)
@@ -144,22 +146,28 @@ def region(s, where, box, W, longest):
     return u0, u1
 
 
-def glyph(ch: str, W: float) -> list[np.ndarray]:
-    S = CU._fitted(ch, W)
-    OL.outline(S, W)                    # (sets the joins)
+def fragment(ch: str, S: list, W: float, table: dict = ORN, seat: float = 0.0) -> list:
+    """The letter's fragment, placed on its strokes."""
     st = [s for s in S if isinstance(s, OL.Stroke) and not getattr(s, "free", False)]
     B = np.vstack([s.c for s in st])
     box = (B.min(0), B.max(0))
     centre = B.mean(0)
-    spec, i, where, h, *rest = ORN[ch]
+    if table[ch] is None:
+        return None, None
+    spec, i, where, h, *rest = table[ch]
     s = max(st, key=lambda q: OL.arclen(q.c)[-1]) if i == "L" else st[min(i, len(st) - 1)]
     if isinstance(where, tuple):
-        piece = along(spec, s, where[0], where[1], W, centre, h)
-    else:
-        wide = 0.8 * (box[1][0] - box[0][0]) / W            # a crest stays within its letter's width
-        longest = rest[0] if rest else (4.6 if ch.islower() else min(4.8, max(wide, 2.6)))
-        u0, u1 = region(s, where, box, W, longest)
-        piece = along(spec, s, u0, u1, W, centre, h, TOWARD[where])
+        return s, along(spec, s, where[0], where[1], W, centre, h, seat=seat if spec[0] == ARC[0] else 0.0)
+    wide = 0.8 * (box[1][0] - box[0][0]) / W            # a crest stays within its letter's width
+    longest = rest[0] if rest else (4.6 if ch.islower() else min(4.8, max(wide, 2.6)))
+    u0, u1 = region(s, where, box, W, longest)
+    return s, along(spec, s, u0, u1, W, centre, h, TOWARD[where], seat if spec[0] == ARC[0] else 0.0)
+
+
+def glyph(ch: str, W: float) -> list[np.ndarray]:
+    S = CU._fitted(ch, W)
+    OL.outline(S, W)                    # (sets the joins)
+    s, piece = fragment(ch, S, W)
     s.grafts = [piece]
     area = lambda C: 0.5 * np.sum(C[:, 0] * np.roll(C[:, 1], -1) - np.roll(C[:, 0], -1) * C[:, 1])
     return [C for C in OL.outline(S, W, pinhole=0.2) if abs(area(C)) > 200]
