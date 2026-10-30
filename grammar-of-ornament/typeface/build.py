@@ -31,6 +31,7 @@ sys.path.insert(0, str(HERE))
 import brush as BR       # noqa: E402
 import curated as CU     # noqa: E402
 import ornate as OR      # noqa: E402
+import formal as FM      # noqa: E402
 import styles as ST      # noqa: E402
 import dress as DR       # noqa: E402
 import glyphs as GL      # noqa: E402
@@ -55,6 +56,9 @@ VARIANTS = {   # name → stroke settings + the compound pieces fused in at the 
     # other letter constructions on the Bare skeleton (styles.py)
     "Split":   dict(_BASE, **ST.PARAMS["split"], fuse=None, profiles=False, style="split"),
     "Reverse": dict(_BASE, **ST.PARAMS["reverse"], fuse=None, profiles=False, style="reverse"),
+    # Curated's skeletons drawn with the manners of formal lettering (formal.py)
+    "Uncial":  dict(_BASE, fuse=None, profiles=False, curated=True, formal="uncial", ref_bare=True, kern=True,
+                    ref_sb=(66, 60), min_sb=0.32, line=(800, -300)),
     # Curated's letters carrying real fragments of the compounds (ornate.py)
     "Ornate":  dict(_BASE, fuse=None, profiles=False, curated=True, ornate=True, ref_bare=True, kern=True,
                     ref_sb=(66, 60), min_sb=0.32, line=(1000, -320)),
@@ -219,6 +223,8 @@ BR_DEFAULTS = {k: getattr(BR, k) for k in ("REACH", "LAYERS", "MIN_BRANCHES", "T
 def contours_for(ch: str, W: float, v: dict) -> list:
     strokes = GL.GLYPHS[ch]
     DR.dress(ch, strokes, W, None, None)
+    if v.get("formal"):
+        return FM.glyph(ch, W, v["formal"])
     if v.get("ornate"):
         return OR.glyph(ch, W)
     if v.get("curated"):
@@ -335,7 +341,8 @@ def build() -> Path:
             dr, xr = depths_eff(body, contours, "r", zone, INTRUDE * W)
         elif VARIANTS[STYLE].get("curated"):
             # a spur hangs into the space, as a serif would; Ornate's fragments take up room
-            body = contours if VARIANTS[STYLE].get("ornate") else CU.body(ch, W)
+            v_ = VARIANTS[STYLE]
+            body = contours if v_.get("ornate") or v_.get("formal") else CU.body(ch, W)
             dl, xl = depths(body, "l", 0, zone)
             dr, xr = depths(body, "r", 0, zone)
         else:
