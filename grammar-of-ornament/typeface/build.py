@@ -61,6 +61,8 @@ VARIANTS = {   # name → stroke settings + the compound pieces fused in at the 
     # Uncial's skeletons with thickness from strokelib's tapered strokes (club.py)
     "Club":    dict(_BASE, fuse=None, profiles=False, curated=True, club=True, ref_bare=True, kern=True,
                     ref_sb=(66, 60), min_sb=0.32, line=(800, -300)),
+    "ClubOrnate": dict(_BASE, fuse=None, profiles=False, curated=True, club=True, ornate=True, ref_bare=True, kern=True,
+                       ref_sb=(66, 60), min_sb=0.32, line=(1000, -320)),
     "Uncial":  dict(_BASE, fuse=None, profiles=False, curated=True, formal="uncial", ref_bare=True, kern=True,
                     ref_sb=(66, 60), min_sb=0.32, line=(800, -300)),
     "Illuminated": dict(_BASE, fuse=None, profiles=False, curated=True, formal="uncial", ornate=True, illuminated=True,
@@ -229,10 +231,12 @@ BR_DEFAULTS = {k: getattr(BR, k) for k in ("REACH", "LAYERS", "MIN_BRANCHES", "T
 
 
 def contours_for(ch: str, W: float, v: dict) -> list:
+    if v.get("club"):
+        return KL.glyph(ch, W, v.get("ornate", False))
     strokes = GL.GLYPHS[ch]
     DR.dress(ch, strokes, W, None, None)
     if v.get("club"):
-        return KL.glyph(ch, W)
+        return KL.glyph(ch, W, v.get("ornate", False))
     if v.get("formal"):
         return FM.glyph(ch, W, v["formal"], v.get("illuminated", False))
     if v.get("ornate"):
@@ -326,13 +330,18 @@ def kern_feature(outlines: dict, adv: dict, names: dict) -> str:
     return "feature kern {\n" + "\n".join(lines) + "\n} kern;\n"
 
 
+def glyphset() -> dict:
+    """The font's characters: the Club fonts also have punctuation."""
+    return {**GL.GLYPHS, **KL.EXTRA} if VARIANTS[STYLE].get("club") else GL.GLYPHS
+
+
 def build() -> Path:
     t0 = time.time()
-    order = [".notdef", "space"] + list(GL.GLYPHS)
-    names = {ch: _gname(ch) for ch in GL.GLYPHS}
+    order = [".notdef", "space"] + list(glyphset())
+    names = {ch: _gname(ch) for ch in glyphset()}
     charstrings, metrics, outlines, outlines_placed = {}, {}, {}, {}
     _WEIGHT.clear()
-    for ch, strokes in GL.GLYPHS.items():
+    for ch, strokes in glyphset().items():
         W = weight(ch)
         contours = contours_for(ch, W, VARIANTS[STYLE])
         outlines[ch] = contours
@@ -361,6 +370,8 @@ def build() -> Path:
         floor = VARIANTS[STYLE].get("min_sb", MIN_SB) * W
         lsb = max(area_sb(dl, ref, dmax), floor)            # measured from the zone's ink; serif tips never touch
         rsb = max(area_sb(dr, ref, dmax), floor)
+        if VARIANTS[STYLE].get("club") and ch in KL.EXTRA:
+            xl, xr, lsb, rsb = pts[:, 0].min(), pts[:, 0].max(), KL.PUNCT_SB, KL.PUNCT_SB
         dx = lsb - xl                                       # the zone's left ink sits lsb from the origin
         adv = int(round(xr - xl + lsb + rsb))
         lsb = lsb - (xl - pts[:, 0].min())                  # the font's lsb is from the glyph's leftmost point
@@ -380,10 +391,10 @@ def build() -> Path:
         pen = T2CharStringPen(w, None)
         charstrings[g] = pen.getCharString()
         metrics[g] = (w, 0)
-    order = [".notdef", "space"] + [names[c] for c in GL.GLYPHS]
+    order = [".notdef", "space"] + [names[c] for c in glyphset()]
     fb = FontBuilder(1000, isTTF=False)
     fb.setupGlyphOrder(order)
-    cmap = {ord(c): names[c] for c in GL.GLYPHS}
+    cmap = {ord(c): names[c] for c in glyphset()}
     cmap[32] = "space"
     fb.setupCharacterMap(cmap)
     fb.setupCFF(f"{NAME}-{STYLE}", {"FullName": f"{NAME} {STYLE}"}, charstrings, {})
@@ -397,17 +408,19 @@ def build() -> Path:
     FONTS.mkdir(parents=True, exist_ok=True)
     otf = FONTS / f"{NAME}-{STYLE}.otf"
     if VARIANTS[STYLE].get("kern"):
-        adv = {ch: metrics[names[ch]][0] for ch in GL.GLYPHS}
+        adv = {ch: metrics[names[ch]][0] for ch in glyphset()}
         fb.addOpenTypeFeatures(kern_feature(outlines_placed, adv, names))
     fb.save(str(otf))
     f = TTFont(str(otf))
     f.flavor = "woff2"
     f.save(str(FONTS / f"{NAME}-{STYLE}.woff2"))
-    print(f"built {otf.name}: {len(GL.GLYPHS)} glyphs in {time.time() - t0:.1f}s", flush=True)
+    print(f"built {otf.name}: {len(glyphset())} glyphs in {time.time() - t0:.1f}s", flush=True)
     return otf
 
 
 def _gname(ch: str) -> str:
+    if not ch.isalnum():
+        return f"uni{ord(ch):04X}"
     if ch.isdigit():
         return ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"][int(ch)]
     return ch
@@ -430,7 +443,7 @@ def proofs(otf: Path) -> None:
         im.save(out / f"line{i:02d}.png")
     # glyph sheet
     f = ImageFont.truetype(str(otf), 150)
-    chars = list(GL.GLYPHS)
+    chars = list(glyphset())
     cw, ch_ = 200, 260
     sheet = Image.new("RGB", (cw * 10, ch_ * ((len(chars) + 9) // 10)), "white")
     d = ImageDraw.Draw(sheet)

@@ -39,7 +39,7 @@ HAND_F = ("curved-comb/12", 0.18, 0.48)
 STEM = ("straight-comb/12", 0.54, 0.84)
 ANTLER, ANTLER_S = ("curved-comb/11", 0.36, 0.66), ("curved-comb/11", 0.18, 0.48)
 ARC = ("wavy-comb/1", 0.13, 0.34, True)
-TOWARD = {"top": (0, 1), "left": (-1, 0), "right": (1, 0), "upper": (-1, 0)}
+TOWARD = {"top": (0, 1), "left": (-1, 0), "right": (1, 0), "upper": (-1, 0), "lower": (1, 0)}
 
 # letter → (fragment, stroke, where, height, longest): stroke "L" is the longest; where is a stretch (u0, u1) or a
 # region of the letter, and the fragment stands out toward that region; height scales how far it stands out;
@@ -126,7 +126,7 @@ def region(s, where, box, W, longest):
     ok = {"top": c[:, 1] > y1 - 0.3 * Hh,
           "left": (c[:, 0] < x0 + 0.34 * Ww) & (c[:, 1] > y0 + 0.14 * Hh) & (c[:, 1] < y1 - 0.14 * Hh),
           "right": (c[:, 0] > x1 - 0.34 * Ww) & (c[:, 1] > y0 + 0.14 * Hh) & (c[:, 1] < y1 - 0.14 * Hh),
-          "upper": c[:, 1] > y0 + 0.5 * Hh}[where]
+          "upper": c[:, 1] > y0 + 0.5 * Hh, "lower": c[:, 1] < y0 + 0.5 * Hh}[where]
     best, i, n = (0, 1), 0, len(c)
     while i < n:
         if ok[i]:
