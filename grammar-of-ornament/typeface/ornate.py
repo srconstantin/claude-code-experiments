@@ -16,18 +16,22 @@ different letters.
 
 from __future__ import annotations
 
+import re
 import sys
 from functools import lru_cache
 from pathlib import Path
 
 import numpy as np
 from PIL import Image, ImageDraw
+from scipy import ndimage as ndi
+from skimage.morphology import skeletonize
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import curated as CU        # noqa: E402
 import outline as OL        # noqa: E402
 import parts as PT          # noqa: E402
+import silhouettes as SI    # noqa: E402
 
 SINK = 0.14                 # the fragment's dense edge sits this far (in weights) inside the stroke's centre side
 COMB = ("straight-comb/12", 0.36, 0.66)
@@ -72,6 +76,35 @@ def _fragment(ref, a, b, large=False, fat=0.0):
     return p["contours"]
 
 
+@lru_cache(maxsize=None)
+def _whole(ref):
+    """A whole compound in its own outline (no window, no raster): its paths unioned, 1 = its longest side."""
+    polys = []
+    for d in re.findall(r' d="([^"]+)"', SI.source(ref).read_text()):
+        for sub in re.split(r"(?=M)", d):
+            n = re.findall(r"-?\d+(?:\.\d+)?", sub)
+            if len(n) >= 6:
+                polys.append(np.array(n, float).reshape(-1, 2) * [1, -1])
+    cs = OL.union(polys)
+    P = np.vstack(cs)
+    cs = [(C - P.min(0)) / np.ptp(P, 0).max() for C in cs]
+    area = lambda C: 0.5 * abs(np.sum(C[:, 0] * np.roll(C[:, 1], -1) - np.roll(C[:, 0], -1) * C[:, 1]))
+    return [C for C in cs if area(C) > 2e-5]
+
+
+@lru_cache(maxsize=None)
+def _line(ref):
+    """A whole compound's typical line width, in its own units (1 = its longest side)."""
+    N = 600
+    m = np.zeros((N + 20, N + 20), bool)
+    for C in _whole(ref):
+        im = Image.new("1", (N + 20, N + 20), 0)
+        ImageDraw.Draw(im).polygon([tuple(q) for q in C * N + 10], fill=1)
+        m ^= np.asarray(im, bool)
+    sk = skeletonize(m)
+    return 2 * float(np.median(ndi.distance_transform_edt(m)[sk])) / N
+
+
 def _ink_centre(cs):
     P = np.vstack(cs)
     lo, hi = P.min(0), P.max(0)
@@ -86,9 +119,11 @@ def _ink_centre(cs):
     return lo + np.array([xs.mean(), ys.mean()]) / k
 
 
-def along(spec, s, u0, u1, W, centre, height=1.0, toward=None, seat=0.0):
-    """The fragment laid along stretch u0..u1 of stroke s, its long axis following the stroke's curve."""
-    cs = _fragment(*spec)
+def along(spec, s, u0, u1, W, centre, height=1.0, toward=None, seat=0.0, lift=0.0):
+    """The fragment laid along stretch u0..u1 of stroke s, its long axis following the stroke's curve; `lift`
+    (weights) floats it off the stroke instead of sinking it in. A spec (ref, "whole") is the whole compound, and
+    its height is its line width, in strokes."""
+    cs = _whole(spec[0]) if spec[1] == "whole" else _fragment(*spec)
     P = np.vstack(cs)
     m = P.mean(0)
     _, V = np.linalg.eigh(np.cov((P - m).T))
@@ -101,6 +136,10 @@ def along(spec, s, u0, u1, W, centre, height=1.0, toward=None, seat=0.0):
     sa = OL.arclen(c)
     s0, s1 = u0 * sa[-1], u1 * sa[-1]
     k = (s1 - s0) / (x.max() - x.min())
+    if spec[1] == "whole":                      # a whole compound in its own proportions, its lines `height` strokes wide
+        mid, half = (s0 + s1) / 2, height * W / _line(spec[0]) * (x.max() - x.min()) / 2
+        s0, s1 = max(mid - half, 0.0), min(mid + half, sa[-1])
+        k, height = (s1 - s0) / (x.max() - x.min()), 1.0
     tg = OL.tangents(c, False)
     nr = np.stack([-tg[:, 1], tg[:, 0]], 1)
     i = int(np.searchsorted(sa, (s0 + s1) / 2))
@@ -114,7 +153,7 @@ def along(spec, s, u0, u1, W, centre, height=1.0, toward=None, seat=0.0):
         d = s0 + X * (s1 - s0)
         q = np.stack([np.interp(d, sa, c[:, j]) for j in (0, 1)], 1)
         n = np.stack([np.interp(d, sa, nr[:, j]) for j in (0, 1)], 1)
-        out.append(q + n * (sd * (Y - SINK * W))[:, None])
+        out.append(q + n * (sd * (Y - SINK * W + lift * W))[:, None])
     return out
 
 
@@ -159,9 +198,10 @@ def fragment(ch: str, S: list, W: float, table: dict = ORN, seat: float = 0.0) -
     if isinstance(where, tuple):
         return s, along(spec, s, where[0], where[1], W, centre, h, seat=seat if spec[0] == ARC[0] else 0.0)
     wide = 0.8 * (box[1][0] - box[0][0]) / W            # a crest stays within its letter's width
-    longest = rest[0] if rest else (4.6 if ch.islower() else min(4.8, max(wide, 2.6)))
+    longest = rest[0] if rest and rest[0] else (4.6 if ch.islower() else min(4.8, max(wide, 2.6)))
     u0, u1 = region(s, where, box, W, longest)
-    return s, along(spec, s, u0, u1, W, centre, h, TOWARD[where], seat if spec[0] == ARC[0] else 0.0)
+    return s, along(spec, s, u0, u1, W, centre, h, TOWARD[where], seat if spec[0] == ARC[0] else 0.0,
+                    rest[1] if len(rest) > 1 else 0.0)
 
 
 def glyph(ch: str, W: float) -> list[np.ndarray]:

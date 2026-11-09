@@ -32,7 +32,7 @@ import brush as BR       # noqa: E402
 import curated as CU     # noqa: E402
 import ornate as OR      # noqa: E402
 import formal as FM      # noqa: E402
-import club as KL        # noqa: E402
+import leaf as KL        # noqa: E402
 import styles as ST      # noqa: E402
 import dress as DR       # noqa: E402
 import glyphs as GL      # noqa: E402
@@ -58,11 +58,12 @@ VARIANTS = {   # name → stroke settings + the compound pieces fused in at the 
     "Split":   dict(_BASE, **ST.PARAMS["split"], fuse=None, profiles=False, style="split"),
     "Reverse": dict(_BASE, **ST.PARAMS["reverse"], fuse=None, profiles=False, style="reverse"),
     # Curated's skeletons drawn with the manners of formal lettering (formal.py)
-    # Uncial's skeletons with thickness from strokelib's tapered strokes (club.py)
-    "Club":    dict(_BASE, fuse=None, profiles=False, curated=True, club=True, ref_bare=True, kern=True,
-                    ref_sb=(66, 60), min_sb=0.32, line=(800, -300)),
-    "ClubOrnate": dict(_BASE, fuse=None, profiles=False, curated=True, club=True, ornate=True, ref_bare=True, kern=True,
-                       ref_sb=(66, 60), min_sb=0.32, line=(1000, -320)),
+    # Uncial's skeletons drawn as leaves, long proportions (leaf.py)
+    "Leaf":    dict(_BASE, W_CAP=96, W_LOW=88, fuse=None, profiles=False, curated=True, leaf=True, ref_bare=True, kern=True,
+                    ref_sb=(66, 60), min_sb=0.32, line=(900, -360)),
+    # Leaf with whole compounds beside its strokes: hatching, plumes, branching hairlines (leaf.ORNAMENT)
+    "LeafOrnate": dict(_BASE, W_CAP=96, W_LOW=88, fuse=None, profiles=False, curated=True, leaf=True, ornate=True,
+                       ref_bare=True, kern=True, ref_sb=(66, 60), min_sb=0.32, line=(900, -360)),
     "Uncial":  dict(_BASE, fuse=None, profiles=False, curated=True, formal="uncial", ref_bare=True, kern=True,
                     ref_sb=(66, 60), min_sb=0.32, line=(800, -300)),
     "Illuminated": dict(_BASE, fuse=None, profiles=False, curated=True, formal="uncial", ornate=True, illuminated=True,
@@ -211,7 +212,7 @@ _WEIGHT: dict = {}
 def weight(ch: str) -> float:
     """The glyph's weight, corrected toward its reference letter's (H for capitals, n for lowercase,
     0 for figures), measured on the bare strokes."""
-    if VARIANTS[STYLE].get("club"):
+    if VARIANTS[STYLE].get("leaf"):
         return KL.weight(ch, main_stroke)
     if VARIANTS[STYLE].get("curated"):
         return CU.weight(ch, main_stroke)
@@ -231,12 +232,12 @@ BR_DEFAULTS = {k: getattr(BR, k) for k in ("REACH", "LAYERS", "MIN_BRANCHES", "T
 
 
 def contours_for(ch: str, W: float, v: dict) -> list:
-    if v.get("club"):
+    if v.get("leaf"):
         return KL.glyph(ch, W, v.get("ornate", False))
     strokes = GL.GLYPHS[ch]
     DR.dress(ch, strokes, W, None, None)
-    if v.get("club"):
-        return KL.glyph(ch, W, v.get("ornate", False))
+    if v.get("leaf"):
+        return KL.glyph(ch, W)
     if v.get("formal"):
         return FM.glyph(ch, W, v["formal"], v.get("illuminated", False))
     if v.get("ornate"):
@@ -331,8 +332,8 @@ def kern_feature(outlines: dict, adv: dict, names: dict) -> str:
 
 
 def glyphset() -> dict:
-    """The font's characters: the Club fonts also have punctuation."""
-    return {**GL.GLYPHS, **KL.EXTRA} if VARIANTS[STYLE].get("club") else GL.GLYPHS
+    """The font's characters: Leaf also has punctuation."""
+    return {**GL.GLYPHS, **KL.EXTRA} if VARIANTS[STYLE].get("leaf") else GL.GLYPHS
 
 
 def build() -> Path:
@@ -361,7 +362,7 @@ def build() -> Path:
         elif VARIANTS[STYLE].get("curated"):
             # a spur hangs into the space, as a serif would; Ornate's fragments take up room
             v_ = VARIANTS[STYLE]
-            body = contours if v_.get("ornate") or v_.get("formal") or v_.get("club") else CU.body(ch, W)
+            body = contours if v_.get("ornate") or v_.get("formal") or v_.get("leaf") else CU.body(ch, W)
             dl, xl = depths(body, "l", 0, zone)
             dr, xr = depths(body, "r", 0, zone)
         else:
@@ -370,7 +371,7 @@ def build() -> Path:
         floor = VARIANTS[STYLE].get("min_sb", MIN_SB) * W
         lsb = max(area_sb(dl, ref, dmax), floor)            # measured from the zone's ink; serif tips never touch
         rsb = max(area_sb(dr, ref, dmax), floor)
-        if VARIANTS[STYLE].get("club") and ch in KL.EXTRA:
+        if VARIANTS[STYLE].get("leaf") and ch in KL.EXTRA:
             xl, xr, lsb, rsb = pts[:, 0].min(), pts[:, 0].max(), KL.PUNCT_SB, KL.PUNCT_SB
         dx = lsb - xl                                       # the zone's left ink sits lsb from the origin
         adv = int(round(xr - xl + lsb + rsb))

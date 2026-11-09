@@ -1,17 +1,14 @@
 """
-Neuron — trials taking thickness and curvature from strokelib instead of from a pen. Sample strips only.
+Neuron — trials for an Uncial that isn't medieval: its skeletons drawn with strokelib's strokes rather than a pen.
+Sample strips only.
 
-A broad pen makes thickness depend on direction. The library's strokes vary along their length instead: heavy at
-one end and tapering (tapered families), pinched at the waist (flared), with curvature gathered at an elbow (hook)
-or small jogs along the way (wave). Each trial redraws Uncial's skeletons that way, using real strokes' measured
-width profiles and spines.
+  leaf     every stroke swells in the middle and runs to a point at each free end
+  drop     the reverse of a tapered stroke: thin where it joins, heavy at its free end
+  wave     strokes follow real wave strokes' small jogs, with the tapered profile
+  hook     curves gather their turning into elbows (strokelib's hooks), with the tapered profile
+  eye      leaf strokes whose free ends roll into a small loop (strokelib's loops, curved-sprig/13's spiral)
 
-  club     each stroke takes a tapered stroke's width profile, heavy end away from its joins
-  flared   the same with flared strokes' profiles: swollen ends, pinched waist
-  elbow    club, with each curve's turning gathered into an elbow
-  wave     club, with stems following a real wave stroke's spine
-
-  .venv/bin/python typeface/strokes.py     → typeface/proofs/strokes/<trial>.png
+  .venv/bin/python typeface/strokes.py     → typeface/proofs/variants/<trial>.png
 """
 
 from __future__ import annotations
@@ -32,7 +29,7 @@ import formal as FM         # noqa: E402
 import outline as OL        # noqa: E402
 import silhouettes as SI    # noqa: E402
 
-LINES = ["Grammar of Ornament", "hamburgefonstiv", "The Quick Brown Fox"]
+LINES = ["Grammar of Ornament", "hamburgefonstiv", "The Quick Brown Fox", "SAPPHIRE MOON 1984"]
 SCALE, SPACE, GAP = 0.34, 270, 110
 TAPERED = [f"strokelib:family-08-short-tapered-straight-branch-fine/{i}" for i in (2, 4, 7, 8)]
 FLARED = [f"strokelib:family-10-short-flared-straight-branch-fine/{i}" for i in (1, 2, 5, 9)]
@@ -81,48 +78,92 @@ def gather(q):
     return np.stack([z.real, z.imag], 1)
 
 
-def stroke(s, W, pool, i, elbow=False, wave=False):
+def _ends(s, q, W, others):
+    near = lambda e: bool(others) and min(float(np.min(np.hypot(*(o - e).T))) for o in others) < 0.6 * W
+    d = q[-1] - q[0]
+    upright = s.kind == "crescent" and abs(d[1]) > 0.8 * np.hypot(*d)
+    return (False, False) if upright else (s.taper0 or near(q[0]), s.taper1 or near(q[-1]))
+
+
+def _curl(e, h, W, size=2.6):
+    """A small loop off a free end: the inner turn of curved-sprig/13, rolling left."""
+    sp = CU.skel("curved-sprig/13")["spine"]
+    z = (sp[:, 0] + 1j * sp[:, 1])[int(0.62 * len(sp)):]
+    a = np.unwrap(np.angle(np.diff(z)))
+    if a[-1] < a[0]:
+        z = np.conj(z)
+    m = complex(*h) / abs(complex(*h)) / ((z[3] - z[0]) / abs(z[3] - z[0])) * size * W / np.sum(np.abs(np.diff(z)))
+    r = complex(*e) + m * (z - z[0])
+    return np.stack([r.real, r.imag], 1)
+
+
+def stroke(s, W, others, mode, i):
     q = FM._centre(s, W)
-    if s.closed:                                 # the library's loops: heavier on one side
-        n = len(q)
+    if s.closed:
         tg = OL.tangents(q, True)
         nr = np.stack([-tg[:, 1], tg[:, 0]], 1)
         a = np.arctan2(q[:, 1] - q[:, 1].mean(), q[:, 0] - q[:, 0].mean())
-        w = W * 1.05 * (0.62 + 0.6 * np.cos(a + 2.4))
+        w = W * (0.66 + 0.56 * np.cos(a + (2.4 if mode != "drop" else -0.7)))
         return [[q + nr * (w / 2)[:, None], (q - nr * (w / 2)[:, None])[::-1]]]
-    if elbow:
+    j0, j1 = _ends(s, q, W, others)
+    if mode == "hook" and s.kind != "crescent":
         q = gather(q)
-    upright = s.kind == "crescent" and abs((q[-1] - q[0])[1]) > 0.8 * np.hypot(*(q[-1] - q[0]))
     L = OL.arclen(q)
-    if wave and upright:
+    u = L / L[-1]
+    if mode == "wave":
         tg = OL.tangents(q, False)
         nr = np.stack([-tg[:, 1], tg[:, 0]], 1)
-        y = np.interp(L / L[-1], np.linspace(0, 1, 60), jog(WAVES[i % len(WAVES)]))
-        q = q + nr * (y * L[-1] * 0.8)[:, None]
-    p = np.interp(L / L[-1], np.linspace(0, 1, 60), profile(pool[i % len(pool)]))
-    # the heavy end goes to the join, the fine end runs out free; a stroke free or joined at both is heavy low down
-    if s.taper0 and not s.taper1 or (s.taper0 == s.taper1 and q[0, 1] < q[-1, 1]):
-        p = p[::-1]
-    p = p ** SWELL                               # the measured swelling, exaggerated for display sizes
-    w = W * 1.45 * np.maximum(p, FLOOR / 1.45)
-    w = w * (TIP + (1 - TIP) * FM._ease(np.minimum(L, L[-1] - L) / (1.6 * W)))    # sharp tips, as in Uncial
+        y = np.interp(u, np.linspace(0, 1, 60), jog(WAVES[i % len(WAVES)]))
+        y = y / max(np.abs(y).max(), 1e-6) * min(0.32 * W, 0.06 * L[-1])
+        q = q + nr * y[:, None]
+    extra = []
+    if mode in ("leaf", "eye"):
+        p = 0.25 + 0.75 * np.sin(np.pi * u) ** 0.8
+    else:
+        p = np.interp(u, np.linspace(0, 1, 60), profile(TAPERED[2])) ** SWELL
+        heavy_free = mode == "drop"
+        free_end_last = (j0 and not j1) or (j0 == j1 and q[0, 1] > q[-1, 1])
+        if free_end_last != heavy_free:          # tapered: heavy at the join; drop: heavy at the free end
+            p = p[::-1]
+        if heavy_free:
+            p = p ** 0.6
+    w = W * 1.3 * s.w * np.maximum(p, 0.3)
+    for x, joined, end in ((L, j0, 0), (L[-1] - L, j1, 1)):
+        if joined:
+            w = w * (0.5 + 0.5 * FM._ease(x / (1.4 * W)))
+        elif mode != "drop":
+            w = w * (TIP + (1 - TIP) * FM._ease(x / (1.6 * W)))
+        if mode == "eye" and not joined and L[-1] > 3 * W:
+            h = (q[-1] - q[-5]) if end else (q[0] - q[4])
+            c = _curl(q[-1] if end else q[0], h, W)
+            ct = OL.tangents(c, False)
+            cn = np.stack([-ct[:, 1], ct[:, 0]], 1)
+            cw = W * 0.42 * np.linspace(1, 0.5, len(c))
+            extra.append(np.vstack([c + cn * (cw / 2)[:, None], OL._cap(c[-1], ct[-1], cw[-1] / 2),
+                                    (c - cn * (cw / 2)[:, None])[::-1]]))
     tg = OL.tangents(q, False)
     nr = np.stack([-tg[:, 1], tg[:, 0]], 1)
-    return [np.vstack([q + nr * (w / 2)[:, None], (q - nr * (w / 2)[:, None])[::-1]])]
+    return [np.vstack([q + nr * (w / 2)[:, None], OL._cap(q[-1], tg[-1], w[-1] / 2),
+                       (q - nr * (w / 2)[:, None])[::-1], OL._cap(q[0], -tg[0], w[0] / 2)])] + extra
 
 
-def letter(ch, W, **kw):
+def letter(ch, W, mode):
     S = FM._strokes(ch, W, False)
     if ch in FM.NO_SPUR:
         S = [s for s in S if not getattr(s, "free", False)]
     OL.outline(S, W)
+    lines = [s.c for s in S if isinstance(s, OL.Stroke)]
     polys = []
     for i, s in enumerate(S):
-        polys += [FM._lozenge(s, W)] if isinstance(s, OL.Dot) else stroke(s, W, i=ord(ch) + i, **kw)
+        if isinstance(s, OL.Dot):
+            t = np.linspace(0, 2 * np.pi, 48, endpoint=False)
+            polys.append(np.stack([s.x + 0.6 * W * np.cos(t), s.y - 40 + 0.6 * W * np.sin(t)], 1))
+        else:
+            polys += stroke(s, W, [c for c in lines if c is not s.c], mode, ord(ch) + i)
     return OL.union(polys)
 
 
-def strip(text, H=1600, **kw):
+def strip(text, mode, H=1700):
     h = int(H * SCALE)
     cv = np.zeros((h, int(SCALE * 18000)), bool)
     x = 40.0
@@ -130,7 +171,7 @@ def strip(text, H=1600, **kw):
         if ch == " ":
             x += SPACE
             continue
-        cs = letter(ch, CU.weight(ch, BD.main_stroke), **kw)
+        cs = letter(ch, CU.weight(ch, BD.main_stroke), mode)
         B = np.vstack(cs)
         ox = x - B[:, 0].min()
         m = np.zeros_like(cv)
@@ -145,14 +186,13 @@ def strip(text, H=1600, **kw):
 
 def main():
     BD.configure("Uncial")
-    out = HERE / "proofs" / "strokes"
+    out = HERE / "proofs" / "variants"
     out.mkdir(parents=True, exist_ok=True)
-    for name, kw in (("club", dict(pool=TAPERED)), ("flared", dict(pool=FLARED)),
-                     ("elbow", dict(pool=TAPERED, elbow=True)), ("wave", dict(pool=TAPERED, wave=True))):
-        st = [strip(t, **kw) for t in LINES]
+    for mode in ("leaf", "drop", "wave", "hook", "eye"):
+        st = [strip(t, mode) for t in LINES]
         w = max(q.shape[1] for q in st)
-        Image.fromarray(~np.vstack([np.pad(q, ((0, 0), (0, w - q.shape[1]))) for q in st])).save(out / f"{name}.png")
-        print(f"wrote {name}", flush=True)
+        Image.fromarray(~np.vstack([np.pad(q, ((0, 0), (0, w - q.shape[1]))) for q in st])).save(out / f"{mode}.png")
+        print(f"wrote {mode}", flush=True)
 
 
 if __name__ == "__main__":
