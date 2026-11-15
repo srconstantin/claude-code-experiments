@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evening 57</title>
+<link rel="stylesheet" href="../neuron-library/neuron.css">
+<script src="../neuron-library/neuron-elements.js" defer></script>
+<style>
+  /* A dark ground, a large number, a mark turned round a centre, everything centred. */
+  body{margin:0;font:17.5px/1.55 var(--n-text);min-height:100vh}
+  .page{max-width:880px;margin:0 auto;padding:40px 28px 70px;text-align:center}
+  .top{display:flex;justify-content:space-between;font:500 13px var(--n-label);letter-spacing:.2em;text-transform:lowercase;opacity:.75}
+  neuron-fleuron{color:var(--n-accent2);margin-top:40px;filter:drop-shadow(0 0 .6em var(--n-glow))}
+  .kicker{font:500 14px var(--n-label);letter-spacing:.3em;text-transform:lowercase;margin:24px 0 0;opacity:.8}
+  .num{font:normal 260px/1 var(--n-display);margin:6px 0 0;color:var(--n-on-dark)}
+  .sub{font:normal 44px/1.1 var(--n-display);margin:0 0 30px;color:var(--n-accent2)}
+  .info{text-align:left;margin:40px auto;max-width:640px;color:var(--n-on-dark)}
+  .info::before{color:var(--n-accent2)}
+  .info h2{font:normal 36px var(--n-display);margin:0 0 14px;text-align:center}
+  ul.marks{list-style:none;padding:0;margin:0}
+  ul.marks li{display:grid;grid-template-columns:28px 90px 1fr;gap:12px;padding:10px 0}
+  ul.marks li hr{grid-column:1/-1;--n-h:1.5px;--n-gap:6px 0 0;opacity:.4;color:var(--n-on-dark)}
+  ul.marks li .m{--n-size:22px;color:var(--n-accent2)}
+  ul.marks time{font:500 16px var(--n-label);opacity:.8}
+  [class*='n-divider-']{color:var(--n-accent2);--n-h:32px;--n-gap:36px}
+  .rsvp{display:inline-grid;color:var(--n-on-dark);--n-line:1.5px;--n-pad:0;text-decoration:none;font:500 16px var(--n-label);letter-spacing:.15em;text-transform:lowercase}
+  .rsvp>span{display:inline-flex;align-items:center;gap:12px;padding:14px 26px}
+  .rsvp .ic{--n-size:16px}
+  .fine{font:500 13px var(--n-label);opacity:.6;margin-top:40px}
+  @media (max-width:640px){.num{font-size:150px}.sub{font-size:30px}ul.marks li{grid-template-columns:24px 70px 1fr}}
+</style>
+</head>
+<body class="n-text n-cw-f30-c85 n-dark">
+<div class="page">
+  <div class="top"><span>Grammar of Ornament</span><span>Thursday 4 December</span></div>
+  <neuron-fleuron piece="fork-04" fold="8" mirror size="200"></neuron-fleuron>
+  <p class="kicker">An evening with one channel</p>
+  <p class="num n-glow n-fringe">57</p>
+  <p class="sub">features.24</p>
+  <p style="max-width:540px;margin:0 auto">Drawn twice by the same channel: an evening of talks and prints about the figures a
+    network makes when you ask it what it sees.</p>
+
+  <hr class="n-divider-mirror-fork-14">
+
+  <section class="info n-frame-fork-04" style="--n-size:70px">
+    <h2>The programme</h2>
+    <ul class="marks">
+      <li><span class="m n-mark-curved-branch-03"></span><time>18:30</time><span>Doors, and the prints on the walls</span><hr class="n-line-1"></li>
+      <li><span class="m n-mark-curved-branch-03"></span><time>19:00</time><span>What a channel is, drawn rather than said</span><hr class="n-line-2"></li>
+      <li><span class="m n-mark-curved-branch-03"></span><time>19:45</time><span>Cutting a motif: from a feature to a figure</span><hr class="n-line-3"></li>
+      <li><span class="m n-mark-curved-branch-03"></span><time>20:30</time><span>Setting it in type: Neuron Leaf</span><hr class="n-line-4"></li>
+    </ul>
+  </section>
+
+  <a class="rsvp n-drawn-6" href="#"><span>Reply <span class="n-icon-arrow-right ic"></span></span></a>
+  <p class="fine">Colorway f30-c85 · set in Neuron Leaf</p>
+</div>
+</body>
+</html>

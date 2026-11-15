@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lantern</title>
+<link rel="stylesheet" href="../neuron-library/neuron.css">
+<script src="../neuron-library/neuron-elements.js" defer></script>
+<style>
+  /* The dark side of a colorway: a motif filled with its own print and glowing, display type fringed into the
+     opponent pair, duotones of the same motif in a row, the print itself in a drawn box, ramps for rules. */
+  body{margin:0;font:17px/1.55 var(--n-text);position:relative;min-height:100vh}
+  .in{position:relative;max-width:1180px;margin:0 auto;padding:0 36px}
+  nav{display:flex;align-items:center;gap:28px;padding:22px 0;font:500 14px var(--n-label);text-transform:lowercase;letter-spacing:.1em}
+  nav b{margin-right:auto;font:normal 28px var(--n-display);letter-spacing:0;text-transform:none}
+  nav a{color:inherit;text-decoration:none}
+  nav .ic{--n-size:20px}
+  .hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:30px 0 60px}
+  .hero h1{font-size:150px;margin:0;line-height:.9}
+  .hero p.k{font:500 13px var(--n-label);text-transform:lowercase;letter-spacing:.2em;opacity:.8;margin:0 0 16px}
+  .hero .emb{width:100%;aspect-ratio:1}
+  .ramp{--n-h:5px}
+  .row{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding:30px 0}
+  .row .d{aspect-ratio:1;width:100%}
+  .row figcaption{font:500 13px var(--n-label);text-transform:lowercase;letter-spacing:.08em;opacity:.8;margin-top:8px;text-align:center}
+  .text{display:grid;grid-template-columns:1fr 1fr;gap:50px;padding:30px 0 60px}
+  .text h2{font-size:48px;margin:0 0 12px}
+  .cut{aspect-ratio:1.1;background:url(img/f24-c27.jpg) center/cover}
+  footer{padding:20px 0 50px;font:500 13px var(--n-label);text-transform:lowercase;letter-spacing:.1em;opacity:.75;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  @media (max-width:820px){.hero,.text{grid-template-columns:1fr}.hero h1{font-size:84px}.row{grid-template-columns:1fr 1fr}.in{padding:0 16px}}
+</style>
+</head>
+<body class="n-text n-cw-f10-c100 n-dark">
+<div class="in">
+  <nav><b>Lantern</b><a href="#">Channels</a><a href="#">Nights</a><a href="#">Visit</a><span class="n-icon-menu ic" role="img" aria-label="Menu"></span></nav>
+  <section class="hero">
+    <div>
+      <p class="k">vgg16 · features.24 · c27 · after dark</p>
+      <h1 class="n-display n-fringe n-glow" style="color:var(--n-accent)">Lantern</h1>
+      <hr class="n-ramp-line ramp">
+      <p>What a channel sees is lit from inside. On a dark ground the feature keeps its own colours, the cut motif
+        glows like a paper lantern, and the display type splits at its edges into the feature's two opponent colours,
+        yellow and purple, the way every boundary in the network's drawing does.</p>
+    </div>
+    <div class="emb n-emblem-f24-c27-3655-filled n-glow-box" role="img" aria-label="Motif from vgg16 features.24 channel 27, in its own colours"></div>
+  </section>
+
+  <section class="row">
+    <figure><div class="d n-emblem-f24-c27-3655-duo"></div><figcaption>duotone · shadow to highlight</figcaption></figure>
+    <figure><div class="d n-emblem-f24-c27-3655-duo" style="--n-duo-dark:var(--n-paper);--n-duo-light:var(--n-accent)"></div><figcaption>ground to yellow</figcaption></figure>
+    <figure><div class="d n-emblem-f24-c27-3655-duo" style="--n-duo-dark:var(--n-accent2);--n-duo-light:var(--n-ink)"></div><figcaption>purple to light</figcaption></figure>
+    <figure><div class="d n-emblem-f24-c27-3655" style="color:var(--n-accent)"></div><figcaption>silhouette</figcaption></figure>
+  </section>
+
+  <section class="text">
+    <div class="cut n-box-5 n-glow-box" role="img" aria-label="The feature, in a drawn box"></div>
+    <div>
+      <h2 class="n-display n-glow">One channel, four ways</h2>
+      <p>The same motif as a silhouette, as a duotone, and filled with the print it was cut from; the print itself cut
+        into a drawn box. All from one feature of one network, which is the rule here: a page takes one
+        source and turns it over, rather than mixing two.</p>
+      <p><span class="n-ramp-under">The ramp</span> under these words is the feature's own colours, sampled left to right.</p>
+    </div>
+  </section>
+  <footer><span>Lantern · nights with one channel</span><span>Set in Neuron Leaf and Alegreya Sans · colorway f10-c100, dark</span></footer>
+</div>
+</body>
+</html>
