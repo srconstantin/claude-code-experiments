@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bands</title>
+<link rel="stylesheet" href="../neuron-library/neuron.css">
+<script src="../neuron-library/neuron-elements.js" defer></script>
+<style>
+  /* Friezes as the page's structure: full-width bands of one family (wavy), in six arrangements, with the type
+     in the gutters between them. No container: the title and the number run off the page's edges, and a label
+     runs down the side. Dark ground, two acid accents. */
+  body{margin:0;font:16px/1.5 var(--n-text);overflow-x:hidden}
+  .side{position:fixed;left:14px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font:500 12px var(--n-label);letter-spacing:.3em;text-transform:lowercase;opacity:.7;z-index:2}
+  .bleed{overflow:hidden;white-space:nowrap}
+  h1{font-size:28vw;line-height:.78;margin:.04em 0 0 -.03em;color:var(--n-accent)}
+  .band{width:100vw;color:var(--n-on-dark)}
+  .band.inv{background:var(--n-on-dark);color:var(--n-dark)}
+  .band.a2{color:var(--n-accent2)}
+  .band [class*='n-frieze-']{width:100%}
+  .reg{display:grid;grid-template-columns:120px 1fr 1fr 1fr;gap:20px 40px;padding:28px 40px 28px 64px;font:500 12px/1.7 var(--n-label);letter-spacing:.12em;text-transform:lowercase}
+  .reg b{font:normal 40px/1 var(--n-display);letter-spacing:0;text-transform:none;color:var(--n-accent2)}
+  .reg p{margin:0;max-width:300px}
+  .reg .t{font:17px/1.5 var(--n-text);letter-spacing:0;text-transform:none;opacity:.95}
+  .num{text-align:right;font:normal 30vw/.8 var(--n-display);margin:.04em -.08em 0 0;color:var(--n-accent2);overflow:hidden}
+  .num small{display:block;font:500 12px var(--n-label);letter-spacing:.2em;text-transform:lowercase;color:var(--n-on-dark);margin:0 .9em 10px 0}
+  .quote{padding:40px 64px;max-width:900px;font:normal 42px/1.15 var(--n-display);color:var(--n-on-dark)}
+  footer{padding:20px 40px 36px 64px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font:500 12px var(--n-label);letter-spacing:.14em;text-transform:lowercase;opacity:.7}
+  @media (max-width:820px){.reg{grid-template-columns:1fr 1fr;padding:20px 20px 20px 44px}.side{left:6px}.quote{font-size:28px;padding:30px 44px}}
+</style>
+</head>
+<body class="n-text n-cw-f12-c108 n-dark">
+<div class="side">grammar of ornament · friezes · one family · six arrangements</div>
+
+<div class="bleed"><h1 class="n-display">Bands</h1></div>
+<div class="band"><div class="n-frieze-f017"></div></div>
+
+<section class="reg">
+  <b>i</b><p><b style="font-size:13px;color:inherit">shift</b><br>wavy branching line 05<br>hair rails</p>
+  <p class="t">A frieze is one unit laid along a band, the next member of its family at each step, so the repeat is never exact. The bands on this page are the page: everything else sits in the gaps between them.</p>
+  <p>arrangement · shift<br>unit · wavy branching line<br>rails · hair<br>ink · the colorway's light</p>
+</section>
+<div class="band inv"><div class="n-frieze-f009"></div></div>
+
+<p class="num">200<small>friezes in the library</small></p>
+<div class="band a2"><div class="n-frieze-f020"></div></div>
+
+<section class="reg">
+  <b>iii</b><p><b style="font-size:13px;color:inherit">stack2</b><br>wavy comb 04<br>double rails</p>
+  <p class="t">Six arrangements of the same family run down the page: shift, shift again, a double stack, a turn, a shift with a counterband, and a glide in two inks. The family is the wavy one; nothing from another family is let in.</p>
+  <p>iv · turn · wavy feather 11<br>v · shift · wavy comb 03 · counterband<br>vi · glide · wavy comb 11 · two inks</p>
+</section>
+<div class="band"><div class="n-frieze-f025"></div></div>
+<div class="band inv"><div class="n-frieze-f033"></div></div>
+
+<p class="quote n-display">A repeat the hand would make: the same, and not quite.</p>
+<div class="band a2" style="--n-frieze2:var(--n-on-dark)"><div class="n-frieze-f044"></div></div>
+
+<footer><span>bands · friezes as registers</span><span>colorway f12-c108 · dark side</span><span>set in Neuron Leaf and Alegreya Sans</span></footer>
+</body>
+</html>

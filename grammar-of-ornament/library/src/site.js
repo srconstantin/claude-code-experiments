@@ -55,15 +55,18 @@
             that spring from a base, bend over and come down again. <b>Ask it to draw what it looks for</b>, and <i>this</i> is what it draws.</p>
             <p class="n-label" style="margin:0;opacity:.8">Alegreya Sans SC · labels, navigation, metadata · 1984</p></div>
             <div class="cap" style="color:inherit">Alegreya Sans 400, 400 italic, 500, 700 · small caps 400, 500, 700${i ? " · n-dark" : ""}</div></div>`).join("")}</div>
-        <h2>Light</h2>
-        <p class="lede">The features glow and their colours split at edges. <code>n-glow</code> gives type (or, as
-        <code>n-glow-box</code>, an emblem) a halo in the colorway's highlight; <code>n-fringe</code> splits an edge into
-        the opponent pair. Both are made for dark grounds: <code>n-dark</code> on any container swaps the whole palette.</p>
-        <div class="panels">${[0, 1, 2].map(i => {
-          const c = cwFor(i + 20);
-          return `<div class="panel n-cw-${c} n-dark">
-            <div class="n-display ${["n-glow", "n-fringe", "n-fringe n-glow"][i]}" style="font-size:64px;color:${i === 0 ? "var(--n-ink)" : "var(--n-accent)"}">${["Lantern", "Opponent", "Both"][i]}</div>
-            <div class="cap" style="color:inherit;opacity:.75">${["n-glow", "n-fringe", "n-fringe n-glow"][i]} · n-dark · colorway ${c}</div></div>`;
+        <h2>Light and edges</h2>
+        <p class="lede">The features glow, and at every edge their colours come in a fixed order: a dark outline, the body
+        colour, a bright halo, its opponent. <code>n-glow</code> gives type (or, as <code>n-glow-box</code>, an emblem) a
+        halo in the colorway's highlight; <code>n-fringe</code> splits an edge into the opponent pair. <code>n-outline</code>
+        fills type with the light end of the feature's measured edge sequence and outlines it outward through the sequence (<code>--n-outline</code> sets the rings' width);
+        <code>n-fringe-edge</code> is the fringe in the sequence's colours; <code>n-outline-in</code> is the outline the
+        other way round, for paper. All but the last are made for dark grounds: <code>n-dark</code> on any container swaps the whole palette.</p>
+        <div class="panels">${[0, 1, 2, 3, 4, 5].map(i => {
+          const c = cwFor(i + 20), cls = ["n-glow", "n-fringe", "n-fringe n-glow", "n-outline", "n-fringe-edge", "n-outline-in"][i];
+          return `<div class="panel n-cw-${c} ${i === 5 ? "n-page" : "n-dark"}">
+            <div class="n-display ${cls}" style="font-size:64px;${i === 0 ? "color:var(--n-ink)" : i === 1 || i === 2 || i === 4 ? "color:var(--n-accent)" : ""}">${["Lantern", "Opponent", "Both", "Outline", "Sequence", "On paper"][i]}</div>
+            <div class="cap" style="color:inherit;opacity:.75">${cls} · ${i === 5 ? "n-page" : "n-dark"} · colorway ${c}</div></div>`;
         }).join("")}</div>
         <h2>Character set</h2><div class="glyphs">${[...AZ].map(c => `<span>${esc(c)}</span>`).join("")}</div>
         <h2>In the colorways</h2><div class="panels">${panels}</div>
@@ -78,11 +81,13 @@
       return `<h1>Features</h1>
         <p class="lede">What one channel of a trained image network responds to, drawn by optimizing an image until that
         channel fires as strongly as it can. ${models.map(m => `${N.features[m].length} from ${m}`).join(", ")}. Use them
-        large, as surfaces and covers, one feature to a composition. Click one to see it full size.</p>
+        large, as surfaces and covers, one feature to a composition. Each was made at 224 px and upscaled twice, to
+        1792 px (click one to see it) and 3584 px (the download), so it holds as a page background. The ConvNeXt
+        features also come as seamless tiles (on the Colorways tab), for backgrounds that repeat.</p>
         <div class="filters">${["all", ...models].map(m => `<button data-model="${m}" class="${m === sel ? "on" : ""}">${m}</button>`).join("")}</div>
         <div class="grid" style="--min:170px">${items.map(f => `<figure class="feat">
           <img src="${f.src}" loading="lazy" alt="${f.model} ${f.layer} channel ${f.channel}" data-big="${f.big || f.src}">
-          <figcaption>${f.model} · ${f.layer} · c${f.channel}</figcaption></figure>`).join("")}</div>`;
+          <figcaption>${f.model} · ${f.layer} · c${f.channel}${f.huge ? ` · <a href="${f.huge}" download>3584 px</a>` : f.big ? ` · <a href="${f.big}" download>big</a>` : ""}</figcaption></figure>`).join("")}</div>`;
     },
 
     strokes() {
@@ -145,17 +150,23 @@
 
     colorways() {
       return `<h1>Colorways</h1>
-        <p class="lede">${CW.length} palettes, one for each ConvNeXt feature: the feature's two opponent colours (a, b), and from
-        them a paper, an ink (at least 7:1 on paper), two accents (at least 3:1 on paper), a dark ground with its own
-        lifted accents, the feature's colour ramp and a mesh gradient. Put <code>n-cw-&lt;id&gt;</code> on any element to
-        use one, and <code>n-dark</code> inside it for the dark side.</p>
+        <p class="lede">${CW.length} palettes, one for each ConvNeXt feature, in the feature's own colours. The <b>base</b> is the
+        biggest patch of colour in the picture; the <b>five</b> (<code>--n-c1</code> … <code>--n-c5</code>) are five more
+        colours present in it, one per patch, as far apart as the picture allows and each chosen to read against the base.
+        The base is the page: paper when it is light, the dark ground when it is dark (the other side is a tint of it).
+        When a base is mid-toned and the picture has nothing light or dark, the ground is a tint of the base and the
+        base is kept as a panel colour (<code>--n-base</code>, the square on those cards). <code>--n-accent</code> and
+        <code>--n-accent2</code> are the two of the five nearest the feature's opponent pair. Put
+        <code>n-cw-&lt;id&gt;</code> on any element to use one, and <code>n-dark</code> inside it for the dark side. Each card
+        also carries the feature's <b>edge sequence</b>: the colours met crossing its edges, dark side to light side.
+        It is the strip above the ramp, and the outlined Aa on the dark row (<code>n-outline</code>).</p>
         <div class="grid" style="--min:250px">${CW.map(c => `<figure class="cw n-cw-${c.short}">
-          <div class="mesh">${c.feature ? `<img src="${c.feature}" alt="" loading="lazy" data-big="${c.feature}">` : ""}</div>
-          <div class="sw">${[c.paper, c.ink, c.accent, c.accent2, c.dark].map(h => `<i style="background:${h}" title="${h}"></i>`).join("")}</div>
-          <div class="body"><b>Aa</b> <span>${esc(c.name_a)} / ${esc(c.name_b)}</span>
-          <div class="cap" style="color:inherit">${copyable("n-cw-" + c.short)} · ${c.layer}</div></div>
-          <div class="body n-dark"><b class="n-glow" style="color:var(--n-accent)">Aa</b> <b style="color:var(--n-accent2);font-size:22px">Aa</b> <span style="font-size:13px">n-dark</span></div>
-          <div class="n-ramp" style="height:8px"></div></figure>`).join("")}</div>`;
+          <div class="pic">${c.feature ? `<img src="${c.feature}" alt="" loading="lazy" data-big="${c.big || c.feature}">` : ""}</div>
+          <div class="sw"><i style="background:${c.base};flex:1.6" title="base ${c.base}"></i>${c.five.map(h => `<i style="background:${h}" title="${h}"></i>`).join("")}</div>
+          <div class="body ${c.ground === c.dark ? "n-dark" : ""}"><b>Aa</b> ${[1, 2, 3, 4, 5].map(i => `<b style="font-size:22px;color:var(--n-c${i})">Aa</b>`).join(" ")} <span>${esc(c.name_a)} / ${esc(c.name_b)}${c.ground !== c.base ? ` · <i class="n-base" style="display:inline-block;width:1em;height:1em;vertical-align:-.15em" title="the base, as a panel colour"></i> base` : ""}</span>
+          <div class="cap" style="color:inherit">${copyable("n-cw-" + c.short)} · ${c.layer}${c.tile ? ` · <a href="${c.tile}" download>tile</a>` : ""}</div></div>
+          <div class="body ${c.ground === c.dark ? "" : "n-dark"}"><b class="n-glow" style="color:var(--n-accent)">Aa</b> <b style="color:var(--n-accent2);font-size:22px">Aa</b> ${c.edge ? '<b class="n-outline" style="font-size:40px">Aa</b>' : ""} <span style="font-size:13px">${c.ground === c.dark ? "n-page" : "n-dark"} · ${c.ground === c.dark ? "light" : "dark"} tint</span></div>
+          ${c.edge ? '<div class="n-edge-line" style="--n-h:8px;--n-gap:0"></div>' : ""}<div class="n-ramp" style="height:8px"></div></figure>`).join("")}</div>`;
     },
 
     elements() {
@@ -230,12 +241,15 @@
     examples() {
       const ex = [
         ["plate.html", "Plate", "An article page laid out like a plate in a pattern book: one motif as the hero, its details magnified at the side, two columns of text with rules and mark bullets."],
-        ["catalogue.html", "Catalogue", "A shop: one motif printed six ways in adaptive frames, with mark bullets, icons and a mesh gradient header."],
-        ["registers.html", "Registers", "A landing page in horizontal bands of flat colour, one frieze family running between them, a motif filled with its own print as the hero."],
         ["emblem.html", "Emblem", "An event page, everything centred on a dark ground: a fleuron, a large glowing number, a framed programme."],
         ["ground.html", "Ground", "A gallery page with one ConvNeXt feature, upscaled and made seamless, as the page's background, and that feature's colorway for everything on it."],
         ["lantern.html", "Lantern", "A dark page: a filled emblem glowing, fringed display type, duotones and ramps."],
         ["invaded.html", "Invaded", "A portfolio in black and white halves, giant type broken into by a motif, one feature as the only image."],
+        ["specimen.html", "Specimen", "A type specimen on a dark ground: every letter outlined through the feature's edge sequence, the sequence as rules, bands and a fringe."],
+        ["made.html", "Made of itself", "A motif drawn out of hundreds of copies of one small mark, and the same motif turned into a medallion."],
+        ["bands.html", "Bands", "Friezes as the page's structure: full-width bands of one family in six arrangements, the type in the gutters, the title and number running off the edges."],
+        ["column.html", "Column", "A feature as a full-height column down the left, the title in vertical type beside it, the text narrow at the right. Nothing centred."],
+        ["dossier.html", "Dossier", "One filled emblem in the middle of a sheet and everything written round it: a big date, codes, numbered markers with leader lines, a magnified detail in a drawn box."],
       ];
       return `<h1>Examples</h1>
         <p class="lede">Web pages made from the library: the font, one colorway each, a single feature or motif family, and the

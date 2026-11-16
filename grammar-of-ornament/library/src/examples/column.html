@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Column</title>
+<link rel="stylesheet" href="../neuron-library/neuron.css">
+<script src="../neuron-library/neuron-elements.js" defer></script>
+<style>
+  /* The feature as a full-height column down the left of the page, the title running down beside it in vertical
+     type, the text set narrow at the far right. Nothing is centred. */
+  body{margin:0;font:17px/1.55 var(--n-text)}
+  .page{display:grid;grid-template-columns:40vw auto 1fr;min-height:100vh}
+  .pic{position:sticky;top:0;height:100vh;background:url(img/f50-c451.jpg) center/cover}
+  .title{position:relative}
+  .title h1{position:sticky;top:0;height:100vh;margin:0;writing-mode:vertical-rl;white-space:nowrap;font-size:min(11vw,9vh);line-height:1;padding:3vh .15em 0 .25em;color:var(--n-accent2);box-sizing:border-box;--n-outline:.4}
+  .text{padding:34px 40px 60px 20px;display:flex;flex-direction:column;min-height:100vh;box-sizing:border-box}
+  nav{display:flex;justify-content:flex-end;gap:24px;font:500 12px var(--n-label);letter-spacing:.2em;text-transform:lowercase}
+  nav a{color:inherit;text-decoration:none}
+  .data{margin:40px 0 0;display:grid;grid-template-columns:auto 1fr;gap:4px 18px;font:500 12px/1.7 var(--n-label);letter-spacing:.12em;text-transform:lowercase;max-width:360px}
+  .data dt{opacity:.55}.data dd{margin:0}
+  .lede{font-size:23px;line-height:1.35;margin:36px 0 0;max-width:30ch}
+  .body{margin:30px 0 0;max-width:36ch;columns:1}
+  .pull{margin:auto 0 0;padding-top:60px;font:normal 54px/1 var(--n-display);color:var(--n-accent);max-width:12ch}
+  .cells{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+  .cell{--n-line:2px;color:var(--n-ink)}
+  .cell>div{font:500 12px/1.6 var(--n-label);letter-spacing:.12em;text-transform:lowercase;--n-pad:14px 16px}
+  .cell b{display:block;font:normal 42px/1 var(--n-display);letter-spacing:0;text-transform:none;color:var(--n-accent2);margin-bottom:6px}
+  .rule{--n-h:3px;color:var(--n-accent);--n-gap:36px 0 0}
+  @media (max-width:900px){.page{grid-template-columns:1fr}.pic{position:static;height:60vh}.title h1{position:static;writing-mode:horizontal-tb;height:auto;padding:20px 20px 0;font-size:64px;white-space:normal}.text{padding:20px}.cells{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="n-text n-cw-f50-c451 n-page">
+<div class="page">
+  <div class="pic" role="img" aria-label="ConvNeXt features.5.0, channel 451, as a column"></div>
+  <div class="title"><h1 class="n-display n-outline-in">Channel 451</h1></div>
+  <div class="text">
+    <nav><a href="#">Channels</a><a href="#">Prints</a><a href="#">Index</a></nav>
+    <dl class="data"><dt>model</dt><dd>convnext_base</dd><dt>layer</dt><dd>features.5.0</dd><dt>channel</dt><dd>451</dd><dt>pair</dt><dd>orange · green</dd><dt>shown</dt><dd>1792 px, the eight-times upscale</dd></dl>
+    <p class="lede">A channel deep in the network that answers to a bed of small round things in orange, broken by green: moss on a brick, roe, a fruit crate. Asked to draw it, the network draws this.</p>
+    <p class="body">Here it is set as a column, the page's whole left side, at a size where its brushwork reads. The title runs down beside it, as a spine does. The text keeps to the right and stays narrow, so that the picture is never under it.</p>
+    <p class="body">The colours on this page are the channel's own: the paper is a tint of its orange, the orange and the green of the type are pixels of it, the brown of the title's outline is what lies on the dark side of its edges.</p>
+    <hr class="n-line-3 rule">
+    <p class="pull n-display">One channel, standing.</p>
+    <div class="cells">
+      <div class="cell n-drawn-2"><div><b>5.0</b>the layer, two from the top of the network</div></div>
+      <div class="cell n-drawn-4"><div><b>451</b>the channel, of 1024 in that layer</div></div>
+      <div class="cell n-drawn-7"><div><b>8×</b>upscaled twice, from 224 to 1792 pixels</div></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

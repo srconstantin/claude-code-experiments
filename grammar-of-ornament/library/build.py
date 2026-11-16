@@ -35,7 +35,9 @@ import numpy as np
 from PIL import Image, ImageFilter
 from skimage import color as skc
 
+import edges as EG
 import elements as E
+import palette as PAL
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
@@ -97,25 +99,54 @@ def toward(h, ground, ratio):
     return from_lab(L)
 
 
-def theme(cw):
-    """A light page from a colorway: paper from the highlight, ink from the shadow, the pair as accents.
-    Ink and paper pass 7:1; each accent is pushed to 3:1 against paper (for ornament and large type)."""
-    p, d = cw["pair"], cw["duotone"]
-    hl = lab(d["highlight"])
-    paper = from_lab([95.5, hl[1] * 0.12, hl[2] * 0.12])
-    sh = lab(d["shadow"])
-    ink = toward(from_lab([min(sh[0], 22), sh[1] * 0.5, sh[2] * 0.5]), paper, 7.0)
-    a, b = toward(p["a"], paper, 3.0), toward(p["b"], paper, 3.0)
-    if contrast(a, paper) < contrast(b, paper):
-        a, b = b, a
-    dark = from_lab([13, sh[1] * 0.6, sh[2] * 0.6])
-    on_dark = toward(d["highlight"], dark, 7.0)
-    def lift(h):                                  # an accent for the dark ground: brighter and a little more saturated
-        L = lab(h)
-        return toward(from_lab([max(L[0], 55), L[1] * 1.2, L[2] * 1.2]), dark, 3.5)
-    da, db = lift(p["a"]), lift(p["b"])
-    return {"paper": paper, "ink": ink, "accent": a, "accent2": b, "dark": dark, "on_dark": on_dark,
-            "dark_accent": da, "dark_accent2": db, "shadow": d["shadow"], "highlight": d["highlight"],
+def palettes(names):
+    """The picture-drawn palette (palette.py) of each colorway feature, cached in cache/palettes.json."""
+    f = CACHE / "palettes.json"
+    CACHE.mkdir(exist_ok=True)
+    done = json.loads(f.read_text()) if f.exists() else {}
+    t, n = time.time(), 0
+    for name in names:
+        if name not in done:
+            rgb = np.asarray(Image.open(FEATURES["convnext_base"] / f"{name}.png").convert("RGB")).astype(float) / 255
+            done[name] = PAL.palette(rgb)
+            n += 1
+    if n:
+        f.write_text(json.dumps(done))
+        log(f"  palettes: {n} measured ({time.time() - t:.0f}s)")
+    return done
+
+
+def hue_dist(h1, h2):
+    a, b = lab(h1), lab(h2)
+    d = abs(np.degrees(np.arctan2(a[2], a[1])) - np.degrees(np.arctan2(b[2], b[1]))) % 360
+    return min(d, 360 - d)
+
+
+def theme(cw, pal):
+    """A colorway from the picture's own colours (palette.py): the base is the biggest patch of colour in the
+    feature, the five are five more colours present in it. The colorway's own side is the ground the five were
+    chosen against: paper when the ground is light, the dark ground when it is dark; the other side is a tint of the
+    base. On its own side the five are untouched pixels of the picture; on the other they are moved in lightness
+    until they read (2.5:1). Ink and the dark side's text are the darkest and lightest of the five pushed to 7:1.
+    accent and accent2 are the two of the five nearest the feature's opponent pair."""
+    base, ground, five = pal["base"], pal["ground"], pal["five"]
+    light_side = pal["ground_lab"][0] > 50
+    bl = np.array(pal["base_lab"])
+    paper = ground if light_side else PAL.lab_hex(PAL.tint(bl, "light"))
+    dark = ground if not light_side else PAL.lab_hex(PAL.tint(bl, "dark"))
+    L = [lab(h) for h in five]
+    lo, hi = L[int(np.argmin([l[0] for l in L]))], L[int(np.argmax([l[0] for l in L]))]
+    ink = toward(from_lab([min(lo[0], 22), lo[1] * 0.7, lo[2] * 0.7]), paper, 7.0)
+    on_dark = toward(from_lab([max(hi[0], 85), hi[1] * 0.5, hi[2] * 0.5]), dark, 7.0)
+    light_five = five if light_side else [toward(h, paper, 2.5) for h in five]
+    dark_five = five if not light_side else [toward(h, dark, 2.5) for h in five]
+    p = cw["pair"]
+    ia = int(np.argmin([hue_dist(h, p["a"]) for h in five]))
+    ib = int(np.argmin([hue_dist(h, p["b"]) if i != ia else 1e9 for i, h in enumerate(five)]))
+    return {"paper": paper, "ink": ink, "accent": light_five[ia], "accent2": light_five[ib], "dark": dark, "on_dark": on_dark,
+            "dark_accent": dark_five[ia], "dark_accent2": dark_five[ib], "base": base, "ground": ground, "tint": pal["tint"],
+            "five": light_five, "dark_five": dark_five, "shares": pal["shares"], "note": pal["note"],
+            "shadow": cw["duotone"]["shadow"], "highlight": cw["duotone"]["highlight"],
             "ramp": "linear-gradient(90deg," + ",".join(cw["gradient"]["image"]) + ")",
             "mesh": cw["mesh"]["css"], "mesh_base": cw["mesh"]["base"]}
 
@@ -135,23 +166,43 @@ def copy_assets(cat):
             shutil.copy2(f.with_suffix(".png"), dst / f.with_suffix(".png").name)
             rec = {"name": m["name"], "model": model, "layer": m.get("layer", ""),
                    "channel": (m.get("target") or {}).get("channel"), "src": f"assets/features/{model}/{f.stem}.png"}
-            sr = ROOT / "cache" / "sr" / f"{f.stem}.png"           # the 4× upscale, where motifs.py has made one
-            if sr.exists():
+            # upscales (upscale_all.py): big is the 8× (1792 px) when made, else the 4× (896); huge is the 16× (3584)
+            sr, sr8, sr16 = (ROOT / "cache" / d / f"{f.stem}{ext}" for d, ext in (("sr", ".png"), ("sr8", ".jpg"), ("sr16", ".jpg")))
+            big = dst / "big" / f"{f.stem}.jpg"
+            if sr8.exists():
                 (dst / "big").mkdir(exist_ok=True)
-                big = dst / "big" / f"{f.stem}.jpg"
+                if not big.exists() or big.stat().st_size != sr8.stat().st_size:
+                    shutil.copy2(sr8, big)
+                rec["big"] = f"assets/features/{model}/big/{f.stem}.jpg"
+            elif sr.exists():
+                (dst / "big").mkdir(exist_ok=True)
                 if not big.exists():
                     Image.open(sr).convert("RGB").save(big, quality=86)
                 rec["big"] = f"assets/features/{model}/big/{f.stem}.jpg"
+            tile8 = ROOT / "cache" / "sr8_tile" / f"{f.stem}.jpg"             # seamless (tile_all.py), for backgrounds
+            if tile8.exists():
+                (dst / "tile").mkdir(exist_ok=True)
+                tl = dst / "tile" / f"{f.stem}.jpg"
+                if not tl.exists() or tl.stat().st_size != tile8.stat().st_size:
+                    shutil.copy2(tile8, tl)
+                rec["tile"] = f"assets/features/{model}/tile/{f.stem}.jpg"
+            if sr16.exists():
+                (dst / "huge").mkdir(exist_ok=True)
+                huge = dst / "huge" / f"{f.stem}.jpg"
+                if not huge.exists() or huge.stat().st_size != sr16.stat().st_size:
+                    shutil.copy2(sr16, huge)
+                rec["huge"] = f"assets/features/{model}/huge/{f.stem}.jpg"
             items.append(rec)
         items.sort(key=lambda r: (_layer_key(r["layer"]), r["channel"] or 0))
         cat["features"][model] = items
         log(f"  features {model}: {len(items)}")
     dst = A / "colorways"
     dst.mkdir(parents=True, exist_ok=True)
-    for f in sorted(COLORWAYS.glob("*.json")):
-        cw = json.loads(f.read_text())
-        if not isinstance(cw, dict) or "pair" not in cw:      # the folder's index
-            continue
+    cws = [json.loads(f.read_text()) for f in sorted(COLORWAYS.glob("*.json"))]
+    cws = [cw for cw in cws if isinstance(cw, dict) and "pair" in cw]          # (the folder's index is not one)
+    pals = palettes([cw["name"] for cw in cws])
+    for cw in cws:
+        f = COLORWAYS / f"{cw['name']}.json"
         card = f.with_name(f.stem + ".card.png")
         if card.exists():
             shutil.copy2(card, dst / card.name)
@@ -161,8 +212,10 @@ def copy_assets(cat):
                                  "name_a": cw["pair"].get("name_a", ""), "name_b": cw["pair"].get("name_b", ""),
                                  "gradient": cw["gradient"]["image"], "card": f"assets/colorways/{card.name}" if card.exists() else "",
                                  "feature": f"assets/features/convnext_base/{feat.name}" if feat.exists() else "",
-                                 **theme(cw)})
+                                 "tile": next((r["tile"] for r in cat["features"].get("convnext_base", []) if r["name"] == cw["name"] and "tile" in r), ""),
+                                 **theme(cw, pals[cw["name"]])})
     cat["colorways"].sort(key=lambda c: (_layer_key(c["layer"]), c["short"]))
+    edge_sequences(cat)
     log(f"  colorways: {len(cat['colorways'])}")
     dst = A / "motifs"
     dst.mkdir(parents=True, exist_ok=True)
@@ -205,6 +258,32 @@ def upscale_again(sq, key):
     Image.fromarray(big).save(out)
     log(f"    upscaled {key} {im.size[0]}→{big.shape[0]} px in {time.time() - t:.0f}s")
     return big
+
+
+def edge_sequences(cat):
+    """Each colorway's edge sequence (edges.py), measured on the feature's 4× upscale and cached."""
+    f = CACHE / "edges.json"
+    CACHE.mkdir(exist_ok=True)
+    done = json.loads(f.read_text()) if f.exists() else {}
+    t = time.time()
+    n = 0
+    for c in cat["colorways"]:
+        sr = ROOT / "cache" / "sr" / f"{c['name']}.png"
+        if c["name"] not in done:
+            if not sr.exists():                      # the 4× upscale, made the way motifs.py makes it (cached there)
+                import sys
+                sys.path.insert(0, str(ROOT))
+                import motifs
+                log(f"    upscaling {c['short']}")
+                motifs.upscaled(FEATURES["convnext_base"], c["name"])
+            im = np.asarray(Image.open(sr).convert("RGB")).astype(float) / 255
+            prof, seq = EG.edge_sequence(im)
+            done[c["name"]] = {"profile": prof, "sequence": seq}
+            n += 1
+        c["edge_profile"], c["edge_sequence"], c["edge"] = done[c["name"]]["profile"], done[c["name"]]["sequence"], EG.five(done[c["name"]]["sequence"])
+    if n:
+        f.write_text(json.dumps(done))
+        log(f"  edge sequences: {n} measured ({time.time() - t:.0f}s)")
 
 
 def filled_emblems(cat):
@@ -425,6 +504,8 @@ def css(cat):
              "@font-face{font-family:'Neuron Leaf';src:url(fonts/Neuron-Leaf.woff2) format('woff2'),url(fonts/Neuron-Leaf.otf) format('opentype');font-display:swap}",
              "", "/* text faces (SIL Open Font License, see fonts/OFL-*.txt): Alegreya Sans for text, its small caps for labels, DM Mono for code */"] + TEXT_FACES + [
              "", ":root{--n-paper:#f3f1ec;--n-ink:#171614;--n-accent:#8a3a1c;--n-accent2:#3d5a6c;--n-dark:#151413;--n-on-dark:#efe9dc;",
+             "  --n-base:#f3f1ec;--n-c1:#8a3a1c;--n-c2:#8a6a1c;--n-c3:#4e6b3a;--n-c4:#3d5a6c;--n-c5:#6b4a7c;",
+             "  --n-dark-accent:#d9825a;--n-dark-accent2:#8fb3c8;--n-dark-c1:#d9825a;--n-dark-c2:#d0ac55;--n-dark-c3:#8fb37a;--n-dark-c4:#8fb3c8;--n-dark-c5:#b596c8;",
              "  --n-mesh:none;--n-display:'Neuron Leaf',Georgia,serif;--n-text:'Alegreya Sans','Helvetica Neue',Helvetica,Arial,sans-serif;",
              "  --n-label:'Alegreya Sans SC','Alegreya Sans',sans-serif;--n-mono:'DM Mono',Menlo,Consolas,monospace}", "",
              ".n-text{font-family:var(--n-text)}",
@@ -433,17 +514,26 @@ def css(cat):
              ".n-page{background:var(--n-paper);color:var(--n-ink)}", ".n-dark{background:var(--n-dark);color:var(--n-on-dark)}",
              ".n-accent{color:var(--n-accent)}", ".n-accent2{color:var(--n-accent2)}",
              ".n-mesh{background:var(--n-mesh-base,#888);background-image:var(--n-mesh)}", "",
-             "/* colorways: class n-cw-<short> on any element sets the palette for everything inside */"]
+             "/* colorways: class n-cw-<short> on any element sets the palette for everything inside. The colours are the",
+             "   feature's own: --n-base is the biggest patch of colour in it, --n-c1 … --n-c5 five more colours present in it",
+             "   (ordered by hue), accent and accent2 the two of those nearest its opponent pair. Paper or the dark ground is the",
+             "   base itself (or a tint of it when the base can't carry five of the picture's colours) */"]
     for c in cw:
         lines.append(f".n-cw-{c['short']}{{--n-paper:{c['paper']};--n-ink:{c['ink']};--n-accent:{c['accent']};"
                      f"--n-accent2:{c['accent2']};--n-dark:{c['dark']};--n-on-dark:{c['on_dark']};"
-                     f"--n-dark-accent:{c['dark_accent']};--n-dark-accent2:{c['dark_accent2']};"
-                     f"--n-shadow:{c['shadow']};--n-highlight:{c['highlight']};--n-ramp:{c['ramp']};"
-                     f"--n-mesh-base:{c['mesh_base']};--n-mesh:{c['mesh']}}}")
+                     f"--n-dark-accent:{c['dark_accent']};--n-dark-accent2:{c['dark_accent2']};--n-base:{c['base']};"
+                     + "".join(f"--n-c{i + 1}:{h};" for i, h in enumerate(c["five"]))
+                     + "".join(f"--n-dark-c{i + 1}:{h};" for i, h in enumerate(c["dark_five"]))
+                     + f"--n-shadow:{c['shadow']};--n-highlight:{c['highlight']};--n-ramp:{c['ramp']};"
+                     f"--n-mesh-base:{c['mesh_base']};--n-mesh:{c['mesh']}"
+                     + ("".join(f";--n-edge-{i + 1}:{h}" for i, h in enumerate(c["edge"]))
+                        + f";--n-edge-profile:linear-gradient(90deg,{','.join(c['edge_profile'])})" if "edge" in c else "") + "}")
     lines += ["", "/* the dark side of a colorway: n-dark swaps the whole palette, so everything inside takes the dark ground,",
               "   its text colour and accents lifted to read on it */",
               ".n-dark{--n-paper:var(--n-dark);--n-ink:var(--n-on-dark);--n-accent:var(--n-dark-accent);--n-accent2:var(--n-dark-accent2);"
+              "--n-c1:var(--n-dark-c1);--n-c2:var(--n-dark-c2);--n-c3:var(--n-dark-c3);--n-c4:var(--n-dark-c4);--n-c5:var(--n-dark-c5);"
               "--n-glow:color-mix(in srgb,var(--n-highlight) 55%,transparent);background:var(--n-paper);color:var(--n-ink)}",
+              ".n-c1{color:var(--n-c1)}.n-c2{color:var(--n-c2)}.n-c3{color:var(--n-c3)}.n-c4{color:var(--n-c4)}.n-c5{color:var(--n-c5)}.n-base{background:var(--n-base)}",
               "", "/* light: a halo in the colorway's highlight (the features glow); strongest on dark grounds */",
               ":root{--n-glow:color-mix(in srgb,var(--n-highlight,#fff) 35%,transparent)}",
               ".n-glow{text-shadow:0 0 .12em var(--n-glow),0 0 .5em var(--n-glow),0 0 1.4em var(--n-glow)}",
@@ -452,6 +542,17 @@ def css(cat):
               ".n-fringe{text-shadow:-.03em 0 var(--n-accent),.03em 0 var(--n-accent2)}",
               ".n-fringe.n-glow{text-shadow:-.03em 0 var(--n-accent),.03em 0 var(--n-accent2),0 0 .5em var(--n-glow),0 0 1.4em var(--n-glow)}",
               ".n-fringe-box{box-shadow:-3px 0 var(--n-accent),3px 0 var(--n-accent2)}",
+              "/* edge sequence: the colours met crossing the feature's edges, dark side (--n-edge-1) to light side (--n-edge-5).",
+              "   n-outline: type filled with the light end and outlined outward through the sequence (for dark grounds);",
+              "   --n-outline scales the rings' width (.5 by default, about a twentieth of the type size; 1 is twice that);",
+              "   n-outline-in: filled with the dark end, outlined outward to the light end (for paper); n-fringe-edge: a fringe",
+              "   in the sequence's colours; n-edged: a box with the sequence as inset bands; n-edge-line: the profile as a rule */",
+              ":root{--n-edge-1:var(--n-shadow,#222);--n-edge-2:var(--n-accent2);--n-edge-3:var(--n-accent);--n-edge-4:var(--n-highlight,#fff);--n-edge-5:var(--n-highlight,#fff);--n-edge-profile:var(--n-ramp)}",
+              ".n-outline{color:var(--n-edge-5);text-shadow:calc(0.018em * var(--n-outline,.5)) calc(0.000em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(0.016em * var(--n-outline,.5)) calc(0.009em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(0.009em * var(--n-outline,.5)) calc(0.016em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(0.000em * var(--n-outline,.5)) calc(0.018em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(-0.009em * var(--n-outline,.5)) calc(0.016em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(-0.016em * var(--n-outline,.5)) calc(0.009em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(-0.018em * var(--n-outline,.5)) calc(0.000em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(-0.016em * var(--n-outline,.5)) calc(-0.009em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(-0.009em * var(--n-outline,.5)) calc(-0.016em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(-0.000em * var(--n-outline,.5)) calc(-0.018em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(0.009em * var(--n-outline,.5)) calc(-0.016em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(0.016em * var(--n-outline,.5)) calc(-0.009em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(0.040em * var(--n-outline,.5)) calc(0.000em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(0.035em * var(--n-outline,.5)) calc(0.020em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(0.020em * var(--n-outline,.5)) calc(0.035em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(0.000em * var(--n-outline,.5)) calc(0.040em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(-0.020em * var(--n-outline,.5)) calc(0.035em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(-0.035em * var(--n-outline,.5)) calc(0.020em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(-0.040em * var(--n-outline,.5)) calc(0.000em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(-0.035em * var(--n-outline,.5)) calc(-0.020em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(-0.020em * var(--n-outline,.5)) calc(-0.035em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(-0.000em * var(--n-outline,.5)) calc(-0.040em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(0.020em * var(--n-outline,.5)) calc(-0.035em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(0.035em * var(--n-outline,.5)) calc(-0.020em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(0.066em * var(--n-outline,.5)) calc(0.000em * var(--n-outline,.5)) 0 var(--n-edge-2),calc(0.057em * var(--n-outline,.5)) calc(0.033em * var(--n-outline,.5)) 0 var(--n-edge-2),calc(0.033em * var(--n-outline,.5)) calc(0.057em * var(--n-outline,.5)) 0 var(--n-edge-2),calc(0.000em * var(--n-outline,.5)) calc(0.066em * var(--n-outline,.5)) 0 var(--n-edge-2),calc(-0.033em * var(--n-outline,.5)) calc(0.057em * var(--n-outline,.5)) 0 var(--n-edge-2),calc(-0.057em * var(--n-outline,.5)) calc(0.033em * var(--n-outline,.5)) 0 var(--n-edge-2),calc(-0.066em * var(--n-outline,.5)) calc(0.000em * var(--n-outline,.5)) 0 var(--n-edge-2),calc(-0.057em * var(--n-outline,.5)) calc(-0.033em * var(--n-outline,.5)) 0 var(--n-edge-2),calc(-0.033em * var(--n-outline,.5)) calc(-0.057em * var(--n-outline,.5)) 0 var(--n-edge-2),calc(-0.000em * var(--n-outline,.5)) calc(-0.066em * var(--n-outline,.5)) 0 var(--n-edge-2),calc(0.033em * var(--n-outline,.5)) calc(-0.057em * var(--n-outline,.5)) 0 var(--n-edge-2),calc(0.057em * var(--n-outline,.5)) calc(-0.033em * var(--n-outline,.5)) 0 var(--n-edge-2),calc(0.096em * var(--n-outline,.5)) calc(0.000em * var(--n-outline,.5)) 0 var(--n-edge-1),calc(0.083em * var(--n-outline,.5)) calc(0.048em * var(--n-outline,.5)) 0 var(--n-edge-1),calc(0.048em * var(--n-outline,.5)) calc(0.083em * var(--n-outline,.5)) 0 var(--n-edge-1),calc(0.000em * var(--n-outline,.5)) calc(0.096em * var(--n-outline,.5)) 0 var(--n-edge-1),calc(-0.048em * var(--n-outline,.5)) calc(0.083em * var(--n-outline,.5)) 0 var(--n-edge-1),calc(-0.083em * var(--n-outline,.5)) calc(0.048em * var(--n-outline,.5)) 0 var(--n-edge-1),calc(-0.096em * var(--n-outline,.5)) calc(0.000em * var(--n-outline,.5)) 0 var(--n-edge-1),calc(-0.083em * var(--n-outline,.5)) calc(-0.048em * var(--n-outline,.5)) 0 var(--n-edge-1),calc(-0.048em * var(--n-outline,.5)) calc(-0.083em * var(--n-outline,.5)) 0 var(--n-edge-1),calc(-0.000em * var(--n-outline,.5)) calc(-0.096em * var(--n-outline,.5)) 0 var(--n-edge-1),calc(0.048em * var(--n-outline,.5)) calc(-0.083em * var(--n-outline,.5)) 0 var(--n-edge-1),calc(0.083em * var(--n-outline,.5)) calc(-0.048em * var(--n-outline,.5)) 0 var(--n-edge-1)}",
+              ".n-outline-in{color:var(--n-edge-1);text-shadow:calc(0.018em * var(--n-outline,.5)) calc(0.000em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(0.016em * var(--n-outline,.5)) calc(0.009em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(0.009em * var(--n-outline,.5)) calc(0.016em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(0.000em * var(--n-outline,.5)) calc(0.018em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(-0.009em * var(--n-outline,.5)) calc(0.016em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(-0.016em * var(--n-outline,.5)) calc(0.009em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(-0.018em * var(--n-outline,.5)) calc(0.000em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(-0.016em * var(--n-outline,.5)) calc(-0.009em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(-0.009em * var(--n-outline,.5)) calc(-0.016em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(-0.000em * var(--n-outline,.5)) calc(-0.018em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(0.009em * var(--n-outline,.5)) calc(-0.016em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(0.016em * var(--n-outline,.5)) calc(-0.009em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(0.040em * var(--n-outline,.5)) calc(0.000em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(0.035em * var(--n-outline,.5)) calc(0.020em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(0.020em * var(--n-outline,.5)) calc(0.035em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(0.000em * var(--n-outline,.5)) calc(0.040em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(-0.020em * var(--n-outline,.5)) calc(0.035em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(-0.035em * var(--n-outline,.5)) calc(0.020em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(-0.040em * var(--n-outline,.5)) calc(0.000em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(-0.035em * var(--n-outline,.5)) calc(-0.020em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(-0.020em * var(--n-outline,.5)) calc(-0.035em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(-0.000em * var(--n-outline,.5)) calc(-0.040em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(0.020em * var(--n-outline,.5)) calc(-0.035em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(0.035em * var(--n-outline,.5)) calc(-0.020em * var(--n-outline,.5)) 0 var(--n-edge-3),calc(0.066em * var(--n-outline,.5)) calc(0.000em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(0.057em * var(--n-outline,.5)) calc(0.033em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(0.033em * var(--n-outline,.5)) calc(0.057em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(0.000em * var(--n-outline,.5)) calc(0.066em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(-0.033em * var(--n-outline,.5)) calc(0.057em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(-0.057em * var(--n-outline,.5)) calc(0.033em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(-0.066em * var(--n-outline,.5)) calc(0.000em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(-0.057em * var(--n-outline,.5)) calc(-0.033em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(-0.033em * var(--n-outline,.5)) calc(-0.057em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(-0.000em * var(--n-outline,.5)) calc(-0.066em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(0.033em * var(--n-outline,.5)) calc(-0.057em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(0.057em * var(--n-outline,.5)) calc(-0.033em * var(--n-outline,.5)) 0 var(--n-edge-4),calc(0.096em * var(--n-outline,.5)) calc(0.000em * var(--n-outline,.5)) 0 var(--n-edge-5),calc(0.083em * var(--n-outline,.5)) calc(0.048em * var(--n-outline,.5)) 0 var(--n-edge-5),calc(0.048em * var(--n-outline,.5)) calc(0.083em * var(--n-outline,.5)) 0 var(--n-edge-5),calc(0.000em * var(--n-outline,.5)) calc(0.096em * var(--n-outline,.5)) 0 var(--n-edge-5),calc(-0.048em * var(--n-outline,.5)) calc(0.083em * var(--n-outline,.5)) 0 var(--n-edge-5),calc(-0.083em * var(--n-outline,.5)) calc(0.048em * var(--n-outline,.5)) 0 var(--n-edge-5),calc(-0.096em * var(--n-outline,.5)) calc(0.000em * var(--n-outline,.5)) 0 var(--n-edge-5),calc(-0.083em * var(--n-outline,.5)) calc(-0.048em * var(--n-outline,.5)) 0 var(--n-edge-5),calc(-0.048em * var(--n-outline,.5)) calc(-0.083em * var(--n-outline,.5)) 0 var(--n-edge-5),calc(-0.000em * var(--n-outline,.5)) calc(-0.096em * var(--n-outline,.5)) 0 var(--n-edge-5),calc(0.048em * var(--n-outline,.5)) calc(-0.083em * var(--n-outline,.5)) 0 var(--n-edge-5),calc(0.083em * var(--n-outline,.5)) calc(-0.048em * var(--n-outline,.5)) 0 var(--n-edge-5)}",
+              ".n-fringe-edge{text-shadow:-.03em 0 var(--n-edge-4),.03em 0 var(--n-edge-1),0 0 .4em color-mix(in srgb,var(--n-edge-5) 55%,transparent)}",
+              ".n-edged{box-shadow:inset 0 0 0 var(--n-band,4px) var(--n-edge-1),inset 0 0 0 calc(2 * var(--n-band,4px)) var(--n-edge-2),inset 0 0 0 calc(3 * var(--n-band,4px)) var(--n-edge-3),inset 0 0 0 calc(4 * var(--n-band,4px)) var(--n-edge-4),inset 0 0 0 calc(5 * var(--n-band,4px)) var(--n-edge-5);padding:calc(5 * var(--n-band,4px) + 1.2em) calc(5 * var(--n-band,4px) + 1.4em)}",
+              ".n-edge-line{display:block;height:var(--n-h,6px);border:0;background:var(--n-edge-profile);margin:var(--n-gap,1.5rem) 0}",
               "/* ramp: the colours of the feature, left to right */",
               ".n-ramp{background:var(--n-ramp)}",
               ".n-ramp-line{display:block;height:var(--n-h,6px);border:0;background:var(--n-ramp);margin:var(--n-gap,1.5rem) 0}",
@@ -619,6 +720,7 @@ def friezes(cat):
     log(f"  friezes: {len(cat['friezes'])}")
 
 
+EXAMPLE_IMAGES8 = {"f50-c451.jpg": "convnext_base__features.5.0__c451__224px__s0__9141f8"}   # 1792 px upscales (cache/sr8)
 EXAMPLE_IMAGES = {"f21-c70.jpg": "vgg16__features.21__c70__224px__s0__edc94c",
                   "f24-c119.jpg": "vgg16__features.24__c119__224px__s0__468233",
                   "f24-c27.jpg": "vgg16__features.24__c27__224px__s0__0bcebd"}
@@ -630,8 +732,14 @@ def example_images():
     d.mkdir(parents=True, exist_ok=True)
     for out, name in EXAMPLE_IMAGES.items():
         Image.open(ROOT / "cache" / "sr" / f"{name}.png").convert("RGB").save(d / out, quality=88)
+    for out, name in EXAMPLE_IMAGES8.items():
+        shutil.copy2(ROOT / "cache" / "sr8" / f"{name}.jpg", d / out)
     for out, name in TILE_IMAGES.items():
-        Image.open(ROOT / "cache" / "sr_tile" / f"{name}.png").convert("RGB").save(d / out, quality=88)
+        t8 = ROOT / "cache" / "sr8_tile" / f"{name}.jpg"                     # the seamless 1792 px tile when made
+        if t8.exists():
+            shutil.copy2(t8, d / out)
+        else:
+            Image.open(ROOT / "cache" / "sr_tile" / f"{name}.png").convert("RGB").save(d / out, quality=88)
     shutil.copy2(SITE / "assets" / "motifs" / "f24-c119-8852.png", d / "f24-c119-motif.png")
 
 

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Made of itself</title>
+<link rel="stylesheet" href="../neuron-library/neuron.css">
+<script src="../neuron-library/neuron-elements.js" defer></script>
+<style>
+  /* A motif drawn out of hundreds of tiny copies of one mark, the way a figure is built from glyphs: the motif's
+     silhouette masks a repeating field of the mark. Below, the same motif turned into a medallion. */
+  body{margin:0;font:16px/1.55 var(--n-text)}
+  .in{max-width:1180px;margin:0 auto;padding:28px 36px 70px}
+  nav{display:flex;justify-content:space-between;font:500 12px var(--n-label);letter-spacing:.2em;text-transform:lowercase;opacity:.8}
+  .hero{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center;padding:40px 0 20px}
+  .hero h1{font-size:96px;margin:0 0 18px;line-height:.95;color:var(--n-accent)}
+  .hero p{max-width:420px;margin:0 0 1em}
+  /* the figure: the motif's mask intersected with a tiled mark */
+  .made{width:100%;aspect-ratio:1;background:var(--n-ink);
+    -webkit-mask:url(../neuron-library/elements/emblems/f21-c70-1275.svg) center/contain no-repeat,url(../neuron-library/elements/marks/mark-wavy-hatching-06.svg) 0 0/17px 17px repeat;
+    -webkit-mask-composite:source-in;
+    mask:url(../neuron-library/elements/emblems/f21-c70-1275.svg) center/contain no-repeat,url(../neuron-library/elements/marks/mark-wavy-hatching-06.svg) 0 0/17px 17px repeat;
+    mask-composite:intersect}
+  .row{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;padding:40px 0;align-items:end}
+  .row figure{margin:0;text-align:center}
+  .row figcaption{font:500 12px var(--n-label);letter-spacing:.14em;text-transform:lowercase;opacity:.7;margin-top:10px}
+  .row .n-mark-wavy-hatching-06{--n-size:120px;color:var(--n-ink)}
+  .row .n-emblem-f21-c70-1275{width:160px;margin:0 auto;color:var(--n-ink)}
+  .rule{--n-h:3px;color:var(--n-accent);--n-gap:30px 0}
+  .med{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:30px 0}
+  .med h2{font:normal 48px/1 var(--n-display);margin:0 0 12px;color:var(--n-accent)}
+  footer{font:500 12px var(--n-label);letter-spacing:.14em;text-transform:lowercase;opacity:.7;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:30px}
+  @media (max-width:820px){.hero,.med{grid-template-columns:1fr}.hero h1{font-size:64px}.row{grid-template-columns:1fr}.in{padding:20px 16px 50px}}
+</style>
+</head>
+<body class="n-text n-cw-f12-c108 n-page">
+<div class="in">
+  <nav><span>Made of itself</span><span>vgg16 · features.21 · c70</span></nav>
+  <section class="hero">
+    <div>
+      <h1 class="n-display">Made of itself</h1>
+      <p>A figure drawn with hundreds of copies of one small mark, the way a picture is built out of letters. The
+        mark is a compound stroke from the same family of drawings; the figure is a motif cut from one print.</p>
+      <p>Nothing here is a texture. It is one shape, repeated, seen through another.</p>
+    </div>
+    <div class="made" role="img" aria-label="A motif filled with repeated small marks"></div>
+  </section>
+
+  <hr class="n-line-7 rule">
+  <section class="row">
+    <figure><span class="n-mark-wavy-hatching-06"></span><figcaption>the mark · wavy hatching 06</figcaption></figure>
+    <figure><div class="n-emblem-f21-c70-1275"></div><figcaption>the figure · motif f21-c70</figcaption></figure>
+    <figure><neuron-medallion motif="f21-c70-1275" form="silhouette" fold="4" size="200" style="color:var(--n-accent2)"></neuron-medallion><figcaption>the figure turned four times</figcaption></figure>
+  </section>
+  <hr class="n-line-8 rule">
+
+  <section class="med">
+    <neuron-medallion motif="f21-c70-1275" form="filled" fold="4" size="440" class="n-glow-box" style="justify-self:center"></neuron-medallion>
+    <div><h2 class="n-display">And in its own colours</h2>
+      <p>The same motif, four times round a centre, filled with the interior of the print it was cut from. On the
+        colorway's paper it reads as a rosette; on the dark side it glows.</p></div>
+  </section>
+  <footer><span>Made of itself</span><span>colorway f12-c108</span><span>set in Neuron Leaf and Alegreya Sans</span></footer>
+</div>
+</body>
+</html>

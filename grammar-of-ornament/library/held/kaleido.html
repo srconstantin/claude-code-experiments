@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kaleidoscope</title>
+<link rel="stylesheet" href="../neuron-library/neuron.css">
+<script src="../neuron-library/neuron-elements.js" defer></script>
+<style>
+  /* One motif, mirrored across the two axes of a diamond, in black and white; the lower half of the page is empty
+     but for a tiny title. Colour is kept to the colorway's ink and paper. */
+  body{margin:0;font:15px/1.5 var(--n-text);min-height:100vh}
+  .in{max-width:1100px;margin:0 auto;padding:30px 36px 60px;min-height:100vh;display:grid;grid-template-rows:auto 1fr auto}
+  nav{display:flex;justify-content:space-between;font:500 12px var(--n-label);letter-spacing:.2em;text-transform:lowercase;opacity:.8}
+  .stage{display:grid;place-items:center;padding:30px 0}
+  /* a square clipped to a diamond, its four quadrants a checkerboard of ink and paper; the motif sits in each
+     quadrant against the centre, mirrored across both axes, so the four copies meet and the diamond's edges cut them */
+  .dia{width:min(78vw,620px);aspect-ratio:1;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
+  .dia .c{position:relative;overflow:hidden}
+  .dia .c:nth-child(1),.dia .c:nth-child(4){background:var(--n-ink);color:var(--n-paper)}
+  .dia .c:nth-child(2),.dia .c:nth-child(3){background:var(--n-paper);color:var(--n-ink)}
+  .dia .c i{position:absolute;width:84%;aspect-ratio:1}
+  .dia .c:nth-child(1) i{right:2%;bottom:2%}
+  .dia .c:nth-child(2) i{left:2%;bottom:2%;transform:scaleX(-1)}
+  .dia .c:nth-child(3) i{right:2%;top:2%;transform:scaleY(-1)}
+  .dia .c:nth-child(4) i{left:2%;top:2%;transform:scale(-1,-1)}
+  .cap{text-align:center;padding:40px 0 0}
+  .cap h1{font:normal 22px var(--n-display);letter-spacing:.3em;text-transform:uppercase;margin:0}
+  .cap p{font:500 11px/1.8 var(--n-label);letter-spacing:.2em;text-transform:lowercase;margin:6px 0 0;opacity:.7}
+  .cap .n-line-3{width:120px;--n-h:2px;--n-gap:26px auto 0}
+  .hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  @media (max-width:640px){.in{padding:20px 16px 40px}}
+</style>
+</head>
+<body class="n-text n-cw-f57-c11 n-page">
+<div class="in">
+  <nav><span>Grammar of Ornament</span><span>plate iv</span><span>vgg16 · features.17 · c10</span></nav>
+  <div class="stage">
+    <div class="dia" role="img" aria-label="One motif mirrored four ways in a diamond">
+      <div class="c"><i class="n-emblem-f17-c10-1974"></i></div>
+      <div class="c"><i class="n-emblem-f17-c10-1974"></i></div>
+      <div class="c"><i class="n-emblem-f17-c10-1974"></i></div>
+      <div class="c"><i class="n-emblem-f17-c10-1974"></i></div>
+    </div>
+  </div>
+  <div class="cap">
+    <h1 class="n-display">Four of one</h1>
+    <p>a single figure cut from the print · mirrored across both axes<br>nothing added</p>
+    <hr class="n-line-3">
+  </div>
+</div>
+</body>
+</html>

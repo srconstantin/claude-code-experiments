@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Specimen</title>
+<link rel="stylesheet" href="../neuron-library/neuron.css">
+<script src="../neuron-library/neuron-elements.js" defer></script>
+<style>
+  /* A type specimen on a dark ground. Every letter is outlined through the feature's edge sequence, the colours
+     met crossing its edges from the dark side to the light; the rules are the same sequence as a profile. */
+  body{margin:0;font:16px/1.5 var(--n-text);--n-outline:.3}        /* hairline rings on this page */
+  .in{max-width:1280px;margin:0 auto;padding:28px 36px 80px}
+  .top{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end}
+  .top h1{font-size:150px;margin:0;line-height:.9}
+  .meta{font:500 12px/1.7 var(--n-label);letter-spacing:.14em;text-transform:lowercase;text-align:right;opacity:.85}
+  .meta b{display:block;font-size:13px;color:var(--n-accent)}
+  .rule{--n-h:4px;--n-gap:26px 0 34px}
+  .seq{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:40px;font:500 12px var(--n-label);letter-spacing:.1em;text-transform:lowercase}
+  .seq i{display:block;height:46px;margin-bottom:6px}
+  .az{display:grid;grid-template-columns:repeat(7,1fr);gap:8px 14px}
+  .az div{padding:14px 10px 10px;text-align:center}
+  .az .g{font:normal 108px/1 var(--n-display)}
+  .az small{display:block;font:500 11px var(--n-label);letter-spacing:.18em;text-transform:lowercase;opacity:.6;margin-top:6px}
+  .lc{font:normal 84px/1.1 var(--n-display);margin:50px 0 0;word-spacing:.1em}
+  .nums{font:normal 120px/1 var(--n-display);margin:30px 0 0;letter-spacing:.04em}
+  .two{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;margin-top:56px;align-items:start}
+  .pangram{font:normal 46px/1.15 var(--n-display);margin:0}
+  .pangram.n-edged{--n-band:3px}
+  .notes{font-size:16px}
+  .notes h2{font:normal 34px/1.1 var(--n-display);margin:0 0 10px;color:var(--n-accent)}
+  .notes dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:18px 0 0;font:500 13px/1.5 var(--n-label);letter-spacing:.08em;text-transform:lowercase}
+  .notes dt{opacity:.6}
+  footer{margin-top:60px;font:500 12px var(--n-label);letter-spacing:.14em;text-transform:lowercase;opacity:.7;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  @media (max-width:900px){.top{grid-template-columns:1fr}.top h1{font-size:90px}.meta{text-align:left}.az{grid-template-columns:repeat(4,1fr)}.az .g{font-size:72px}
+    .lc{font-size:48px}.nums{font-size:70px}.two{grid-template-columns:1fr}.seq{grid-template-columns:repeat(5,1fr);gap:6px}.in{padding:20px 16px 60px}}
+</style>
+</head>
+<body class="n-text n-cw-f10-c100 n-dark">
+<div class="in">
+  <header class="top">
+    <h1 class="n-display n-outline">Specimen</h1>
+    <div class="meta"><b>Neuron Leaf</b>display face · one weight<br>a–z, 0–9, punctuation<br>outlined through the edge sequence of<br>convnext features.1.0 · channel 100</div>
+  </header>
+  <hr class="n-edge-line rule">
+
+  <div class="seq">
+    <div><i style="background:var(--n-edge-1)"></i>edge 1 · dark side</div>
+    <div><i style="background:var(--n-edge-2)"></i>edge 2</div>
+    <div><i style="background:var(--n-edge-3)"></i>edge 3</div>
+    <div><i style="background:var(--n-edge-4)"></i>edge 4</div>
+    <div><i style="background:var(--n-edge-5)"></i>edge 5 · light side</div>
+  </div>
+
+  <section class="az" id="az"></section>
+
+  <p class="lc n-display n-outline">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+  <p class="nums n-display n-fringe-edge" style="color:var(--n-accent2)">0 1 2 3 4 5 6 7 8 9</p>
+
+  <section class="two">
+    <p class="pangram n-display n-edged n-outline-in" style="background:var(--n-on-dark)">Sphinx of black quartz, judge my vow.</p>
+    <div class="notes">
+      <h2>What the outline is</h2>
+      <p>At every boundary the feature puts its colours in the same order: a dark line, the body colour, a bright
+        rim, and its opponent beyond. The order was measured on this feature's edges and the letters wear it: filled
+        with the light end, ringed outward through the sequence to the dark side.</p>
+      <dl><dt>fill</dt><dd>edge 5, the light side</dd><dt>rings</dt><dd>edge 4 · 3 · 2 · 1, outward</dd><dt>numerals</dt><dd>fringe in the sequence's colours</dd><dt>panel</dt><dd>the sequence as inset bands</dd></dl>
+    </div>
+  </section>
+
+  <hr class="n-edge-line rule" style="--n-gap:50px 0 20px">
+  <footer><span>Neuron Leaf · specimen</span><span>colorway f10-c100 · dark side</span><span>set in Neuron Leaf and Alegreya Sans</span></footer>
+</div>
+<script>
+  document.getElementById("az").innerHTML = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ&"].map((c, i) =>
+    `<div><span class="g n-display n-outline">${c}</span><small>${c === "&" ? "amp" : c.toLowerCase()} · ${String(i + 1).padStart(2, "0")}</small></div>`).join("");
+</script>
+</body>
+</html>

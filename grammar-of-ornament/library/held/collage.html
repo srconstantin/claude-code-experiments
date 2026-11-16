@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cuts</title>
+<link rel="stylesheet" href="../neuron-library/neuron.css">
+<script src="../neuron-library/neuron-elements.js" defer></script>
+<style>
+  /* Cut paper: one motif scattered across the page at many sizes and turns, in the colorway's two accents and its
+     ink, under one headline set right across it. */
+  body{margin:0;font:16px/1.5 var(--n-text);overflow-x:hidden}
+  .field{position:relative;min-height:100vh;overflow:hidden}
+  .field .cut{position:absolute;aspect-ratio:1}
+  .in{position:relative;max-width:1280px;margin:0 auto;padding:30px 36px 60px;min-height:100vh;display:flex;flex-direction:column}
+  nav{display:flex;gap:26px;font:500 13px var(--n-label);letter-spacing:.16em;text-transform:lowercase}
+  nav b{margin-right:auto}
+  nav a{color:inherit;text-decoration:none}
+  h1{font-size:clamp(72px,11vw,172px);line-height:.92;margin:auto 0 0;max-width:12ch;position:relative}
+  .sub{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;margin-top:40px;font:500 12px/1.7 var(--n-label);letter-spacing:.14em;text-transform:lowercase}
+  .sub .n-line-6{grid-column:1/-1;--n-h:3px;--n-gap:0 0 10px}
+  .sub b{display:block;font:normal 30px var(--n-display);letter-spacing:0;text-transform:none;color:var(--n-accent2)}
+  .list{max-width:1280px;margin:0 auto;padding:60px 36px 80px;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+  .list h2{font:normal 54px/1 var(--n-display);margin:0 0 16px}
+  ol{list-style:none;padding:0;margin:0;counter-reset:n}
+  ol li{display:grid;grid-template-columns:36px 1fr auto;gap:14px;align-items:center;padding:12px 0 0;counter-increment:n;font-size:17px}
+  ol li::before{content:counter(n, decimal-leading-zero);font:500 13px var(--n-label);opacity:.6}
+  ol li .n-mark-curved-sprig-08{--n-size:22px;color:var(--n-accent)}
+  ol li hr{grid-column:1/-1;--n-h:2px;--n-gap:10px 0 0;color:var(--n-ink);opacity:.5}
+  @media (max-width:820px){.in{padding:20px 16px 40px}.list{grid-template-columns:1fr;padding:40px 16px 60px}.sub{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="n-text n-cw-f50-c451 n-page">
+<div class="field" id="field">
+  <div class="in">
+    <nav><b>Cuts</b><a href="#">Prints</a><a href="#">Paper</a><a href="#">Studio</a></nav>
+    <h1 class="n-display">Fourteen cuts of one figure</h1>
+    <div class="sub">
+      <hr class="n-line-6">
+      <div><b>01</b>one motif, cut by hand from the drawing vgg16 makes for channel 40 of its twenty-first layer</div>
+      <div><b>14</b>copies, turned and sized by chance, in the feature's two colours and its ink, kept off the title</div>
+      <div><b>0</b>other sources: the page is one print turned over, not a mixture</div>
+    </div>
+  </div>
+</div>
+<section class="list">
+  <div><h2 class="n-display">The sheet</h2>
+    <p>Each cut is the same silhouette. What changes is the size, the turn and the ink, which is enough: the eye reads a
+      family where there is only one figure. The colours are the opponent pair of one ConvNeXt feature, the orange
+      and the green, pushed until each holds against the paper.</p></div>
+  <ol>
+    <li><span>The print, 1792 px, pressed to black and white</span><span class="n-mark-curved-sprig-08"></span><hr class="n-line-1"></li>
+    <li><span>The figure lassoed out of it</span><span class="n-mark-curved-sprig-08"></span><hr class="n-line-2"></li>
+    <li><span>Fourteen copies scattered by a seeded random</span><span class="n-mark-curved-sprig-08"></span><hr class="n-line-4"></li>
+    <li><span>The headline set on clear paper beneath them</span><span class="n-mark-curved-sprig-08"></span><hr class="n-line-5"></li>
+  </ol>
+</section>
+<script>
+  // a seeded scatter, so the page is the same every time it loads
+  let s = 7;
+  const rnd = () => (s = (s * 16807) % 2147483647) / 2147483647;
+  const inks = ["var(--n-accent2)", "var(--n-accent)", "var(--n-ink)", "var(--n-accent2)"];
+  const f = document.getElementById("field");
+  const html = [];
+  for (let i = 0; i < 14; i++) {
+    // the lower third of the field, where the headline sits, stays clear; the copies crowd the top and the right
+    const size = 80 + rnd() * 260, r = (rnd() - .5) * 140, flip = rnd() < .5;
+    let x = rnd() * 100, y = rnd() * 62;
+    if (y > 40 && x < 62) x = 62 + rnd() * 38;
+    html.push(`<div class="cut n-emblem-f21-c40-1819" style="width:${size.toFixed(0)}px;left:calc(${x.toFixed(1)}% - ${(size / 2).toFixed(0)}px);top:calc(${y.toFixed(1)}% - ${(size / 2).toFixed(0)}px);color:${inks[i % 4]};transform:rotate(${r.toFixed(0)}deg)${flip ? " scaleX(-1)" : ""};opacity:${i % 4 === 2 ? .85 : 1}"></div>`);
+  }
+  f.insertAdjacentHTML("afterbegin", html.join(""));
+</script>
+</body>
+</html>

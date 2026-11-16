@@ -4,7 +4,7 @@ Fonts, colours and ornaments for the web, all taken from the drawings neural net
 make when asked to show what one of their channels responds to.
 
 - **Neuron Leaf**: a display typeface, drawn with a leaf-shaped pen on uncial skeletons.
-- **Colorways**: 100 palettes, each the opponent colour pair of one ConvNeXt feature, with a paper, an ink, two accents, a dark side and a mesh gradient.
+- **Colorways**: 100 palettes, each in the colours of one ConvNeXt feature: its biggest patch of colour as the ground, five more colours present in it, a paper, an ink, a dark side and a mesh gradient.
 - **Elements**: dividers, lines, friezes, corners and frames, drawn boxes, marks, fleurons, medallions, icons and emblems. Each is drawn from the real shapes in the library: compound strokes, the single strokes they are built from, and hand-cut motifs.
 
 Every element is a single-colour SVG filled with `currentColor`, so any colour or colorway restyles it.
@@ -79,14 +79,22 @@ Put `n-cw-<id>` on any element. It sets these variables for everything inside it
 
 | variable | use |
 |---|---|
-| `--n-paper` | page background (light) |
-| `--n-ink` | text: at least 7:1 against paper |
-| `--n-accent`, `--n-accent2` | the feature's opponent colour pair, adjusted to at least 3:1 against paper; use for ornament and large type |
-| `--n-dark`, `--n-on-dark` | a dark ground and its text colour |
+| `--n-base` | the biggest patch of colour in the feature, a real pixel of it |
+| `--n-c1` … `--n-c5` | five more colours present in the feature, one per patch of colour, as far apart as the picture allows and each legible on the ground; ordered by hue. `n-c1` … `n-c5` set `color` to them |
+| `--n-paper` | page background (light): the base when the base is light, otherwise a light tint of it |
+| `--n-dark`, `--n-on-dark` | the dark ground and its text colour: the base when the base is dark, otherwise a dark tint of it |
+| `--n-ink` | text: the darkest of the five, pushed to at least 7:1 against paper |
+| `--n-accent`, `--n-accent2` | the two of the five nearest the feature's opponent colour pair; for ornament and large type |
 | `--n-mesh` | the colorway's mesh gradient (a background image) |
 | `--n-ramp` | the feature's colours left to right, as a gradient |
 | `--n-shadow`, `--n-highlight` | the feature's darkest and lightest tones (the duotone ends) |
-| `--n-dark-accent`, `--n-dark-accent2` | the accents lifted to read on the dark ground |
+| `--n-dark-accent`, `--n-dark-accent2`, `--n-dark-c1` … | the accents and the five as they read on the dark ground |
+| `--n-edge-1` … `--n-edge-5`, `--n-edge-profile` | the feature's edge sequence, dark side to light side (see below) |
+
+Every colour but the tints is a pixel of the picture. A colorway has an own side, the side its base is on: there the
+five are untouched. On the other side they are moved in lightness just enough to read. When a base is mid-toned and
+the picture has nothing light or dark, neither side is the base: the ground is a tint of it, and the base stays as a
+panel colour (`n-base` sets it as a background).
 
 ```html
 <body class="n-cw-f12-c108 n-page">
@@ -107,6 +115,19 @@ themselves on dark; the dark side is a full theme, not a footer colour.
 - `n-glow` gives type a halo in the colorway's highlight; `n-glow-box` does the same for an emblem or image. Made for dark grounds.
 - `n-fringe` splits an edge into the opponent pair, the colour fringing the features show at every boundary. Subtle at text size, strong at display size. `n-fringe-box` does it to a box.
 - `n-ramp`, `n-ramp-line`, `n-ramp-under`: the feature's colour ramp as a background, a rule or an underline.
+
+**Edge sequence.** At every boundary the features put their colours in a fixed order: a dark outline, the body
+colour, a bright halo, its opponent. Each colorway carries that order, measured from its feature, as `--n-edge-1`
+(dark side) to `--n-edge-5` (light side), and the full profile as `--n-edge-profile` (a gradient). Four classes use it:
+- `n-outline` fills type with the light end and outlines it outward through the sequence. Made for dark grounds and display sizes. `--n-outline` scales the rings' width: `.5` by default (about a twentieth of the type size), `1` for twice that, `.3` for a hairline.
+- `n-outline-in` is the same the other way round, filled with the dark end, for paper.
+- `n-fringe-edge` is a fringe in the sequence's colours, with a halo in its light end.
+- `n-edged` draws the sequence as inset bands round a box (`--n-band` is one band's width); `n-edge-line` is the profile as a rule.
+
+```html
+<h1 class="n-display n-outline">Lantern</h1>
+<section class="n-edged" style="--n-band:3px"> … </section>
+```
 
 The `<id>` is the colorway's short name, such as `f10-c100` (ConvNeXt `features.1.0`, channel 100). All of them are on the
 Colorways tab of the site.
