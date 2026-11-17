@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Field</title>
+<link rel="stylesheet" href="../neuron-library/neuron.css">
+<script src="../neuron-library/neuron-elements.js" defer></script>
+<style>
+  /* Six marks on a green field, and nothing else. The paper is the colorway's base, the biggest patch of colour in
+     its feature, which happens to be a vivid green; the marks are six comb and feather compounds in the ink; the
+     only type is one line at the foot, as small as it can be read. After the blind-embossed sprigs on olive stock. */
+  body{margin:0;font:16px/1.5 var(--n-text);min-height:100vh;display:flex;flex-direction:column}
+  .field{flex:1;display:grid;place-items:center;padding:12vh 8vw}
+  .six{display:grid;grid-template-columns:repeat(3,1fr);gap:9vh 10vw;width:min(900px,80vw)}
+  .six div{display:grid;justify-items:center;gap:14px}
+  .six span[class*='n-mark-']{--n-size:min(14vw,180px);color:var(--n-ink)}
+  .six small{font:500 11px var(--n-label);letter-spacing:.3em;text-transform:lowercase;opacity:.55}
+  footer{display:flex;justify-content:space-between;gap:20px;padding:0 28px 22px;font:500 11px var(--n-label);letter-spacing:.22em;text-transform:lowercase;opacity:.6;flex-wrap:wrap}
+  @media (max-width:700px){.six{grid-template-columns:repeat(2,1fr);gap:7vh 8vw}.six span[class*='n-mark-']{--n-size:28vw}}
+</style>
+</head>
+<body class="n-text n-cw-f10-c60 n-page">
+<main class="field">
+  <div class="six">
+    <div><span class="n-mark-curved-comb-05"></span><small>01</small></div>
+    <div><span class="n-mark-c-curved-comb-12"></span><small>02</small></div>
+    <div><span class="n-mark-c-wavy-comb-00"></span><small>03</small></div>
+    <div><span class="n-mark-curved-feather-04"></span><small>04</small></div>
+    <div><span class="n-mark-c-curved-feather-03"></span><small>05</small></div>
+    <div><span class="n-mark-r-curved-feather-01"></span><small>06</small></div>
+  </div>
+</main>
+<footer><span>field · six combs and feathers</span><span>colorway f10-c60 · the base as the ground</span><span>set in Alegreya Sans</span></footer>
+</body>
+</html>

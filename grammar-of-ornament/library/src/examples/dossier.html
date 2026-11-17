@@ -11,13 +11,13 @@
      markers with leader lines, a label running up the right edge, a magnified detail in a drawn box. Dense small
      type, one picture, no columns. */
   body{margin:0;font:15px/1.5 var(--n-text)}
-  .sheet{position:relative;height:100vh;min-height:900px;overflow:hidden}
+  .sheet{position:relative;height:100vh;min-height:1100px;overflow:hidden}
   .obj{position:absolute;left:50%;top:52%;width:min(60vh,640px);transform:translate(-50%,-50%)}
   .date{position:absolute;left:34px;top:10px;font-size:14vw;line-height:.85;margin:0;color:var(--n-accent)}
   .date small{display:block;font-size:.1em;letter-spacing:.3em;text-transform:lowercase;font-family:var(--n-label);color:var(--n-ink);margin-top:.3em;opacity:.7}
   .codes{position:absolute;right:40px;top:30px;text-align:right;font:12px/1.8 var(--n-mono);opacity:.8}
   .codes b{font-weight:500;color:var(--n-accent)}
-  .edge{position:absolute;right:16px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font:500 12px var(--n-label);letter-spacing:.3em;text-transform:lowercase;opacity:.7}
+  .edge{position:absolute;right:16px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;white-space:nowrap;font:500 12px var(--n-label);letter-spacing:.3em;text-transform:lowercase;opacity:.7}
   .note{position:absolute;font:500 12px/1.5 var(--n-label);letter-spacing:.1em;text-transform:lowercase;width:200px}
   .note b{display:inline-block;font:normal 26px/1 var(--n-display);letter-spacing:0;text-transform:none;color:var(--n-accent2);margin-right:8px;vertical-align:-3px}
   .note .lead{position:absolute;--n-h:2px;--n-gap:0;color:var(--n-ink);transform-origin:left center;opacity:.8}
@@ -26,7 +26,7 @@
   .inset>div{--n-pad:0;background:var(--n-paper)}
   .inset .z{aspect-ratio:1;background:url(../neuron-library/elements/emblems/f17-c27-1800-filled.webp) 38% 42%/330% no-repeat}
   .inset small{display:block;padding:8px 10px;font:500 11px/1.5 var(--n-label);letter-spacing:.14em;text-transform:lowercase}
-  .para{position:absolute;right:60px;bottom:calc(100vw * 140 / 1600 + 30px);width:300px;font-size:14px;line-height:1.5}
+  .para{position:absolute;left:300px;bottom:calc(100vw * 140 / 1600 + 30px);width:320px;font-size:14px;line-height:1.5}   /* beside the inset, so the notes above keep clear */
   .para .n-line-5{--n-h:2px;--n-gap:0 0 10px;color:var(--n-accent)}
   .rail{position:absolute;left:0;right:0;bottom:0;color:var(--n-accent);opacity:.9}
   @media (max-width:900px){.sheet{height:auto;min-height:0;padding:20px 16px 60px}.obj,.note,.inset,.para,.codes,.edge{position:static;transform:none;width:auto;margin:16px 0}.date{position:static;font-size:80px}}
@@ -41,9 +41,9 @@
   <div class="obj n-emblem-f17-c27-1800-filled n-glow-box" role="img" aria-label="Motif f17-c27, filled with its print"></div>
 
   <div class="note" style="left:17%;top:30%"><hr class="n-line-2 lead" style="width:170px;left:150px;top:10px;transform:rotate(22deg)"><b>01</b>the ridge<span class="n-mark-curved-comb-05"></span><br>a dark spine with a bright rim, the channel's signature</div>
-  <div class="note" style="left:12%;top:58%"><hr class="n-line-4 lead" style="width:150px;left:160px;top:10px;transform:rotate(-16deg)"><b>02</b>the fringe<span class="n-mark-curved-comb-05"></span><br>colour splitting into the opponent pair at every edge</div>
+  <div class="note" style="left:max(20%,300px);top:54%"><hr class="n-line-4 lead" style="width:150px;left:160px;top:10px;transform:rotate(-16deg)"><b>02</b>the fringe<span class="n-mark-curved-comb-05"></span><br>colour splitting into the opponent pair at every edge</div>
   <div class="note" style="right:12%;top:26%;text-align:right"><hr class="n-line-6 lead" style="width:160px;right:150px;left:auto;top:10px;transform:rotate(-24deg);transform-origin:right center"><b>03</b>the halo<span class="n-mark-curved-comb-05"></span><br>a light tone outside the dark line, then the paper</div>
-  <div class="note" style="right:10%;top:62%;text-align:right"><hr class="n-line-1 lead" style="width:180px;right:150px;left:auto;top:10px;transform:rotate(18deg);transform-origin:right center"><b>04</b>the repeat<span class="n-mark-curved-comb-05"></span><br>the same figure recurs elsewhere in the print, smaller and turned</div>
+  <div class="note" style="right:10%;top:60%;text-align:right"><hr class="n-line-1 lead" style="width:180px;right:150px;left:auto;top:10px;transform:rotate(18deg);transform-origin:right center"><b>04</b>the repeat<span class="n-mark-curved-comb-05"></span><br>the same figure recurs elsewhere in the print, smaller and turned</div>
 
   <div class="inset n-drawn-3"><div><div class="z"></div><small>detail · ×3.3 · 38% 42%</small></div></div>
   <div class="para"><hr class="n-line-5"><p style="margin:0">Dossier: one cut from one print, annotated. The leader lines, the rules and the box round the detail are single strokes from the same drawings; the marks are compound strokes; the numbers and the date are Neuron Leaf.</p></div>

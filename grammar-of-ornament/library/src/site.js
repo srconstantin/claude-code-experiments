@@ -278,16 +278,17 @@
 
     examples() {
       const ex = [
+        ["cover.html", "Cover", "One feature's linework filling the first screen, ink on paper, with the title on a flat band in the accent and the data in a drawn box; the same drawing below as tiled wallpaper and as a header strip."],
         ["plate.html", "Plate", "An article page laid out like a plate in a pattern book: one motif as the hero, its details magnified at the side, two columns of text with rules and mark bullets."],
         ["emblem.html", "Emblem", "An event page, everything centred on a dark ground: a fleuron, a large glowing number, a framed programme."],
         ["ground.html", "Ground", "A gallery page with one ConvNeXt feature, upscaled and made seamless, as the page's background, and that feature's colorway for everything on it."],
         ["lantern.html", "Lantern", "A dark page: a filled emblem glowing, fringed display type, duotones and ramps."],
-        ["invaded.html", "Invaded", "A portfolio in black and white halves, giant type broken into by a motif, one feature as the only image."],
         ["specimen.html", "Specimen", "A type specimen on a dark ground: every letter outlined through the feature's edge sequence, the sequence as rules, bands and a fringe."],
-        ["made.html", "Made of itself", "A motif drawn out of hundreds of copies of one small mark, and the same motif turned into a medallion."],
-        ["bands.html", "Bands", "Friezes as the page's structure: full-width bands of one family in six arrangements, the type in the gutters, the title and number running off the edges."],
         ["column.html", "Column", "A feature as a full-height column down the left, the title in vertical type beside it, the text narrow at the right. Nothing centred."],
         ["dossier.html", "Dossier", "One filled emblem in the middle of a sheet and everything written round it: a big date, codes, numbered markers with leader lines, a magnified detail in a drawn box."],
+        ["note.html", "Note", "A banknote: one frieze round all four sides as the border, corners of the same family, a medallion in the middle, the denomination big in two corners and columns of small figures either side."],
+        ["field.html", "Field", "Six comb and feather marks on a green field, the colorway's base as the ground, and one line of type at the foot. Nothing else."],
+        ["diptych.html", "Diptych", "Two panels, the same linework on both: ink on paper at the left, paper on ink at the right, with a small solid card on the seam. The drawing is the colorway's own feature."],
       ];
       return `<h1>Examples</h1>
         <p class="lede">Web pages made from the library: the font, one colorway each, a single feature or motif family, and the

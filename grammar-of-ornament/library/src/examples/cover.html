@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cover</title>
+<link rel="stylesheet" href="../neuron-library/neuron.css">
+<script src="../neuron-library/neuron-elements.js" defer></script>
+<style>
+  /* A cover: one feature's linework fills the whole first screen, ink on paper, and the type sits on flat
+     panels cut into it: a wide band in the accent across the bottom for the title, a drawn box of data at the
+     top. Below the fold the same drawing comes back twice more, as a tiled wallpaper behind solid panels, and as
+     a narrow header band over a column of text. One feature, one drawing, three sizes. */
+  body{margin:0;font:16px/1.5 var(--n-text)}
+  .cover{position:relative;height:100vh;min-height:720px;overflow:hidden}
+  .cover .lw{position:absolute;inset:0;color:var(--n-ink)}
+  .data{position:absolute;left:36px;top:32px;width:280px;color:var(--n-ink);--n-line:2.5px}
+  .data>div{--n-pad:14px 16px;font:12px/1.7 var(--n-mono)}
+  .data b{font-weight:500;color:var(--n-accent)}
+  .side{position:absolute;right:0;top:0;bottom:30vh;width:44px;background:var(--n-paper);display:flex;align-items:center;justify-content:center}
+  .side span{writing-mode:vertical-rl;transform:rotate(180deg);font:500 12px var(--n-label);letter-spacing:.3em;text-transform:lowercase;white-space:nowrap}
+  .band{position:absolute;left:0;right:0;bottom:0;height:30vh;min-height:220px;background:var(--n-accent);color:var(--n-paper);display:grid;grid-template-columns:1fr auto;align-items:end;padding:0 40px 26px 36px;box-sizing:border-box}
+  .band h1{font-size:min(14vw,19vh);line-height:.85;margin:0 0 -.04em -.03em;white-space:nowrap}
+  .band .sub{text-align:right;font:500 13px/1.7 var(--n-label);letter-spacing:.14em;text-transform:lowercase;max-width:300px;padding-bottom:.4em}
+
+  .wall{position:relative;padding:60px 36px;color:var(--n-accent2)}
+  .wall .lw{position:absolute;inset:0;--n-lw-size:180px;--n-lw-repeat:repeat;--n-lw-pos:0 0}
+  .wall .row{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:0 auto}
+  .wall .row>div{background:var(--n-paper);color:var(--n-ink);padding:22px 24px 26px}
+  .wall h2{font:normal 40px/1 var(--n-display);margin:0 0 10px;color:var(--n-accent)}
+  .wall p{margin:0;font-size:15px}
+  .wall small{display:block;margin-top:14px;font:11px/1.6 var(--n-mono);opacity:.7}
+
+  .head{height:150px;color:var(--n-ink);--n-lw-pos:center 35%}
+  .text{max-width:1200px;margin:0 auto;padding:40px 36px 70px;display:grid;grid-template-columns:1.3fr 1fr;gap:50px}
+  .text h2{font:normal 54px/1 var(--n-display);margin:0 0 18px}
+  .text .big{font-size:21px;line-height:1.4;max-width:34ch}
+  .text dl{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;margin:0;font:500 13px/1.7 var(--n-label);letter-spacing:.1em;text-transform:lowercase}
+  .text dt{opacity:.55}.text dd{margin:0}
+  .text .rule{--n-h:3px;--n-gap:0 0 22px;color:var(--n-accent)}
+  footer{border-top:0;padding:18px 36px 36px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font:500 12px var(--n-label);letter-spacing:.14em;text-transform:lowercase;opacity:.7}
+  @media (max-width:900px){.data{width:200px;left:16px;top:16px}.side{display:none}.band{grid-template-columns:1fr;padding:0 16px 18px}.band .sub{text-align:left;max-width:none}
+    .wall .row{grid-template-columns:1fr}.text{grid-template-columns:1fr;padding:30px 16px 50px}}
+</style>
+</head>
+<body class="n-text n-cw-f524-c249 n-page">
+<section class="cover">
+  <div class="lw n-lw-vgg16-f19-c40" role="img" aria-label="The linework of vgg16 features.19, channel 40"></div>
+  <div class="data n-drawn-2"><div>VGG16 · FEATURES.19 · CH <b>40</b><br>2,899 INK STROKES · 3,004 RELIEF<br>46 MASSES · INK 52%<br>MEDIAN WIDTH 1.5 PX · GRAIN 39°<br>PRINT 1792 PX · ONE DRAWING</div></div>
+  <div class="side"><span>the line of the feature, without its colour</span></div>
+  <div class="band">
+    <h1 class="n-display">Channel 40</h1>
+    <div class="sub">every stroke of one print, at its measured width · the masses filled, the relief carved · a cover in one drawing</div>
+  </div>
+</section>
+
+<section class="wall">
+  <div class="lw n-lw-vgg16-f19-c40" aria-hidden="true"></div>
+  <div class="row">
+    <div><h2 class="n-display">Background</h2><p>The drawing covers the first screen at nearly its own size, so the strokes read as strokes. Nothing is written on it: the type keeps to the band and the box, which are solid.</p><small>n-lw-vgg16-f19-c40 · cover · colour: ink</small></div>
+    <div><h2 class="n-display">Wallpaper</h2><p>Behind these panels the same drawing is tiled at a tenth of its size, where it stops being a picture and becomes a texture in the second accent. The panels sit on it like paper on a wall.</p><small>--n-lw-size: 180px · --n-lw-repeat: repeat · colour: accent2</small></div>
+    <div><h2 class="n-display">Header</h2><p>Below, a strip of the drawing crops a band out of its middle, the way a cover's texture runs across a spine. Three sizes of one drawing, and no second source anywhere.</p><small>height: 150px · --n-lw-pos: center 35% · colour: ink</small></div>
+  </div>
+</section>
+
+<div class="head n-lw-vgg16-f19-c40" aria-hidden="true"></div>
+<section class="text">
+  <div>
+    <h2 class="n-display">What a channel draws</h2>
+    <p class="big">Ask a network what one of its channels is looking for, and it draws a picture. Take that picture apart into the strokes it is made of, and the drawing is left: the hand of the network, in black.</p>
+    <p>This one, from the nineteenth layer of vgg16, draws leaves and seed heads, laid along one diagonal, each edge trimmed with small round marks. In colour it is green and violet. In line it is this, and it is as much the channel's signature as its colour was.</p>
+  </div>
+  <div>
+    <hr class="n-line-3 rule">
+    <dl><dt>model</dt><dd>vgg16</dd><dt>layer</dt><dd>features.19</dd><dt>channel</dt><dd>40</dd><dt>strokes</dt><dd>2,899 ink · 3,004 relief</dd><dt>grain</dt><dd>39° from horizontal</dd><dt>drawing</dt><dd>1792 px, one SVG</dd><dt>colorway</dt><dd>f524-c249 · white · red / dark blue</dd></dl>
+  </div>
+</section>
+<footer><span>Cover · one drawing, three sizes</span><span>colorway f524-c249</span><span>set in Neuron Leaf and Alegreya Sans</span></footer>
+</body>
+</html>

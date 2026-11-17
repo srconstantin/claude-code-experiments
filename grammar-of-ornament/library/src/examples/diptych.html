@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diptych</title>
+<link rel="stylesheet" href="../neuron-library/neuron.css">
+<script src="../neuron-library/neuron-elements.js" defer></script>
+<style>
+  /* Two panels, the same drawing on both: ink on paper at the left, paper on ink at the right, the one the
+     negative of the other across a seam. The drawing is the linework of the colorway's own feature, so the
+     colours and the line come from one picture. The only type is a small solid card on the seam and two labels
+     in the top corners. After the split-ground posters, and the engravings printed once dark and once light. */
+  html,body{height:100%}
+  body{margin:0;font:15px/1.5 var(--n-text)}
+  .pair{position:relative;display:grid;grid-template-columns:1fr 1fr;height:100vh;min-height:640px}
+  .half{position:relative;overflow:hidden}
+  .half .lw{position:absolute;inset:0;color:var(--n-ink);--n-lw-pos:left center}
+  .half.n-dark .lw{--n-lw-pos:right center}
+  .lab{position:absolute;top:18px;font:500 11px var(--n-label);letter-spacing:.3em;text-transform:lowercase;background:var(--n-paper);color:var(--n-ink);padding:6px 10px}
+  .half:first-child .lab{left:18px}
+  .half:last-child .lab{right:18px}
+  .card{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(380px,70vw);background:var(--n-paper);color:var(--n-ink);padding:28px 30px 26px;box-sizing:border-box;text-align:center;z-index:2}
+  .card h1{font-size:72px;line-height:.95;margin:0 0 10px}
+  .card p{margin:0;font-size:14px}
+  .card .n-line-3{--n-h:2px;--n-gap:16px auto 14px;width:40%;color:var(--n-accent)}
+  .card small{display:block;margin-top:10px;font:11px/1.6 var(--n-mono);opacity:.7}
+  @media (max-width:700px){.pair{grid-template-columns:1fr;grid-template-rows:1fr 1fr}.card h1{font-size:52px}}
+</style>
+</head>
+<body class="n-text n-cw-f12-c108 n-page">
+<section class="pair">
+  <div class="half n-page"><div class="lw n-lw-convnext_base-f12-c108" role="img" aria-label="The linework of convnext features.1.2, channel 108, ink on paper"></div><span class="lab">positive · ink on paper</span></div>
+  <div class="half n-dark"><div class="lw n-lw-convnext_base-f12-c108" role="img" aria-label="The same linework, light on dark"></div><span class="lab">negative · paper on ink</span></div>
+  <div class="card n-page">
+    <h1 class="n-display">Diptych</h1>
+    <hr class="n-line-3">
+    <p>One drawing printed twice: the strokes of convnext features.1.2, channel 108, once as ink on the colorway's paper, once as the paper on its dark side. The colours and the line are the same picture's.</p>
+    <small>f12-c108 · olive · dark blue / green · 1792 px · one SVG</small>
+  </div>
+</section>
+</body>
+</html>

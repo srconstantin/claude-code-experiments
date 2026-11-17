@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Note</title>
+<link rel="stylesheet" href="../neuron-library/neuron.css">
+<script src="../neuron-library/neuron-elements.js" defer></script>
+<style>
+  /* A banknote. One frieze runs round all four sides as the border, a corner of the same family at each corner,
+     a medallion in the middle, the denomination big in two corners, and columns of small figures either side: the
+     ornament is the structure, and the type is tiny and in quantity. Navy and green on white, like an engraving. */
+  body{margin:0;font:14px/1.5 var(--n-text)}
+  .note{position:relative;height:100vh;min-height:760px;overflow:hidden;--c:118px;--b:var(--n-accent)}
+  .corner{position:absolute;--n-size:var(--c);color:var(--b)}
+  .corner.tl{left:14px;top:14px}.corner.tr{right:14px;top:14px}.corner.bl{left:14px;bottom:14px}.corner.br{right:14px;bottom:14px}
+  .edge{position:absolute;color:var(--b)}
+  .edge.top,.edge.bottom{left:calc(var(--c) + 14px);right:calc(var(--c) + 14px)}
+  .edge.top{top:18px}.edge.bottom{bottom:18px;transform:scaleY(-1)}
+  .edge.left,.edge.right{top:calc(var(--c) + 14px);bottom:calc(var(--c) + 14px);width:var(--c)}
+  .edge.left{left:18px}.edge.right{right:18px}
+  .edge.left>div,.edge.right>div{position:absolute;left:50%;top:50%;width:calc(100vh - 2 * var(--c) - 28px);transform:translate(-50%,-50%) rotate(90deg)}
+  .edge.right>div{transform:translate(-50%,-50%) rotate(-90deg)}
+  .edge.left>div{transform:translate(-50%,-50%) rotate(90deg) scaleY(-1)}
+  .inner{position:absolute;inset:calc(var(--c) + 30px);display:grid;grid-template-columns:1fr auto 1fr;grid-template-rows:auto 1fr auto;gap:10px 30px}
+  .den{font-size:min(13vh,120px);line-height:.8;margin:0;color:var(--b)}
+  .den.r{text-align:right}
+  .col{font:11px/1.75 var(--n-mono);color:var(--n-ink);align-self:center}
+  .col b{font-weight:500;color:var(--n-accent2)}
+  .col.r{text-align:right}
+  .med{align-self:center;justify-self:center;width:min(46vh,440px);color:var(--n-accent2)}
+  .foot{grid-column:1/-1;text-align:center;font:500 12px var(--n-label);letter-spacing:.35em;text-transform:lowercase;color:var(--b)}
+  .foot small{display:block;font:11px var(--n-mono);letter-spacing:.1em;text-transform:none;opacity:.7;margin-top:4px}
+  .head{grid-column:1/-1;display:flex;justify-content:space-between;align-items:flex-start}
+  .head .ttl{text-align:center;font:500 12px var(--n-label);letter-spacing:.4em;text-transform:lowercase;color:var(--b);padding-top:10px}
+  @media (max-width:900px){.note{--c:70px;height:auto;min-height:0;padding:100px 90px}.inner{position:static;grid-template-columns:1fr}.col.r{text-align:left}.den.r{text-align:left}
+    .edge.left,.edge.right{display:none}}
+</style>
+</head>
+<body class="n-text n-cw-f11-c45 n-page">
+<section class="note">
+  <span class="corner tl n-corner-loop-00-tl"></span><span class="corner tr n-corner-loop-00-tr"></span>
+  <span class="corner bl n-corner-loop-00-bl"></span><span class="corner br n-corner-loop-00-br"></span>
+  <div class="edge top"><div class="n-frieze-f012"></div></div>
+  <div class="edge bottom"><div class="n-frieze-f012"></div></div>
+  <div class="edge left"><div class="n-frieze-f012"></div></div>
+  <div class="edge right"><div class="n-frieze-f012"></div></div>
+
+  <div class="inner">
+    <div class="head">
+      <p class="den n-display">17</p>
+      <div class="ttl">grammar of ornament · the channel bank · one channel, cut once</div>
+      <p class="den r n-display">27</p>
+    </div>
+    <div class="col">SERIES <b>F17</b> · NO. <b>0027</b><br>CUT 1800 · TRIM 1.12<br>PRINT 1792 PX · WORK 896<br>THRESHOLD 0.50<br>GROUND WHITE<br>ISSUED 2026-10-15<br><br>BORDER <b>f012</b> LOOP · MIRROR<br>CORNERS LOOP 00<br>INK NAVY · GREEN</div>
+    <div class="med n-medallion-f17-c27-1800" role="img" aria-label="Medallion: motif f17-c27 turned round a centre"></div>
+    <div class="col r">VGG16 · FEATURES.17<br>CHANNEL <b>27</b> OF 256<br>LAYER 8 OF 13<br>FIELD 68 PX<br>PRINT AT 224 PX<br>UPSCALED ×8<br><br>MEDALLION <b>FOLD 6</b><br>MIRRORED<br>ONE MOTIF, SIX TIMES</div>
+    <div class="foot">twenty-seven · payable in strokes to the bearer<small>f17-c27-1800 · 0027 · f11-c45</small></div>
+  </div>
+</section>
+</body>
+</html>
