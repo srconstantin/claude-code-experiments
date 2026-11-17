@@ -54,6 +54,8 @@ CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 N_RULE, N_MIRROR, N_REPEAT, N_FRIEZE, N_CORNER, N_MARK, N_FLEURON, N_ICONSETS = 10, 8, 8, 8, 8, 12, 12, 2
 N_SHAPES, N_MOTIF_SHAPES, N_BOXES, N_LINES, N_MEDALLION = 10, 8, 8, 8, 12
 EMBLEM_PX = 1024             # the long side of a filled emblem (a second 4× upscale of the motif's own crop)
+LINEWORK_SETS = ["vgg16features", "resnet50features", "convnext_basefeatures"]   # linework/<set> folders in the library
+LINEWORK_PREVIEW_PX = 640
 
 
 def log(*a):
@@ -116,19 +118,13 @@ def palettes(names):
     return done
 
 
-def hue_dist(h1, h2):
-    a, b = lab(h1), lab(h2)
-    d = abs(np.degrees(np.arctan2(a[2], a[1])) - np.degrees(np.arctan2(b[2], b[1]))) % 360
-    return min(d, 360 - d)
-
-
 def theme(cw, pal):
     """A colorway from the picture's own colours (palette.py): the base is the biggest patch of colour in the
     feature, the five are five more colours present in it. The colorway's own side is the ground the five were
     chosen against: paper when the ground is light, the dark ground when it is dark; the other side is a tint of the
     base. On its own side the five are untouched pixels of the picture; on the other they are moved in lightness
     until they read (2.5:1). Ink and the dark side's text are the darkest and lightest of the five pushed to 7:1.
-    accent and accent2 are the two of the five nearest the feature's opponent pair."""
+    accent is the most saturated of the five and accent2 the one farthest from it, the picture's own opposition."""
     base, ground, five = pal["base"], pal["ground"], pal["five"]
     light_side = pal["ground_lab"][0] > 50
     bl = np.array(pal["base_lab"])
@@ -140,11 +136,14 @@ def theme(cw, pal):
     on_dark = toward(from_lab([max(hi[0], 85), hi[1] * 0.5, hi[2] * 0.5]), dark, 7.0)
     light_five = five if light_side else [toward(h, paper, 2.5) for h in five]
     dark_five = five if not light_side else [toward(h, dark, 2.5) for h in five]
-    p = cw["pair"]
-    ia = int(np.argmin([hue_dist(h, p["a"]) for h in five]))
-    ib = int(np.argmin([hue_dist(h, p["b"]) if i != ia else 1e9 for i, h in enumerate(five)]))
+    # the accents: the most saturated of the five, and the one farthest from it in Lab (the picture's own opposition)
+    ia = int(np.argmax([np.hypot(l[1], l[2]) for l in L]))
+    ib = int(np.argmax([np.linalg.norm(l - L[ia]) for l in L]))
     return {"paper": paper, "ink": ink, "accent": light_five[ia], "accent2": light_five[ib], "dark": dark, "on_dark": on_dark,
             "dark_accent": dark_five[ia], "dark_accent2": dark_five[ib], "base": base, "ground": ground, "tint": pal["tint"],
+            # names of the colours as they are, not of the pair they were nearest to
+            "base_name": PAL.colour_name(base), "name_a": PAL.colour_name(five[ia]), "name_b": PAL.colour_name(five[ib]),
+            "names": [PAL.colour_name(h) for h in five],
             "five": light_five, "dark_five": dark_five, "shares": pal["shares"], "note": pal["note"],
             "shadow": cw["duotone"]["shadow"], "highlight": cw["duotone"]["highlight"],
             "ramp": "linear-gradient(90deg," + ",".join(cw["gradient"]["image"]) + ")",
@@ -209,7 +208,6 @@ def copy_assets(cat):
         feat = FEATURES["convnext_base"] / (cw["name"] + ".png")
         cat["colorways"].append({"short": cw["short"], "name": cw["name"], "layer": cw["layer"],
                                  "a": cw["pair"]["a"], "b": cw["pair"]["b"],
-                                 "name_a": cw["pair"].get("name_a", ""), "name_b": cw["pair"].get("name_b", ""),
                                  "gradient": cw["gradient"]["image"], "card": f"assets/colorways/{card.name}" if card.exists() else "",
                                  "feature": f"assets/features/convnext_base/{feat.name}" if feat.exists() else "",
                                  "tile": next((r["tile"] for r in cat["features"].get("convnext_base", []) if r["name"] == cw["name"] and "tile" in r), ""),
@@ -258,6 +256,53 @@ def upscale_again(sq, key):
     Image.fromarray(big).save(out)
     log(f"    upscaled {key} {im.size[0]}→{big.shape[0]} px in {time.time() - t:.0f}s")
     return big
+
+
+def linework(cat):
+    """Every feature's print taken apart into its strokes and drawn again (linework/<set>/*.strokes.svg): one
+    drawing per feature, for use as a big patch of pattern. Each is written as a luminance mask, ink white on
+    black with the relief marks black so they carve, and painted with currentColor by its n-lw-… class."""
+    out = []
+    prev_dir = SITE / "assets" / "linework"
+    t, made = time.time(), 0
+    for setname in LINEWORK_SETS:
+        setdir = ROOT / "linework" / setname
+        files = sorted(setdir.glob("*.strokes.svg"))
+        if not files:
+            continue
+        dst = LIB / "linework" / setname
+        dst.mkdir(parents=True, exist_ok=True)
+        (prev_dir / setname).mkdir(parents=True, exist_ok=True)
+        feats = {r["name"]: r for items in cat["features"].values() for r in items}
+        for f in files:
+            stem = f.name[:-len(".strokes.svg")]
+            meta = json.loads(f.with_name(stem + ".json").read_text()) if f.with_name(stem + ".json").exists() else {}
+            model, layer = meta.get("model", stem.split("__")[0]), meta.get("layer", stem.split("__")[1])
+            ch = re.search(r"__c(\d+)__", stem)
+            short = f"{model}-{layer[0]}{re.sub(r'\D', '', layer)}-c{ch.group(1) if ch else '0'}"
+            s = f.read_text()
+            s = s.replace('fill="#fff"', 'fill="@W"').replace('stroke="#fff"', 'stroke="@W"')
+            s = s.replace('fill="#000"', 'fill="#fff"').replace('stroke="#000"', 'stroke="#fff"').replace("@W", "#000")
+            # whole-pixel coordinates on the 1792 px canvas (a quarter smaller); stroke widths keep their decimal
+            s = re.sub(r'(?<!stroke-width=")(-?\d+)\.\d+', r"\1", s)
+            s = re.sub(r"\s+(?=[MLCZ])", "", s)
+            (dst / f"{stem}.svg").write_text(s)
+            prev = prev_dir / setname / f"{stem}.png"                       # a small raster of the mask for the site's cards
+            if not prev.exists() or prev.stat().st_mtime < f.stat().st_mtime:
+                subprocess.run(["rsvg-convert", "-w", str(LINEWORK_PREVIEW_PX), "-o", str(prev), str(dst / f"{stem}.svg")], check=True)
+                Image.open(prev).convert("L").save(prev, optimize=True)
+                made += 1
+            feat = feats.get(stem, {})
+            out.append({"id": short, "set": setname, "model": model, "layer": layer, "channel": int(ch.group(1)) if ch else 0,
+                        "name": stem, "src": f"neuron-library/linework/{setname}/{stem}.svg", "file": f"linework/{setname}/{stem}.svg",
+                        "preview": f"assets/linework/{setname}/{stem}.png",
+                        "feature": feat.get("src", ""), "ink": round(meta.get("ink_fraction", 0), 3), "masses": meta.get("n_masses", 0),
+                        "css": f"n-lw-{short}"})
+    if made:
+        log(f"  linework previews: {made} rendered ({time.time() - t:.0f}s)")
+    out.sort(key=lambda r: (r["model"], _layer_key(r["layer"]), r["channel"]))
+    cat["linework"] = out
+    log(f"  linework: {len(out)} drawings from {len({r['set'] for r in out})} sets")
 
 
 def edge_sequences(cat):
@@ -466,6 +511,7 @@ def build_elements(cat, C, S):
         (d / f"{p.ref.replace('/', '-')}.svg").write_text(
             E.svg([(R - lo) * k for R in p.rings], round(sz[0] * k, 1), round(sz[1] * k, 1), title=p.ref))
         cat["strokes"].setdefault(p.family, []).append(p.ref.split("/")[1])
+    cat["stroke_models"] = {fam: E.model_of(fam) for fam in cat["strokes"]}
     log(f"  strokes: {len(C)} compounds in {len(cat['strokes'])} families")
     return {"rules": rules, "compact": compact, "curved": E.pick(C, E.s_curved, N_CORNER),
             "petals": E.pick(C, E.s_petal, N_FLEURON), "tiles": E.pick(C, E.s_tile, N_FRIEZE), "lines": lines_[:8]}
@@ -516,7 +562,7 @@ def css(cat):
              ".n-mesh{background:var(--n-mesh-base,#888);background-image:var(--n-mesh)}", "",
              "/* colorways: class n-cw-<short> on any element sets the palette for everything inside. The colours are the",
              "   feature's own: --n-base is the biggest patch of colour in it, --n-c1 … --n-c5 five more colours present in it",
-             "   (ordered by hue), accent and accent2 the two of those nearest its opponent pair. Paper or the dark ground is the",
+             "   (ordered by hue), accent the most saturated of those and accent2 the one farthest from it. Paper or the dark ground is the",
              "   base itself (or a tint of it when the base can't carry five of the picture's colours) */"]
     for c in cw:
         lines.append(f".n-cw-{c['short']}{{--n-paper:{c['paper']};--n-ink:{c['ink']};--n-accent:{c['accent']};"
@@ -577,6 +623,15 @@ def css(cat):
               "[class*='n-drawn-']>*{background:var(--n-paper);color:var(--n-ink);padding:var(--n-pad,1.2em 1.4em);box-sizing:border-box}"]
     for bx in cat["boxes"]:
         lines.append(f".n-box-{bx['id'][4:]},.n-drawn-{bx['id'][4:]},.n-drawn-{bx['id'][4:]}>*{{clip-path:{bx['clip']}}}")
+    lines += ["", "/* linework: a feature's print taken apart into its strokes and drawn again, one drawing per feature, as a mask in",
+              "   currentColor: a big patch of pattern for a background, a header band or a panel. Give the element a size; the drawing",
+              "   covers it (--n-lw-size: cover) or tiles at --n-lw-size with --n-lw-repeat: repeat; --n-lw-pos places it. The masks are",
+              "   luminance masks (the relief marks carve), so they need a browser with mask-mode, and a page served over http */",
+              "[class*='n-lw-']{background:currentColor;-webkit-mask-repeat:var(--n-lw-repeat,no-repeat);mask-repeat:var(--n-lw-repeat,no-repeat);"
+              "-webkit-mask-size:var(--n-lw-size,cover);mask-size:var(--n-lw-size,cover);-webkit-mask-position:var(--n-lw-pos,center);"
+              "mask-position:var(--n-lw-pos,center);mask-mode:luminance}"]
+    for lw in cat["linework"]:
+        lines.append(f".{lw['css']}{{{m(f'url({lw['file']})')}}}")
     lines += ["", "/* elements: shared */",
               "[class*='n-divider-'],[class*='n-repeat-'],[class*='n-frieze-'],[class*='n-mark-'],[class*='n-icon-'],[class*='n-fleuron-'],[class*='n-emblem-'],[class*='n-medallion-'],[class*='n-corner-']{",
               "  background-color:currentColor;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;",
@@ -744,12 +799,13 @@ def example_images():
 
 
 def zip_library():
-    z = SITE / "neuron-library.zip"
-    with zipfile.ZipFile(z, "w", zipfile.ZIP_DEFLATED) as f:
+    """neuron-library.zip: the library without the linework; neuron-linework.zip: the linework drawings on their own."""
+    z, zl = SITE / "neuron-library.zip", SITE / "neuron-linework.zip"
+    with zipfile.ZipFile(z, "w", zipfile.ZIP_DEFLATED) as f, zipfile.ZipFile(zl, "w", zipfile.ZIP_DEFLATED) as fl:
         for p in sorted(LIB.rglob("*")):
             if p.is_file():
-                f.write(p, p.relative_to(SITE))
-    log(f"  zip: {z.stat().st_size / 1e6:.1f} MB")
+                (fl if p.relative_to(LIB).parts[0] == "linework" else f).write(p, p.relative_to(SITE))
+    log(f"  zip: {z.stat().st_size / 1e6:.1f} MB · linework zip: {zl.stat().st_size / 1e6:.1f} MB")
 
 
 def shots():
@@ -777,8 +833,8 @@ def main():
     if LIB.exists():
         shutil.rmtree(LIB)                       # only the generated library folder, rebuilt below
     LIB.mkdir(parents=True)
-    cat = {"features": {}, "colorways": [], "motifs": [], "strokes": {}, "elements": [], "friezes": [], "boxes": [], "built": time.strftime("%Y-%m-%d")}
-    log("assets"); copy_assets(cat)
+    cat = {"features": {}, "colorways": [], "motifs": [], "strokes": {}, "elements": [], "friezes": [], "boxes": [], "linework": [], "built": time.strftime("%Y-%m-%d")}
+    log("assets"); copy_assets(cat); linework(cat)
     log("elements"); C, S = pieces(); sel = build_elements(cat, C, S)
     friezes(cat)
     sprite(cat)

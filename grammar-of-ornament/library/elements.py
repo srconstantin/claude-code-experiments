@@ -35,8 +35,12 @@ from skimage import measure
 from skimage.morphology import skeletonize
 
 ROOT = Path(__file__).resolve().parent.parent
-COMPOUNDS = ROOT / "compounds" / "vgg16features"
-STROKES = ROOT / "strokelib" / "vgg16features"
+# the feature sets whose compounds and strokes are drawn on, and the prefix their refs carry (vgg16's carry none,
+# so the ids it had before the other networks were added still hold): "curved-comb/05", "r-curved-comb/05"
+SETS = [("vgg16features", ""), ("resnet50features", "r-"), ("convnext_basefeatures", "c-")]
+MODEL_OF = {"": "vgg16", "r-": "resnet50", "c-": "convnext"}
+COMPOUNDS = ROOT / "compounds"
+STROKES = ROOT / "strokelib"
 MOTIFS = ROOT / "vgg16motifs"
 
 RES = 640                   # a source is traced at this many pixels along its longer side
@@ -244,20 +248,27 @@ class Piece:
 
 def compounds() -> list[Piece]:
     out = []
-    for f in sorted(COMPOUNDS.glob("*/[0-9][0-9].svg")):
-        p = Piece(f"{f.parent.name}/{f.stem}", f)
-        if p.ok:
-            out.append(p)
+    for setname, pre in SETS:
+        for f in sorted((COMPOUNDS / setname).glob("*/[0-9][0-9].svg")):
+            p = Piece(f"{pre}{f.parent.name}/{f.stem}", f)
+            if p.ok:
+                out.append(p)
     return out
 
 
 def strokes() -> list[Piece]:
     out = []
-    for f in sorted(STROKES.glob("family-*/stroke-*.svg")):
-        p = Piece(f"{f.parent.name}/{f.stem}", f, res=240)
-        if p.ok:
-            out.append(p)
+    for setname, pre in SETS:
+        for f in sorted((STROKES / setname).glob("family-*/stroke-*.svg")):
+            p = Piece(f"{pre}{f.parent.name}/{f.stem}", f, res=240)
+            if p.ok:
+                out.append(p)
     return out
+
+
+def model_of(ref: str) -> str:
+    """Which network a ref's piece was cut from, by its prefix."""
+    return next((MODEL_OF[pre] for _, pre in SETS if pre and ref.startswith(pre)), "vgg16")
 
 
 # ---------------------------------------------------------------- selection

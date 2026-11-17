@@ -121,3 +121,55 @@ def palette(rgb, k=18, n=5):
     return {"base": lab_hex(base), "ground": lab_hex(ground), "tint": which, "five": [lab_hex(c) for c in five],
             "base_lab": [round(float(v), 2) for v in base], "ground_lab": [round(float(v), 2) for v in ground],
             "five_lab": [[round(float(v), 2) for v in c] for c in five], "shares": shares, "adjusted": int(adjusted), "note": note}
+
+
+# ---------------------------------------------------------------- names
+
+# Lab hue bins, calibrated on reference colours (red 40°, orange 60°, yellow 103°, lime 128°, green 136°, cyan 196°,
+# azure 285°, blue 306°, violet 312°, magenta 328°, rose 3°). Lab packs blue to magenta into a narrow arc.
+HUES = ((22, "rose"), (50, "red"), (78, "orange"), (115, "yellow"), (131, "lime"), (170, "green"), (225, "teal"),
+        (309, "blue"), (321, "violet"), (345, "purple"), (360, "rose"))
+
+
+def colour_name(h):
+    """A plain name for a hex colour, from its Lab lightness, chroma and hue: the hue family, with the familiar
+    name for its dark or pale forms (brown, olive, navy, pink, cream …) and 'dark' / 'pale' otherwise."""
+    L, a, b = color.rgb2lab(np.array([[[int(h[i:i + 2], 16) / 255 for i in (1, 3, 5)]]]))[0, 0]
+    c = float(np.hypot(a, b))
+    hue = float(np.degrees(np.arctan2(b, a)) % 360)
+    if c < 9:
+        return "black" if L < 18 else "charcoal" if L < 38 else "grey" if L < 72 else "white" if L > 92 else "pale grey"
+    name = next(n for lim, n in HUES if hue < lim)
+    dark, pale = L < 38, L > 76
+    deep = L < 26 or (dark and c < 45)             # dark enough for the dark-form names (navy, plum …)
+    if name in ("red", "rose") and pale:
+        return "pink"
+    if name in ("red", "rose") and dark:
+        return "maroon"
+    if name == "rose" and c < 30:
+        return "dusty rose"
+    if name == "red":
+        if L < 50 and c < 45:
+            return "brown"
+        if c < 30:
+            return "dusty rose"
+    if name == "orange":
+        if L < 50:
+            return "brown"
+        if pale and c < 40:
+            return "tan"
+    if name in ("yellow", "lime") and L < 62:
+        return "olive"
+    if name == "yellow" and pale and c < 35:
+        return "cream"
+    if name == "blue" and deep:
+        return "navy"
+    if name == "violet" and deep:
+        return "indigo"
+    if name == "purple" and deep:
+        return "plum"
+    if name == "purple" and pale:
+        return "pink"
+    if name == "blue" and pale:
+        return "sky"
+    return ("dark " if dark else "pale " if pale else "") + name

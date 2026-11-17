@@ -13,7 +13,7 @@
   // the colorway a card is shown in: the chosen one, or spread over all of them
   const cwFor = i => pick.value || CW[(i * 37 + 11) % CW.length].short;
   const cwName = s => CW.find(c => c.short === s);
-  for (const c of CW) pick.insertAdjacentHTML("beforeend", `<option value="${c.short}">${c.short} · ${c.name_a} / ${c.name_b}</option>`);
+  for (const c of CW) pick.insertAdjacentHTML("beforeend", `<option value="${c.short}">${c.short} · ${c.base_name} · ${c.name_a} / ${c.name_b}</option>`);
   try { pick.value = localStorage.getItem("neuron-cw") || ""; } catch (e) {}
   pick.addEventListener("change", () => { try { localStorage.setItem("neuron-cw", pick.value); } catch (e) {} render(); });
 
@@ -22,7 +22,8 @@
     `<div class="tile n-cw-${cwFor(i)}${dark || dk.checked ? " n-dark" : ""}" style="--ar:${ar}" title="colorway ${cwFor(i)}">${inner}</div>`;
   const copyable = t => `<code class="copy" title="click to copy">${esc(t)}</code>`;
   // a piece's source, in words: "family-05-short-wave-branch-fine/stroke-06" → "single stroke short-wave-branch-fine 06"
-  const from = s => s.replace(/family-\d+-([\w-]+)\/stroke-(\d+)/g, "single stroke $1 $2").replace(/([a-z][\w-]*)\/(\d+)/g, "compound $1 $2");
+  const from = s => s.replace(/(^|\s)r-/g, "$1resnet50 ").replace(/(^|\s)c-/g, "$1convnext ")
+    .replace(/family-\d+-([\w-]+)\/stroke-(\d+)/g, "single stroke $1 $2").replace(/([a-z][\w-]*)\/(\d+)/g, "compound $1 $2");
 
   // ------------------------------------------------------------ tabs
   const tabs = {
@@ -90,15 +91,51 @@
           <figcaption>${f.model} · ${f.layer} · c${f.channel}${f.huge ? ` · <a href="${f.huge}" download>3584 px</a>` : f.big ? ` · <a href="${f.big}" download>big</a>` : ""}</figcaption></figure>`).join("")}</div>`;
     },
 
+    linework() {
+      const L = N.linework;
+      const models = [...new Set(L.map(l => l.model))];
+      const sel = state.model || "all";
+      const items = L.filter(l => sel === "all" || l.model === sel);
+      const hero = L[(7 * 37 + 11) % L.length], tiled = L[(23 * 37 + 11) % L.length];
+      return `<h1>Linework</h1>
+        <p class="lede">Each feature's print taken apart into its strokes and drawn again, every stroke at its measured
+        width, the masses filled and the relief marks carved: the line of the feature without its colour. ${models.map(m => `${L.filter(l => l.model === m).length} from ${m}`).join(", ")}.
+        Each is one SVG, a mask painted in <code>currentColor</code>, so it takes any colour or colorway: meant large, as a
+        background, a header band or a panel of pattern, one to a composition. Put <code>n-lw-&lt;id&gt;</code> on a
+        sized element; it covers it by default, or tiles at <code>--n-lw-size</code> with <code>--n-lw-repeat: repeat</code>.
+        Below, each is shown in a colorway chosen for it (the picker above changes that); the colour is the page's, not the drawing's.
+        The drawings are large files, so they come as their own download, to unpack into the library folder.</p>
+        <p><a class="dl" href="neuron-linework.zip" download>neuron-linework.zip</a></p>
+        <div class="lwhero n-cw-${cwFor(7)}${dk.checked ? " n-dark" : ""}"><div class="${hero.css}" style="color:var(--n-accent)"></div>
+          <div class="cap">as a header band · ${copyable(hero.css)} · colorway ${cwFor(7)}</div></div>
+        <div class="lwhero n-cw-${cwFor(23)} n-dark" style="--h:150px"><div class="${tiled.css}" style="color:var(--n-accent2);--n-lw-size:25%;--n-lw-repeat:repeat"></div>
+          <div class="cap">tiled at a quarter width · ${copyable(tiled.css)} · colorway ${cwFor(23)} · dark side</div></div>
+        <div class="filters">${["all", ...models].map(m => `<button data-model="${m}" class="${m === sel ? "on" : ""}">${m}</button>`).join("")}</div>
+        <div class="grid" style="--min:300px">${items.map((l, i) => {
+          const c = cwFor(i + 2), dark = dk.checked || i % 3 === 1;
+          return `<figure class="lw n-cw-${c}${dark ? " n-dark" : ""}">
+            <div class="pat"><div style="--src:url('${l.preview}');color:var(--n-accent)"></div>${l.feature ? `<img src="${l.feature}" alt="" loading="lazy">` : ""}</div>
+            <figcaption>${l.model} · ${l.layer} · c${l.channel} · ${copyable(l.css)} · <a href="${l.src}" download>svg</a><br>
+              <span style="opacity:.7">colorway ${c}${dark ? " · dark side" : ""} · ink ${Math.round(l.ink * 100)}%${l.masses ? ` · ${l.masses} masses` : ""}</span></figcaption></figure>`;
+        }).join("")}</div>`;
+    },
+
     strokes() {
       let i = 0;
-      const fams = Object.keys(N.strokes).sort();
+      const all = Object.keys(N.strokes), M = N.stroke_models || {};
+      const models = [...new Set(all.map(f => M[f] || "vgg16"))];
+      const sel = state.model && models.includes(state.model) ? state.model : models[0];
+      const fams = all.filter(f => (M[f] || "vgg16") === sel).sort();
+      const bare = f => f.replace(/^[rc]-/, "");
       return `<h1>Strokes</h1>
-        <p class="lede">The compound strokes: ${fams.length} families of marks (combs, feathers, sprigs, bands, branching lines,
-        hatching, meshes, loops, forks) cut from the drawings of vgg16 features, ${fams.reduce((a, f) => a + N.strokes[f].length, 0)}
-        in all. Each is in the library as a clean, recolourable SVG: <code>elements/strokes/&lt;family&gt;-&lt;n&gt;.svg</code>.</p>
-        <div class="filters">${fams.map(f => `<button data-jump="fam-${f}">${f}</button>`).join("")}</div>
-        ${fams.map(f => `<h2 id="fam-${f}">${f}</h2><div class="grid" style="--min:120px">${N.strokes[f].map(n => {
+        <p class="lede">The compound strokes: families of marks (combs, feathers, sprigs, bands, branching lines,
+        hatching, meshes, loops, forks) cut from the drawings of the features of three networks, ${all.reduce((a, f) => a + N.strokes[f].length, 0)}
+        in all: ${models.map(m => `${all.filter(f => (M[f] || "vgg16") === m).reduce((a, f) => a + N.strokes[f].length, 0)} from ${m}`).join(", ")}.
+        Each is in the library as a clean, recolourable SVG: <code>elements/strokes/&lt;family&gt;-&lt;n&gt;.svg</code>, where the
+        family carries <code>r-</code> for resnet50 and <code>c-</code> for convnext.</p>
+        <div class="filters">${models.map(m => `<button data-model="${m}" class="${m === sel ? "on" : ""}">${m}</button>`).join("")}</div>
+        <div class="filters">${fams.map(f => `<button data-jump="fam-${f}">${bare(f)}</button>`).join("")}</div>
+        ${fams.map(f => `<h2 id="fam-${f}">${bare(f)} <span style="font-size:14px;opacity:.6">${sel}</span></h2><div class="grid" style="--min:120px">${N.strokes[f].map(n => {
           const src = `neuron-library/elements/strokes/${f}-${n}.svg`;
           return `<figure>${tile(i++, ink(src))}<figcaption><a href="${src}" download>${f}/${n}</a></figcaption></figure>`;
         }).join("")}</div>`).join("")}`;
@@ -156,14 +193,15 @@
         The base is the page: paper when it is light, the dark ground when it is dark (the other side is a tint of it).
         When a base is mid-toned and the picture has nothing light or dark, the ground is a tint of the base and the
         base is kept as a panel colour (<code>--n-base</code>, the square on those cards). <code>--n-accent</code> and
-        <code>--n-accent2</code> are the two of the five nearest the feature's opponent pair. Put
+        <code>--n-accent2</code> are the most saturated of the five and the one farthest from it, the picture's own
+        opposition; each card is named for its base and those two. Put
         <code>n-cw-&lt;id&gt;</code> on any element to use one, and <code>n-dark</code> inside it for the dark side. Each card
         also carries the feature's <b>edge sequence</b>: the colours met crossing its edges, dark side to light side.
         It is the strip above the ramp, and the outlined Aa on the dark row (<code>n-outline</code>).</p>
         <div class="grid" style="--min:250px">${CW.map(c => `<figure class="cw n-cw-${c.short}">
           <div class="pic">${c.feature ? `<img src="${c.feature}" alt="" loading="lazy" data-big="${c.big || c.feature}">` : ""}</div>
-          <div class="sw"><i style="background:${c.base};flex:1.6" title="base ${c.base}"></i>${c.five.map(h => `<i style="background:${h}" title="${h}"></i>`).join("")}</div>
-          <div class="body ${c.ground === c.dark ? "n-dark" : ""}"><b>Aa</b> ${[1, 2, 3, 4, 5].map(i => `<b style="font-size:22px;color:var(--n-c${i})">Aa</b>`).join(" ")} <span>${esc(c.name_a)} / ${esc(c.name_b)}${c.ground !== c.base ? ` · <i class="n-base" style="display:inline-block;width:1em;height:1em;vertical-align:-.15em" title="the base, as a panel colour"></i> base` : ""}</span>
+          <div class="sw"><i style="background:${c.base};flex:1.6" title="base · ${c.base_name} ${c.base}"></i>${c.five.map((h, i) => `<i style="background:${h}" title="${c.names[i]} ${h}"></i>`).join("")}</div>
+          <div class="body ${c.ground === c.dark ? "n-dark" : ""}"><b>Aa</b> ${[1, 2, 3, 4, 5].map(i => `<b style="font-size:22px;color:var(--n-c${i})">Aa</b>`).join(" ")} <span title="base · accent / accent2" style="display:block;margin-top:4px">${esc(c.base_name)} · ${esc(c.name_a)} / ${esc(c.name_b)}${c.ground !== c.base ? ` · <i class="n-base" style="display:inline-block;width:1em;height:1em;vertical-align:-.15em" title="the base, as a panel colour"></i> base` : ""}</span>
           <div class="cap" style="color:inherit">${copyable("n-cw-" + c.short)} · ${c.layer}${c.tile ? ` · <a href="${c.tile}" download>tile</a>` : ""}</div></div>
           <div class="body ${c.ground === c.dark ? "" : "n-dark"}"><b class="n-glow" style="color:var(--n-accent)">Aa</b> <b style="color:var(--n-accent2);font-size:22px">Aa</b> ${c.edge ? '<b class="n-outline" style="font-size:40px">Aa</b>' : ""} <span style="font-size:13px">${c.ground === c.dark ? "n-page" : "n-dark"} · ${c.ground === c.dark ? "light" : "dark"} tint</span></div>
           ${c.edge ? '<div class="n-edge-line" style="--n-h:8px;--n-gap:0"></div>' : ""}<div class="n-ramp" style="height:8px"></div></figure>`).join("")}</div>`;

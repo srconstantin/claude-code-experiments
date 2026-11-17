@@ -30,8 +30,11 @@ neuron-library/
     icons/              menu, close, plus, minus, arrows, chevrons, check, search, drawn in single strokes
     emblems/            the motifs: <id>.svg silhouette, <id>-filled.webp (the print's own colours),
                         <id>-lum.webp (a luminance mask for duotones)
-    strokes/            all 408 compound strokes, cleaned and recolourable
+    strokes/            every compound stroke from the three networks, cleaned and recolourable
+                        (<family>-<n>.svg; the family starts with r- for resnet50, c- for convnext, nothing for vgg16)
     sprite.svg          icons, marks and fleurons as <symbol>s
+  linework/             (from neuron-linework.zip, a separate download)
+    <set>/              one drawing per feature: its print taken apart into strokes and drawn again (1792 × 1792)
   README.md
 ```
 
@@ -84,7 +87,7 @@ Put `n-cw-<id>` on any element. It sets these variables for everything inside it
 | `--n-paper` | page background (light): the base when the base is light, otherwise a light tint of it |
 | `--n-dark`, `--n-on-dark` | the dark ground and its text colour: the base when the base is dark, otherwise a dark tint of it |
 | `--n-ink` | text: the darkest of the five, pushed to at least 7:1 against paper |
-| `--n-accent`, `--n-accent2` | the two of the five nearest the feature's opponent colour pair; for ornament and large type |
+| `--n-accent`, `--n-accent2` | the most saturated of the five and the one farthest from it, the picture's own opposition; for ornament and large type |
 | `--n-mesh` | the colorway's mesh gradient (a background image) |
 | `--n-ramp` | the feature's colours left to right, as a gradient |
 | `--n-shadow`, `--n-highlight` | the feature's darkest and lightest tones (the duotone ends) |
@@ -193,6 +196,29 @@ Icons, marks and fleurons are also in the sprite:
 ```
 
 You can also use any SVG directly: `<img>` it (it will be black), inline it, or open it in a design tool.
+
+## Linework
+
+Each feature's print, taken apart into its strokes and drawn again: every stroke at its measured width, the masses
+filled, the relief marks carved out. It is the line of the feature without its colour, and it is meant large: a page
+background, a header band, a panel of pattern, one to a composition. `n-lw-<id>` paints a drawing in `currentColor`
+over a sized element, where `<id>` is the model, layer and channel, such as `vgg16-f10-c1`.
+
+```html
+<header class="n-lw-vgg16-f10-c1" style="height:240px;color:var(--n-accent)"></header>
+<div class="n-lw-vgg16-f24-c27" style="--n-lw-size:25%;--n-lw-repeat:repeat;color:var(--n-ink)"> … </div>
+```
+
+| variable | use |
+|---|---|
+| `--n-lw-size` | `cover` by default; a length or percentage to tile the drawing at that size |
+| `--n-lw-repeat` | `no-repeat` by default; `repeat` to tile |
+| `--n-lw-pos` | where the drawing sits (`center` by default) |
+
+The drawings are luminance masks (ink white, relief marks black), which lets the relief carve through; they need a
+browser with `mask-mode` (any current one) and a page served over http. They are large files, so they come as a
+separate download, `neuron-linework.zip`, which unpacks to `linework/<set>/` inside this folder; `neuron.css` already
+has their classes.
 
 ## Adaptive elements (neuron-elements.js)
 
